@@ -41,9 +41,9 @@ with graph.as_default():
     b_conv3 = bias_variable([64])
     W_conv4 = tf.Variable(tf.truncated_normal([3,3,64,64], stddev=5e-2))
     b_conv4 = bias_variable([64])
-    W_conv5 = tf.Variable(tf.truncated_normal([3,3,64,64], stddev=2e-2))
+    W_conv5 = tf.Variable(tf.truncated_normal([3,3,64,64], stddev=5e-2))
     b_conv5 = bias_variable([64])
-    W_conv6 = tf.Variable(tf.truncated_normal([3,3,64,64], stddev=2e-2))
+    W_conv6 = tf.Variable(tf.truncated_normal([3,3,64,64], stddev=5e-2))
     b_conv6 = bias_variable([64])
     
     # Fully connected layers
@@ -52,7 +52,7 @@ with graph.as_default():
     b_fc1 = bias_variable([384])
     W_fc2 = tf.Variable(tf.truncated_normal([384, 192], stddev=0.004))
     b_fc2 = bias_variable([192])
-    W_fc3 = tf.Variable(tf.truncated_normal([192, 10], stddev=2/192.0))
+    W_fc3 = tf.Variable(tf.truncated_normal([192, 10], stddev=1/192.0))
     b_fc3 = bias_variable([10])
     
     # Reshape image
@@ -91,7 +91,7 @@ with graph.as_default():
     
     # Optimizer with gradient clipping
     global_step = tf.Variable(0)
-    optimizer = tf.train.GradientDescentOptimizer(0.0001)
+    optimizer = tf.train.GradientDescentOptimizer(0.0004)
     gradients, v = zip(*optimizer.compute_gradients(loss))
     gradients, _ = tf.clip_by_global_norm(gradients, 1.25)
     optimizer = optimizer.apply_gradients(zip(gradients, v), global_step=global_step)
