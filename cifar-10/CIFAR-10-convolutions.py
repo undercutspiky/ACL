@@ -22,7 +22,7 @@ def conv2d(x, W):
     return tf.nn.relu(tf.nn.conv2d(x, W, strides=[1, 1, 1, 1], padding='SAME'))
 
 def max_pool_3x3(x):
-    return tf.nn.max_pool(x, ksize=[1, 3, 3, 1], strides=[1, 3, 3, 1], padding='SAME')
+    return tf.nn.max_pool(x, ksize=[1, 3, 3, 1], strides=[1, 2, 2, 1], padding='SAME')
 
 
 batch_size = 100
@@ -33,39 +33,35 @@ with graph.as_default():
     y = tf.placeholder(tf.float32, [batch_size, 10])
     
     # Convolution layer weights
-    W_conv1 = weight_variable([3, 3, 3, 64])
+    W_conv1 = tf.Variable(tf.truncated_normal([5,5,3,64], stddev=5e-2))
     b_conv1 = bias_variable([64])
-    W_conv2 = weight_variable([3, 3, 64, 64])
+    W_conv2 = tf.Variable(tf.truncated_normal([5,5,64,64], stddev=5e-2))
     b_conv2 = bias_variable([64])
-    W_conv3 = weight_variable([3, 3, 64, 64])
-    b_conv3 = bias_variable([64])
-    W_conv4 = weight_variable([3, 3, 64, 64])
-    b_conv4 = bias_variable([64])
     
     # Fully connected layers
-    W_fc1 = weight_variable([4 * 4 * 64, 256])
-    b_fc1 = bias_variable([256])
-    W_fc2 = weight_variable([256, 128])
-    b_fc2 = bias_variable([128])
-    W_fc3 = weight_variable([128, 10])
+    W_fc1 = tf.Variable(tf.truncated_normal([8*8*64, 384], stddev=0.04))
+    b_fc1 = bias_variable([384])
+    W_fc2 = tf.Variable(tf.truncated_normal([384, 192], stddev=0.04))
+    b_fc2 = bias_variable([192])
+    W_fc3 = tf.Variable(tf.truncated_normal([192, 10], stddev=1/192.0))
     b_fc3 = bias_variable([10])
     
     # Reshape image
     x_image = tf.reshape(x, [batch_size,32,32,3])
     
     # Forward pass - CNN
-    h_conv1 = tf.nn.relu(conv2d(x_image, W_conv1) + b_conv1)
-    h_conv2 = tf.nn.relu(conv2d(h_conv1, W_conv2) + b_conv2)
-    h_pool1 = max_pool_3x3(h_conv2)
-    h_conv3 = tf.nn.relu(conv2d(h_pool1, W_conv3) + b_conv3)
-    h_conv4 = tf.nn.relu(conv2d(h_conv3, W_conv4) + b_conv4)
-    h_pool2 = max_pool_3x3(h_conv4)
+    conv1 = tf.nn.relu(conv2d(x_image, W_conv1) + b_conv1)
+    pool1 = max_pool_3x3(conv1)
+    norm1 = tf.nn.lrn(pool1, 4, bias=1.0, alpha=0.001 / 9.0, beta=0.75)
+    conv2 = tf.nn.relu(conv2d(norm1, W_conv2) + b_conv2)
+    norm2 = tf.nn.lrn(conv2, 4, bias=1.0, alpha=0.001 / 9.0, beta=0.75)
+    pool2 = max_pool_3x3(norm2)
     
     # Forward pass - Fully Connected layer
-    h_pool2_flat = tf.reshape(h_pool2, [batch_size, 4*4*64])
-    h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat, W_fc1) + b_fc1)
-    h_fc2 = tf.nn.relu(tf.matmul(h_fc1, W_fc2) + b_fc2)
-    logits = tf.nn.relu(tf.matmul(h_fc2, W_fc3) + b_fc3)
+    pool2_flat = tf.reshape(pool2, [batch_size, 8*8*64])
+    fc1 = tf.nn.relu(tf.matmul(pool2_flat, W_fc1) + b_fc1)
+    fc2 = tf.nn.relu(tf.matmul(fc1, W_fc2) + b_fc2)
+    logits = tf.nn.relu(tf.matmul(fc2, W_fc3) + b_fc3)
         
     # Calculate loss
     cross_entropy = tf.nn.softmax_cross_entropy_with_logits(logits, y)
@@ -82,24 +78,24 @@ with graph.as_default():
     optimizer = optimizer.apply_gradients(zip(gradients, v), global_step=global_step)
     
     # Validation test
-    x_v = tf.placeholder(tf.float32, [10000, 3072])
-    y_v = tf.placeholder(tf.float32, [10000, 10])
+    x_v = tf.placeholder(tf.float32, [100, 3072])
+    y_v = tf.placeholder(tf.float32, [100, 10])
     
-    x_v_image = tf.reshape(x_v, [10000,32,32,3])
+    x_image_v = tf.reshape(x_v, [100,32,32,3])
     # Forward propagation
     # Forward pass - CNN
-    h_conv1_v = tf.nn.relu(conv2d(x_v_image, W_conv1) + b_conv1)
-    h_conv2_v = tf.nn.relu(conv2d(h_conv1_v, W_conv2) + b_conv2)
-    h_pool1_v = max_pool_3x3(h_conv2_v)
-    h_conv3_v = tf.nn.relu(conv2d(h_pool1_v, W_conv3) + b_conv3)
-    h_conv4_v = tf.nn.relu(conv2d(h_conv3_v, W_conv4) + b_conv4)
-    h_pool2_v = max_pool_3x3(h_conv4_v)
-    
+    conv1_v = tf.nn.relu(conv2d(x_image_v, W_conv1) + b_conv1)
+    pool1_v = max_pool_3x3(conv1_v)
+    norm1_v = tf.nn.lrn(pool1_v, 4, bias=1.0, alpha=0.001 / 9.0, beta=0.75)
+    conv2_v = tf.nn.relu(conv2d(norm1_v, W_conv2) + b_conv2)
+    norm2_v = tf.nn.lrn(conv2_v, 4, bias=1.0, alpha=0.001 / 9.0, beta=0.75)
+    pool2_v = max_pool_3x3(norm2_v)
+
     # Forward pass - Fully Connected layer
-    h_pool2_flat_v = tf.reshape(h_pool2_v, [10000, 4*4*64])
-    h_fc1_v = tf.nn.relu(tf.matmul(h_pool2_flat_v, W_fc1) + b_fc1)
-    h_fc2_v = tf.nn.relu(tf.matmul(h_fc1_v, W_fc2) + b_fc2)
-    logits_v = tf.nn.relu(tf.matmul(h_fc2_v, W_fc3) + b_fc3)
+    pool2_flat_v = tf.reshape(pool2_v, [batch_size, 8 * 8 * 64])
+    fc1_v = tf.nn.relu(tf.matmul(pool2_flat_v, W_fc1) + b_fc1)
+    fc2_v = tf.nn.relu(tf.matmul(fc1_v, W_fc2) + b_fc2)
+    logits_v = tf.nn.relu(tf.matmul(fc2_v, W_fc3) + b_fc3)
     
     # Calculate accuracy
     correct_prediction = tf.equal(tf.argmax(y_v,1), tf.argmax(logits_v,1))
@@ -150,7 +146,10 @@ with tf.Session(graph=graph) as session:
         cursor = (cursor + batch_size) % 40000
         if cursor == 0:
             print "TESTING ON VALIDATION SET for epoch = "+str(i)
-            a = session.run([accuracy], feed_dict={x_v: valid_x, y_v: valid_y})
-            print "Accuracy = "+str(a)
+            cor_pred = []
+            for iii in xrange(100):
+                a = session.run([correct_prediction], feed_dict={x_v: valid_x[iii*100:(iii+1)*100], y_v: valid_y[iii*100:(iii+1)*100]})
+                cor_pred.append(a)
+            print "Accuracy = "+str(np.mean(cor_pred))
             i += 1
 
