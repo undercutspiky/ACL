@@ -147,7 +147,7 @@ valid_y = np.eye(10)[dict_['labels']]
 del dict_
 
 
-epochs = 300
+epochs = 150
 losses = []; activations = []; iterations = [0]*40000
 
 with tf.Session(graph=graph) as session:
