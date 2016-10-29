@@ -48,11 +48,11 @@ with graph.as_default():
     
     # Fully connected layers
     flat_length = 8*8*128
-    W_fc1 = tf.Variable(tf.truncated_normal([flat_length, 384], stddev=2/(8*8*128.0)))
-    b_fc1 = bias_variable([384])
-    W_fc2 = tf.Variable(tf.truncated_normal([384, 192], stddev=2/384.0))
-    b_fc2 = bias_variable([192])
-    W_fc3 = tf.Variable(tf.truncated_normal([192, 10], stddev=2/192.0))
+    W_fc1 = tf.Variable(tf.truncated_normal([flat_length, 700], stddev=2/(8*8*128.0)))
+    b_fc1 = bias_variable([700])
+    W_fc2 = tf.Variable(tf.truncated_normal([700, 300], stddev=2/700.0))
+    b_fc2 = bias_variable([300])
+    W_fc3 = tf.Variable(tf.truncated_normal([300, 10], stddev=2/300.0))
     b_fc3 = bias_variable([10])
     
     # Reshape image
