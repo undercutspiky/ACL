@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="">
+    <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="nothing">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cifar-10/CIFAR-10-convolutions.py" afterPath="$PROJECT_DIR$/cifar-10/CIFAR-10-convolutions.py" />
     </list>
@@ -33,7 +33,7 @@
             <state relative-caret-position="311">
               <caret line="194" column="21" selection-start-line="194" selection-start-column="21" selection-end-line="194" selection-end-column="21" />
               <folding>
-                <marker date="1477766412000" expanded="false" signature="17:111" ph="import ..." />
+                <marker date="1477766540000" expanded="false" signature="17:111" ph="import ..." />
               </folding>
             </state>
           </provider>
@@ -592,7 +592,14 @@
       <option name="project" value="LOCAL" />
       <updated>1477762828809</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="nothing">
+      <created>1477766417414</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1477766417414</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -644,7 +651,7 @@
         <state relative-caret-position="311">
           <caret line="194" column="21" selection-start-line="194" selection-start-column="21" selection-end-line="194" selection-end-column="21" />
           <folding>
-            <marker date="1477766412000" expanded="false" signature="17:111" ph="import ..." />
+            <marker date="1477766540000" expanded="false" signature="17:111" ph="import ..." />
           </folding>
         </state>
       </provider>

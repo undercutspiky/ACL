@@ -190,7 +190,7 @@ with tf.Session(graph=graph) as session:
             i += 1
     losses = np.array(losses); activations = np.array(activations); iterations = np.array(iterations)
     print losses.shape, activations.shape, iterations.shape
-    np.save('iterations-3', iterations)
-    np.save('activations-3', activations)
-    np.save('losses-3', losses)
+    np.save('iterations-4', iterations)
+    np.save('activations-4', activations)
+    np.save('losses-4', losses)
 
