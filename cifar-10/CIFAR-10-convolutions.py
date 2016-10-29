@@ -160,7 +160,6 @@ with tf.Session(graph=graph) as session:
                         iterations[cursor + j] += 1
                 # Append losses, activations for batch
                 l_list.extend(cr); ac_list.extend(co)
-            print len(l_list),len(ac_list),len(iterations)
             # Append losses, activations for epoch
             losses.append(l_list); activations.append(ac_list)
 
@@ -172,4 +171,9 @@ with tf.Session(graph=graph) as session:
                 cor_pred.append(a)
             print "Accuracy = "+str(np.mean(cor_pred))
             i += 1
+    losses = np.array(losses); activations = np.array(activations); iterations = np.array(iterations)
+    print losses.shape, activations.shape, iterations.shape
+    np.save('iterations', iterations)
+    np.save('activations', activations)
+    np.save('losses', losses)
 
