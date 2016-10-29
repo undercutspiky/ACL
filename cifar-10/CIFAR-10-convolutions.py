@@ -47,7 +47,8 @@ with graph.as_default():
     b_conv6 = bias_variable([192])
     
     # Fully connected layers
-    W_fc1 = tf.Variable(tf.truncated_normal([8*8*192, 384], stddev=2/(8*8*192.0)))
+    flat_length = 8*8*192
+    W_fc1 = tf.Variable(tf.truncated_normal([flat_length, 384], stddev=2/(8*8*192.0)))
     b_fc1 = bias_variable([384])
     W_fc2 = tf.Variable(tf.truncated_normal([384, 192], stddev=2/384.0))
     b_fc2 = bias_variable([192])
@@ -62,15 +63,15 @@ with graph.as_default():
     #conv2 = tf.nn.relu(conv2d(conv1, W_conv2) + b_conv2)
     conv3 = tf.nn.relu(conv2d(conv1, W_conv3) + b_conv3)
     pool1 = max_pool_3x3(conv1)
-    #norm1 = tf.nn.lrn(pool1, 4, bias=1.0, alpha=0.001 / 9.0, beta=0.75)
-    conv4 = tf.nn.relu(conv2d(pool1, W_conv4) + b_conv4)
+    norm1 = tf.nn.lrn(pool1, 4, bias=1.0, alpha=0.001 / 9.0, beta=0.75)
+    conv4 = tf.nn.relu(conv2d(norm1, W_conv4) + b_conv4)
     #conv5 = tf.nn.relu(conv2d(conv4, W_conv5) + b_conv5)
     conv6 = tf.nn.relu(conv2d(conv4, W_conv6) + b_conv6)
     #norm2 = tf.nn.lrn(conv2, 4, bias=1.0, alpha=0.001 / 9.0, beta=0.75)
     pool2 = max_pool_3x3(conv6)
     
     # Forward pass - Fully Connected layer
-    pool2_flat = tf.reshape(pool2, [batch_size, 8*8*192])
+    pool2_flat = tf.reshape(pool2, [batch_size, flat_length])
     fc1 = tf.nn.relu(tf.matmul(pool2_flat, W_fc1) + b_fc1)
     fc2 = tf.nn.relu(tf.matmul(fc1, W_fc2) + b_fc2)
     logits = tf.nn.relu(tf.matmul(fc2, W_fc3) + b_fc3)
@@ -90,7 +91,7 @@ with graph.as_default():
     
     # Optimizer with gradient clipping
     global_step = tf.Variable(0)
-    optimizer = tf.train.GradientDescentOptimizer(0.00001)
+    optimizer = tf.train.GradientDescentOptimizer(0.0001)
     gradients, v = zip(*optimizer.compute_gradients(loss))
     gradients, _ = tf.clip_by_global_norm(gradients, 1.25)
     optimizer = optimizer.apply_gradients(zip(gradients, v), global_step=global_step)
@@ -106,15 +107,15 @@ with graph.as_default():
     #conv2_v = tf.nn.relu(conv2d(conv1_v, W_conv2) + b_conv2)
     conv3_v = tf.nn.relu(conv2d(conv1_v, W_conv3) + b_conv3)
     pool1_v = max_pool_3x3(conv1_v)
-    # norm1 = tf.nn.lrn(pool1, 4, bias=1.0, alpha=0.001 / 9.0, beta=0.75)
-    conv4_v = tf.nn.relu(conv2d(pool1_v, W_conv4) + b_conv4)
+    norm1_v = tf.nn.lrn(pool1_v, 4, bias=1.0, alpha=0.001 / 9.0, beta=0.75)
+    conv4_v = tf.nn.relu(conv2d(norm1_v, W_conv4) + b_conv4)
     #conv5_v = tf.nn.relu(conv2d(conv4_v, W_conv5) + b_conv5)
     conv6_v = tf.nn.relu(conv2d(conv4_v, W_conv6) + b_conv6)
     # norm2 = tf.nn.lrn(conv2, 4, bias=1.0, alpha=0.001 / 9.0, beta=0.75)
     pool2_v = max_pool_3x3(conv6_v)
 
     # Forward pass - Fully Connected layer
-    pool2_flat_v = tf.reshape(pool2_v, [batch_size, 8 * 8 * 192])
+    pool2_flat_v = tf.reshape(pool2_v, [batch_size, flat_length])
     fc1_v = tf.nn.relu(tf.matmul(pool2_flat_v, W_fc1) + b_fc1)
     fc2_v = tf.nn.relu(tf.matmul(fc1_v, W_fc2) + b_fc2)
     logits_v = tf.nn.relu(tf.matmul(fc2_v, W_fc3) + b_fc3)
