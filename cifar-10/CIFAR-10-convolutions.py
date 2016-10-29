@@ -48,9 +48,9 @@ with graph.as_default():
     
     # Fully connected layers
     flat_length = 8*8*64
-    W_fc1 = tf.Variable(tf.truncated_normal([flat_length, 384], stddev=2/(8*8*64.0)))
+    W_fc1 = tf.Variable(tf.truncated_normal([flat_length, 384], stddev=0.004))
     b_fc1 = bias_variable([384])
-    W_fc2 = tf.Variable(tf.truncated_normal([384, 192], stddev=2/384.0))
+    W_fc2 = tf.Variable(tf.truncated_normal([384, 192], stddev=0.004))
     b_fc2 = bias_variable([192])
     W_fc3 = tf.Variable(tf.truncated_normal([192, 10], stddev=2/192.0))
     b_fc3 = bias_variable([10])
