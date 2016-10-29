@@ -60,12 +60,12 @@ with graph.as_default():
     # Forward pass - CNN
     conv1 = tf.nn.relu(conv2d(x_image, W_conv1) + b_conv1)
     #conv2 = tf.nn.relu(conv2d(conv1, W_conv2) + b_conv2)
-    conv3 = tf.nn.relu(conv2d(conv2, W_conv3) + b_conv3)
+    conv3 = tf.nn.relu(conv2d(conv1, W_conv3) + b_conv3)
     pool1 = max_pool_3x3(conv1)
     #norm1 = tf.nn.lrn(pool1, 4, bias=1.0, alpha=0.001 / 9.0, beta=0.75)
     conv4 = tf.nn.relu(conv2d(pool1, W_conv4) + b_conv4)
     #conv5 = tf.nn.relu(conv2d(conv4, W_conv5) + b_conv5)
-    conv6 = tf.nn.relu(conv2d(conv5, W_conv6) + b_conv6)
+    conv6 = tf.nn.relu(conv2d(conv4, W_conv6) + b_conv6)
     #norm2 = tf.nn.lrn(conv2, 4, bias=1.0, alpha=0.001 / 9.0, beta=0.75)
     pool2 = max_pool_3x3(conv6)
     
@@ -103,13 +103,13 @@ with graph.as_default():
     # Forward propagation
     # Forward pass - CNN
     conv1_v = tf.nn.relu(conv2d(x_image_v, W_conv1) + b_conv1)
-    conv2_v = tf.nn.relu(conv2d(conv1_v, W_conv2) + b_conv2)
-    conv3_v = tf.nn.relu(conv2d(conv2_v, W_conv3) + b_conv3)
+    #conv2_v = tf.nn.relu(conv2d(conv1_v, W_conv2) + b_conv2)
+    conv3_v = tf.nn.relu(conv2d(conv1_v, W_conv3) + b_conv3)
     pool1_v = max_pool_3x3(conv1_v)
     # norm1 = tf.nn.lrn(pool1, 4, bias=1.0, alpha=0.001 / 9.0, beta=0.75)
     conv4_v = tf.nn.relu(conv2d(pool1_v, W_conv4) + b_conv4)
-    conv5_v = tf.nn.relu(conv2d(conv4_v, W_conv5) + b_conv5)
-    conv6_v = tf.nn.relu(conv2d(conv5_v, W_conv6) + b_conv6)
+    #conv5_v = tf.nn.relu(conv2d(conv4_v, W_conv5) + b_conv5)
+    conv6_v = tf.nn.relu(conv2d(conv4_v, W_conv6) + b_conv6)
     # norm2 = tf.nn.lrn(conv2, 4, bias=1.0, alpha=0.001 / 9.0, beta=0.75)
     pool2_v = max_pool_3x3(conv6_v)
 
