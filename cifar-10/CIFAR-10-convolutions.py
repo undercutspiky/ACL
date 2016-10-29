@@ -91,7 +91,7 @@ with graph.as_default():
     
     # Optimizer with gradient clipping
     global_step = tf.Variable(0)
-    lr = tf.train.exponential_decay(0.1,global_step,30000,0.1,True)
+    lr = tf.train.exponential_decay(0.1,global_step,24000,0.1,True)
     optimizer = tf.train.GradientDescentOptimizer(lr)
     gradients, v = zip(*optimizer.compute_gradients(loss))
     gradients, _ = tf.clip_by_global_norm(gradients, 1.25)

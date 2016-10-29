@@ -31,9 +31,9 @@
         <entry file="file://$PROJECT_DIR$/cifar-10/CIFAR-10-convolutions.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="93" column="52" selection-start-line="93" selection-start-column="52" selection-end-line="93" selection-end-column="53" />
+              <caret line="93" column="54" selection-start-line="93" selection-start-column="54" selection-end-line="93" selection-end-column="54" />
               <folding>
-                <marker date="1477754518000" expanded="false" signature="17:111" ph="import ..." />
+                <marker date="1477754929000" expanded="false" signature="17:111" ph="import ..." />
               </folding>
             </state>
           </provider>
@@ -557,7 +557,14 @@
       <option name="project" value="LOCAL" />
       <updated>1477754290563</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="nothing">
+      <created>1477754530875</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1477754530875</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -607,9 +614,9 @@
     <entry file="file://$PROJECT_DIR$/cifar-10/CIFAR-10-convolutions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="93" column="52" selection-start-line="93" selection-start-column="52" selection-end-line="93" selection-end-column="53" />
+          <caret line="93" column="54" selection-start-line="93" selection-start-column="54" selection-end-line="93" selection-end-column="54" />
           <folding>
-            <marker date="1477754518000" expanded="false" signature="17:111" ph="import ..." />
+            <marker date="1477754929000" expanded="false" signature="17:111" ph="import ..." />
           </folding>
         </state>
       </provider>
