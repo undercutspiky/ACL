@@ -33,17 +33,25 @@ with graph.as_default():
     y = tf.placeholder(tf.float32, [batch_size, 10])
     
     # Convolution layer weights
-    W_conv1 = tf.Variable(tf.truncated_normal([5,5,3,64], stddev=5e-2))
-    b_conv1 = bias_variable([64])
-    W_conv2 = tf.Variable(tf.truncated_normal([5,5,64,64], stddev=5e-2))
-    b_conv2 = bias_variable([64])
+    W_conv1 = tf.Variable(tf.truncated_normal([3,3,3,96], stddev=2/(3*3*3.0)))
+    b_conv1 = bias_variable([96])
+    W_conv2 = tf.Variable(tf.truncated_normal([3,3,96,96], stddev=2/(3*3*96.0)))
+    b_conv2 = bias_variable([96])
+    W_conv3 = tf.Variable(tf.truncated_normal([3,3,96,96], stddev=2/(3*3*96.0)))
+    b_conv3 = bias_variable([96])
+    W_conv4 = tf.Variable(tf.truncated_normal([3,3,96,192], stddev=2/(3*3*96.0)))
+    b_conv4 = bias_variable([192])
+    W_conv5 = tf.Variable(tf.truncated_normal([3,3,192,192], stddev=2/(3*3*192.0)))
+    b_conv5 = bias_variable([192])
+    W_conv6 = tf.Variable(tf.truncated_normal([3,3,192,192], stddev=2/(3*3*192.0)))
+    b_conv6 = bias_variable([192])
     
     # Fully connected layers
-    W_fc1 = tf.Variable(tf.truncated_normal([8*8*64, 384], stddev=0.04))
+    W_fc1 = tf.Variable(tf.truncated_normal([8*8*192, 384], stddev=2/(8*8*192.0)))
     b_fc1 = bias_variable([384])
-    W_fc2 = tf.Variable(tf.truncated_normal([384, 192], stddev=0.04))
+    W_fc2 = tf.Variable(tf.truncated_normal([384, 192], stddev=2/384.0))
     b_fc2 = bias_variable([192])
-    W_fc3 = tf.Variable(tf.truncated_normal([192, 10], stddev=1/192.0))
+    W_fc3 = tf.Variable(tf.truncated_normal([192, 10], stddev=2/192.0))
     b_fc3 = bias_variable([10])
     
     # Reshape image
@@ -51,14 +59,18 @@ with graph.as_default():
     
     # Forward pass - CNN
     conv1 = tf.nn.relu(conv2d(x_image, W_conv1) + b_conv1)
+    conv2 = tf.nn.relu(conv2d(conv1, W_conv2) + b_conv2)
+    conv3 = tf.nn.relu(conv2d(conv2, W_conv3) + b_conv3)
     pool1 = max_pool_3x3(conv1)
-    norm1 = tf.nn.lrn(pool1, 4, bias=1.0, alpha=0.001 / 9.0, beta=0.75)
-    conv2 = tf.nn.relu(conv2d(norm1, W_conv2) + b_conv2)
-    norm2 = tf.nn.lrn(conv2, 4, bias=1.0, alpha=0.001 / 9.0, beta=0.75)
-    pool2 = max_pool_3x3(norm2)
+    #norm1 = tf.nn.lrn(pool1, 4, bias=1.0, alpha=0.001 / 9.0, beta=0.75)
+    conv4 = tf.nn.relu(conv2d(pool1, W_conv4) + b_conv4)
+    conv5 = tf.nn.relu(conv2d(conv4, W_conv5) + b_conv5)
+    conv6 = tf.nn.relu(conv2d(conv5, W_conv6) + b_conv6)
+    #norm2 = tf.nn.lrn(conv2, 4, bias=1.0, alpha=0.001 / 9.0, beta=0.75)
+    pool2 = max_pool_3x3(conv6)
     
     # Forward pass - Fully Connected layer
-    pool2_flat = tf.reshape(pool2, [batch_size, 8*8*64])
+    pool2_flat = tf.reshape(pool2, [batch_size, 8*8*192])
     fc1 = tf.nn.relu(tf.matmul(pool2_flat, W_fc1) + b_fc1)
     fc2 = tf.nn.relu(tf.matmul(fc1, W_fc2) + b_fc2)
     logits = tf.nn.relu(tf.matmul(fc2, W_fc3) + b_fc3)
@@ -91,14 +103,18 @@ with graph.as_default():
     # Forward propagation
     # Forward pass - CNN
     conv1_v = tf.nn.relu(conv2d(x_image_v, W_conv1) + b_conv1)
+    conv2_v = tf.nn.relu(conv2d(conv1_v, W_conv2) + b_conv2)
+    conv3_v = tf.nn.relu(conv2d(conv2_v, W_conv3) + b_conv3)
     pool1_v = max_pool_3x3(conv1_v)
-    norm1_v = tf.nn.lrn(pool1_v, 4, bias=1.0, alpha=0.001 / 9.0, beta=0.75)
-    conv2_v = tf.nn.relu(conv2d(norm1_v, W_conv2) + b_conv2)
-    norm2_v = tf.nn.lrn(conv2_v, 4, bias=1.0, alpha=0.001 / 9.0, beta=0.75)
-    pool2_v = max_pool_3x3(norm2_v)
+    # norm1 = tf.nn.lrn(pool1, 4, bias=1.0, alpha=0.001 / 9.0, beta=0.75)
+    conv4_v = tf.nn.relu(conv2d(pool1_v, W_conv4) + b_conv4)
+    conv5_v = tf.nn.relu(conv2d(conv4_v, W_conv5) + b_conv5)
+    conv6_v = tf.nn.relu(conv2d(conv5_v, W_conv6) + b_conv6)
+    # norm2 = tf.nn.lrn(conv2, 4, bias=1.0, alpha=0.001 / 9.0, beta=0.75)
+    pool2_v = max_pool_3x3(conv6_v)
 
     # Forward pass - Fully Connected layer
-    pool2_flat_v = tf.reshape(pool2_v, [batch_size, 8 * 8 * 64])
+    pool2_flat_v = tf.reshape(pool2_v, [batch_size, 8 * 8 * 192])
     fc1_v = tf.nn.relu(tf.matmul(pool2_flat_v, W_fc1) + b_fc1)
     fc2_v = tf.nn.relu(tf.matmul(fc1_v, W_fc2) + b_fc2)
     logits_v = tf.nn.relu(tf.matmul(fc2_v, W_fc3) + b_fc3)
