@@ -62,6 +62,12 @@ with graph.as_default():
     fc1 = tf.nn.relu(tf.matmul(pool2_flat, W_fc1) + b_fc1)
     fc2 = tf.nn.relu(tf.matmul(fc1, W_fc2) + b_fc2)
     logits = tf.nn.relu(tf.matmul(fc2, W_fc3) + b_fc3)
+
+    # Sum of activations of all hidden units
+    total_activation = tf.Variable(tf.zeros([batch_size]))
+    total_activation += tf.reduce_sum(fc1, 1)
+    total_activation += tf.reduce_sum(fc2, 1)
+
         
     # Calculate loss
     cross_entropy = tf.nn.softmax_cross_entropy_with_logits(logits, y)
@@ -72,7 +78,7 @@ with graph.as_default():
     
     # Optimizer with gradient clipping
     global_step = tf.Variable(0)
-    optimizer = tf.train.GradientDescentOptimizer(0.01)
+    optimizer = tf.train.GradientDescentOptimizer(0.0001)
     gradients, v = zip(*optimizer.compute_gradients(loss))
     gradients, _ = tf.clip_by_global_norm(gradients, 1.25)
     optimizer = optimizer.apply_gradients(zip(gradients, v), global_step=global_step)
@@ -138,13 +144,27 @@ with tf.Session(graph=graph) as session:
         _, cr, co = session.run([optimizer, cross_entropy, correct_], feed_dict = feed_dict)
         losses.extend(cr)
         
-        if i > 1:
-            for j in xrange(len(co)):
-                if co[j] == False:
-                    iterations[cursor+j] += 1
-                    
         cursor = (cursor + batch_size) % 40000
         if cursor == 0:
+            l_list = []; ac_list = []
+            print "GETTING ACTIVATIONS, ITERATIONS AND LOSSES FOR ALL EXAMPLES"
+            for iii in xrange(len(train_x)/batch_size):
+                batch_xs = train_x[iii*batch_size:(iii + 1)*batch_size]
+                batch_ys = train_y[iii*batch_size:(iii + 1)*batch_size]
+                feed_dict = {x: batch_xs, y: batch_ys}
+                cr, co = session.run([cross_entropy, correct_], feed_dict=feed_dict)
+
+                # Update iterations
+                for j in xrange(len(co)):
+                    if co[j] == False:
+                        iterations[cursor + j] += 1
+                # Append losses, activations for batch
+                l_list.extend(cr); ac_list.extend(co)
+            print len(l_list),len(ac_list),len(iterations)
+            # Append losses, activations for epoch
+            losses.append(l_list); activations.append(ac_list)
+
+            # Validation test
             print "TESTING ON VALIDATION SET for epoch = "+str(i)
             cor_pred = []
             for iii in xrange(100):
