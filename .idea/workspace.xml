@@ -30,10 +30,10 @@
       <file leaf-file-name="CIFAR-10-convolutions.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cifar-10/CIFAR-10-convolutions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="45" column="69" selection-start-line="45" selection-start-column="69" selection-end-line="45" selection-end-column="69" />
+            <state relative-caret-position="206">
+              <caret line="50" column="56" selection-start-line="50" selection-start-column="56" selection-end-line="50" selection-end-column="56" />
               <folding>
-                <marker date="1477752922000" expanded="false" signature="17:111" ph="import ..." />
+                <marker date="1477752985000" expanded="false" signature="17:111" ph="import ..." />
               </folding>
             </state>
           </provider>
@@ -459,7 +459,14 @@
       <option name="project" value="LOCAL" />
       <updated>1477752825649</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="nothing">
+      <created>1477752930079</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1477752930079</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -508,10 +515,10 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/cifar-10/CIFAR-10-convolutions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="45" column="69" selection-start-line="45" selection-start-column="69" selection-end-line="45" selection-end-column="69" />
+        <state relative-caret-position="206">
+          <caret line="50" column="56" selection-start-line="50" selection-start-column="56" selection-end-line="50" selection-end-column="56" />
           <folding>
-            <marker date="1477752922000" expanded="false" signature="17:111" ph="import ..." />
+            <marker date="1477752985000" expanded="false" signature="17:111" ph="import ..." />
           </folding>
         </state>
       </provider>
