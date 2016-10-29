@@ -90,7 +90,7 @@ with graph.as_default():
     
     # Optimizer with gradient clipping
     global_step = tf.Variable(0)
-    optimizer = tf.train.GradientDescentOptimizer(0.0001)
+    optimizer = tf.train.GradientDescentOptimizer(0.00001)
     gradients, v = zip(*optimizer.compute_gradients(loss))
     gradients, _ = tf.clip_by_global_norm(gradients, 1.25)
     optimizer = optimizer.apply_gradients(zip(gradients, v), global_step=global_step)
