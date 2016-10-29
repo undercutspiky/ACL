@@ -41,9 +41,9 @@ with graph.as_default():
     b_conv3 = bias_variable([64])
     W_conv4 = tf.Variable(tf.truncated_normal([3,3,64,96], stddev=5e-2))
     b_conv4 = bias_variable([96])
-    W_conv5 = tf.Variable(tf.truncated_normal([3,3,128,96], stddev=2e-2))
+    W_conv5 = tf.Variable(tf.truncated_normal([3,3,96,96], stddev=2e-2))
     b_conv5 = bias_variable([96])
-    W_conv6 = tf.Variable(tf.truncated_normal([3,3,128,96], stddev=2e-2))
+    W_conv6 = tf.Variable(tf.truncated_normal([3,3,96,96], stddev=2e-2))
     b_conv6 = bias_variable([96])
     
     # Fully connected layers
