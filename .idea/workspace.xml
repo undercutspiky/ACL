@@ -33,7 +33,7 @@
             <state relative-caret-position="165">
               <caret line="93" column="54" selection-start-line="93" selection-start-column="54" selection-end-line="93" selection-end-column="54" />
               <folding>
-                <marker date="1477754929000" expanded="false" signature="17:111" ph="import ..." />
+                <marker date="1477755170000" expanded="false" signature="17:111" ph="import ..." />
               </folding>
             </state>
           </provider>
@@ -564,7 +564,14 @@
       <option name="project" value="LOCAL" />
       <updated>1477754530875</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="nothing">
+      <created>1477754937857</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1477754937857</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -616,7 +623,7 @@
         <state relative-caret-position="165">
           <caret line="93" column="54" selection-start-line="93" selection-start-column="54" selection-end-line="93" selection-end-column="54" />
           <folding>
-            <marker date="1477754929000" expanded="false" signature="17:111" ph="import ..." />
+            <marker date="1477755170000" expanded="false" signature="17:111" ph="import ..." />
           </folding>
         </state>
       </provider>
