@@ -39,20 +39,20 @@ with graph.as_default():
     b_conv2 = bias_variable([64])
     W_conv3 = tf.Variable(tf.truncated_normal([3,3,64,64], stddev=5e-2))
     b_conv3 = bias_variable([64])
-    W_conv4 = tf.Variable(tf.truncated_normal([3,3,64,128], stddev=5e-2))
-    b_conv4 = bias_variable([128])
-    W_conv5 = tf.Variable(tf.truncated_normal([3,3,128,128], stddev=2e-2))
-    b_conv5 = bias_variable([128])
-    W_conv6 = tf.Variable(tf.truncated_normal([3,3,128,128], stddev=2e-2))
-    b_conv6 = bias_variable([128])
+    W_conv4 = tf.Variable(tf.truncated_normal([3,3,64,96], stddev=5e-2))
+    b_conv4 = bias_variable([96])
+    W_conv5 = tf.Variable(tf.truncated_normal([3,3,128,96], stddev=2e-2))
+    b_conv5 = bias_variable([96])
+    W_conv6 = tf.Variable(tf.truncated_normal([3,3,128,96], stddev=2e-2))
+    b_conv6 = bias_variable([96])
     
     # Fully connected layers
-    flat_length = 8*8*128
-    W_fc1 = tf.Variable(tf.truncated_normal([flat_length, 700], stddev=2/(8*8*128.0)))
-    b_fc1 = bias_variable([700])
-    W_fc2 = tf.Variable(tf.truncated_normal([700, 300], stddev=2/700.0))
-    b_fc2 = bias_variable([300])
-    W_fc3 = tf.Variable(tf.truncated_normal([300, 10], stddev=2/300.0))
+    flat_length = 8*8*96
+    W_fc1 = tf.Variable(tf.truncated_normal([flat_length, 384], stddev=2/(8*8*96.0)))
+    b_fc1 = bias_variable([394])
+    W_fc2 = tf.Variable(tf.truncated_normal([384, 192], stddev=2/384.0))
+    b_fc2 = bias_variable([192])
+    W_fc3 = tf.Variable(tf.truncated_normal([192, 10], stddev=2/192.0))
     b_fc3 = bias_variable([10])
     
     # Reshape image
