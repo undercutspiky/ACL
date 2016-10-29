@@ -142,7 +142,6 @@ with tf.Session(graph=graph) as session:
         batch_ys = train_y[cursor:(cursor+batch_size)]
         feed_dict = {x: batch_xs, y: batch_ys}
         _, cr, co = session.run([optimizer, cross_entropy, correct_], feed_dict = feed_dict)
-        losses.extend(cr)
         
         cursor = (cursor + batch_size) % 40000
         if cursor == 0:
