@@ -33,22 +33,22 @@ with graph.as_default():
     y = tf.placeholder(tf.float32, [batch_size, 10])
     
     # Convolution layer weights
-    W_conv1 = tf.Variable(tf.truncated_normal([3,3,3,96], stddev=2/(3*3*3.0)))
-    b_conv1 = bias_variable([96])
-    W_conv2 = tf.Variable(tf.truncated_normal([3,3,96,96], stddev=2/(3*3*96.0)))
-    b_conv2 = bias_variable([96])
-    W_conv3 = tf.Variable(tf.truncated_normal([3,3,96,96], stddev=2/(3*3*96.0)))
-    b_conv3 = bias_variable([96])
-    W_conv4 = tf.Variable(tf.truncated_normal([3,3,96,192], stddev=2/(3*3*96.0)))
-    b_conv4 = bias_variable([192])
-    W_conv5 = tf.Variable(tf.truncated_normal([3,3,192,192], stddev=2/(3*3*192.0)))
-    b_conv5 = bias_variable([192])
-    W_conv6 = tf.Variable(tf.truncated_normal([3,3,192,192], stddev=2/(3*3*192.0)))
-    b_conv6 = bias_variable([192])
+    W_conv1 = tf.Variable(tf.truncated_normal([3,3,3,64], stddev=2/(3*3*3.0)))
+    b_conv1 = bias_variable([64])
+    W_conv2 = tf.Variable(tf.truncated_normal([3,3,64,64], stddev=2/(3*3*64.0)))
+    b_conv2 = bias_variable([64])
+    W_conv3 = tf.Variable(tf.truncated_normal([3,3,64,64], stddev=2/(3*3*64.0)))
+    b_conv3 = bias_variable([64])
+    W_conv4 = tf.Variable(tf.truncated_normal([3,3,64,128], stddev=2/(3*3*64.0)))
+    b_conv4 = bias_variable([128])
+    W_conv5 = tf.Variable(tf.truncated_normal([3,3,128,128], stddev=2/(3*3*128.0)))
+    b_conv5 = bias_variable([128])
+    W_conv6 = tf.Variable(tf.truncated_normal([3,3,128,128], stddev=2/(3*3*128.0)))
+    b_conv6 = bias_variable([128])
     
     # Fully connected layers
-    flat_length = 8*8*192
-    W_fc1 = tf.Variable(tf.truncated_normal([flat_length, 384], stddev=2/(8*8*192.0)))
+    flat_length = 8*8*128
+    W_fc1 = tf.Variable(tf.truncated_normal([flat_length, 384], stddev=2/(8*8*128.0)))
     b_fc1 = bias_variable([384])
     W_fc2 = tf.Variable(tf.truncated_normal([384, 192], stddev=2/384.0))
     b_fc2 = bias_variable([192])
