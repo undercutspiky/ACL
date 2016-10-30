@@ -30,7 +30,7 @@
       <file leaf-file-name="CIFAR-10-convolutions.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cifar-10/CIFAR-10-convolutions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
+            <state relative-caret-position="416">
               <caret line="192" column="39" selection-start-line="192" selection-start-column="4" selection-end-line="192" selection-end-column="39" />
               <folding>
                 <marker date="1477785994000" expanded="false" signature="17:111" ph="import ..." />
@@ -42,8 +42,8 @@
       <file leaf-file-name="CIFAR-10-high_drop-vs-random.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cifar-10/CIFAR-10-high_drop-vs-random.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="101">
-              <caret line="176" column="42" selection-start-line="176" selection-start-column="42" selection-end-line="176" selection-end-column="42" />
+            <state relative-caret-position="266">
+              <caret line="190" column="33" selection-start-line="190" selection-start-column="33" selection-end-line="190" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -685,7 +685,14 @@
       <option name="project" value="LOCAL" />
       <updated>1477869263024</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="nothing">
+      <created>1477869411822</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1477869411822</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -752,7 +759,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/cifar-10/CIFAR-10-convolutions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
+        <state relative-caret-position="416">
           <caret line="192" column="39" selection-start-line="192" selection-start-column="4" selection-end-line="192" selection-end-column="39" />
           <folding>
             <marker date="1477785994000" expanded="false" signature="17:111" ph="import ..." />
@@ -762,8 +769,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cifar-10/CIFAR-10-high_drop-vs-random.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="176" column="42" selection-start-line="176" selection-start-column="42" selection-end-line="176" selection-end-column="42" />
+        <state relative-caret-position="266">
+          <caret line="190" column="33" selection-start-line="190" selection-start-column="33" selection-end-line="190" selection-end-column="33" />
           <folding />
         </state>
       </provider>
