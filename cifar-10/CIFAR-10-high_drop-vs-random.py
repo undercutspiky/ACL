@@ -174,7 +174,7 @@ with tf.Session(graph=graph) as session:
                 # Append losses, activations for batch
                 l_list.extend(cr); ac_list.extend(co)
             # Append losses, activations for epoch
-            losses.append(np.mean(l_list))
+            losses.append(l_list)
             print "MEAN LOSS = "+str(np.mean(l_list))
 
             # COMPARE TRAINING ON HIGH DROP EXAMPLES VS RANDOM EXAMPLES
@@ -188,7 +188,6 @@ with tf.Session(graph=graph) as session:
                 prev_drop = losses[-1]
                 for high_drop_epochs in xrange(10):
                     softmax_prob = np.exp(drop) / np.sum(np.exp(drop), axis=0)
-                    print train_x
                     selected_examples = np.random.choice(len(train_x), 13000, replace=False, p=softmax_prob)
                     hd_train_x = train_x[selected_examples]
                     hd_train_y = train_y[selected_examples]
