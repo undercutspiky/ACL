@@ -259,7 +259,7 @@ with tf.Session(graph=graph) as session:
                 cor_pred.append(a)
             print "Accuracy = "+str(np.mean(cor_pred))
             i += 1
-    np.save('hd-vs-rand-losses-main', losses)
-    np.save('hd-vs-rand-losses-hd', losses_hd)
-    np.save('hd-vs-rand-losses-random', losses_random)
-    np.save('hd-vs-rand-accuracies-hd', accuracies_hd)
+    np.save('hd-vs-rand-losses-main-2', losses)
+    np.save('hd-vs-rand-losses-hd-2', losses_hd)
+    np.save('hd-vs-rand-losses-random-2', losses_random)
+    np.save('hd-vs-rand-accuracies-hd-2', accuracies_hd)
