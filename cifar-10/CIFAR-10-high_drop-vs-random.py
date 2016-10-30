@@ -209,7 +209,12 @@ with tf.Session(graph=graph) as session:
 
                         # Append lossesfor batch
                         l_list.extend(cr[0])
-                    print np.mean(l_list)
+                    cor_pred = []
+                    for iii in xrange(100):
+                        a = session.run([correct_prediction], feed_dict={x_v: valid_x[iii * 100:(iii + 1) * 100],
+                                                                         y_v: valid_y[iii * 100:(iii + 1) * 100]})
+                        cor_pred.append(a)
+                    print np.mean(l_list), cor_pred
                     drop = np.array(prev_drop) - np.array(l_list)
                     prev_drop = l_list
 
@@ -250,9 +255,3 @@ with tf.Session(graph=graph) as session:
                 cor_pred.append(a)
             print "Accuracy = "+str(np.mean(cor_pred))
             i += 1
-    losses = np.array(losses); activations = np.array(activations); iterations = np.array(iterations)
-    print losses.shape, activations.shape, iterations.shape
-    np.save('iterations-1', iterations)
-    np.save('activations-1', activations)
-    np.save('losses-1', losses)
-
