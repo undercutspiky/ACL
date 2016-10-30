@@ -213,8 +213,9 @@ with tf.Session(graph=graph) as session:
                     drop = np.array(prev_drop) - np.array(l_list)
                     prev_drop = l_list
 
-                saver.restore(session, 'cifar-model')
                 '''Train on random 13K examples'''
+                saver.restore(session, 'cifar-model')
+                print "LOSS FOR TRAINING ON 13K RANDOM EXAMPLES"
                 selected_examples = np.random.randint(len(train_x), size=130000)
                 for high_drop_epochs in xrange(10):
                     hd_train_x = train_x[selected_examples]
