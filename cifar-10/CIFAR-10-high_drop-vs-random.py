@@ -148,7 +148,7 @@ del dict_
 
 
 epochs = 150
-losses = []; activations = []; iterations = [0]*40000
+losses = []; losses_hd = []; losses_random = []; accuracies_hd=[]
 
 with tf.Session(graph=graph) as session:
     tf.initialize_all_variables().run()
@@ -178,7 +178,7 @@ with tf.Session(graph=graph) as session:
                 # Append losses, activations for batch
                 l_list.extend(cr); ac_list.extend(co)
             # Append losses, activations for epoch
-            losses.append(l_list); activations.append(ac_list)
+            losses.append(np.mean(l_list)); activations.append(ac_list)
             print "MEAN LOSS = "+str(np.mean(l_list))
 
             # COMPARE TRAINING ON HIGH DROP EXAMPLES VS RANDOM EXAMPLES
@@ -186,6 +186,7 @@ with tf.Session(graph=graph) as session:
             if len(losses) > 1:
                 '''Train on top 13K high drop examples'''
 
+                hd_loss = []; hd_accuracy = []
                 print "LOSS FOR TRAINING ON TOP 13K HIGH DROP EXAMPLES"
                 drop = np.array(losses[-2]) - np.array(losses[-1])
                 prev_drop = losses[-1]
@@ -215,8 +216,13 @@ with tf.Session(graph=graph) as session:
                                                                          y_v: valid_y[iii * 100:(iii + 1) * 100]})
                         cor_pred.append(a)
                     print np.mean(l_list), np.mean(cor_pred)
+                    hd_loss.append(np.mean(l_list)); hd_accuracy.append(np.mean(cor_pred))
                     drop = np.array(prev_drop) - np.array(l_list)
                     prev_drop = l_list
+
+                losses_hd.append(hd_loss); accuracies_hd.append(hd_accuracy)
+
+                random_loss = []
 
                 '''Train on random 13K examples'''
                 saver.restore(session, 'cifar-model')
@@ -241,6 +247,8 @@ with tf.Session(graph=graph) as session:
                         # Append lossesfor batch
                         l_list.extend(cr[0])
                     print np.mean(l_list)
+                    random_loss.append(np.mean(l_list))
+                losses_random.append(random_loss)
 
             saver.restore(session,'cifar-model')
 
@@ -255,3 +263,7 @@ with tf.Session(graph=graph) as session:
                 cor_pred.append(a)
             print "Accuracy = "+str(np.mean(cor_pred))
             i += 1
+    np.save('hd-vs-rand-losses-main', losses)
+    np.save('hd-vs-rand-losses-hd', losses_hd)
+    np.save('hd-vs-rand-losses-random', losses_random)
+    np.save('hd-vs-rand-accuracies-hd', accuracies_hd)
