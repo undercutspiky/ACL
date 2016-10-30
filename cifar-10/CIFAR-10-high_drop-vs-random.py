@@ -181,9 +181,10 @@ with tf.Session(graph=graph) as session:
             losses.append(l_list); activations.append(ac_list)
 
             # COMPARE TRAINING ON HIGH DROP EXAMPLES VS RANDOM EXAMPLES
+            saver.save(session, 'cifar-model')
             if len(losses) > 1:
                 '''Train on top 13K high drop examples'''
-                saver.save(session, 'cifar-model')
+
                 drop = np.array(losses[-2]) - np.array(losses[-1])
                 prev_drop = losses[-1]
                 for high_drop_epochs in xrange(10):
