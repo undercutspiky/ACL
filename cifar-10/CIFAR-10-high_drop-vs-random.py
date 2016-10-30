@@ -208,7 +208,7 @@ with tf.Session(graph=graph) as session:
                         cr = session.run([cross_entropy], feed_dict=feed_dict)
 
                         # Append lossesfor batch
-                        l_list.extend(cr)
+                        l_list.extend(cr[0])
                     print np.mean(l_list)
                     drop = np.array(prev_drop) - np.array(l_list)
                     prev_drop = l_list
@@ -234,7 +234,7 @@ with tf.Session(graph=graph) as session:
                         cr = session.run([cross_entropy], feed_dict=feed_dict)
 
                         # Append lossesfor batch
-                        l_list.extend(cr)
+                        l_list.extend(cr[0])
                     print np.mean(l_list)
 
             saver.restore(session,'cifar-model')
