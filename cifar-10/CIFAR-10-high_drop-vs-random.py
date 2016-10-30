@@ -214,7 +214,7 @@ with tf.Session(graph=graph) as session:
                         a = session.run([correct_prediction], feed_dict={x_v: valid_x[iii * 100:(iii + 1) * 100],
                                                                          y_v: valid_y[iii * 100:(iii + 1) * 100]})
                         cor_pred.append(a)
-                    print np.mean(l_list), cor_pred
+                    print np.mean(l_list), np.mean(cor_pred)
                     drop = np.array(prev_drop) - np.array(l_list)
                     prev_drop = l_list
 
