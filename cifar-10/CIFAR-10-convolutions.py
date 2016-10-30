@@ -159,7 +159,7 @@ with tf.Session(graph=graph) as session:
         batch_xs = train_x[cursor:(cursor+batch_size)]
         batch_ys = train_y[cursor:(cursor+batch_size)]
         feed_dict = {x: batch_xs, y: batch_ys}
-        _, cr, co = session.run([optimizer, cross_entropy, correct_], feed_dict = feed_dict)
+        _ = session.run([optimizer], feed_dict = feed_dict)
         
         cursor = (cursor + batch_size) % 40000
         if cursor == 0:
@@ -169,7 +169,7 @@ with tf.Session(graph=graph) as session:
                 batch_xs = train_x[iii*batch_size:(iii + 1)*batch_size]
                 batch_ys = train_y[iii*batch_size:(iii + 1)*batch_size]
                 feed_dict = {x: batch_xs, y: batch_ys}
-                cr, co = session.run([cross_entropy, correct_], feed_dict=feed_dict)
+                cr, co = session.run([cross_entropy, total_activation], feed_dict=feed_dict)
 
                 # Update iterations
                 for j in xrange(len(co)):
@@ -190,7 +190,7 @@ with tf.Session(graph=graph) as session:
             i += 1
     losses = np.array(losses); activations = np.array(activations); iterations = np.array(iterations)
     print losses.shape, activations.shape, iterations.shape
-    np.save('iterations-4', iterations)
-    np.save('activations-4', activations)
-    np.save('losses-4', losses)
+    np.save('iterations-1', iterations)
+    np.save('activations-1', activations)
+    np.save('losses-1', losses)
 
