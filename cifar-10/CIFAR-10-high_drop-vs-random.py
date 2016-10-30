@@ -171,14 +171,10 @@ with tf.Session(graph=graph) as session:
                 feed_dict = {x: batch_xs, y: batch_ys}
                 cr, co = session.run([cross_entropy, total_activation], feed_dict=feed_dict)
 
-                # Update iterations
-                for j in xrange(len(co)):
-                    if co[j] == False:
-                        iterations[cursor + j] += 1
                 # Append losses, activations for batch
                 l_list.extend(cr); ac_list.extend(co)
             # Append losses, activations for epoch
-            losses.append(np.mean(l_list)); activations.append(ac_list)
+            losses.append(np.mean(l_list))
             print "MEAN LOSS = "+str(np.mean(l_list))
 
             # COMPARE TRAINING ON HIGH DROP EXAMPLES VS RANDOM EXAMPLES
