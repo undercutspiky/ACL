@@ -179,12 +179,14 @@ with tf.Session(graph=graph) as session:
                 l_list.extend(cr); ac_list.extend(co)
             # Append losses, activations for epoch
             losses.append(l_list); activations.append(ac_list)
+            print "MEAN LOSS = "+str(np.mean(l_list))
 
             # COMPARE TRAINING ON HIGH DROP EXAMPLES VS RANDOM EXAMPLES
             saver.save(session, 'cifar-model')
             if len(losses) > 1:
                 '''Train on top 13K high drop examples'''
 
+                print "LOSS FOR TRAINING ON TOP 13K HIGH DROP EXAMPLES"
                 drop = np.array(losses[-2]) - np.array(losses[-1])
                 prev_drop = losses[-1]
                 for high_drop_epochs in xrange(10):
@@ -208,7 +210,7 @@ with tf.Session(graph=graph) as session:
                         # Append lossesfor batch
                         l_list.extend(cr)
                     print np.mean(l_list)
-                    drop = prev_drop - l_list
+                    drop = np.array(prev_drop) - np.array(l_list)
                     prev_drop = l_list
 
                 saver.restore(session, 'cifar-model')
