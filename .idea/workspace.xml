@@ -42,8 +42,8 @@
       <file leaf-file-name="CIFAR-10-high_drop-vs-random.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cifar-10/CIFAR-10-high_drop-vs-random.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-739">
-              <caret line="185" column="56" selection-start-line="185" selection-start-column="56" selection-end-line="185" selection-end-column="56" />
+            <state relative-caret-position="86">
+              <caret line="197" column="66" selection-start-line="197" selection-start-column="66" selection-end-line="197" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -727,7 +727,14 @@
       <option name="project" value="LOCAL" />
       <updated>1477932539820</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="nothing">
+      <created>1477933661998</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1477933661998</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -804,8 +811,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cifar-10/CIFAR-10-high_drop-vs-random.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-739">
-          <caret line="185" column="56" selection-start-line="185" selection-start-column="56" selection-end-line="185" selection-end-column="56" />
+        <state relative-caret-position="86">
+          <caret line="197" column="66" selection-start-line="197" selection-start-column="66" selection-end-line="197" selection-end-column="66" />
           <folding />
         </state>
       </provider>

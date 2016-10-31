@@ -195,8 +195,8 @@ with tf.Session(graph=graph) as session:
                 drop = np.array(losses[-2]) - np.array(losses[-1])
                 prev_drop = losses[-1]
                 for high_drop_epochs in xrange(10):
-                    softmax_prob = np.exp(drop) / np.sum(np.exp(drop), axis=0)
-                    selected_examples = np.random.choice(len(train_x), 13000, replace=False, p=softmax_prob)
+                    softmax_prob = np.exp(-drop) / np.sum(np.exp(-drop), axis=0)
+                    selected_examples = np.random.choice(len(train_x), 40000, replace=False, p=softmax_prob)
                     hd_train_x = train_x[selected_examples]
                     hd_train_y = train_y[selected_examples]
                     for iii in xrange(13000 / batch_size):
@@ -229,30 +229,30 @@ with tf.Session(graph=graph) as session:
                 random_loss = []
 
                 '''Train on random 13K examples'''
-                saver.restore(session, 'cifar-model')
-                print "LOSS FOR TRAINING ON 13K RANDOM EXAMPLES"
-                selected_examples = np.random.randint(len(train_x), size=130000)
-                for high_drop_epochs in xrange(10):
-                    hd_train_x = train_x[selected_examples]
-                    hd_train_y = train_y[selected_examples]
-                    for iii in xrange(13000 / batch_size):
-                        batch_xs = hd_train_x[iii * batch_size:(iii + 1) * batch_size]
-                        batch_ys = hd_train_y[iii * batch_size:(iii + 1) * batch_size]
-                        feed_dict = {x: batch_xs, y: batch_ys}
-                        _ = session.run([optimizer], feed_dict=feed_dict)
-                    # Now get the losses on whole train set
-                    l_list = []
-                    for iii in xrange(len(train_x) / batch_size):
-                        batch_xs = train_x[iii * batch_size:(iii + 1) * batch_size]
-                        batch_ys = train_y[iii * batch_size:(iii + 1) * batch_size]
-                        feed_dict = {x: batch_xs, y: batch_ys}
-                        cr = session.run([cross_entropy], feed_dict=feed_dict)
-
-                        # Append lossesfor batch
-                        l_list.extend(cr[0])
-                    print np.mean(l_list)
-                    random_loss.append(np.mean(l_list))
-                losses_random.append(random_loss)
+                # saver.restore(session, 'cifar-model')
+                # print "LOSS FOR TRAINING ON 13K RANDOM EXAMPLES"
+                # selected_examples = np.random.randint(len(train_x), size=130000)
+                # for high_drop_epochs in xrange(10):
+                #     hd_train_x = train_x[selected_examples]
+                #     hd_train_y = train_y[selected_examples]
+                #     for iii in xrange(13000 / batch_size):
+                #         batch_xs = hd_train_x[iii * batch_size:(iii + 1) * batch_size]
+                #         batch_ys = hd_train_y[iii * batch_size:(iii + 1) * batch_size]
+                #         feed_dict = {x: batch_xs, y: batch_ys}
+                #         _ = session.run([optimizer], feed_dict=feed_dict)
+                #     # Now get the losses on whole train set
+                #     l_list = []
+                #     for iii in xrange(len(train_x) / batch_size):
+                #         batch_xs = train_x[iii * batch_size:(iii + 1) * batch_size]
+                #         batch_ys = train_y[iii * batch_size:(iii + 1) * batch_size]
+                #         feed_dict = {x: batch_xs, y: batch_ys}
+                #         cr = session.run([cross_entropy], feed_dict=feed_dict)
+                #
+                #         # Append lossesfor batch
+                #         l_list.extend(cr[0])
+                #     print np.mean(l_list)
+                #     random_loss.append(np.mean(l_list))
+                # losses_random.append(random_loss)
 
             saver.restore(session,'cifar-model')
             i += 1
