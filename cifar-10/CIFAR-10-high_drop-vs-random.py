@@ -176,6 +176,14 @@ with tf.Session(graph=graph) as session:
             # Append losses, activations for epoch
             losses.append(l_list)
             print "MEAN LOSS = "+str(np.mean(l_list))
+            # Validation test
+            print "TESTING ON VALIDATION SET for epoch = " + str(i)
+            cor_pred = []
+            for iii in xrange(100):
+                a = session.run([correct_prediction], feed_dict={x_v: valid_x[iii * 100:(iii + 1) * 100],
+                                                                 y_v: valid_y[iii * 100:(iii + 1) * 100]})
+                cor_pred.append(a)
+            print "Accuracy = " + str(np.mean(cor_pred))
 
             # COMPARE TRAINING ON HIGH DROP EXAMPLES VS RANDOM EXAMPLES
             saver.save(session, 'cifar-model')
@@ -247,17 +255,6 @@ with tf.Session(graph=graph) as session:
                 losses_random.append(random_loss)
 
             saver.restore(session,'cifar-model')
-
-
-
-
-            # Validation test
-            print "TESTING ON VALIDATION SET for epoch = "+str(i)
-            cor_pred = []
-            for iii in xrange(100):
-                a = session.run([correct_prediction], feed_dict={x_v: valid_x[iii*100:(iii+1)*100], y_v: valid_y[iii*100:(iii+1)*100]})
-                cor_pred.append(a)
-            print "Accuracy = "+str(np.mean(cor_pred))
             i += 1
     np.save('hd-vs-rand-losses-main-2', losses)
     np.save('hd-vs-rand-losses-hd-2', losses_hd)
