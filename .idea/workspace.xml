@@ -50,8 +50,8 @@
       <file leaf-file-name="CIFAR-10-high_drop.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cifar-10/high-drop/CIFAR-10-high_drop.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="198" column="66" selection-start-line="198" selection-start-column="66" selection-end-line="198" selection-end-column="66" />
+            <state relative-caret-position="282">
+              <caret line="193" column="31" selection-start-line="193" selection-start-column="31" selection-end-line="193" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -463,13 +463,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00008" summary="nothing">
-      <created>1477752203395</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1477752203395</updated>
-    </task>
     <task id="LOCAL-00009" summary="nothing">
       <created>1477752265735</created>
       <option name="number" value="00009" />
@@ -806,7 +799,14 @@
       <option name="project" value="LOCAL" />
       <updated>1478089681987</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="nothing">
+      <created>1478089906924</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1478089906924</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -921,8 +921,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cifar-10/high-drop/CIFAR-10-high_drop.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="198" column="66" selection-start-line="198" selection-start-column="66" selection-end-line="198" selection-end-column="66" />
+        <state relative-caret-position="282">
+          <caret line="193" column="31" selection-start-line="193" selection-start-column="31" selection-end-line="193" selection-end-column="31" />
           <folding />
         </state>
       </provider>
