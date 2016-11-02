@@ -51,7 +51,7 @@
         <entry file="file://$PROJECT_DIR$/cifar-10/high-drop/CIFAR-10-high_drop.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="267">
-              <caret line="193" column="29" selection-start-line="193" selection-start-column="29" selection-end-line="193" selection-end-column="31" />
+              <caret line="193" column="31" selection-start-line="193" selection-start-column="31" selection-end-line="193" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -463,13 +463,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00010" summary="nothing">
-      <created>1477752594140</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1477752594140</updated>
-    </task>
     <task id="LOCAL-00011" summary="nothing">
       <created>1477752825649</created>
       <option name="number" value="00011" />
@@ -806,7 +799,14 @@
       <option name="project" value="LOCAL" />
       <updated>1478090628773</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="nothing">
+      <created>1478091676396</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1478091676396</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -922,7 +922,7 @@
     <entry file="file://$PROJECT_DIR$/cifar-10/high-drop/CIFAR-10-high_drop.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
-          <caret line="193" column="29" selection-start-line="193" selection-start-column="29" selection-end-line="193" selection-end-column="31" />
+          <caret line="193" column="31" selection-start-line="193" selection-start-column="31" selection-end-line="193" selection-end-column="31" />
           <folding />
         </state>
       </provider>
