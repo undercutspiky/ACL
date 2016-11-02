@@ -190,7 +190,7 @@ with tf.Session(graph=graph) as session:
 
             # TRAIN ON HIGH DROP EXAMPLES
             saver.save(session, 'cifar-model')
-            if len(losses) > 5: # Check if at least 2 epochs have been done
+            if len(losses) > 1: # Check if at least 2 epochs have been done
                 hd_loss = []; hd_accuracy = []
                 drop = np.array(losses[-2]) - np.array(losses[-1])
                 prev_drop = losses[-1]
@@ -226,6 +226,6 @@ with tf.Session(graph=graph) as session:
                     drop = np.array(prev_drop) - np.array(l_list)
                     prev_drop = l_list
                     i += 1
-            i+=1
+                i+=1
     np.save('hd-losses', losses)
     np.save('hd-accuracies', accuracies)
