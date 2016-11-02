@@ -226,5 +226,6 @@ with tf.Session(graph=graph) as session:
                     drop = np.array(prev_drop) - np.array(l_list)
                     prev_drop = l_list
                     i += 1
+                i+=1
     np.save('hd-losses', losses)
     np.save('hd-accuracies', accuracies)
