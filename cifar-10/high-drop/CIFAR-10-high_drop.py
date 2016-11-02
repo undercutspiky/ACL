@@ -133,7 +133,7 @@ with graph.as_default():
 train_x = []
 train_y = []
 for i in xrange(1,5):
-    dict_ = unpickle('cifar-10-batches-py/data_batch_'+str(i))
+    dict_ = unpickle('../cifar-10-batches-py/data_batch_'+str(i))
     if i == 1:
         train_x = dict_['data']
         train_y = np.eye(10)[dict_['labels']]
