@@ -156,8 +156,11 @@ with tf.Session(graph=graph) as session:
     i = 1
     cursor = 0
     while i <= epochs:
-        batch_xs = train_x[cursor:(cursor+batch_size)]
-        batch_ys = train_y[cursor:(cursor+batch_size)]
+        sequence = np.random.randint(len(train_x), size=len(train_x))
+        random_train_x = train_x[sequence]
+        random_train_y = train_y[sequence]
+        batch_xs = random_train_x[cursor:(cursor+batch_size)]
+        batch_ys = random_train_y[cursor:(cursor+batch_size)]
         feed_dict = {x: batch_xs, y: batch_ys}
         _ = session.run([optimizer], feed_dict = feed_dict)
         
@@ -188,44 +191,6 @@ with tf.Session(graph=graph) as session:
             print "Accuracy = " + str(np.mean(cor_pred))
             accuracies.append(np.mean(cor_pred))
 
-            # TRAIN ON HIGH DROP EXAMPLES
-            saver.save(session, 'cifar-model')
-            if len(losses) > 1: # Check if at least 2 epochs have been done
-                hd_loss = []; hd_accuracy = []
-                drop = np.array(losses[-2]) - np.array(losses[-1])
-                prev_drop = losses[-1]
-                while i <= epochs:
-                    softmax_prob = np.exp(drop) / np.sum(np.exp(drop), axis=0)
-                    selected_examples = np.random.choice(len(train_x), len(train_x), replace=False, p=softmax_prob)
-                    hd_train_x = train_x[selected_examples]
-                    hd_train_y = train_y[selected_examples]
-                    for iii in xrange(len(train_x) / batch_size):
-                        batch_xs = hd_train_x[iii * batch_size:(iii + 1) * batch_size]
-                        batch_ys = hd_train_y[iii * batch_size:(iii + 1) * batch_size]
-                        feed_dict = {x: batch_xs, y: batch_ys}
-                        _ = session.run([optimizer], feed_dict=feed_dict)
-                    # Now get the losses on whole train set
-                    print "GETTING LOSSES FOR TRAIN SET"
-                    l_list = []
-                    for iii in xrange(len(train_x) / batch_size):
-                        batch_xs = train_x[iii * batch_size:(iii + 1) * batch_size]
-                        batch_ys = train_y[iii * batch_size:(iii + 1) * batch_size]
-                        feed_dict = {x: batch_xs, y: batch_ys}
-                        cr = session.run([cross_entropy], feed_dict=feed_dict)
-
-                        # Append lossesfor batch
-                        l_list.extend(cr[0])
-                    print "TESTING ON VALIDATION SET for epoch = " + str(i)
-                    cor_pred = []
-                    for iii in xrange(100):
-                        a = session.run([correct_prediction], feed_dict={x_v: valid_x[iii * 100:(iii + 1) * 100],
-                                                                         y_v: valid_y[iii * 100:(iii + 1) * 100]})
-                        cor_pred.append(a)
-                    print 'Training set loss = '+str(np.mean(l_list))+' Validation accuracy = '+str(np.mean(cor_pred))
-                    losses.append(np.mean(l_list)); accuracies.append(np.mean(cor_pred))
-                    drop = np.array(prev_drop) - np.array(l_list)
-                    prev_drop = l_list
-                    i += 1
-                i+=1
-    np.save('hd-losses', losses)
-    np.save('hd-accuracies', accuracies)
+        i += 1
+    np.save('shuffle-losses', losses)
+    np.save('shuffle-accuracies', accuracies)
