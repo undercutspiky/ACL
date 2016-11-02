@@ -196,6 +196,7 @@ with tf.Session(graph=graph) as session:
                 drop = np.array(losses[-2]) - np.array(losses[-1])
                 prev_drop = losses[-1]
                 while i <= epochs:
+                    i += 1
                     softmax_prob = np.exp(-drop) / np.sum(np.exp(-drop), axis=0)
                     selected_examples = np.random.choice(len(train_x), len(train_x), replace=False, p=softmax_prob)
                     hd_train_x = train_x[selected_examples]
@@ -226,6 +227,6 @@ with tf.Session(graph=graph) as session:
                     losses.append(np.mean(l_list)); accuracies.append(np.mean(cor_pred))
                     drop = np.array(prev_drop) - np.array(l_list)
                     prev_drop = l_list
-                    i += 1
+
     np.save('hd-losses', losses)
     np.save('hd-accuracies', accuracies)
