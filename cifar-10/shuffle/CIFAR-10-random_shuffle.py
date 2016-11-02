@@ -191,6 +191,6 @@ with tf.Session(graph=graph) as session:
             print "Accuracy = " + str(np.mean(cor_pred))
             accuracies.append(np.mean(cor_pred))
 
-        i += 1
+            i += 1
     np.save('shuffle-losses', losses)
     np.save('shuffle-accuracies', accuracies)
