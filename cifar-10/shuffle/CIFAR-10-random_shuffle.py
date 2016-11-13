@@ -77,7 +77,7 @@ with graph.as_default():
 train_x = []
 train_y = []
 for i in xrange(1, 5):
-    dict_ = unpickle('cifar-10-batches-py/data_batch_' + str(i))
+    dict_ = unpickle('../cifar-10-batches-py/data_batch_' + str(i))
     if i == 1:
         train_x = dict_['data']
         train_y = np.eye(10)[dict_['labels']]
@@ -85,7 +85,7 @@ for i in xrange(1, 5):
         train_x = np.concatenate((train_x, dict_['data']), axis=0)
         train_y = np.concatenate((train_y, np.eye(10)[dict_['labels']]), axis=0)
 
-dict_ = unpickle('cifar-10-batches-py/data_batch_5')
+dict_ = unpickle('../cifar-10-batches-py/data_batch_5')
 valid_x = dict_['data']
 valid_y = np.eye(10)[dict_['labels']]
 del dict_
