@@ -14,7 +14,7 @@ def unpickle(file):
 
 
 batch_size = 128
-batch_norm = False
+batch_norm = True
 
 graph = tf.Graph()
 with graph.as_default():
