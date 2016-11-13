@@ -95,14 +95,11 @@ with tf.Session(graph=graph) as session:
         if cursor == 0:
             l_list = []; ac_list = []
             print "GETTING ACTIVATIONS, ITERATIONS AND LOSSES FOR ALL EXAMPLES"
-            iii = 0
-            while iii < len(train_x):
-                print iii
-                batch_xs = train_x[iii*batch_size : min(len(train_x), (iii + 1)*batch_size)]
-                batch_ys = train_y[iii*batch_size : min(len(train_x), (iii + 1)*batch_size)]
+            for iii in xrange(400):
+                batch_xs = train_x[iii*100 : (iii + 1)*100]
+                batch_ys = train_y[iii*100 : (iii + 1)*100]
                 feed_dict = {x: batch_xs, y: batch_ys}
                 cr, co = session.run([cross_entropy, correct_], feed_dict=feed_dict)
-                iii += batch_size
 
                 # Update iterations
                 for j in xrange(len(co)):
