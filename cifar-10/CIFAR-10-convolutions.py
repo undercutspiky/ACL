@@ -56,7 +56,7 @@ with graph.as_default():
     gradients, _ = tf.clip_by_global_norm(gradients, 1.25)
     optimizer = optimizer.apply_gradients(zip(gradients, v), global_step=global_step)
     
-    
+
 # ### Read data
 # * Use first 4 data files as training data and last one as validation 
 
@@ -97,6 +97,7 @@ with tf.Session(graph=graph) as session:
             print "GETTING ACTIVATIONS, ITERATIONS AND LOSSES FOR ALL EXAMPLES"
             iii = 0
             while iii < len(train_x):
+                print iii
                 batch_xs = train_x[iii*batch_size : min(len(train_x), (iii + 1)*batch_size)]
                 batch_ys = train_y[iii*batch_size : min(len(train_x), (iii + 1)*batch_size)]
                 feed_dict = {x: batch_xs, y: batch_ys}
