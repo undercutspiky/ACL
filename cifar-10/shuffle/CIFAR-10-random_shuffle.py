@@ -112,6 +112,7 @@ with tf.Session(graph=graph) as session:
 
         cursor = (cursor + batch_size) % 40000
         if cursor == 0:
+            tflearn.is_training(False, session=session)
             l_list = []
             ac_list = []
             print "GETTING ACTIVATIONS, ITERATIONS AND LOSSES FOR ALL EXAMPLES"
@@ -119,7 +120,6 @@ with tf.Session(graph=graph) as session:
                 batch_xs = train_x[iii * 100: (iii + 1) * 100]
                 batch_ys = train_y[iii * 100: (iii + 1) * 100]
                 feed_dict = {x: batch_xs, y: batch_ys}
-                tflearn.is_training(False, session=session)
                 cr, co = session.run([cross_entropy, correct_], feed_dict=feed_dict)
 
                 # Update iterations
