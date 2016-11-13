@@ -155,5 +155,5 @@ with tf.Session(graph=graph) as session:
     losses = np.array(losses)
     iterations = np.array(iterations)  # activations = np.array(activations)
     print losses.shape, iterations.shape
-    np.save('iterations-all-conv-1', iterations)
-    np.save('losses-all-conv-1', losses)
+    np.save('iterations-all-conv-2', iterations)
+    np.save('losses-all-conv-2', losses)
