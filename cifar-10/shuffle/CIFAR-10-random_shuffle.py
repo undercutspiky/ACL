@@ -14,6 +14,7 @@ def unpickle(file):
 
 
 batch_size = 128
+batch_norm = False
 
 graph = tf.Graph()
 with graph.as_default():
@@ -25,37 +26,44 @@ with graph.as_default():
     net = tflearn.dropout(x_image, 0.2)
     net = tflearn.conv_2d(x_image, 96, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', regularizer='L2')
-    net = tflearn.batch_normalization(net)
+    if batch_norm:
+        net = tflearn.batch_normalization(net)
     net = tf.nn.relu(net)
     net = tflearn.conv_2d(net, 96, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', regularizer='L2')
-    net = tflearn.batch_normalization(net)
+    if batch_norm:
+        net = tflearn.batch_normalization(net)
     net = tf.nn.relu(net)
     net = tflearn.conv_2d(net, 96, 3, 2, 'same', 'relu', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', regularizer='L2')
     net = tflearn.dropout(net, 0.5)
     net = tflearn.conv_2d(net, 192, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', regularizer='L2')
-    net = tflearn.batch_normalization(net)
+    if batch_norm:
+        net = tflearn.batch_normalization(net)
     net = tf.nn.relu(net)
     net = tflearn.conv_2d(net, 192, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', regularizer='L2')
-    net = tflearn.batch_normalization(net)
+    if batch_norm:
+        net = tflearn.batch_normalization(net)
     net = tf.nn.relu(net)
     net = tflearn.conv_2d(net, 192, 3, 2, 'same', 'relu', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', regularizer='L2')
     net = tflearn.dropout(net, 0.5)
     net = tflearn.conv_2d(net, 192, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', regularizer='L2')
-    net = tflearn.batch_normalization(net)
+    if batch_norm:
+        net = tflearn.batch_normalization(net)
     net = tf.nn.relu(net)
     net = tflearn.conv_2d(net, 192, 1, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', regularizer='L2')
-    net = tflearn.batch_normalization(net)
+    if batch_norm:
+        net = tflearn.batch_normalization(net)
     net = tf.nn.relu(net)
     net = tflearn.conv_2d(net, 10, 1, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', regularizer='L2')
-    net = tflearn.batch_normalization(net)
+    if batch_norm:
+        net = tflearn.batch_normalization(net)
     net = tf.nn.relu(net)
     net = tflearn.global_avg_pool(net)
 
@@ -68,8 +76,8 @@ with graph.as_default():
 
     # Optimizer with gradient clipping
     global_step = tf.Variable(0)
-    lr = tf.train.exponential_decay(0.1, global_step, 40000, 0.1, True)
-    optimizer = tf.train.GradientDescentOptimizer(lr)
+    lr = tf.train.exponential_decay(0.1, global_step, 400000, 0.1, True)
+    optimizer = tf.train.MomentumOptimizer(lr,0.9)
     gradients, v = zip(*optimizer.compute_gradients(loss))
     gradients, _ = tf.clip_by_global_norm(gradients, 1.25)
     optimizer = optimizer.apply_gradients(zip(gradients, v), global_step=global_step)
