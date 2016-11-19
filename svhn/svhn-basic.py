@@ -83,9 +83,9 @@ with graph.as_default():
 # Read Data
 train_x = unpickle('train_x_1')
 train_x = np.concatenate((train_x, unpickle('train_x_2')), axis=0)
-train_y = unpickle('train_y')
+train_y = np.eye(10)[unpickle('train_y')]
 valid_x = unpickle('valid_x')
-valid_y = unpickle('valid_y')
+valid_y = np.eye(10)[unpickle('valid_y')]
 
 epochs = 150
 losses = []
