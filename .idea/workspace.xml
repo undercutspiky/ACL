@@ -50,8 +50,8 @@
       <file leaf-file-name="svhn-basic.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/svhn/svhn-basic.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="87" column="41" selection-start-line="87" selection-start-column="41" selection-end-line="87" selection-end-column="41" />
+            <state relative-caret-position="150">
+              <caret line="77" column="49" selection-start-line="77" selection-start-column="49" selection-end-line="77" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -411,6 +411,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="" />
@@ -418,13 +421,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
-    </task>
-    <task id="LOCAL-00024" summary="nothing">
-      <created>1477754195606</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1477754195606</updated>
     </task>
     <task id="LOCAL-00025" summary="nothing">
       <created>1477754290563</created>
@@ -762,7 +758,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479576216362</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="np.eye(10) for labels">
+      <created>1479576992019</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1479576992019</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -822,7 +825,8 @@
     <MESSAGE value="all convolutions" />
     <MESSAGE value="nothing" />
     <MESSAGE value="svhn basic code and a correction - pass image after dropout" />
-    <option name="LAST_COMMIT_MESSAGE" value="svhn basic code and a correction - pass image after dropout" />
+    <MESSAGE value="np.eye(10) for labels" />
+    <option name="LAST_COMMIT_MESSAGE" value="np.eye(10) for labels" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -902,8 +906,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/svhn/svhn-basic.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="87" column="41" selection-start-line="87" selection-start-column="41" selection-end-line="87" selection-end-column="41" />
+        <state relative-caret-position="150">
+          <caret line="77" column="49" selection-start-line="77" selection-start-column="49" selection-end-line="77" selection-end-column="49" />
           <folding />
         </state>
       </provider>

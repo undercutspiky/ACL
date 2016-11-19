@@ -21,8 +21,8 @@ with graph.as_default():
     x = tf.placeholder(tf.float32, [None, 32, 32, 3])
     y = tf.placeholder(tf.float32, [None, 10])
 
-    net = tflearn.dropout(x, 0.2)
-    net = tflearn.conv_2d(net, 96, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
+    #net = tflearn.dropout(x, 0.2)
+    net = tflearn.conv_2d(x, 96, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', regularizer='L2')
     if batch_norm:
         net = tflearn.batch_normalization(net)
@@ -74,8 +74,8 @@ with graph.as_default():
 
     # Optimizer with gradient clipping
     global_step = tf.Variable(0)
-    lr = tf.train.exponential_decay(0.05, global_step, 656000, 0.1, True)
-    optimizer = tf.train.MomentumOptimizer(lr,0.9)
+    lr = tf.train.exponential_decay(0.05, global_step, 656*50, 0.1, True)
+    optimizer = tf.train.MomentumOptimizer(lr,0.3)
     gradients, v = zip(*optimizer.compute_gradients(loss))
     gradients, _ = tf.clip_by_global_norm(gradients, 1.25)
     optimizer = optimizer.apply_gradients(zip(gradients, v), global_step=global_step)
