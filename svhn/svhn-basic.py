@@ -74,7 +74,7 @@ with graph.as_default():
 
     # Optimizer with gradient clipping
     global_step = tf.Variable(0)
-    lr = tf.train.exponential_decay(0.05, global_step, 656*50, 0.1, True)
+    lr = tf.train.exponential_decay(0.05, global_step, 65537/2, 0.1, True)
     optimizer = tf.train.MomentumOptimizer(lr,0.3)
     gradients, v = zip(*optimizer.compute_gradients(loss))
     gradients, _ = tf.clip_by_global_norm(gradients, 1.25)
@@ -90,7 +90,7 @@ valid_y = np.eye(10)[unpickle('valid_y')]
 epochs = 150
 losses = []
 activations = []
-iterations = [0] * 65600
+iterations = [0] * len(train_x)
 
 with tf.Session(graph=graph) as session:
     tf.initialize_all_variables().run()
@@ -104,15 +104,15 @@ with tf.Session(graph=graph) as session:
         feed_dict = {x: batch_xs, y: batch_ys}
         _ = session.run([optimizer], feed_dict=feed_dict)
 
-        cursor = (cursor + batch_size) % 65600
-        if cursor == 0:
+        cursor += batch_size
+        if cursor > len(train_x):
             tflearn.is_training(False, session=session)
             l_list = []
             ac_list = []
             print "GETTING ACTIVATIONS, ITERATIONS AND LOSSES FOR ALL EXAMPLES"
             for iii in xrange(656):
-                batch_xs = train_x[iii * 100: (iii + 1) * 100]
-                batch_ys = train_y[iii * 100: (iii + 1) * 100]
+                batch_xs = train_x[iii * 100: min((iii + 1) * 100, len(train_x))]
+                batch_ys = train_y[iii * 100: min((iii + 1) * 100, len(train_x))]
                 feed_dict = {x: batch_xs, y: batch_ys}
                 cr, co = session.run([cross_entropy, correct_], feed_dict=feed_dict)
 
@@ -129,7 +129,7 @@ with tf.Session(graph=graph) as session:
             # Validation test
             print "TESTING ON VALIDATION SET for epoch = " + str(i)
             cor_pred = []
-            for iii in xrange(100):
+            for iii in xrange(147):
                 a = session.run([correct_], feed_dict={x: valid_x[iii * 100:min(len(valid_x), (iii + 1) * 100)],
                                                        y: valid_y[iii * 100:min(len(valid_x), (iii + 1) * 100)]})
                 cor_pred.append(a)
