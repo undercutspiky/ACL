@@ -134,7 +134,7 @@ with tf.Session(graph=graph) as session:
                 a = session.run([correct_], feed_dict={x: valid_x[iii * 100:min(len(valid_x), (iii + 1) * 100)],
                                                        y: valid_y[iii * 100:min(len(valid_x), (iii + 1) * 100)]})
                 cor_pred.append(a)
-            print "Accuracy = " + str(np.mean(cor_pred))
+            print "Accuracy = " + str(np.mean(np.hstack(cor_pred)))
             i += 1
     losses = np.array(losses)
     iterations = np.array(iterations)  # ;activations = np.array(activations)
