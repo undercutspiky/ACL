@@ -136,7 +136,7 @@ with tf.Session(graph=graph) as session:
                 # Update iterations
                 for j in xrange(len(co)):
                     if not co[j]:
-                        iterations[cursor + j] += 1
+                        iterations[j] += 1
                 # Append losses, activations for batch
                 l_list.extend(cr)
                 ac_list.extend(co)

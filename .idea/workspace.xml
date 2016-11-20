@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cifar-10/CIFAR-10-convolutions.py" afterPath="$PROJECT_DIR$/cifar-10/CIFAR-10-convolutions.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cifar-10/shuffle/CIFAR-10-random_shuffle.py" afterPath="$PROJECT_DIR$/cifar-10/shuffle/CIFAR-10-random_shuffle.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/svhn/svhn-basic.py" afterPath="$PROJECT_DIR$/svhn/svhn-basic.py" />
     </list>
     <ignored path="ACL.iws" />
@@ -30,8 +32,8 @@
       <file leaf-file-name="CIFAR-10-convolutions.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cifar-10/CIFAR-10-convolutions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+            <state relative-caret-position="297">
+              <caret line="135" column="35" selection-start-line="135" selection-start-column="35" selection-end-line="135" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -40,8 +42,8 @@
       <file leaf-file-name="CIFAR-10-random_shuffle.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cifar-10/shuffle/CIFAR-10-random_shuffle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="100" column="20" selection-start-line="100" selection-start-column="10" selection-end-line="100" selection-end-column="20" />
+            <state relative-caret-position="417">
+              <caret line="138" column="35" selection-start-line="138" selection-start-column="35" selection-end-line="138" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -50,8 +52,8 @@
       <file leaf-file-name="svhn-basic.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/svhn/svhn-basic.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="131" column="33" selection-start-line="131" selection-start-column="33" selection-end-line="131" selection-end-column="33" />
+            <state relative-caret-position="57">
+              <caret line="108" column="22" selection-start-line="108" selection-start-column="22" selection-end-line="108" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -67,8 +69,8 @@
       <list>
         <option value="$PROJECT_DIR$/cifar-10/CIFAR-10-high_drop-vs-random.py" />
         <option value="$PROJECT_DIR$/cifar-10/high-drop/CIFAR-10-high_drop.py" />
-        <option value="$PROJECT_DIR$/cifar-10/CIFAR-10-convolutions.py" />
         <option value="$PROJECT_DIR$/cifar-10/shuffle/CIFAR-10-random_shuffle.py" />
+        <option value="$PROJECT_DIR$/cifar-10/CIFAR-10-convolutions.py" />
         <option value="$PROJECT_DIR$/svhn/svhn-basic.py" />
       </list>
     </option>
@@ -422,13 +424,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00026" summary="nothing">
-      <created>1477754530875</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1477754530875</updated>
-    </task>
     <task id="LOCAL-00027" summary="nothing">
       <created>1477754937857</created>
       <option name="number" value="00027" />
@@ -765,7 +760,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479583066057</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="corrected lengths everywhere cuz this split resulted in different lengths than the previous time">
+      <created>1479636321468</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1479636321468</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -826,7 +828,8 @@
     <MESSAGE value="nothing" />
     <MESSAGE value="svhn basic code and a correction - pass image after dropout" />
     <MESSAGE value="np.eye(10) for labels" />
-    <option name="LAST_COMMIT_MESSAGE" value="np.eye(10) for labels" />
+    <MESSAGE value="corrected lengths everywhere cuz this split resulted in different lengths than the previous time" />
+    <option name="LAST_COMMIT_MESSAGE" value="corrected lengths everywhere cuz this split resulted in different lengths than the previous time" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -888,26 +891,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cifar-10/CIFAR-10-convolutions.py">
+    <entry file="file://$PROJECT_DIR$/cifar-10/shuffle/CIFAR-10-random_shuffle.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+        <state relative-caret-position="417">
+          <caret line="138" column="35" selection-start-line="138" selection-start-column="35" selection-end-line="138" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cifar-10/shuffle/CIFAR-10-random_shuffle.py">
+    <entry file="file://$PROJECT_DIR$/cifar-10/CIFAR-10-convolutions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="100" column="20" selection-start-line="100" selection-start-column="10" selection-end-line="100" selection-end-column="20" />
+        <state relative-caret-position="297">
+          <caret line="135" column="35" selection-start-line="135" selection-start-column="35" selection-end-line="135" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/svhn/svhn-basic.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="131" column="33" selection-start-line="131" selection-start-column="33" selection-end-line="131" selection-end-column="33" />
+        <state relative-caret-position="57">
+          <caret line="108" column="22" selection-start-line="108" selection-start-column="22" selection-end-line="108" selection-end-column="22" />
           <folding />
         </state>
       </provider>
