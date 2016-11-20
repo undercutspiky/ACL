@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cifar-10/CIFAR-10-convolutions.py" afterPath="$PROJECT_DIR$/cifar-10/CIFAR-10-convolutions.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cifar-10/shuffle/CIFAR-10-random_shuffle.py" afterPath="$PROJECT_DIR$/cifar-10/shuffle/CIFAR-10-random_shuffle.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/svhn/svhn-basic.py" afterPath="$PROJECT_DIR$/svhn/svhn-basic.py" />
     </list>
     <ignored path="ACL.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,17 +37,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CIFAR-10-random_shuffle.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CIFAR-10-random_shuffle.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cifar-10/shuffle/CIFAR-10-random_shuffle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="138" column="35" selection-start-line="138" selection-start-column="35" selection-end-line="138" selection-end-column="35" />
+            <state relative-caret-position="477">
+              <caret line="78" column="39" selection-start-line="78" selection-start-column="39" selection-end-line="78" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="svhn-basic.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="svhn-basic.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/svhn/svhn-basic.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="57">
@@ -69,9 +67,9 @@
       <list>
         <option value="$PROJECT_DIR$/cifar-10/CIFAR-10-high_drop-vs-random.py" />
         <option value="$PROJECT_DIR$/cifar-10/high-drop/CIFAR-10-high_drop.py" />
-        <option value="$PROJECT_DIR$/cifar-10/shuffle/CIFAR-10-random_shuffle.py" />
         <option value="$PROJECT_DIR$/cifar-10/CIFAR-10-convolutions.py" />
         <option value="$PROJECT_DIR$/svhn/svhn-basic.py" />
+        <option value="$PROJECT_DIR$/cifar-10/shuffle/CIFAR-10-random_shuffle.py" />
       </list>
     </option>
   </component>
@@ -424,13 +422,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00027" summary="nothing">
-      <created>1477754937857</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1477754937857</updated>
-    </task>
     <task id="LOCAL-00028" summary="nothing">
       <created>1477755176302</created>
       <option name="number" value="00028" />
@@ -767,7 +758,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479636321468</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="update iterations properly and set cursor=0 in svhn after 1 epoch">
+      <created>1479636787188</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1479636787189</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -829,7 +827,8 @@
     <MESSAGE value="svhn basic code and a correction - pass image after dropout" />
     <MESSAGE value="np.eye(10) for labels" />
     <MESSAGE value="corrected lengths everywhere cuz this split resulted in different lengths than the previous time" />
-    <option name="LAST_COMMIT_MESSAGE" value="corrected lengths everywhere cuz this split resulted in different lengths than the previous time" />
+    <MESSAGE value="update iterations properly and set cursor=0 in svhn after 1 epoch" />
+    <option name="LAST_COMMIT_MESSAGE" value="update iterations properly and set cursor=0 in svhn after 1 epoch" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -891,14 +890,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cifar-10/shuffle/CIFAR-10-random_shuffle.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="138" column="35" selection-start-line="138" selection-start-column="35" selection-end-line="138" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cifar-10/CIFAR-10-convolutions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
@@ -911,6 +902,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="108" column="22" selection-start-line="108" selection-start-column="22" selection-end-line="108" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cifar-10/shuffle/CIFAR-10-random_shuffle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="78" column="39" selection-start-line="78" selection-start-column="39" selection-end-line="78" selection-end-column="39" />
           <folding />
         </state>
       </provider>
