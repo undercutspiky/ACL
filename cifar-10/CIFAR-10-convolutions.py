@@ -23,8 +23,8 @@ with graph.as_default():
 
     x_image = tf.reshape(x, [-1, 32, 32, 3])
 
-    net = tflearn.dropout(x_image, 0.2)
-    net = tflearn.conv_2d(net, 96, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
+    #net = tflearn.dropout(x_image, 0.2)
+    net = tflearn.conv_2d(x_image, 96, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', regularizer='L2')
     if batch_norm:
         net = tflearn.batch_normalization(net)
