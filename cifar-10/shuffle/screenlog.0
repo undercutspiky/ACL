@@ -1,0 +1,67 @@
+reenlog.0 
+kzaikun@greina4:/scratch/zaikun/dj/ACL/cifar-10/shuffle\(tf) [zaikun@greina4 shuffle]$ python CIFAR-10-random_shuffle.py 
+I tensorflow/stream_executor/dso_loader.cc:108] successfully opened CUDA library libcublas.so locally
+I tensorflow/stream_executor/dso_loader.cc:108] successfully opened CUDA library libcudnn.so locally
+I tensorflow/stream_executor/dso_loader.cc:108] successfully opened CUDA library libcufft.so locally
+I tensorflow/stream_executor/dso_loader.cc:108] successfully opened CUDA library libcuda.so.1 locally
+I tensorflow/stream_executor/dso_loader.cc:108] successfully opened CUDA library libcurand.so locally
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:102] Found device 0 with properties: 
+name: Tesla K80
+major: 3 minor: 7 memoryClockRate (GHz) 0.8235
+pciBusID 0000:05:00.0
+Total memory: 11.17GiB
+Free memory: 11.11GiB
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:126] DMA: 0 
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:136] 0:   Y 
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:838] Creating TensorFlow device (/gpu:0) -> (device: 0, name: Tesla K80, pci bus id: 0000:05:00.0)
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:244] PoolAllocator: After 3749 get requests, put_count=3710 evicted_count=1000 eviction_rate=0.269542 and unsatisfied allocation rate=0.303814
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:256] Raising pool_size_limit_ from 100 to 110
+GETTING ACTIVATIONS, ITERATIONS AND LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 1
+Accuracy = 0.1136
+GETTING ACTIVATIONS, ITERATIONS AND LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 2
+Accuracy = 0.0975
+GETTING ACTIVATIONS, ITERATIONS AND LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 3
+Accuracy = 0.1366
+GETTING ACTIVATIONS, ITERATIONS AND LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 4
+Accuracy = 0.1014
+GETTING ACTIVATIONS, ITERATIONS AND LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 5
+Accuracy = 0.102
+GETTING ACTIVATIONS, ITERATIONS AND LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 6
+Accuracy = 0.1013
+GETTING ACTIVATIONS, ITERATIONS AND LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 7
+Accuracy = 0.1098
+^CTraceback (most recent call last):
+  File "CIFAR-10-random_shuffle.py", line 122, in <module>
+    _ = session.run([optimizer], feed_dict=feed_dict)
+  File "/users/zaikun/miniconda2/lib/python2.7/site-packages/tensorflow/python/client/session.py", line 710, in run
+    run_metadata_ptr)
+  File "/users/zaikun/miniconda2/lib/python2.7/site-packages/tensorflow/python/client/session.py", line 908, in _run
+    feed_dict_string, options, run_metadata)
+  File "/users/zaikun/miniconda2/lib/python2.7/site-packages/tensorflow/python/client/session.py", line 958, in _do_run
+    target_list, options, run_metadata)
+  File "/users/zaikun/miniconda2/lib/python2.7/site-packages/tensorflow/python/client/session.py", line 965, in _do_call
+    return fn(*args)
+  File "/users/zaikun/miniconda2/lib/python2.7/site-packages/tensorflow/python/client/session.py", line 947, in _run_fn
+    status, run_metadata)
+KeyboardInterrupt
+kzaikun@greina4:/scratch/zaikun/dj/ACL/cifar-10/shuffle\(tf) [zaikun@greina4 shuffle]$ git pull
+remote: Counting objects: 8, done.[K
+remote: Compressing objects:  50% (1/2)   [Kremote: Compressing objects: 100% (2/2)   [Kremote: Compressing objects: 100% (2/2), done.[K
+remote: Total 8 (delta 6), reused 8 (delta 6), pack-reused 0[K
+Unpacking objects:  12% (1/8)   Unpacking objects:  25% (2/8)   Unpacking objects:  37% (3/8)   Unpacking objects:  50% (4/8)   Unpacking objects:  62% (5/8)   Unpacking objects:  75% (6/8)   Unpacking objects:  87% (7/8)   Unpacking objects: 100% (8/8)   Unpacking objects: 100% (8/8), done.
+From https://github.com/undercutspiky/ACL
+   f9fb3d5..002ce4b  master     -> origin/master
+Updating f9fb3d5..002ce4b
+Fast-forward
+ .idea/workspace.xml                         | 56 [32m+++++++++++++++++++++++++++++[m[31m---------------------------[m
+ cifar-10/CIFAR-10-convolutions.py           |  4 [32m++[m[31m--[m
+ cifar-10/shuffle/CIFAR-10-random_shuffle.py |  6 [32m+++[m[31m---[m
+ 3 files changed, 34 insertions(+), 32 deletions(-)
+kzaikun@greina4:/scratch/zaikun/dj/ACL/cifar-10/shuffle\(tf) [zaikun@greina4 shuffle]$ 
