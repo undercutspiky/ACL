@@ -29,19 +29,6 @@ with graph.as_default():
     if batch_norm:
         net = tflearn.batch_normalization(net)
     net = tf.nn.relu(net)
-    net = tflearn.conv_2d(net, 96, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
-                          bias_init='uniform', regularizer='L2')
-    if batch_norm:
-        net = tflearn.batch_normalization(net)
-    net = tf.nn.relu(net)
-    net = tflearn.conv_2d(net, 96, 3, 2, 'same', 'relu', weights_init=tflearn.initializations.xavier(),
-                          bias_init='uniform', regularizer='L2')
-    net = tflearn.dropout(net, 0.5)
-    net = tflearn.conv_2d(net, 192, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
-                          bias_init='uniform', regularizer='L2')
-    if batch_norm:
-        net = tflearn.batch_normalization(net)
-    net = tf.nn.relu(net)
     net = tflearn.conv_2d(net, 192, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', regularizer='L2')
     if batch_norm:
@@ -50,12 +37,25 @@ with graph.as_default():
     net = tflearn.conv_2d(net, 192, 3, 2, 'same', 'relu', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', regularizer='L2')
     net = tflearn.dropout(net, 0.5)
-    net = tflearn.conv_2d(net, 192, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
+    net = tflearn.conv_2d(net, 256, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', regularizer='L2')
     if batch_norm:
         net = tflearn.batch_normalization(net)
     net = tf.nn.relu(net)
-    net = tflearn.conv_2d(net, 192, 1, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
+    net = tflearn.conv_2d(net, 256, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
+                          bias_init='uniform', regularizer='L2')
+    if batch_norm:
+        net = tflearn.batch_normalization(net)
+    net = tf.nn.relu(net)
+    net = tflearn.conv_2d(net, 256, 3, 2, 'same', 'relu', weights_init=tflearn.initializations.xavier(),
+                          bias_init='uniform', regularizer='L2')
+    net = tflearn.dropout(net, 0.5)
+    net = tflearn.conv_2d(net, 256, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
+                          bias_init='uniform', regularizer='L2')
+    if batch_norm:
+        net = tflearn.batch_normalization(net)
+    net = tf.nn.relu(net)
+    net = tflearn.conv_2d(net, 256, 1, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', regularizer='L2')
     if batch_norm:
         net = tflearn.batch_normalization(net)
@@ -155,5 +155,5 @@ with tf.Session(graph=graph) as session:
     losses = np.array(losses)
     iterations = np.array(iterations)  # activations = np.array(activations)
     print losses.shape, iterations.shape
-    np.save('iterations-all-conv-2', iterations)
-    np.save('losses-all-conv-2', losses)
+    np.save('iterations-all-conv-big', iterations)
+    np.save('losses-all-conv-big', losses)
