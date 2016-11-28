@@ -97,7 +97,7 @@ for i in xrange(1, 5):
         train_y = np.concatenate((train_y, np.eye(10)[dict_['labels']]), axis=0)
 
 dict_ = unpickle('../cifar-10-batches-py/data_batch_5')
-valid_x = dict_['data']
+valid_x = np.array(dict_['data'])/255.0
 valid_y = np.eye(10)[dict_['labels']]
 del dict_
 
@@ -156,4 +156,4 @@ with tf.Session(graph=graph) as session:
     iterations = np.array(iterations)  # activations = np.array(activations)
     print losses.shape, iterations.shape
     np.save('iterations-all-conv-3', iterations)
-    np.save('losses-all-conv-3', losses)
+    np.save('losses-all-conv-3s', losses)
