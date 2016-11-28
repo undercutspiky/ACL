@@ -30,8 +30,8 @@
       <file leaf-file-name="CIFAR-10-convolutions.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cifar-10/CIFAR-10-convolutions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+            <state relative-caret-position="150">
+              <caret line="49" column="34" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -41,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/cifar-10/shuffle/CIFAR-10-random_shuffle.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="567">
-              <caret line="158" column="32" selection-start-line="158" selection-start-column="32" selection-end-line="158" selection-end-column="32" />
+              <caret line="158" column="30" selection-start-line="158" selection-start-column="30" selection-end-line="158" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -424,13 +424,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00031" summary="nothing">
-      <created>1477766417414</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1477766417414</updated>
-    </task>
     <task id="LOCAL-00032" summary="nothing">
       <created>1477766571090</created>
       <option name="number" value="00032" />
@@ -767,7 +760,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479639070337</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="Bigger layer sizes">
+      <created>1480027041024</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1480027041025</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -833,7 +833,8 @@
     <MESSAGE value="increase lr for cifar" />
     <MESSAGE value="svhn bug fix" />
     <MESSAGE value="remove dropout on input cuz it doesn't work" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove dropout on input cuz it doesn't work" />
+    <MESSAGE value="Bigger layer sizes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bigger layer sizes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -921,14 +922,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cifar-10/CIFAR-10-convolutions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/svhn/svhn-basic.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -939,10 +932,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cifar-10/CIFAR-10-convolutions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="49" column="34" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cifar-10/shuffle/CIFAR-10-random_shuffle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
-          <caret line="158" column="32" selection-start-line="158" selection-start-column="32" selection-end-line="158" selection-end-column="32" />
+          <caret line="158" column="30" selection-start-line="158" selection-start-column="30" selection-end-line="158" selection-end-column="30" />
           <folding />
         </state>
       </provider>
