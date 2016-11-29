@@ -3,7 +3,8 @@ import cPickle
 import numpy as np
 import tensorflow as tf
 import tflearn
-from heapq import nlargest, nsmallest
+import os.path
+import time
 
 
 def unpickle(file):
@@ -91,69 +92,78 @@ for i in xrange(1, 5):
     dict_ = unpickle('../cifar-10-batches-py/data_batch_' + str(i))
     if i == 1:
         train_x = np.array(dict_['data'])/255.0
-        train_y = np.eye(10)[dict_['labels']]
+        train_y = dict_['labels']
     else:
         train_x = np.concatenate((train_x, np.array(dict_['data'])/255.0), axis=0)
-        train_y = np.concatenate((train_y, np.eye(10)[dict_['labels']]), axis=0)
+        train_y.extend(dict_['labels'])
 
+train_y  = np.array(train_y)
 dict_ = unpickle('../cifar-10-batches-py/data_batch_5')
 valid_x = np.array(dict_['data'])/255.0
 valid_y = np.eye(10)[dict_['labels']]
 del dict_
 
-epochs = 150
+epochs = 10 * int(round(40000/batch_size))
 losses = []
-activations = []
-iterations = [0] * 40000
+selected_batches = []
 
 with tf.Session(graph=graph) as session:
     tf.initialize_all_variables().run()
     saver = tf.train.Saver(tf.all_variables())
+    saver.save(session,'initial-model')
+    sequence = np.random.choice(len(train_x), size=len(train_x), replace=False)  # The sequence to form batches
+
+    approx_batch = []  # batch used to approximate training set
+    # Create this approx batch by taking 20 examples from each class
+    for ii in xrange(10):
+        ll = len(np.where(train_y == ii)[0])
+        seq = np.random.randint(ll, size=int(round(0.0077*ll)))
+        approx_batch.extend(np.where(train_y == ii)[0][seq])
+    # Insert one element each of approx_batch in first 310 batches so that no batch has undue advantage
+    # 310 cuz for batch size of 128 there are 313 batches so sorry last 3 batches, mi dispiache !
+    for i in xrange(200):
+        index = i*128
+        ran = np.random.randint(128, size=1)
+        b = np.where(sequence == approx_batch[i])[0][0]
+        sequence[b], sequence[index + ran] = sequence[index + ran], sequence[b]
+    np.save('test_batch',approx_batch)
+    np.save('sequence(batches)', sequence)
+    train_y = np.eye(10)[train_y]
+
     i = 1
     cursor = 0
     while i <= epochs:
-        sequence = np.random.choice(len(train_x), size=len(train_x), replace=False)
+        loss_drop = []  # Store drop in loss for approx_batch for each batch
         random_train_x = train_x[sequence]
         random_train_y = train_y[sequence]
-        tflearn.is_training(True, session=session)
+
         batch_xs = random_train_x[cursor: min((cursor + batch_size), len(train_x))]
         batch_ys = random_train_y[cursor: min((cursor + batch_size), len(train_x))]
         feed_dict = {x: batch_xs, y: batch_ys}
+        # Get loss before training on the batch
+        tflearn.is_training(False, session=session)
+        cr1 = session.run([cross_entropy], feed_dict={x: train_x[approx_batch], y: train_y[approx_batch]})
+        tflearn.is_training(True, session=session)
+        # Train it on the batch
         _ = session.run([optimizer], feed_dict=feed_dict)
+        # Get loss on approx_batch after training
+        tflearn.is_training(False, session=session)
+        cr2 = session.run([cross_entropy], feed_dict={x: train_x[approx_batch], y: train_y[approx_batch]})
+        loss_drop.append(cr2[0]-cr1[0])
+        if i == 1:
+            saver.restore(session,'initial-model')
+        else:
+            saver.restore(session, 'prev-model')
 
-        cursor = (cursor + batch_size) % 40000
+        cursor = (cursor + batch_size) % 10112
         if cursor == 0:
-            tflearn.is_training(False, session=session)
-            l_list = []
-            ac_list = []
-            print "GETTING ACTIVATIONS, ITERATIONS AND LOSSES FOR ALL EXAMPLES"
-            for iii in xrange(400):
-                batch_xs = train_x[iii * 100: (iii + 1) * 100]
-                batch_ys = train_y[iii * 100: (iii + 1) * 100]
-                feed_dict = {x: batch_xs, y: batch_ys}
-                cr, co = session.run([cross_entropy, correct_], feed_dict=feed_dict)
-
-                # Update iterations
-                for j in xrange(len(co)):
-                    if not co[j]:
-                        iterations[j] += 1
-                # Append losses, activations for batch
-                l_list.extend(cr)
-                ac_list.extend(co)
-            # Append losses, activations for epoch
-            losses.append(l_list)  # activations.append(ac_list)
-
-            # Validation test
-            print "TESTING ON VALIDATION SET for epoch = " + str(i)
-            cor_pred = []
-            for iii in xrange(100):
-                a = session.run([correct_], feed_dict={x: valid_x[iii * 100:(iii + 1) * 100],
-                                                       y: valid_y[iii * 100:(iii + 1) * 100]})
-                cor_pred.append(a)
-            print "Accuracy = " + str(np.mean(cor_pred))
+            print "Waiting for loss drops from other processes"
+            # Wait till data is available from others
+            for jj in xrange(2):
+                while not os.path.exists("loss-drop-"+str(jj)+".npy"):
+                    time.sleep(1)
+                loss_drop.extend(np.load("loss-drop-"+str(jj)+".npy"))
+            loss_drop = sorted([(j,i) for i,j in enumerate(loss_drop)], reverse=True)
+            selected_batches.append(loss_drop[0][0])
+            print "#Batches model has been trained on  = "+str(i)
             i += 1
-    losses = np.array(losses)
-    iterations = np.array(iterations)  # activations = np.array(activations)
-    print losses.shape, iterations.shape
-    np.save('iterations-all-conv-3', iterations)
-    np.save('losses-all-conv-3s', losses)
