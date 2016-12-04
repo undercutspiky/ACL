@@ -62,8 +62,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/expensive/cifar-10/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="168" column="78" selection-start-line="168" selection-start-column="78" selection-end-line="168" selection-end-column="78" />
+            <state relative-caret-position="447">
+              <caret line="173" column="57" selection-start-line="173" selection-start-column="57" selection-end-line="173" selection-end-column="57" />
               <folding>
                 <element signature="e#137#219#0" expanded="false" />
               </folding>
@@ -454,13 +454,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00038" summary="nothing">
-      <created>1477856125132</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1477856125133</updated>
-    </task>
     <task id="LOCAL-00039" summary="nothing">
       <created>1477858875368</created>
       <option name="number" value="00039" />
@@ -797,7 +790,14 @@
       <option name="project" value="LOCAL" />
       <updated>1480685858296</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="add try except for loading numpy loss drop array">
+      <created>1480812775015</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1480812775016</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -866,7 +866,8 @@
     <MESSAGE value="Bigger layer sizes" />
     <MESSAGE value="divide images by 255" />
     <MESSAGE value="5 processes + 1 master for expensive algo" />
-    <option name="LAST_COMMIT_MESSAGE" value="5 processes + 1 master for expensive algo" />
+    <MESSAGE value="add try except for loading numpy loss drop array" />
+    <option name="LAST_COMMIT_MESSAGE" value="add try except for loading numpy loss drop array" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1006,8 +1007,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/expensive/cifar-10/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="168" column="78" selection-start-line="168" selection-start-column="78" selection-end-line="168" selection-end-column="78" />
+        <state relative-caret-position="447">
+          <caret line="173" column="57" selection-start-line="173" selection-start-column="57" selection-end-line="173" selection-end-column="57" />
           <folding>
             <element signature="e#137#219#0" expanded="false" />
           </folding>

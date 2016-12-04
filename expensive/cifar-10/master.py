@@ -171,6 +171,7 @@ with tf.Session(graph=graph) as session:
             # Find the index of the batch with highest drop on approx_batch and train on it
             loss_drop = sorted(zip(loss_drop, range(len(loss_drop))), reverse=True)
             selected_batches.append(loss_drop[0][1])
+            np.save('selected_batches', selected_batches)
             sel_st_idx = batch_size * loss_drop[0][1]
             batch_xs = random_train_x[sel_st_idx: min((sel_st_idx + batch_size), len(train_x))]
             batch_ys = random_train_y[sel_st_idx: min((sel_st_idx + batch_size), len(train_x))]
