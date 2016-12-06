@@ -132,8 +132,9 @@ with tf.Session(graph=graph) as session:
 
     i = 1
     cursor = 0
+    loss_drop = []  # Store drop in loss for approx_batch for each batch
     while i <= epochs:
-        loss_drop = []  # Store drop in loss for approx_batch for each batch
+
         random_train_x = train_x[sequence]
         random_train_y = train_y[sequence]
 
@@ -181,6 +182,7 @@ with tf.Session(graph=graph) as session:
 
             print "#Batches model has been trained on  = "+str(i)
             i += 1
+            loss_drop = []  #  Reset drop
             saver.save(session, 'prev-model'+str(i % 2))
             if os.path.exists('prev-model'+str((i-1) % 2)):
                 os.remove('prev-model'+str((i-1) % 2))  # Delete the previous obsolete model
