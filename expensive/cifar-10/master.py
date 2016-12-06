@@ -169,6 +169,7 @@ with tf.Session(graph=graph) as session:
                     loss_drop.extend(np.load("loss-drop-" + str(jj) + ".npy"))
                 os.remove("loss-drop-"+str(jj)+".npy")
             # Find the index of the batch with highest drop on approx_batch and train on it
+            print len(loss_drop)
             loss_drop = sorted(zip(loss_drop, range(len(loss_drop))), reverse=True)
             selected_batches.append(loss_drop[0][1])
             np.save('selected_batches', selected_batches)
