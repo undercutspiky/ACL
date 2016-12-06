@@ -119,8 +119,9 @@ with tf.Session(graph=graph) as session:
     i = 1
     cursor_start = batch_size * 53 + (52 * int(sys.argv[1]))
     cursor = cursor_start
+    loss_drop = []  # Store drop in loss for approx_batch for each batch
     while i <= epochs:
-        loss_drop = []  # Store drop in loss for approx_batch for each batch
+
         random_train_x = train_x[sequence]
         random_train_y = train_y[sequence]
 
@@ -150,6 +151,7 @@ with tf.Session(graph=graph) as session:
             np.save("loss-drop-"+str(sys.argv[1]), loss_drop)
             cursor = cursor_start
             i += 1
+            loss_drop = []  # Reset drop
             while not os.path.exists('prev-model'+str(i % 2)):
                 time.sleep(1)
             saver.restore(session, 'prev-model'+str(i % 2))
