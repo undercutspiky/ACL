@@ -5,8 +5,10 @@ import tensorflow as tf
 import tflearn
 import os
 import time
+import sys
 
 
+os.chdir('../')
 def unpickle(file):
     fo = open(file, 'rb')
     dict_ = cPickle.load(fo)
@@ -103,86 +105,40 @@ valid_x = np.array(dict_['data'])/255.0
 valid_y = np.eye(10)[dict_['labels']]
 del dict_
 
-epochs = 10 * int(round(40000/batch_size))
+epochs = 50
 losses = []
 selected_batches = []
 
 with tf.Session(graph=graph) as session:
     tf.initialize_all_variables().run()
     saver = tf.train.Saver(tf.all_variables())
-    saver.save(session,'initial-model')
-    sequence = np.random.choice(len(train_x), size=len(train_x), replace=False)  # The sequence to form batches
-
-    approx_batch = []  # batch used to approximate training set
-    # Create this approx batch by taking 20 examples from each class
-    for ii in xrange(10):
-        ll = len(np.where(train_y == ii)[0])
-        seq = np.random.randint(ll, size=int(round(0.0077*ll)))
-        approx_batch.extend(np.where(train_y == ii)[0][seq])
-    # Insert one element each of approx_batch in first 310 batches so that no batch has undue advantage
-    # 310 cuz for batch size of 128 there are 313 batches so sorry last 3 batches, mi dispiache !
-    for i in xrange(200):
-        index = i*128
-        ran = np.random.randint(128, size=1)
-        b = np.where(sequence == approx_batch[i])[0][0]
-        sequence[b], sequence[index + ran] = sequence[index + ran], sequence[b]
-    np.save('approx_batch',approx_batch)
-    np.save('sequence(batch_size-128)', sequence)
+    saver.restore(session,'initial-model')
+    sequence = np.load('sequence(batch_size-128).npy')  # The sequence to form batches
+    curriculum = np.load('selected_batches.npy')
     train_y = np.eye(10)[train_y]
 
-    i = 1
-    cursor = 0
-    loss_drop = []  # Store drop in loss for approx_batch for each batch
-    while i <= epochs:
+    # Change directory to save files
+    os.chdir('sequence_test')
 
+    i = 0
+    while i <= epochs:
         random_train_x = train_x[sequence]
         random_train_y = train_y[sequence]
 
-        batch_xs = random_train_x[cursor: min((cursor + batch_size), len(train_x))]
-        batch_ys = random_train_y[cursor: min((cursor + batch_size), len(train_x))]
+        batch_xs = random_train_x[curriculum[i]*128: min((curriculum[i]*128 + batch_size), len(train_x))]
+        batch_ys = random_train_y[curriculum[i]*128: min((curriculum[i]*128 + batch_size), len(train_x))]
         feed_dict = {x: batch_xs, y: batch_ys}
-        # Get loss before training on the batch
-        tflearn.is_training(False, session=session)
-        cr1 = session.run([cross_entropy], feed_dict={x: train_x[approx_batch], y: train_y[approx_batch]})
         tflearn.is_training(True, session=session)
         # Train it on the batch
         _ = session.run([optimizer], feed_dict=feed_dict)
-        # Get loss on approx_batch after training
+        # Get loss on training data after training
         tflearn.is_training(False, session=session)
-        cr2 = session.run([cross_entropy], feed_dict={x: train_x[approx_batch], y: train_y[approx_batch]})
-        loss_drop.append(cr1[0][0]-cr2[0][0])
-        if i == 1:
-            saver.restore(session,'initial-model')
-        else:
-            saver.restore(session, 'prev-model'+str(i % 2))
-
-        cursor = (cursor + batch_size) % (batch_size * 53)  # 53 for master and 52 for the rest except last one - 51.5
-        if cursor == 0:
-            print "Waiting for loss drops from other processes"
-            # Wait till data is available from others
-            for jj in xrange(5):
-                while not os.path.exists("loss-drop-"+str(jj)+".npy"):
-                    time.sleep(1)
-                try:
-                    loss_drop.extend(np.load("loss-drop-"+str(jj)+".npy"))
-                except IOError:
-                    time.sleep(1)
-                    loss_drop.extend(np.load("loss-drop-" + str(jj) + ".npy"))
-                os.remove("loss-drop-"+str(jj)+".npy")
-            # Find the index of the batch with highest drop on approx_batch and train on it
-            loss_drop = sorted(zip(loss_drop, range(len(loss_drop))), reverse=True)
-            selected_batches.append(loss_drop[0][1])
-            np.save('selected_batches', selected_batches)
-            sel_st_idx = batch_size * loss_drop[0][1]
-            batch_xs = random_train_x[sel_st_idx: min((sel_st_idx + batch_size), len(train_x))]
-            batch_ys = random_train_y[sel_st_idx: min((sel_st_idx + batch_size), len(train_x))]
-            feed_dict = {x: batch_xs, y: batch_ys}
-            _ = session.run([optimizer], feed_dict=feed_dict)
-
-            print "#Batches model has been trained on  = "+str(i)
-            i += 1
-            loss_drop = []  # Reset drop
-            saver.save(session, 'prev-model'+str(i % 2))
-            if os.path.exists('prev-model'+str((i-1) % 2)):
-                os.remove('prev-model'+str((i-1) % 2))  # Delete the previous obsolete model
-    np.save('selected_batches',selected_batches)
+        loss = []
+        print "Getting loss on train data"
+        for ii in xrange(200):
+            cr2 = session.run([cross_entropy], feed_dict={x: train_x[ii*200:(ii+1)*200], y: train_y[ii*200:(ii+1)*200]})
+            loss.append(cr2[0])
+        print "Loss for epoch "+str(i)+" = "+str(np.mean(loss))
+        losses.append(np.mean(loss))
+        i += 1
+    np.save('losses',losses)
