@@ -13,7 +13,7 @@ def unpickle(file):
     return dict_
 
 
-batch_size = 64
+batch_size = 128
 batch_norm = True
 
 graph = tf.Graph()
@@ -149,4 +149,4 @@ with tf.Session(graph=graph) as session:
             i += 1
     losses = np.array(losses)
     print losses.shape
-    np.save('losses-all-conv-batch_size-64', losses)
+    np.save('losses-all-conv-batch_size-'+str(batch_size), losses)
