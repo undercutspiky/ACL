@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expensive/cifar-10/master.py" afterPath="$PROJECT_DIR$/expensive/cifar-10/master.py" />
     </list>
     <ignored path="ACL.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,43 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="svhn-basic.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/svhn/svhn-basic.py">
+      <file leaf-file-name="CIFAR-10-random_shuffle.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cifar-10/batch_wise/CIFAR-10-random_shuffle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-              <folding>
-                <element signature="e#16#30#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="master.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/expensive/cifar-10/master.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-813">
-              <caret line="96" column="39" selection-start-line="96" selection-start-column="39" selection-end-line="96" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="process.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/expensive/cifar-10/process.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="153" column="35" selection-start-line="153" selection-start-column="35" selection-end-line="153" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="curriculum.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/expensive/cifar-10/sequence_test/curriculum.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="128" column="71" selection-start-line="128" selection-start-column="71" selection-end-line="128" selection-end-column="71" />
+            <state relative-caret-position="957">
+              <caret line="123" column="22" selection-start-line="123" selection-start-column="22" selection-end-line="123" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -107,6 +74,7 @@
         <option value="$PROJECT_DIR$/expensive/cifar-10/process.py" />
         <option value="$PROJECT_DIR$/expensive/cifar-10/master.py" />
         <option value="$PROJECT_DIR$/expensive/cifar-10/sequence_test/curriculum.py" />
+        <option value="$PROJECT_DIR$/cifar-10/batch_wise/CIFAR-10-random_shuffle.py" />
       </list>
     </option>
   </component>
@@ -203,7 +171,17 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="expensive" />
+              <option name="myItemId" value="cifar-10" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ACL" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ACL" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -211,7 +189,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sequence_test" />
+              <option name="myItemId" value="batch_wise" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -484,13 +462,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
-    </task>
-    <task id="LOCAL-00044" summary="nothing">
-      <created>1477870019375</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1477870019375</updated>
     </task>
     <task id="LOCAL-00045" summary="nothing">
       <created>1477870098534</created>
@@ -828,7 +799,14 @@
       <option name="project" value="LOCAL" />
       <updated>1481013937733</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="trying the '312-batch' curriculum just for the sake of trying">
+      <created>1481476166595</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1481476166596</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -901,7 +879,8 @@
     <MESSAGE value="save selected batches at every step" />
     <MESSAGE value="checking if something's wrong" />
     <MESSAGE value="something indeed was wrong :'(" />
-    <option name="LAST_COMMIT_MESSAGE" value="something indeed was wrong :'(" />
+    <MESSAGE value="trying the '312-batch' curriculum just for the sake of trying" />
+    <option name="LAST_COMMIT_MESSAGE" value="trying the '312-batch' curriculum just for the sake of trying" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -929,7 +908,7 @@
         <state relative-caret-position="1260">
           <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
           <folding>
-            <element signature="e#16#30#0" expanded="true" />
+            <element signature="e#16#30#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -971,7 +950,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#16#30#0" expanded="true" />
+            <element signature="e#16#30#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1049,28 +1028,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/svhn/svhn-basic.py">
+    <entry file="file://$PROJECT_DIR$/expensive/cifar-10/sequence_test/curriculum.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-          <folding>
-            <element signature="e#16#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cifar-10/shuffle/CIFAR-10-random_shuffle.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="114" column="83" selection-start-line="114" selection-start-column="83" selection-end-line="114" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/expensive/cifar-10/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-813">
-          <caret line="96" column="39" selection-start-line="96" selection-start-column="39" selection-end-line="96" selection-end-column="39" />
+        <state relative-caret-position="372">
+          <caret line="128" column="71" selection-start-line="128" selection-start-column="71" selection-end-line="128" selection-end-column="71" />
           <folding />
         </state>
       </provider>
@@ -1083,10 +1044,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/expensive/cifar-10/sequence_test/curriculum.py">
+    <entry file="file://$PROJECT_DIR$/expensive/cifar-10/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="128" column="71" selection-start-line="128" selection-start-column="71" selection-end-line="128" selection-end-column="71" />
+        <state relative-caret-position="-813">
+          <caret line="96" column="39" selection-start-line="96" selection-start-column="39" selection-end-line="96" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/svhn/svhn-basic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding>
+            <element signature="e#16#30#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cifar-10/shuffle/CIFAR-10-random_shuffle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="114" column="83" selection-start-line="114" selection-start-column="83" selection-end-line="114" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cifar-10/batch_wise/CIFAR-10-random_shuffle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="957">
+          <caret line="123" column="22" selection-start-line="123" selection-start-column="22" selection-end-line="123" selection-end-column="22" />
           <folding />
         </state>
       </provider>
