@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="">
+    <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="batch-wise analysis">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ACL.iws" />
@@ -49,8 +49,8 @@
       <file leaf-file-name="CIFAR-10-random_shuffle.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cifar-10/batch_wise/CIFAR-10-random_shuffle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="957">
-              <caret line="123" column="22" selection-start-line="123" selection-start-column="22" selection-end-line="123" selection-end-column="22" />
+            <state relative-caret-position="162">
+              <caret line="70" column="56" selection-start-line="70" selection-start-column="56" selection-end-line="70" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -463,13 +463,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00045" summary="nothing">
-      <created>1477870098534</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1477870098534</updated>
-    </task>
     <task id="LOCAL-00046" summary="nothing">
       <created>1477932256156</created>
       <option name="number" value="00046" />
@@ -806,7 +799,14 @@
       <option name="project" value="LOCAL" />
       <updated>1481476166596</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="batch-wise analysis">
+      <created>1481480616566</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1481480616566</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -880,7 +880,8 @@
     <MESSAGE value="checking if something's wrong" />
     <MESSAGE value="something indeed was wrong :'(" />
     <MESSAGE value="trying the '312-batch' curriculum just for the sake of trying" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying the '312-batch' curriculum just for the sake of trying" />
+    <MESSAGE value="batch-wise analysis" />
+    <option name="LAST_COMMIT_MESSAGE" value="batch-wise analysis" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1072,8 +1073,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cifar-10/batch_wise/CIFAR-10-random_shuffle.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="957">
-          <caret line="123" column="22" selection-start-line="123" selection-start-column="22" selection-end-line="123" selection-end-column="22" />
+        <state relative-caret-position="162">
+          <caret line="70" column="56" selection-start-line="70" selection-start-column="56" selection-end-line="70" selection-end-column="56" />
           <folding />
         </state>
       </provider>
