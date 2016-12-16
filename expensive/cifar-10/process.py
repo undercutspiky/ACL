@@ -117,9 +117,16 @@ with tf.Session(graph=graph) as session:
     train_y = np.eye(10)[train_y]
 
     i = 1
-    cursor_start = batch_size * 53 + (52 * int(sys.argv[1]))
+    # 79 for master and 78 for the rest except last one - 77.5
+    cursor_start = batch_size * 79 + (78 * int(sys.argv[1]))
     cursor = cursor_start
     loss_drop = []  # Store drop in loss for approx_batch for each batch
+
+    # Get loss before training on the batch
+    tflearn.is_training(False, session=session)
+    cr1 = session.run([cross_entropy], feed_dict={x: train_x[approx_batch], y: train_y[approx_batch]})
+    tflearn.is_training(True, session=session)
+
     while i <= epochs:
 
         random_train_x = train_x[sequence]
@@ -128,10 +135,6 @@ with tf.Session(graph=graph) as session:
         batch_xs = random_train_x[cursor: min((cursor + batch_size), len(train_x))]
         batch_ys = random_train_y[cursor: min((cursor + batch_size), len(train_x))]
         feed_dict = {x: batch_xs, y: batch_ys}
-        # Get loss on approx_batch before training on the batch
-        tflearn.is_training(False, session=session)
-        cr1 = session.run([cross_entropy], feed_dict={x: train_x[approx_batch], y: train_y[approx_batch]})
-        tflearn.is_training(True, session=session)
         # Train it on the batch
         _ = session.run([optimizer], feed_dict=feed_dict)
         # Get loss on approx_batch after training
@@ -145,13 +148,19 @@ with tf.Session(graph=graph) as session:
                 time.sleep(1)
             saver.restore(session, 'prev-model'+str(i % 2))
 
-        # 53 for master and 52 for the rest except last one - 51.5
-        cursor = (cursor + batch_size) % (cursor_start + batch_size * 52)
+        # 79 for master and 78 for the rest except last one - 77.5
+        cursor = (cursor + batch_size) % (cursor_start + batch_size * 78)
         if cursor == 0:
             np.save("loss-drop-"+str(sys.argv[1]), loss_drop)
+            np.save('loss-drop-'+str(sys.argv[1])+'-step-' + str(i), loss_drop)
             cursor = cursor_start
             i += 1
             loss_drop = []  # Reset drop
             while not os.path.exists('prev-model'+str(i % 2)):
                 time.sleep(1)
             saver.restore(session, 'prev-model'+str(i % 2))
+
+            # Get loss before training on the batch
+            tflearn.is_training(False, session=session)
+            cr1 = session.run([cross_entropy], feed_dict={x: train_x[approx_batch], y: train_y[approx_batch]})
+            tflearn.is_training(True, session=session)
