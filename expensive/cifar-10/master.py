@@ -161,7 +161,6 @@ with tf.Session(graph=graph) as session:
 
         cursor = (cursor + batch_size) % (batch_size * 78)  # 79 for master and 78 for the rest except last one - 77.5
         if cursor == 0:
-            np.save('loss-drop-master-step-'+str(i), loss_drop)
             print "Waiting for loss drops from other processes"
             # Wait till data is available from others
             for jj in xrange(3):
@@ -173,6 +172,7 @@ with tf.Session(graph=graph) as session:
                     time.sleep(1)
                     loss_drop.extend(np.load("loss-drop-" + str(jj) + ".npy"))
                 os.remove("loss-drop-"+str(jj)+".npy")
+            np.save('loss-drop-step-' + str(i), loss_drop)
             # Find the index of the batch with highest drop on approx_batch and train on it
             loss_drop = sorted(zip(loss_drop, range(len(loss_drop))), reverse=True)
             selected_batches.append(loss_drop[0][1])

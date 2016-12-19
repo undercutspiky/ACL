@@ -152,7 +152,6 @@ with tf.Session(graph=graph) as session:
         cursor = (cursor + batch_size) % (cursor_start + batch_size * 78)
         if cursor == 0:
             np.save("loss-drop-"+str(sys.argv[1]), loss_drop)
-            np.save('loss-drop-'+str(sys.argv[1])+'-step-' + str(i), loss_drop)
             cursor = cursor_start
             i += 1
             loss_drop = []  # Reset drop
