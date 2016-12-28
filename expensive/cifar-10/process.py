@@ -83,7 +83,9 @@ with graph.as_default():
     gradients, v = zip(*optimizer.compute_gradients(loss))
     gradients, _ = tf.clip_by_global_norm(gradients, 1.25)
     optimizer = optimizer.apply_gradients(zip(gradients, v), global_step=global_step)
-
+    
+    # Op to initialize variables
+    init_op = tf.global_variables_initializer()
 # ### Read data
 # * Use first 4 data files as training data and last one as validation
 
@@ -109,9 +111,9 @@ losses = []
 selected_batches = []
 
 with tf.Session(graph=graph) as session:
-    tf.initialize_all_variables().run()
-    saver = tf.train.Saver(tf.all_variables())
-    saver.restore(session,'initial-model')
+    session.run(init_op)
+    saver = tf.train.Saver()
+    saver.restore(session,'./initial-model')
     sequence = np.load('sequence(batch_size-128).npy')  # The sequence to form batches
     approx_batch = np.load('approx_batch.npy')  # batch used to approximate training set
     train_y = np.eye(10)[train_y]
@@ -142,11 +144,11 @@ with tf.Session(graph=graph) as session:
         cr2 = session.run([loss], feed_dict={x: train_x[approx_batch], y: train_y[approx_batch]})
         loss_drop.append(cr1[0]-cr2[0])
         if i == 1:
-            saver.restore(session,'initial-model')
+            saver.restore(session,'./initial-model')
         else:
-            while not os.path.exists('prev-model'+str(i % 2)):
+            while not os.path.exists('./prev-model'+str(i % 2)):
                 time.sleep(1)
-            saver.restore(session, 'prev-model'+str(i % 2))
+            saver.restore(session, './prev-model'+str(i % 2))
 
         # 79 for master and 78 for the rest except last one - 77.5
         cursor = (cursor + batch_size) % (cursor_start + batch_size * 78)
@@ -155,9 +157,9 @@ with tf.Session(graph=graph) as session:
             cursor = cursor_start
             i += 1
             loss_drop = []  # Reset drop
-            while not os.path.exists('prev-model'+str(i % 2)):
+            while not os.path.exists('./prev-model'+str(i % 2)):
                 time.sleep(1)
-            saver.restore(session, 'prev-model'+str(i % 2))
+            saver.restore(session, './prev-model'+str(i % 2))
 
             # Get loss before training on the batch
             tflearn.is_training(False, session=session)
