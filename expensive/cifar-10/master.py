@@ -154,7 +154,7 @@ with tf.Session(graph=graph) as session:
         # Get loss on approx_batch after training
         tflearn.is_training(False, session=session)
         cr2 = session.run([loss], feed_dict={x: train_x[approx_batch], y: train_y[approx_batch]})
-        loss_drop.append(cr1[0][0]-cr2[0][0])
+        loss_drop.append(cr1[0]-cr2[0])
         if i == 1:
             saver.restore(session,'initial-model')
         else:
