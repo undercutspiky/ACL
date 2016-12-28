@@ -143,7 +143,6 @@ with tf.Session(graph=graph) as session:
         if i == 1:
             saver.restore(session,'./initial-model')
         else:
-            print 'waiting for ./prev-model'+str(i % 2)
             while not os.path.exists('./prev-model'+str(i % 2)):
                 time.sleep(1)
             saver.restore(session, './prev-model'+str(i % 2))
@@ -155,6 +154,7 @@ with tf.Session(graph=graph) as session:
             cursor = cursor_start
             i += 1
             loss_drop = []  # Reset drop
+            print 'waiting for ./prev-model' + str(i % 2)
             while not os.path.exists('./prev-model'+str(i % 2)):
                 time.sleep(1)
             saver.restore(session, './prev-model'+str(i % 2))
