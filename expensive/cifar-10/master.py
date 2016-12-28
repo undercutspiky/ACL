@@ -105,7 +105,7 @@ valid_x = np.array(dict_['data'])/255.0
 valid_y = np.eye(10)[dict_['labels']]
 del dict_
 
-epochs = 10 * int(round(40000/batch_size)+1)
+epochs = 200  # 10 * int(round(40000/batch_size)+1)
 losses = []
 selected_batches = []
 with tf.Session(graph=graph) as session:
@@ -175,6 +175,7 @@ with tf.Session(graph=graph) as session:
                     loss_drop.extend(np.load("loss-drop-" + str(jj) + ".npy"))
                 os.remove("loss-drop-"+str(jj)+".npy")
             # Gotta save all the losses
+            print loss_drop
             losses.append(loss_drop)
             # Find the index of the batch with highest drop on approx_batch and train on it
             loss_drop = sorted(zip(loss_drop, range(len(loss_drop))), reverse=True)
