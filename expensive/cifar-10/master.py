@@ -136,7 +136,8 @@ with tf.Session(graph=graph) as session:
 
     # Get loss on approx_batch before training on the selected batch
     tflearn.is_training(False, session=session)
-    cr1 = session.run([cross_entropy], feed_dict={x: train_x[approx_batch], y: train_y[approx_batch]})
+    cr1 = session.run([loss], feed_dict={x: train_x[approx_batch], y: train_y[approx_batch]})
+    print cr1.shape
     tflearn.is_training(True, session=session)
 
     while i <= epochs:
@@ -152,7 +153,7 @@ with tf.Session(graph=graph) as session:
         _ = session.run([optimizer], feed_dict=feed_dict)
         # Get loss on approx_batch after training
         tflearn.is_training(False, session=session)
-        cr2 = session.run([cross_entropy], feed_dict={x: train_x[approx_batch], y: train_y[approx_batch]})
+        cr2 = session.run([loss], feed_dict={x: train_x[approx_batch], y: train_y[approx_batch]})
         loss_drop.append(cr1[0][0]-cr2[0][0])
         if i == 1:
             saver.restore(session,'initial-model')
@@ -193,6 +194,6 @@ with tf.Session(graph=graph) as session:
 
             # Get loss before training on the batch
             tflearn.is_training(False, session=session)
-            cr1 = session.run([cross_entropy], feed_dict={x: train_x[approx_batch], y: train_y[approx_batch]})
+            cr1 = session.run([loss], feed_dict={x: train_x[approx_batch], y: train_y[approx_batch]})
             tflearn.is_training(True, session=session)
     np.save('selected_batches',selected_batches)

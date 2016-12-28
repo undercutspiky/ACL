@@ -28,41 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CIFAR-10-convolutions.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cifar-10/CIFAR-10-convolutions.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="49" column="34" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CIFAR-10-random_shuffle.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cifar-10/shuffle/CIFAR-10-random_shuffle.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1650">
-              <caret line="114" column="83" selection-start-line="114" selection-start-column="83" selection-end-line="114" selection-end-column="83" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CIFAR-10-random_shuffle.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cifar-10/batch_wise/CIFAR-10-random_shuffle.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="151" column="40" selection-start-line="151" selection-start-column="29" selection-end-line="151" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/expensive/cifar-10/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="174" column="30" selection-start-line="174" selection-start-column="30" selection-end-line="174" selection-end-column="30" />
+            <state relative-caret-position="1437">
+              <caret line="196" column="35" selection-start-line="196" selection-start-column="35" selection-end-line="196" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -71,8 +41,8 @@
       <file leaf-file-name="process.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/expensive/cifar-10/process.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="154" column="12" selection-start-line="154" selection-start-column="12" selection-end-line="154" selection-end-column="12" />
+            <state relative-caret-position="327">
+              <caret line="141" column="31" selection-start-line="141" selection-start-column="31" selection-end-line="141" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -96,8 +66,9 @@
         <option value="$PROJECT_DIR$/expensive/cifar-10/sequence_test/curriculum.py" />
         <option value="$PROJECT_DIR$/cifar-10/batch_wise/CIFAR-10-random_shuffle.py" />
         <option value="$PROJECT_DIR$/cifar-10/batch_wise/Visualization-Big.ipynb" />
-        <option value="$PROJECT_DIR$/expensive/cifar-10/master.py" />
+        <option value="$PROJECT_DIR$/another-expensive/cifar-10/master.py" />
         <option value="$PROJECT_DIR$/expensive/cifar-10/process.py" />
+        <option value="$PROJECT_DIR$/expensive/cifar-10/master.py" />
       </list>
     </option>
   </component>
@@ -177,6 +148,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="expensive" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cifar-10" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ACL" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ACL" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="another-expensive" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -453,13 +442,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
-    </task>
-    <task id="LOCAL-00049" summary="nothing">
-      <created>1477934275157</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1477934275157</updated>
     </task>
     <task id="LOCAL-00050" summary="nothing">
       <created>1477934704001</created>
@@ -797,7 +779,14 @@
       <option name="project" value="LOCAL" />
       <updated>1481932685215</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="save loss drop from master process for every step">
+      <created>1482154204020</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1482154204021</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -873,7 +862,8 @@
     <MESSAGE value="trying the '312-batch' curriculum just for the sake of trying" />
     <MESSAGE value="batch-wise analysis" />
     <MESSAGE value="6 to 4 GPUs for expensive algo and changed to measuring loss on approx_batch only once instead of everytime after restoring model" />
-    <option name="LAST_COMMIT_MESSAGE" value="6 to 4 GPUs for expensive algo and changed to measuring loss on approx_batch only once instead of everytime after restoring model" />
+    <MESSAGE value="save loss drop from master process for every step" />
+    <option name="LAST_COMMIT_MESSAGE" value="save loss drop from master process for every step" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1061,18 +1051,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/another-expensive/cifar-10/master.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/expensive/cifar-10/process.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="154" column="12" selection-start-line="154" selection-start-column="12" selection-end-line="154" selection-end-column="12" />
+        <state relative-caret-position="327">
+          <caret line="141" column="31" selection-start-line="141" selection-start-column="31" selection-end-line="141" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/expensive/cifar-10/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="174" column="30" selection-start-line="174" selection-start-column="30" selection-end-line="174" selection-end-column="30" />
+        <state relative-caret-position="1437">
+          <caret line="196" column="35" selection-start-line="196" selection-start-column="35" selection-end-line="196" selection-end-column="35" />
           <folding />
         </state>
       </provider>
