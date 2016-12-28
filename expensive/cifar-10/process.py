@@ -145,6 +145,10 @@ with tf.Session(graph=graph) as session:
         else:
             while not os.path.exists('./prev-model'+str(i % 2)+'.data-00000-of-00001'):
                 time.sleep(1)
+            while not os.path.exists('./prev-model'+str(i % 2)+'.index'):
+                time.sleep(1)
+            while not os.path.exists('./prev-model'+str(i % 2)+'.meta'):
+                time.sleep(1)
             saver.restore(session, './prev-model'+str(i % 2))
 
         # 79 for master and 78 for the rest except last one - 77.5
@@ -155,6 +159,10 @@ with tf.Session(graph=graph) as session:
             i += 1
             loss_drop = []  # Reset drop
             while not os.path.exists('./prev-model'+str(i % 2)+'.data-00000-of-00001'):
+                time.sleep(1)
+            while not os.path.exists('./prev-model'+str(i % 2)+'.index'):
+                time.sleep(1)
+            while not os.path.exists('./prev-model'+str(i % 2)+'.meta'):
                 time.sleep(1)
             saver.restore(session, './prev-model'+str(i % 2))
 
