@@ -4,7 +4,6 @@
     <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expensive/cifar-10/master.py" afterPath="$PROJECT_DIR$/expensive/cifar-10/master.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expensive/cifar-10/process.py" afterPath="$PROJECT_DIR$/expensive/cifar-10/process.py" />
     </list>
     <ignored path="ACL.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,8 +30,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/expensive/cifar-10/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1437">
-              <caret line="196" column="35" selection-start-line="196" selection-start-column="35" selection-end-line="196" selection-end-column="35" />
+            <state relative-caret-position="477">
+              <caret line="139" column="13" selection-start-line="139" selection-start-column="13" selection-end-line="139" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -443,13 +442,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00050" summary="nothing">
-      <created>1477934704001</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1477934704002</updated>
-    </task>
     <task id="LOCAL-00051" summary="nothing">
       <created>1478088456858</created>
       <option name="number" value="00051" />
@@ -786,7 +778,14 @@
       <option name="project" value="LOCAL" />
       <updated>1482154204021</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="horrible mistake corrected :'(">
+      <created>1482924131303</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1482924131303</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -863,7 +862,8 @@
     <MESSAGE value="batch-wise analysis" />
     <MESSAGE value="6 to 4 GPUs for expensive algo and changed to measuring loss on approx_batch only once instead of everytime after restoring model" />
     <MESSAGE value="save loss drop from master process for every step" />
-    <option name="LAST_COMMIT_MESSAGE" value="save loss drop from master process for every step" />
+    <MESSAGE value="horrible mistake corrected :'(" />
+    <option name="LAST_COMMIT_MESSAGE" value="horrible mistake corrected :'(" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1069,8 +1069,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/expensive/cifar-10/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1437">
-          <caret line="196" column="35" selection-start-line="196" selection-start-column="35" selection-end-line="196" selection-end-column="35" />
+        <state relative-caret-position="477">
+          <caret line="139" column="13" selection-start-line="139" selection-start-column="13" selection-end-line="139" selection-end-column="13" />
           <folding />
         </state>
       </provider>

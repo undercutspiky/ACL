@@ -137,7 +137,7 @@ with tf.Session(graph=graph) as session:
     # Get loss on approx_batch before training on the selected batch
     tflearn.is_training(False, session=session)
     cr1 = session.run([loss], feed_dict={x: train_x[approx_batch], y: train_y[approx_batch]})
-    print cr1.shape
+    print cr1
     tflearn.is_training(True, session=session)
 
     while i <= epochs:
