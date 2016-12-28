@@ -104,7 +104,7 @@ valid_x = np.array(dict_['data'])/255.0
 valid_y = np.eye(10)[dict_['labels']]
 del dict_
 
-epochs = 200  # 10 * int(round(40000/batch_size))
+epochs = 50  # 10 * int(round(40000/batch_size))
 losses = []
 selected_batches = []
 
@@ -140,6 +140,7 @@ with tf.Session(graph=graph) as session:
         tflearn.is_training(False, session=session)
         cr2 = session.run([loss], feed_dict={x: train_x[approx_batch], y: train_y[approx_batch]})
         loss_drop.append(cr1[0]-cr2[0])
+        tflearn.is_training(True, session=session)
         if i == 1:
             saver.restore(session,'./initial-model')
         else:
