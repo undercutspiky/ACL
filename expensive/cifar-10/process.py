@@ -117,7 +117,7 @@ with tf.Session(graph=graph) as session:
 
     i = 1
     # 79 for master and 78 for the rest except last one - 77.5
-    cursor_start = batch_size * 79 + (78 * int(sys.argv[1]))
+    cursor_start = batch_size * 79 + (batch_size * 78 * int(sys.argv[1]))
     cursor = cursor_start
     loss_drop = []  # Store drop in loss for approx_batch for each batch
 

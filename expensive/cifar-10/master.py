@@ -105,7 +105,7 @@ valid_x = np.array(dict_['data'])/255.0
 valid_y = np.eye(10)[dict_['labels']]
 del dict_
 
-epochs = 100  # 10 * int(round(40000/batch_size)+1)
+epochs = 10 * int(round(40000/batch_size)+1)
 losses = []
 selected_batches = []
 with tf.Session(graph=graph) as session:
@@ -161,7 +161,7 @@ with tf.Session(graph=graph) as session:
         else:
             saver.restore(session, './prev-model'+str(i % 2))
 
-        cursor = (cursor + batch_size) % (batch_size * 78)  # 79 for master and 78 for the rest except last one - 77.5
+        cursor = (cursor + batch_size) % (batch_size * 79)  # 79 for master and 78 for the rest except last one - 77.5
         if cursor == 0:
             print "Waiting for loss drops from other processes"
             # Wait till data is available from others
