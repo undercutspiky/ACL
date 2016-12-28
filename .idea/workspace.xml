@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expensive/cifar-10/master.py" afterPath="$PROJECT_DIR$/expensive/cifar-10/master.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expensive/cifar-10/process.py" afterPath="$PROJECT_DIR$/expensive/cifar-10/process.py" />
     </list>
     <ignored path="ACL.iws" />
@@ -27,21 +28,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="master.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/expensive/cifar-10/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
-              <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+            <state relative-caret-position="447">
+              <caret line="194" column="78" selection-start-line="194" selection-start-column="55" selection-end-line="194" selection-end-column="78" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="process.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="process.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/expensive/cifar-10/process.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="156" column="57" selection-start-line="156" selection-start-column="57" selection-end-line="156" selection-end-column="57" />
+            <state relative-caret-position="447">
+              <caret line="156" column="85" selection-start-line="156" selection-start-column="85" selection-end-line="156" selection-end-column="85" />
               <folding />
             </state>
           </provider>
@@ -442,13 +443,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00055" summary="nothing">
-      <created>1478089489920</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1478089489920</updated>
-    </task>
     <task id="LOCAL-00056" summary="nothing">
       <created>1478089681987</created>
       <option name="number" value="00056" />
@@ -785,7 +779,14 @@
       <option name="project" value="LOCAL" />
       <updated>1482927621697</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="horrible mistake corrected :'(">
+      <created>1482928067932</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1482928067932</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1059,18 +1060,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/expensive/cifar-10/master.py">
+    <entry file="file://$PROJECT_DIR$/expensive/cifar-10/process.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+        <state relative-caret-position="447">
+          <caret line="156" column="85" selection-start-line="156" selection-start-column="85" selection-end-line="156" selection-end-column="85" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/expensive/cifar-10/process.py">
+    <entry file="file://$PROJECT_DIR$/expensive/cifar-10/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="156" column="57" selection-start-line="156" selection-start-column="57" selection-end-line="156" selection-end-column="57" />
+        <state relative-caret-position="447">
+          <caret line="194" column="78" selection-start-line="194" selection-start-column="55" selection-end-line="194" selection-end-column="78" />
           <folding />
         </state>
       </provider>
