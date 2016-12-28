@@ -193,6 +193,8 @@ with tf.Session(graph=graph) as session:
             saver.save(session, './prev-model'+str(i % 2))
             if os.path.exists('./prev-model'+str((i-1) % 2)+'.data-00000-of-00001'):
                 os.remove('./prev-model'+str((i-1) % 2)+'.data-00000-of-00001')  # Delete the previous obsolete model
+                os.remove('./prev-model' + str((i - 1) % 2) + '.index')
+                os.remove('./prev-model' + str((i - 1) % 2) + '.meta')
 
             # Get loss before training on the batch
             tflearn.is_training(False, session=session)
