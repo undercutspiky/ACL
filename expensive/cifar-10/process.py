@@ -83,9 +83,7 @@ with graph.as_default():
     gradients, v = zip(*optimizer.compute_gradients(loss))
     gradients, _ = tf.clip_by_global_norm(gradients, 1.25)
     optimizer = optimizer.apply_gradients(zip(gradients, v), global_step=global_step)
-    
-    # Op to initialize variables
-    init_op = tf.global_variables_initializer()
+
 # ### Read data
 # * Use first 4 data files as training data and last one as validation
 
@@ -111,7 +109,6 @@ losses = []
 selected_batches = []
 
 with tf.Session(graph=graph) as session:
-    session.run(init_op)
     saver = tf.train.Saver()
     saver.restore(session,'./initial-model')
     sequence = np.load('sequence(batch_size-128).npy')  # The sequence to form batches
@@ -146,6 +143,7 @@ with tf.Session(graph=graph) as session:
         if i == 1:
             saver.restore(session,'./initial-model')
         else:
+            print 'waiting for ./prev-model'+str(i % 2)
             while not os.path.exists('./prev-model'+str(i % 2)):
                 time.sleep(1)
             saver.restore(session, './prev-model'+str(i % 2))
