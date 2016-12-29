@@ -132,7 +132,7 @@ with tf.Session(graph=graph) as session:
         batch_ys = random_train_y[ii * batch_size: min(((ii + 1) * batch_size), len(train_x))]
         feed_dict = {x: batch_xs, y: batch_ys}
         cr = session.run([loss], feed_dict=feed_dict)
-        cr1.extend(cr[0])
+        cr1.append(cr[0])
     cr1 = np.array(cr1)
     tflearn.is_training(True, session=session)
 
@@ -151,7 +151,7 @@ with tf.Session(graph=graph) as session:
             batch_ys = random_train_y[ii * batch_size: min(((ii + 1) * batch_size), len(train_x))]
             feed_dict = {x: batch_xs, y: batch_ys}
             cr = session.run([loss], feed_dict=feed_dict)
-            cr2.extend(cr[0])
+            cr2.append(cr[0])
         cr2 = np.array(cr2)
         tflearn.is_training(True, session=session)
         loss_drop.append(cr1-cr2)
@@ -189,6 +189,6 @@ with tf.Session(graph=graph) as session:
                 batch_ys = random_train_y[ii * batch_size: min(((ii + 1) * batch_size), len(train_x))]
                 feed_dict = {x: batch_xs, y: batch_ys}
                 cr = session.run([loss], feed_dict=feed_dict)
-                cr1.extend(cr[0])
+                cr1.append(cr[0])
             cr1 = np.array(cr1)
             tflearn.is_training(True, session=session)

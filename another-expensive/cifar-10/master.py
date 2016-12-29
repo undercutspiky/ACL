@@ -132,7 +132,7 @@ with tf.Session(graph=graph) as session:
         batch_ys = random_train_y[ii * batch_size: min(((ii + 1) * batch_size), len(train_x))]
         feed_dict = {x: batch_xs, y: batch_ys}
         cr = session.run([loss], feed_dict=feed_dict)
-        cr1.extend(cr[0])
+        cr1.append(cr[0])
     cr1 = np.array(cr1)
     print cr1.shape
     tflearn.is_training(True, session=session)
@@ -153,7 +153,7 @@ with tf.Session(graph=graph) as session:
             batch_ys = random_train_y[ii * batch_size: min(((ii + 1) * batch_size), len(train_x))]
             feed_dict = {x: batch_xs, y: batch_ys}
             cr = session.run([loss], feed_dict=feed_dict)
-            cr2.extend(cr[0])
+            cr2.append(cr[0])
         cr2 = np.array(cr2)
         tflearn.is_training(True, session=session)
         loss_drop.append(cr1-cr2)
@@ -170,10 +170,10 @@ with tf.Session(graph=graph) as session:
                 while not os.path.exists("loss-drop-"+str(jj)+".npy"):
                     time.sleep(1)
                 try:
-                    loss_drop.extend([np.load("loss-drop-"+str(jj)+".npy")])
+                    loss_drop.extend(np.load("loss-drop-"+str(jj)+".npy"))
                 except IOError:
                     time.sleep(1)
-                    loss_drop.extend([np.load("loss-drop-" + str(jj) + ".npy")])
+                    loss_drop.extend(np.load("loss-drop-" + str(jj) + ".npy"))
                 os.remove("loss-drop-"+str(jj)+".npy")
             # Gotta save all the losses
             losses.append(loss_drop)
@@ -203,7 +203,7 @@ with tf.Session(graph=graph) as session:
                 batch_ys = random_train_y[ii * batch_size: min(((ii + 1) * batch_size), len(train_x))]
                 feed_dict = {x: batch_xs, y: batch_ys}
                 cr = session.run([loss], feed_dict=feed_dict)
-                cr1.extend(cr[0])
+                cr1.append(cr[0])
             cr1 = np.array(cr1)
             tflearn.is_training(True, session=session)
     np.save('selected_batches',selected_batches)
