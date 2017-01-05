@@ -108,7 +108,6 @@ del dict_
 
 epochs = 10
 losses = []
-selected_batches = []
 with tf.Session(graph=graph) as session:
     session.run(init_op)
     saver = tf.train.Saver()
@@ -206,5 +205,4 @@ with tf.Session(graph=graph) as session:
                 cr1.append(cr[0])
             cr1 = np.array(cr1)
             tflearn.is_training(True, session=session)
-    np.save('selected_batches',selected_batches)
     np.save('loss-drops', np.array(losses))
