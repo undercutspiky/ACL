@@ -57,13 +57,15 @@ with graph.as_default():
         net, t_s = conv_highway(net, 64, 64, 1, 3)
         transform_sum += t_s
 
-    net = conv_highway(net, 64, 128, 2, 3)
-
+    net, t_s = conv_highway(net, 64, 128, 2, 3)
+    transform_sum += t_s
+    
     for ii in xrange(7):
         net, t_s = conv_highway(net, 128, 128, 1, 3)
         transform_sum += t_s
 
-    net = conv_highway(net, 128, 256, 2, 3)
+    net, t_s = conv_highway(net, 128, 256, 2, 3)
+    transform_sum += t_s
 
     for ii in xrange(11):
         net, t_s = conv_highway(net, 256, 256, 1, 3)
@@ -92,8 +94,6 @@ with graph.as_default():
     # Optimizer with gradient clipping
     global_step = tf.Variable(0)
     lr = tf.train.exponential_decay(0.1, global_step, 6260, 0.1, True)
-    if lr < tf.constant(0.001):
-        lr = tf.constant(0.001)
     optimizer = tf.train.MomentumOptimizer(lr, 0.9)
     gradients, v = zip(*optimizer.compute_gradients(loss))
     gradients, _ = tf.clip_by_global_norm(gradients, 1.25)
