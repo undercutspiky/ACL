@@ -123,7 +123,7 @@ del dict_
 
 epochs = 50  # 10 * int(round(40000/batch_size)+1)
 losses = []
-iterations = []
+iterations = [0]*len(train_x)
 transforms = []
 with tf.Session(graph=graph) as session:
     session.run(init_op)
@@ -169,7 +169,6 @@ with tf.Session(graph=graph) as session:
                         iterations[j] += 1
                 # Append losses, activations for batch
                 l_list.extend(cr)
-            tflearn.is_training(True, session=session)
             # Append losses, activations for epoch
             losses.append(l_list)
 
@@ -181,6 +180,7 @@ with tf.Session(graph=graph) as session:
                                                        y: valid_y[iii * 500:(iii + 1) * 500]})
                 cor_pred.append(a)
             print "Accuracy = " + str(np.mean(cor_pred))
+            tflearn.is_training(True, session=session)
             i += 1
 
     tflearn.is_training(False, session=session)
