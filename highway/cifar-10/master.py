@@ -159,9 +159,9 @@ with tf.Session(graph=graph) as session:
             l_list = []
             ac_list = []
             print "GETTING LOSSES FOR ALL EXAMPLES"
-            for iii in xrange(100):
-                batch_xs = train_x[iii * 400: (iii + 1) * 400]
-                batch_ys = train_y[iii * 400: (iii + 1) * 400]
+            for iii in xrange(400):
+                batch_xs = train_x[iii * 100: (iii + 1) * 100]
+                batch_ys = train_y[iii * 100: (iii + 1) * 100]
                 feed_dict = {x: batch_xs, y: batch_ys}
                 cr = session.run([cross_entropy], feed_dict=feed_dict)
                 cr = cr[0]
@@ -178,9 +178,9 @@ with tf.Session(graph=graph) as session:
             # Validation test
             print "TESTING ON VALIDATION SET for epoch = " + str(i)
             cor_pred = []
-            for iii in xrange(20):
-                a = session.run([correct_], feed_dict={x: valid_x[iii * 500:(iii + 1) * 500],
-                                                       y: valid_y[iii * 500:(iii + 1) * 500]})
+            for iii in xrange(100):
+                a = session.run([correct_], feed_dict={x: valid_x[iii * 100:(iii + 1) * 100],
+                                                       y: valid_y[iii * 100:(iii + 1) * 100]})
                 cor_pred.append(a)
             print "Accuracy = " + str(np.mean(cor_pred))
             tflearn.is_training(True, session=session)
@@ -188,9 +188,9 @@ with tf.Session(graph=graph) as session:
 
     tflearn.is_training(False, session=session)
     print "GETTING TRANSFORMATIONS FOR ALL EXAMPLES"
-    for iii in xrange(100):
-        batch_xs = train_x[iii * 400: (iii + 1) * 400]
-        batch_ys = train_y[iii * 400: (iii + 1) * 400]
+    for iii in xrange(400):
+        batch_xs = train_x[iii * 100: (iii + 1) * 100]
+        batch_ys = train_y[iii * 100: (iii + 1) * 100]
         feed_dict = {x: batch_xs, y: batch_ys}
         cr = session.run([transform_sum], feed_dict=feed_dict)
         cr = cr[0]
