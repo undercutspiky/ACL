@@ -130,7 +130,6 @@ iterations = [0]*len(train_x)
 transforms = []
 config = tf.ConfigProto()
 config.gpu_options.allow_growth = True
-config.gpu_options.allocator_type = "BFC"
 with tf.Session(graph=graph, config=config) as session:
     session.run(init_op)
     saver = tf.train.Saver()

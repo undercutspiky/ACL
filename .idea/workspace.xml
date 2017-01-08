@@ -30,8 +30,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/highway/cifar-10/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="133" column="42" selection-start-line="133" selection-start-column="42" selection-end-line="133" selection-end-column="42" />
+            <state relative-caret-position="417">
+              <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -430,13 +430,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00074" summary="np.eye(10) for labels">
-      <created>1479583066057</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1479583066057</updated>
-    </task>
     <task id="LOCAL-00075" summary="corrected lengths everywhere cuz this split resulted in different lengths than the previous time">
       <created>1479636321468</created>
       <option name="number" value="00075" />
@@ -773,7 +766,14 @@
       <option name="project" value="LOCAL" />
       <updated>1483867442561</updated>
     </task>
-    <option name="localTasksCounter" value="123" />
+    <task id="LOCAL-00123" summary="try setting config for session">
+      <created>1483882352739</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1483882352739</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -830,7 +830,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update iterations properly and set cursor=0 in svhn after 1 epoch" />
     <MESSAGE value="increase lr for cifar" />
     <MESSAGE value="svhn bug fix" />
     <MESSAGE value="remove dropout on input cuz it doesn't work" />
@@ -855,7 +854,8 @@
     <MESSAGE value="highway" />
     <MESSAGE value="divide graph among GPUs" />
     <MESSAGE value="reduce batch size while testing etc." />
-    <option name="LAST_COMMIT_MESSAGE" value="reduce batch size while testing etc." />
+    <MESSAGE value="try setting config for session" />
+    <option name="LAST_COMMIT_MESSAGE" value="try setting config for session" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1082,8 +1082,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/highway/cifar-10/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="133" column="42" selection-start-line="133" selection-start-column="42" selection-end-line="133" selection-end-column="42" />
+        <state relative-caret-position="417">
+          <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
           <folding />
         </state>
       </provider>
