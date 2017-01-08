@@ -14,14 +14,16 @@ def unpickle(file):
     return dict_
 
 
-def conv_highway(x, fan_in, fan_out, stride, filter_size):
+def conv_highway(x, fan_in, fan_out, stride, filter_size, device):
 
-    H = tflearn.conv_2d(x, fan_out, filter_size, stride, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
+    with tf.device("/gpu:"+str(device)):
+        H = tflearn.conv_2d(x, fan_out, filter_size, stride, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                         bias_init='uniform', regularizer='L2')
     H = tflearn.batch_normalization(H)
     H = tf.nn.relu(H)
     # Transform gate
-    T = tflearn.conv_2d(x, fan_out, filter_size, stride, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
+    with tf.device("/gpu:" + str(device)):
+        T = tflearn.conv_2d(x, fan_out, filter_size, stride, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                         bias_init=tf.constant(-1.0, shape=[fan_out]), regularizer='L2')
     T = tflearn.batch_normalization(T)
     T = tf.nn.sigmoid(T)
@@ -53,44 +55,37 @@ with graph.as_default():
     net = tflearn.batch_normalization(net)
     net = tf.nn.relu(net)
 
-    with tf.device("/gpu:0"):
-        for ii in xrange(5):
-            net, t_s = conv_highway(net, 64, 64, 1, 3)
-            transform_sum += t_s
+    for ii in xrange(5):
+        net, t_s = conv_highway(net, 64, 64, 1, 3, device=0)
+        transform_sum += t_s
 
-    with tf.device("/gpu:0"):
-        net, t_s = conv_highway(net, 64, 128, 2, 3)
+    net, t_s = conv_highway(net, 64, 128, 2, 3, device=0)
     transform_sum += t_s
 
-    with tf.device("/gpu:1"):
-        for ii in xrange(7):
-            net, t_s = conv_highway(net, 128, 128, 1, 3)
-            transform_sum += t_s
+    for ii in xrange(7):
+        net, t_s = conv_highway(net, 128, 128, 1, 3, device=1)
+        transform_sum += t_s
 
-    with tf.device("/gpu:1"):
-        net, t_s = conv_highway(net, 128, 256, 2, 3)
+    net, t_s = conv_highway(net, 128, 256, 2, 3, device=1)
     transform_sum += t_s
 
-    with tf.device("/gpu:2"):
-        for ii in xrange(11):
-            net, t_s = conv_highway(net, 256, 256, 1, 3)
-            transform_sum += t_s
+    for ii in xrange(11):
+        net, t_s = conv_highway(net, 256, 256, 1, 3, device=2)
+        transform_sum += t_s
 
-    with tf.device("/gpu:2"):
-        net, t_s = conv_highway(net, 256, 512, 2, 3)
+    net, t_s = conv_highway(net, 256, 512, 2, 3, device=2)
     transform_sum += t_s
 
-    with tf.device("/gpu:3"):
-        for ii in xrange(5):
-            net, t_s = conv_highway(net, 512, 512, 1, 3)
-            transform_sum += t_s
+    for ii in xrange(5):
+        net, t_s = conv_highway(net, 512, 512, 1, 3, device=3)
+        transform_sum += t_s
 
     with tf.device("/gpu:3"):
         net = tflearn.conv_2d(net, 10, 1, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                               bias_init='uniform', regularizer='L2')
-        net = tflearn.batch_normalization(net)
-        net = tf.nn.relu(net)
-        net = tflearn.global_avg_pool(net)
+    net = tflearn.batch_normalization(net)
+    net = tf.nn.relu(net)
+    net = tflearn.global_avg_pool(net)
 
     # Calculate loss
     cross_entropy = tf.nn.softmax_cross_entropy_with_logits(net, y)
