@@ -143,6 +143,7 @@ with tf.Session(graph=graph) as session:
         feed_dict = {x: batch_xs, y: batch_ys}
 
         # Train it on the batch
+        tflearn.is_training(True, session=session)
         _ = session.run([optimizer], feed_dict=feed_dict)
         # Get loss on train data after training
         tflearn.is_training(False, session=session)
@@ -154,6 +155,8 @@ with tf.Session(graph=graph) as session:
             cr = session.run([loss], feed_dict=feed_dict)
             cr2.append(cr[0])
         cr2 = np.array(cr2)
+        print "cr1 is " + str([cr1[i] for i in xrange(len(cr1))])
+        print "cr2 is " + str([cr2[i] for i in xrange(len(cr2))])
         tflearn.is_training(True, session=session)
         loss_drop.append(cr1-cr2)
         if i == 1:
@@ -178,6 +181,7 @@ with tf.Session(graph=graph) as session:
             losses.append(loss_drop)
             print np.array(losses).shape
             # Train on the train data
+            tflearn.is_training(True, session=session)
             for ii in xrange(int(math.ceil(float(len(train_x))/batch_size))):  # The number of batches
                 batch_xs = random_train_x[ii*batch_size: min(((ii+1)*batch_size), len(train_x))]
                 batch_ys = random_train_y[ii*batch_size: min(((ii+1)*batch_size), len(train_x))]

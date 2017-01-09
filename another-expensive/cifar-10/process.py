@@ -142,6 +142,7 @@ with tf.Session(graph=graph) as session:
         batch_ys = random_train_y[cursor: min((cursor + batch_size), len(train_x))]
         feed_dict = {x: batch_xs, y: batch_ys}
         # Train it on the batch
+        tflearn.is_training(True, session=session)
         _ = session.run([optimizer], feed_dict=feed_dict)
         # Get loss on train data after training
         tflearn.is_training(False, session=session)
