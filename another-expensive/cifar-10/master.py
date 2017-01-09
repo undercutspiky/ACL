@@ -155,8 +155,8 @@ with tf.Session(graph=graph) as session:
             cr = session.run([loss], feed_dict=feed_dict)
             cr2.append(cr[0])
         cr2 = np.array(cr2)
-        print "cr1 is " + str([cr1[i] for i in xrange(len(cr1))])
-        print "cr2 is " + str([cr2[i] for i in xrange(len(cr2))])
+        print "cr1 is " + str([cr1[ii] for ii in xrange(len(cr1))])
+        print "cr2 is " + str([cr2[ii] for ii in xrange(len(cr2))])
         tflearn.is_training(True, session=session)
         loss_drop.append(cr1-cr2)
         if i == 1:
