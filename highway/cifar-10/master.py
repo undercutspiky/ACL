@@ -153,6 +153,8 @@ with tf.Session(graph=graph, config=config) as session:
 
         if i > 1:
             print "here as well"
+            fuck1, fuck2 = session.run([net, y], feed_dict=feed_dict)
+            print fuck1, fuck2
         # Train it on the batch
         tflearn.is_training(True, session=session)
         fuck1, fuck2, _ = session.run([net, y, optimizer], feed_dict=feed_dict)
