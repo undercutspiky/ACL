@@ -17,38 +17,35 @@ def unpickle(file):
 def conv_highway(x, fan_in, fan_out, stride, filter_size):
 
     # First layer
-    with tf.variable_scope('sub1'):
-        H = tflearn.batch_normalization(x)
-        H = tf.nn.relu(H)
-        H = tflearn.conv_2d(H, fan_out, filter_size, stride, 'same', 'linear',
-                            weights_init=tflearn.initializations.xavier(),
-                            bias_init='uniform', regularizer='L2')
+    H = tflearn.batch_normalization(x)
+    H = tf.nn.relu(H)
+    H = tflearn.conv_2d(H, fan_out, filter_size, stride, 'same', 'linear',
+                        weights_init=tflearn.initializations.xavier(),
+                        bias_init='uniform', regularizer='L2')
     # Second layer
-    with tf.variable_scope('sub2'):
-        H = tflearn.batch_normalization(H)
-        H = tf.nn.relu(H)
-        H = tflearn.conv_2d(H, fan_out, filter_size, 1, 'same', 'linear',
-                            weights_init=tflearn.initializations.xavier(),
-                            bias_init='uniform', regularizer='L2')
+    H = tflearn.batch_normalization(H)
+    H = tf.nn.relu(H)
+    H = tflearn.conv_2d(H, fan_out, filter_size, 1, 'same', 'linear',
+                        weights_init=tflearn.initializations.xavier(),
+                        bias_init='uniform', regularizer='L2')
     # Transform gate
-    with tf.variable_scope('sub_add'):
-        T = tflearn.conv_2d(H, fan_out, filter_size, 1, 'same', 'linear',
-                            weights_init=tflearn.initializations.xavier(),
-                            bias_init=tf.constant(-1.0, shape=[fan_out]), regularizer='L2')
-        T = tflearn.batch_normalization(T)
-        T = tf.nn.sigmoid(T)
+    T = tflearn.conv_2d(H, fan_out, filter_size, 1, 'same', 'linear',
+                        weights_init=tflearn.initializations.xavier(),
+                        bias_init=tf.constant(-1.0, shape=[fan_out]), regularizer='L2')
+    T = tflearn.batch_normalization(T)
+    T = tf.nn.sigmoid(T)
 
-        # Carry gate
-        C = 1.0 - T
-        res = H * T
+    # Carry gate
+    C = 1.0 - T
+    res = H * T
 
-        if fan_in != fan_out:
-            x_new = tf.nn.avg_pool(x, [1, 2, 2, 1], [1, 2, 2, 1], 'VALID')
-            x_new = tf.pad(x_new, [[0, 0], [0, 0], [0, 0], [(fan_out-fan_in)//2, (fan_out-fan_in)//2]])
+    if fan_in != fan_out:
+        x_new = tf.nn.avg_pool(x, [1, 2, 2, 1], [1, 2, 2, 1], 'VALID')
+        x_new = tf.pad(x_new, [[0, 0], [0, 0], [0, 0], [(fan_out-fan_in)//2, (fan_out-fan_in)//2]])
 
-            res += C * x_new
-            return res, tf.reduce_sum(T)
-        return (res + (C * x)), tf.reduce_sum(T)
+        res += C * x_new
+        return res, tf.reduce_sum(T)
+    return (res + (C * x)), tf.reduce_sum(T)
 
 
 batch_size = 128
@@ -158,9 +155,10 @@ with tf.Session(graph=graph, config=config) as session:
             print "here as well"
         # Train it on the batch
         tflearn.is_training(True, session=session)
-        _ = session.run([optimizer], feed_dict=feed_dict)
+        fuck1, fuck2, _ = session.run([net, y, optimizer], feed_dict=feed_dict)
 
         if i > 1:
+            print fuck1, fuck2
             print "and here too"
 
         cursor += batch_size
