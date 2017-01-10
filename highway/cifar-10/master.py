@@ -126,9 +126,7 @@ epochs = 50  # 10 * int(round(40000/batch_size)+1)
 losses = []
 iterations = [0]*len(train_x)
 transforms = []
-config = tf.ConfigProto()
-config.gpu_options.allow_growth = True
-with tf.Session(graph=graph, config=config) as session:
+with tf.Session(graph=graph) as session:
     tf.initialize_all_variables().run()
     #session.run(init_op)
     saver = tf.train.Saver()

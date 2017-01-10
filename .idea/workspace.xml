@@ -30,8 +30,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/highway/cifar-10/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1077">
-              <caret line="179" column="34" selection-start-line="179" selection-start-column="34" selection-end-line="179" selection-end-column="34" />
+            <state relative-caret-position="282">
+              <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -416,13 +416,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00093" summary="trying the '312-batch' curriculum just for the sake of trying">
-      <created>1481476166595</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1481476166596</updated>
-    </task>
     <task id="LOCAL-00094" summary="batch-wise analysis">
       <created>1481480616566</created>
       <option name="number" value="00094" />
@@ -759,7 +752,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484090103406</updated>
     </task>
-    <option name="localTasksCounter" value="142" />
+    <task id="LOCAL-00142" summary="use whole train data and test set as valid set">
+      <created>1484090346008</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1484090346008</updated>
+    </task>
+    <option name="localTasksCounter" value="143" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -816,7 +816,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add try except for loading numpy loss drop array" />
     <MESSAGE value="save selected batches at every step" />
     <MESSAGE value="checking if something's wrong" />
     <MESSAGE value="something indeed was wrong :'(" />
@@ -841,7 +840,8 @@
     <MESSAGE value="bug fix" />
     <MESSAGE value="hyperparameter changes" />
     <MESSAGE value="changes in hyperparameters" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes in hyperparameters" />
+    <MESSAGE value="use whole train data and test set as valid set" />
+    <option name="LAST_COMMIT_MESSAGE" value="use whole train data and test set as valid set" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1064,8 +1064,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/highway/cifar-10/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1077">
-          <caret line="179" column="34" selection-start-line="179" selection-start-column="34" selection-end-line="179" selection-end-column="34" />
+        <state relative-caret-position="282">
+          <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
           <folding />
         </state>
       </provider>
