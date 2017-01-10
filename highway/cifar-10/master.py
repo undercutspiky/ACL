@@ -48,7 +48,7 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size):
     return (res + (C * x)), tf.reduce_sum(T)
 
 
-batch_size = 128
+batch_size = 64
 
 graph = tf.Graph()
 with graph.as_default():
@@ -94,7 +94,7 @@ with graph.as_default():
 
     # Optimizer with gradient clipping
     global_step = tf.Variable(0)
-    lr = tf.train.exponential_decay(0.1, global_step, 3130, 0.1, True)
+    lr = tf.train.exponential_decay(0.1, global_step, 10000, 0.1, True)
     optimizer = tf.train.MomentumOptimizer(lr, 0.9)
     gradients, v = zip(*optimizer.compute_gradients(loss))
     gradients, _ = tf.clip_by_global_norm(gradients, 1.25)
