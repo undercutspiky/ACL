@@ -25,11 +25,11 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size):
     # Second layer
     H = tflearn.batch_normalization(H)
     H = tf.nn.relu(H)
-    H = tflearn.conv_2d(H, fan_out, filter_size, stride, 'same', 'linear',
+    H = tflearn.conv_2d(H, fan_out, filter_size, 1, 'same', 'linear',
                         weights_init=tflearn.initializations.xavier(),
                         bias_init='uniform', regularizer='L2')
     # Transform gate
-    T = tflearn.conv_2d(x, fan_out, filter_size, stride, 'same', 'linear',
+    T = tflearn.conv_2d(H, fan_out, filter_size, 1, 'same', 'linear',
                         weights_init=tflearn.initializations.xavier(),
                         bias_init=tf.constant(-1.0, shape=[fan_out]), regularizer='L2')
     T = tflearn.batch_normalization(T)
@@ -65,22 +65,14 @@ with graph.as_default():
         net, t_s = conv_highway(net, 10, 10, 1, 3)
         transform_sum += t_s
 
-    net = tflearn.batch_normalization(net)
-    net = tf.nn.relu(net)
-    net = tflearn.conv_2d(net, 10, 3, 2, 'same', 'relu', weights_init=tflearn.initializations.xavier(),
-                          bias_init='uniform', regularizer='L2')
-    net, t_s = conv_highway(net, 10, 20, 1, 3)
+    net, t_s = conv_highway(net, 10, 20, 2, 3)
     transform_sum += t_s
 
     for ii in xrange(4):
         net, t_s = conv_highway(net, 20, 20, 1, 3)
         transform_sum += t_s
 
-    net = tflearn.batch_normalization(net)
-    net = tf.nn.relu(net)
-    net = tflearn.conv_2d(net, 20, 3, 2, 'same', 'relu', weights_init=tflearn.initializations.xavier(),
-                          bias_init='uniform', regularizer='L2')
-    net, t_s = conv_highway(net, 20, 40, 1, 3)
+    net, t_s = conv_highway(net, 20, 40, 2, 3)
     transform_sum += t_s
 
     for ii in xrange(4):
