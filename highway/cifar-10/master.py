@@ -69,7 +69,7 @@ with graph.as_default():
     net = tf.nn.relu(net)
     net = tflearn.conv_2d(net, 10, 3, 2, 'same', 'relu', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', regularizer='L2')
-    net, t_s = conv_highway(net, 10, 20, 2, 3)
+    net, t_s = conv_highway(net, 10, 20, 1, 3)
     transform_sum += t_s
 
     for ii in xrange(4):
@@ -80,7 +80,7 @@ with graph.as_default():
     net = tf.nn.relu(net)
     net = tflearn.conv_2d(net, 20, 3, 2, 'same', 'relu', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', regularizer='L2')
-    net, t_s = conv_highway(net, 20, 40, 2, 3)
+    net, t_s = conv_highway(net, 20, 40, 1, 3)
     transform_sum += t_s
 
     for ii in xrange(4):
