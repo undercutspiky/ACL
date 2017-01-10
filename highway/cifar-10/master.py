@@ -135,6 +135,9 @@ with tf.Session(graph=graph, config=config) as session:
     save_path = saver.save(session,'./initial-model')
     sequence = np.random.choice(len(train_x), size=len(train_x), replace=False)  # The sequence to form batches
 
+    random_train_x = train_x[sequence]
+    random_train_y = train_y[sequence]
+
     train_y = np.eye(10)[train_y]
 
     i = 1
@@ -142,16 +145,20 @@ with tf.Session(graph=graph, config=config) as session:
 
     while i <= epochs:
 
-        random_train_x = train_x[sequence]
-        random_train_y = train_y[sequence]
-
+        if i > 1:
+            print "here"
         batch_xs = random_train_x[cursor: min((cursor + batch_size), len(train_x))]
         batch_ys = random_train_y[cursor: min((cursor + batch_size), len(train_x))]
         feed_dict = {x: batch_xs, y: batch_ys}
 
+        if i > 1:
+            print "here as well"
         # Train it on the batch
         tflearn.is_training(True, session=session)
         _ = session.run([optimizer], feed_dict=feed_dict)
+
+        if i > 1:
+            print "and here too"
 
         cursor += batch_size
         if cursor > len(train_x):
