@@ -94,7 +94,7 @@ with graph.as_default():
 
     # Optimizer with gradient clipping
     global_step = tf.Variable(0)
-    lr = tf.train.exponential_decay(0.1, global_step, 6260, 0.1, True)
+    lr = tf.train.exponential_decay(0.1, global_step, 20000, 0.1, True)
     optimizer = tf.train.MomentumOptimizer(lr, 0.9)
     gradients, v = zip(*optimizer.compute_gradients(loss))
     gradients, _ = tf.clip_by_global_norm(gradients, 1.25)
@@ -139,8 +139,6 @@ with tf.Session(graph=graph, config=config) as session:
     i = 1
     cursor = 0
 
-    tflearn.is_training(True, session=session)
-
     while i <= epochs:
 
         random_train_x = train_x[sequence]
@@ -151,6 +149,7 @@ with tf.Session(graph=graph, config=config) as session:
         feed_dict = {x: batch_xs, y: batch_ys}
 
         # Train it on the batch
+        tflearn.is_training(True, session=session)
         _ = session.run([optimizer], feed_dict=feed_dict)
 
         cursor += batch_size
