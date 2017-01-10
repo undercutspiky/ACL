@@ -101,7 +101,7 @@ with graph.as_default():
     optimizer = optimizer.apply_gradients(zip(gradients, v), global_step=global_step)
 
     # Op to initialize variables
-    init_op = tf.global_variables_initializer()
+    #init_op = tf.global_variables_initializer()
 # ### Read data
 # * Use first 4 data files as training data and last one as validation
 
@@ -129,7 +129,8 @@ transforms = []
 config = tf.ConfigProto()
 config.gpu_options.allow_growth = True
 with tf.Session(graph=graph, config=config) as session:
-    session.run(init_op)
+    tf.initialize_all_variables().run()
+    #session.run(init_op)
     saver = tf.train.Saver()
     save_path = saver.save(session,'./initial-model')
     sequence = np.random.choice(len(train_x), size=len(train_x), replace=False)  # The sequence to form batches
