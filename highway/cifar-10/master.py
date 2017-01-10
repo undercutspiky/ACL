@@ -14,19 +14,27 @@ def unpickle(file):
     return dict_
 
 
-def conv_highway(x, fan_in, fan_out, stride, filter_size, device):
+def conv_highway(x, fan_in, fan_out, stride, filter_size):
 
-    with tf.device("/gpu:"+str(device)):
-        H = tflearn.conv_2d(x, fan_out, filter_size, stride, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
+    # First layer
+    H = tflearn.batch_normalization(x)
+    H = tf.nn.relu(H)
+    H = tflearn.conv_2d(H, fan_out, filter_size, stride, 'same', 'linear',
+                        weights_init=tflearn.initializations.xavier(),
                         bias_init='uniform', regularizer='L2')
+    # Second layer
     H = tflearn.batch_normalization(H)
     H = tf.nn.relu(H)
+    H = tflearn.conv_2d(H, fan_out, filter_size, stride, 'same', 'linear',
+                        weights_init=tflearn.initializations.xavier(),
+                        bias_init='uniform', regularizer='L2')
     # Transform gate
-    with tf.device("/gpu:" + str(device)):
-        T = tflearn.conv_2d(x, fan_out, filter_size, stride, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
+    T = tflearn.conv_2d(x, fan_out, filter_size, stride, 'same', 'linear',
+                        weights_init=tflearn.initializations.xavier(),
                         bias_init=tf.constant(-1.0, shape=[fan_out]), regularizer='L2')
     T = tflearn.batch_normalization(T)
     T = tf.nn.sigmoid(T)
+
     # Carry gate
     C = 1.0 - T
     res = H * T
@@ -50,39 +58,29 @@ with graph.as_default():
 
     x_image = tf.reshape(x, [-1, 32, 32, 3])
 
-    net = tflearn.conv_2d(x_image, 64, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
+    net = tflearn.conv_2d(x_image, 10, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', regularizer='L2')
-    net = tflearn.batch_normalization(net)
-    net = tf.nn.relu(net)
 
-    for ii in xrange(5):
-        net, t_s = conv_highway(net, 64, 64, 1, 3, device=0)
+    for ii in xrange(4):
+        net, t_s = conv_highway(net, 10, 10, 1, 3)
         transform_sum += t_s
 
-    net, t_s = conv_highway(net, 64, 128, 2, 3, device=0)
+    net, t_s = conv_highway(net, 10, 20, 2, 3)
     transform_sum += t_s
 
-    for ii in xrange(7):
-        net, t_s = conv_highway(net, 128, 128, 1, 3, device=1)
+    for ii in xrange(4):
+        net, t_s = conv_highway(net, 20, 20, 1, 3)
         transform_sum += t_s
 
-    net, t_s = conv_highway(net, 128, 256, 2, 3, device=1)
+    net, t_s = conv_highway(net, 20, 40, 2, 3)
     transform_sum += t_s
 
-    for ii in xrange(11):
-        net, t_s = conv_highway(net, 256, 256, 1, 3, device=2)
+    for ii in xrange(4):
+        net, t_s = conv_highway(net, 40, 40, 1, 3)
         transform_sum += t_s
 
-    net, t_s = conv_highway(net, 256, 512, 2, 3, device=2)
-    transform_sum += t_s
-
-    for ii in xrange(5):
-        net, t_s = conv_highway(net, 512, 512, 1, 3, device=3)
-        transform_sum += t_s
-
-    with tf.device("/gpu:3"):
-        net = tflearn.conv_2d(net, 10, 1, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
-                              bias_init='uniform', regularizer='L2')
+    net = tflearn.conv_2d(net, 10, 1, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
+                          bias_init='uniform', regularizer='L2')
     net = tflearn.batch_normalization(net)
     net = tf.nn.relu(net)
     net = tflearn.global_avg_pool(net)
