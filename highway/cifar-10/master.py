@@ -145,27 +145,17 @@ with tf.Session(graph=graph, config=config) as session:
 
     while i <= epochs:
 
-        if i > 1:
-            print "here"
         batch_xs = random_train_x[cursor: min((cursor + batch_size), len(train_x))]
         batch_ys = random_train_y[cursor: min((cursor + batch_size), len(train_x))]
         feed_dict = {x: batch_xs, y: batch_ys}
 
-        if i > 1:
-            print "here as well"
-            print batch_ys
-            fuck1, fuck2 = session.run([x, y], feed_dict=feed_dict)
-            print fuck1, fuck2
         # Train it on the batch
         tflearn.is_training(True, session=session)
-        fuck1, fuck2, _ = session.run([net, y, optimizer], feed_dict=feed_dict)
-
-        if i > 1:
-            print fuck1, fuck2
-            print "and here too"
+        _ = session.run([optimizer], feed_dict=feed_dict)
 
         cursor += batch_size
         if cursor > len(train_x):
+            cursor = 0
             tflearn.is_training(False, session=session)
             l_list = []
             ac_list = []
