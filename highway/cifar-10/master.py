@@ -135,10 +135,10 @@ with tf.Session(graph=graph, config=config) as session:
     save_path = saver.save(session,'./initial-model')
     sequence = np.random.choice(len(train_x), size=len(train_x), replace=False)  # The sequence to form batches
 
+    train_y = np.eye(10)[train_y]
+
     random_train_x = train_x[sequence]
     random_train_y = train_y[sequence]
-
-    train_y = np.eye(10)[train_y]
 
     i = 1
     cursor = 0
