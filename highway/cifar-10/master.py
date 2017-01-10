@@ -94,7 +94,7 @@ with graph.as_default():
 
     # Optimizer with gradient clipping
     global_step = tf.Variable(0)
-    lr = tf.train.exponential_decay(0.1, global_step, 10000, 0.1, True)
+    lr = tf.train.exponential_decay(0.1, global_step, 20000, 0.1, True)
     optimizer = tf.train.MomentumOptimizer(lr, 0.9)
     gradients, v = zip(*optimizer.compute_gradients(loss))
     gradients, _ = tf.clip_by_global_norm(gradients, 1.25)
@@ -107,7 +107,7 @@ with graph.as_default():
 
 train_x = []
 train_y = []
-for i in xrange(1, 5):
+for i in xrange(1, 6):
     dict_ = unpickle('../../cifar-10/cifar-10-batches-py/data_batch_' + str(i))
     if i == 1:
         train_x = np.array(dict_['data'])/255.0
@@ -117,7 +117,7 @@ for i in xrange(1, 5):
         train_y.extend(dict_['labels'])
 
 train_y = np.array(train_y)
-dict_ = unpickle('../../cifar-10/cifar-10-batches-py/data_batch_5')
+dict_ = unpickle('../../cifar-10/cifar-10-batches-py/test_batch')
 valid_x = np.array(dict_['data'])/255.0
 valid_y = np.eye(10)[dict_['labels']]
 del dict_
@@ -160,7 +160,7 @@ with tf.Session(graph=graph, config=config) as session:
             l_list = []
             ac_list = []
             print "GETTING LOSSES FOR ALL EXAMPLES"
-            for iii in xrange(400):
+            for iii in xrange(500):
                 batch_xs = train_x[iii * 100: (iii + 1) * 100]
                 batch_ys = train_y[iii * 100: (iii + 1) * 100]
                 feed_dict = {x: batch_xs, y: batch_ys}
@@ -177,7 +177,7 @@ with tf.Session(graph=graph, config=config) as session:
             losses.append(l_list)
 
             # Validation test
-            print "TESTING ON VALIDATION SET for epoch = " + str(i)
+            print "TESTING ON TEST SET for epoch = " + str(i)
             cor_pred = []
             for iii in xrange(100):
                 a = session.run([correct_], feed_dict={x: valid_x[iii * 100:(iii + 1) * 100],
@@ -189,7 +189,7 @@ with tf.Session(graph=graph, config=config) as session:
 
     tflearn.is_training(False, session=session)
     print "GETTING TRANSFORMATIONS FOR ALL EXAMPLES"
-    for iii in xrange(400):
+    for iii in xrange(500):
         batch_xs = train_x[iii * 100: (iii + 1) * 100]
         batch_ys = train_y[iii * 100: (iii + 1) * 100]
         feed_dict = {x: batch_xs, y: batch_ys}

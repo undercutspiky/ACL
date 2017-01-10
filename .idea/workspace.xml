@@ -30,8 +30,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/highway/cifar-10/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1230">
-              <caret line="96" column="59" selection-start-line="96" selection-start-column="59" selection-end-line="96" selection-end-column="59" />
+            <state relative-caret-position="1077">
+              <caret line="179" column="34" selection-start-line="179" selection-start-column="34" selection-end-line="179" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -416,13 +416,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00092" summary="something indeed was wrong :'(">
-      <created>1481013937733</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1481013937733</updated>
-    </task>
     <task id="LOCAL-00093" summary="trying the '312-batch' curriculum just for the sake of trying">
       <created>1481476166595</created>
       <option name="number" value="00093" />
@@ -759,7 +752,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484087270339</updated>
     </task>
-    <option name="localTasksCounter" value="141" />
+    <task id="LOCAL-00141" summary="changes in hyperparameters">
+      <created>1484090103406</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1484090103406</updated>
+    </task>
+    <option name="localTasksCounter" value="142" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -816,7 +816,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="5 processes + 1 master for expensive algo" />
     <MESSAGE value="add try except for loading numpy loss drop array" />
     <MESSAGE value="save selected batches at every step" />
     <MESSAGE value="checking if something's wrong" />
@@ -841,7 +840,8 @@
     <MESSAGE value="debug" />
     <MESSAGE value="bug fix" />
     <MESSAGE value="hyperparameter changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="hyperparameter changes" />
+    <MESSAGE value="changes in hyperparameters" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes in hyperparameters" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1064,8 +1064,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/highway/cifar-10/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1230">
-          <caret line="96" column="59" selection-start-line="96" selection-start-column="59" selection-end-line="96" selection-end-column="59" />
+        <state relative-caret-position="1077">
+          <caret line="179" column="34" selection-start-line="179" selection-start-column="34" selection-end-line="179" selection-end-column="34" />
           <folding />
         </state>
       </provider>
