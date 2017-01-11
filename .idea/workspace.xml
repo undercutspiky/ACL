@@ -30,8 +30,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/highway/cifar-10/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1110">
-              <caret line="89" column="37" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
+            <state relative-caret-position="450">
+              <caret line="102" column="34" selection-start-line="102" selection-start-column="34" selection-end-line="102" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -416,13 +416,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00098" summary="save loss drop from master process for every step">
-      <created>1482154204020</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1482154204021</updated>
-    </task>
     <task id="LOCAL-00099" summary="horrible mistake corrected :'(">
       <created>1482924131303</created>
       <option name="number" value="00099" />
@@ -759,7 +752,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484101477310</updated>
     </task>
-    <option name="localTasksCounter" value="147" />
+    <task id="LOCAL-00147" summary="changes">
+      <created>1484132126438</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1484132126439</updated>
+    </task>
+    <option name="localTasksCounter" value="148" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1064,8 +1064,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/highway/cifar-10/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1110">
-          <caret line="89" column="37" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
+        <state relative-caret-position="450">
+          <caret line="102" column="34" selection-start-line="102" selection-start-column="34" selection-end-line="102" selection-end-column="34" />
           <folding />
         </state>
       </provider>

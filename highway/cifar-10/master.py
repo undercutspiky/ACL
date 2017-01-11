@@ -100,10 +100,10 @@ with graph.as_default():
 
     # Optimizer with gradient clipping
     global_step = tf.Variable(0)
-    lr = tf.placeholder(tf.float32, [1])  # tf.train.exponential_decay(0.1, global_step, 20000, 0.1, True)
+    lr = tf.placeholder(tf.float32)  # tf.train.exponential_decay(0.1, global_step, 20000, 0.1, True)
     optimizer = tf.train.MomentumOptimizer(lr, 0.9)
     gradients, v = zip(*optimizer.compute_gradients(loss))
-    gradients, _ = tf.clip_by_global_norm(gradients, 1.25)
+    gradients, _ = tf.clip_by_global_norm(gradients, 1)
     optimizer = optimizer.apply_gradients(zip(gradients, v), global_step=global_step)
 
     # Op to initialize variables
