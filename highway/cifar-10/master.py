@@ -18,7 +18,7 @@ def relu(x, leakiness=0.1):
     return tf.select(tf.less(x, 0.0), leakiness * x, x)
 
 
-def conv_highway(x, fan_in, fan_out, stride, filter_size):
+def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
 
     # First layer
     H = tflearn.batch_normalization(x)
@@ -44,13 +44,13 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size):
     res = H * T
 
     if fan_in != fan_out:
-        x_new = tf.nn.avg_pool(x, [1, 2, 2, 1], [1, 2, 2, 1], 'VALID')
+        if not not_pool:
+            x_new = tf.nn.avg_pool(x, [1, 2, 2, 1], [1, 2, 2, 1], 'VALID')
         x_new = tf.pad(x_new, [[0, 0], [0, 0], [0, 0], [(fan_out-fan_in)//2, (fan_out-fan_in)//2]])
 
         res += C * x_new
         return res, tf.reduce_sum(T)
     return (res + (C * x)), tf.reduce_sum(T)
-
 
 batch_size = 64
 
@@ -75,7 +75,10 @@ with graph.as_default():
     net = tflearn.conv_2d(x_image, 16, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', weight_decay=0.0005)
 
-    for ii in xrange(4):
+    net, t_s = conv_highway(net, 16, 160, 1, 3, True)
+    transform_sum += t_s
+
+    for ii in xrange(3):
         net, t_s = conv_highway(net, 160, 160, 1, 3)
         transform_sum += t_s
 
