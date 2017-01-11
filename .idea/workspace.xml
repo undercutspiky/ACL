@@ -30,8 +30,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/highway/cifar-10/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="183" column="32" selection-start-line="183" selection-start-column="32" selection-end-line="183" selection-end-column="32" />
+            <state relative-caret-position="-840">
+              <caret line="110" column="74" selection-start-line="110" selection-start-column="74" selection-end-line="110" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -434,13 +434,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00108" summary="only 500 steps now">
-      <created>1482940071333</created>
-      <option name="number" value="00108" />
-      <option name="presentableId" value="LOCAL-00108" />
-      <option name="project" value="LOCAL" />
-      <updated>1482940071334</updated>
-    </task>
     <task id="LOCAL-00109" summary="only 500 steps now">
       <created>1482940180603</created>
       <option name="number" value="00109" />
@@ -777,7 +770,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484172618873</updated>
     </task>
-    <option name="localTasksCounter" value="157" />
+    <task id="LOCAL-00157" summary="changes">
+      <created>1484176366811</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1484176366811</updated>
+    </task>
+    <option name="localTasksCounter" value="158" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1082,8 +1082,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/highway/cifar-10/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="183" column="32" selection-start-line="183" selection-start-column="32" selection-end-line="183" selection-end-column="32" />
+        <state relative-caret-position="-840">
+          <caret line="110" column="74" selection-start-line="110" selection-start-column="74" selection-end-line="110" selection-end-column="74" />
           <folding />
         </state>
       </provider>
