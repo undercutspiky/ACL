@@ -105,7 +105,7 @@ valid_x = np.array(dict_['data'])/255.0
 valid_y = np.eye(10)[dict_['labels']]
 del dict_
 
-epochs = 10
+epochs = 50
 losses = []
 selected_batches = []
 

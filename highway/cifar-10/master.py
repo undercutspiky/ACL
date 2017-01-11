@@ -145,6 +145,7 @@ train_y = np.array(train_y)
 dict_ = unpickle('../../cifar-10/cifar-10-batches-py/test_batch')
 valid_x = np.array(dict_['data'])/255.0
 valid_y = np.eye(10)[dict_['labels']]
+train_y = np.eye(10)[train_y]
 del dict_
 
 epochs = 100  # 10 * int(round(40000/batch_size)+1)
@@ -157,17 +158,16 @@ with tf.Session(graph=graph) as session:
     #session.run(init_op)
     saver = tf.train.Saver()
     save_path = saver.save(session,'./initial-model')
-    sequence = np.random.choice(len(train_x), size=len(train_x), replace=False)  # The sequence to form batches
-
-    train_y = np.eye(10)[train_y]
-
-    random_train_x = train_x[sequence]
-    random_train_y = train_y[sequence]
 
     i = 1
     cursor = 0
 
     while i <= epochs:
+
+        sequence = np.random.choice(len(train_x), size=len(train_x), replace=False)  # The sequence to form batches
+
+        random_train_x = train_x[sequence]
+        random_train_y = train_y[sequence]
 
         batch_xs = random_train_x[cursor: min((cursor + batch_size), len(train_x))]
         batch_ys = random_train_y[cursor: min((cursor + batch_size), len(train_x))]

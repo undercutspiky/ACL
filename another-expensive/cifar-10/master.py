@@ -106,8 +106,9 @@ valid_x = np.array(dict_['data'])/255.0
 valid_y = np.eye(10)[dict_['labels']]
 del dict_
 
-epochs = 10
+epochs = 50
 losses = []
+all_losses = []
 with tf.Session(graph=graph) as session:
     session.run(init_op)
     saver = tf.train.Saver()
@@ -133,6 +134,7 @@ with tf.Session(graph=graph) as session:
         cr = session.run([loss], feed_dict=feed_dict)
         cr1.append(cr[0])
     cr1 = np.array(cr1)
+    all_losses.append(cr1)
     print cr1.shape
     tflearn.is_training(True, session=session)
 
@@ -178,7 +180,7 @@ with tf.Session(graph=graph) as session:
             # Gotta save all the losses
             losses.append(loss_drop)
             print np.array(losses).shape
-            print losses
+
             # Train on the train data
             tflearn.is_training(True, session=session)
             for ii in xrange(int(math.ceil(float(len(train_x))/batch_size))):  # The number of batches
@@ -207,5 +209,7 @@ with tf.Session(graph=graph) as session:
                 cr = session.run([loss], feed_dict=feed_dict)
                 cr1.append(cr[0])
             cr1 = np.array(cr1)
+            all_losses.append(cr1)
             tflearn.is_training(True, session=session)
     np.save('loss-drops', np.array(losses))
+    np.save('all-batch_wise-losses', np.array(all_losses))
