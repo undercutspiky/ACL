@@ -21,17 +21,17 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size):
     H = tf.nn.relu(H)
     H = tflearn.conv_2d(H, fan_out, filter_size, stride, 'same', 'linear',
                         weights_init=tflearn.initializations.xavier(),
-                        bias_init='uniform', regularizer='L2')
+                        bias_init='uniform', weight_decay=0.0002)
     # Second layer
     H = tflearn.batch_normalization(H)
     H = tf.nn.relu(H)
     H = tflearn.conv_2d(H, fan_out, filter_size, 1, 'same', 'linear',
                         weights_init=tflearn.initializations.xavier(),
-                        bias_init='uniform', regularizer='L2')
+                        bias_init='uniform', weight_decay=0.0002)
     # Transform gate
     T = tflearn.conv_2d(H, fan_out, filter_size, 1, 'same', 'linear',
                         weights_init=tflearn.initializations.xavier(),
-                        bias_init=tf.constant(-1.0, shape=[fan_out]), regularizer='L2')
+                        bias_init=tf.constant(-2.0, shape=[fan_out]), weight_decay=0.0002)
     T = tflearn.batch_normalization(T)
     T = tf.nn.sigmoid(T)
 
@@ -59,7 +59,7 @@ with graph.as_default():
     x_image = tf.reshape(x, [-1, 32, 32, 3])
 
     net = tflearn.conv_2d(x_image, 10, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
-                          bias_init='uniform', regularizer='L2')
+                          bias_init='uniform', weight_decay=0.0002)
 
     for ii in xrange(4):
         net, t_s = conv_highway(net, 10, 10, 1, 3)
@@ -89,7 +89,7 @@ with graph.as_default():
     net = tf.nn.relu(net)
     net = tf.reduce_mean(net, [1, 2])
     net = tflearn.fully_connected(net, 10, activation='linear', weights_init=tflearn.initializations.xavier(),
-                                  bias_init='uniform', regularizer='L2')
+                                  bias_init='uniform', weight_decay=0.0002)
 
     # Calculate loss
     cross_entropy = tf.nn.softmax_cross_entropy_with_logits(net, y)
@@ -200,7 +200,7 @@ with tf.Session(graph=graph) as session:
         cr = session.run([transform_sum], feed_dict=feed_dict)
         cr = cr[0]
 
-        transforms.extend(cr)
+        transforms.append(cr)
     np.save('transforms', transforms)
     np.save('losses', losses)
     np.save('iterations', iterations)
