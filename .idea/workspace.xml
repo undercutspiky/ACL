@@ -30,8 +30,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/highway/cifar-10/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+            <state relative-caret-position="327">
+              <caret line="93" column="4" selection-start-line="93" selection-start-column="4" selection-end-line="93" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -416,13 +416,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00094" summary="batch-wise analysis">
-      <created>1481480616566</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1481480616566</updated>
-    </task>
     <task id="LOCAL-00095" summary="batch-wise analysis">
       <created>1481480699318</created>
       <option name="number" value="00095" />
@@ -759,7 +752,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484090346008</updated>
     </task>
-    <option name="localTasksCounter" value="143" />
+    <task id="LOCAL-00143" summary="use whole train data and test set as valid set">
+      <created>1484090474747</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1484090474747</updated>
+    </task>
+    <option name="localTasksCounter" value="144" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1064,8 +1064,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/highway/cifar-10/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+        <state relative-caret-position="327">
+          <caret line="93" column="4" selection-start-line="93" selection-start-column="4" selection-end-line="93" selection-end-column="4" />
           <folding />
         </state>
       </provider>
