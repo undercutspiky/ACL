@@ -25,13 +25,13 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size):
     H = relu(H)
     H = tflearn.conv_2d(H, fan_out, filter_size, stride, 'same', 'linear',
                         weights_init=tflearn.initializations.xavier(),
-                        bias_init='uniform', weight_decay=0.0002)
+                        bias_init='uniform', weight_decay=0.0005)
     # Second layer
     H = tflearn.batch_normalization(H)
     H = relu(H)
     H = tflearn.conv_2d(H, fan_out, filter_size, 1, 'same', 'linear',
                         weights_init=tflearn.initializations.xavier(),
-                        bias_init='uniform', weight_decay=0.0002)
+                        bias_init='uniform', weight_decay=0.0005)
     # Transform gate
     T = tflearn.conv_2d(H, fan_out, filter_size, 1, 'same', 'linear',
                         weights_init=tflearn.initializations.xavier(),
@@ -73,24 +73,27 @@ with graph.as_default():
                              data_augmentation=img_aug)
 
     net = tflearn.conv_2d(x_image, 16, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
-                          bias_init='uniform', weight_decay=0.0002)
+                          bias_init='uniform', weight_decay=0.0005)
 
-    for ii in xrange(4):
-        net, t_s = conv_highway(net, 16, 16, 1, 3)
+    net, t_s = conv_highway(net, 16, 160, 1, 3)
+    transform_sum += t_s
+
+    for ii in xrange(3):
+        net, t_s = conv_highway(net, 160, 160, 1, 3)
         transform_sum += t_s
 
-    net, t_s = conv_highway(net, 16, 32, 2, 3)
+    net, t_s = conv_highway(net, 160, 320, 2, 3)
     transform_sum += t_s
 
     for ii in xrange(4):
-        net, t_s = conv_highway(net, 32, 32, 1, 3)
+        net, t_s = conv_highway(net, 320, 320, 1, 3)
         transform_sum += t_s
 
-    net, t_s = conv_highway(net, 32, 64, 2, 3)
+    net, t_s = conv_highway(net, 320, 640, 2, 3)
     transform_sum += t_s
 
     for ii in xrange(4):
-        net, t_s = conv_highway(net, 64, 64, 1, 3)
+        net, t_s = conv_highway(net, 640, 640, 1, 3)
         transform_sum += t_s
 
     # net = tflearn.conv_2d(net, 10, 1, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
@@ -103,7 +106,7 @@ with graph.as_default():
     net = relu(net)
     net = tf.reduce_mean(net, [1, 2])
     net = tflearn.fully_connected(net, 10, activation='linear', weights_init=tflearn.initializations.xavier(),
-                                  bias_init='uniform', weight_decay=0.0002)
+                                  bias_init='uniform', weight_decay=0.0005)
 
     # Calculate loss
     cross_entropy = tf.nn.softmax_cross_entropy_with_logits(net, y)
