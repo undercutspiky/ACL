@@ -100,7 +100,7 @@ with graph.as_default():
 
     # Optimizer with gradient clipping
     global_step = tf.Variable(0)
-    lr = tf.train.exponential_decay(0.1, global_step, 20000, 0.1, True)
+    lr = tf.placeholder(tf.float32, [1])  # tf.train.exponential_decay(0.1, global_step, 20000, 0.1, True)
     optimizer = tf.train.MomentumOptimizer(lr, 0.9)
     gradients, v = zip(*optimizer.compute_gradients(loss))
     gradients, _ = tf.clip_by_global_norm(gradients, 1.25)
@@ -132,6 +132,7 @@ epochs = 100  # 10 * int(round(40000/batch_size)+1)
 losses = []
 iterations = [0]*len(train_x)
 transforms = []
+learn_rate = 0.1
 with tf.Session(graph=graph) as session:
     tf.initialize_all_variables().run()
     #session.run(init_op)
@@ -151,11 +152,20 @@ with tf.Session(graph=graph) as session:
 
         batch_xs = random_train_x[cursor: min((cursor + batch_size), len(train_x))]
         batch_ys = random_train_y[cursor: min((cursor + batch_size), len(train_x))]
-        feed_dict = {x: batch_xs, y: batch_ys}
+        feed_dict = {x: batch_xs, y: batch_ys, lr: learn_rate}
 
         # Train it on the batch
         tflearn.is_training(True, session=session)
-        _ = session.run([optimizer], feed_dict=feed_dict)
+        _, train_step = session.run([optimizer, global_step], feed_dict=feed_dict)
+
+        if train_step < 20000:  # 40000
+            learn_rate = 0.1
+        elif train_step < 40000:  # 60000
+            learn_rate = 0.01
+        elif train_step < 50000:  # 80000
+            learn_rate = 0.001
+        else:
+            learn_rate = 0.0001
 
         cursor += batch_size
         if cursor > len(train_x):
