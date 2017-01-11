@@ -75,10 +75,7 @@ with graph.as_default():
     net = tflearn.conv_2d(x_image, 16, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', weight_decay=0.0005)
 
-    net, t_s = conv_highway(net, 16, 160, 1, 3)
-    transform_sum += t_s
-
-    for ii in xrange(3):
+    for ii in xrange(4):
         net, t_s = conv_highway(net, 160, 160, 1, 3)
         transform_sum += t_s
 

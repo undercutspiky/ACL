@@ -30,8 +30,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/highway/cifar-10/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="95" column="45" selection-start-line="95" selection-start-column="45" selection-end-line="95" selection-end-column="45" />
+            <state relative-caret-position="255">
+              <caret line="77" column="22" selection-start-line="77" selection-start-column="22" selection-end-line="77" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -416,13 +416,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00103" summary="horrible mistake corrected :'(">
-      <created>1482927621697</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
-      <option name="project" value="LOCAL" />
-      <updated>1482927621697</updated>
-    </task>
     <task id="LOCAL-00104" summary="horrible mistake corrected :'(">
       <created>1482928067932</created>
       <option name="number" value="00104" />
@@ -759,7 +752,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484143459695</updated>
     </task>
-    <option name="localTasksCounter" value="152" />
+    <task id="LOCAL-00152" summary="wide residual nets">
+      <created>1484148242940</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1484148242940</updated>
+    </task>
+    <option name="localTasksCounter" value="153" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -816,7 +816,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="trying the '312-batch' curriculum just for the sake of trying" />
     <MESSAGE value="batch-wise analysis" />
     <MESSAGE value="6 to 4 GPUs for expensive algo and changed to measuring loss on approx_batch only once instead of everytime after restoring model" />
     <MESSAGE value="save loss drop from master process for every step" />
@@ -841,7 +840,8 @@
     <MESSAGE value="changes" />
     <MESSAGE value="leaky relu" />
     <MESSAGE value="data preprocessing and augmentation added" />
-    <option name="LAST_COMMIT_MESSAGE" value="data preprocessing and augmentation added" />
+    <MESSAGE value="wide residual nets" />
+    <option name="LAST_COMMIT_MESSAGE" value="wide residual nets" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1064,8 +1064,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/highway/cifar-10/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="95" column="45" selection-start-line="95" selection-start-column="45" selection-end-line="95" selection-end-column="45" />
+        <state relative-caret-position="255">
+          <caret line="77" column="22" selection-start-line="77" selection-start-column="22" selection-end-line="77" selection-end-column="22" />
           <folding />
         </state>
       </provider>
