@@ -19,7 +19,7 @@
     <SUITE FILE_PATH="coverage/ACL$CIFAR_10_convolutions.coverage" NAME="CIFAR-10-convolutions Coverage Results" MODIFIED="1484132407013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cifar-10" />
   </component>
   <component name="CreatePatchCommitExecutor">
-    <option name="PATCH_PATH" value="" />
+    <option name="PATCH_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -30,8 +30,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/highway/cifar-10/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="77" column="35" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
+            <state relative-caret-position="192">
+              <caret line="50" column="28" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -416,13 +416,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00105" summary="horrible mistake corrected :'(">
-      <created>1482928534895</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
-      <option name="project" value="LOCAL" />
-      <updated>1482928534895</updated>
-    </task>
     <task id="LOCAL-00106" summary="horrible mistake corrected :'(">
       <created>1482931849589</created>
       <option name="number" value="00106" />
@@ -759,7 +752,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484148470890</updated>
     </task>
-    <option name="localTasksCounter" value="154" />
+    <task id="LOCAL-00154" summary="bug fix">
+      <created>1484148657664</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1484148657664</updated>
+    </task>
+    <option name="localTasksCounter" value="155" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -833,7 +833,6 @@
     <MESSAGE value="debugging" />
     <MESSAGE value="slim highway" />
     <MESSAGE value="debug" />
-    <MESSAGE value="bug fix" />
     <MESSAGE value="hyperparameter changes" />
     <MESSAGE value="changes in hyperparameters" />
     <MESSAGE value="use whole train data and test set as valid set" />
@@ -841,7 +840,8 @@
     <MESSAGE value="leaky relu" />
     <MESSAGE value="data preprocessing and augmentation added" />
     <MESSAGE value="wide residual nets" />
-    <option name="LAST_COMMIT_MESSAGE" value="wide residual nets" />
+    <MESSAGE value="bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1064,8 +1064,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/highway/cifar-10/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="77" column="35" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
+        <state relative-caret-position="192">
+          <caret line="50" column="28" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="28" />
           <folding />
         </state>
       </provider>

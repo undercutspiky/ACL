@@ -46,7 +46,9 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
     if fan_in != fan_out:
         if not not_pool:
             x_new = tf.nn.avg_pool(x, [1, 2, 2, 1], [1, 2, 2, 1], 'VALID')
-        x_new = tf.pad(x_new, [[0, 0], [0, 0], [0, 0], [(fan_out-fan_in)//2, (fan_out-fan_in)//2]])
+            x_new = tf.pad(x_new, [[0, 0], [0, 0], [0, 0], [(fan_out-fan_in)//2, (fan_out-fan_in)//2]])
+        else:
+            x_new = tf.pad(x, [[0, 0], [0, 0], [0, 0], [(fan_out - fan_in) // 2, (fan_out - fan_in) // 2]])
 
         res += C * x_new
         return res, tf.reduce_sum(T)
