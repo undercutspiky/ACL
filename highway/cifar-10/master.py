@@ -54,7 +54,7 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
         return res, tf.reduce_sum(T)
     return (res + (C * x)), tf.reduce_sum(T)
 
-batch_size = 64
+batch_size = 128
 
 graph = tf.Graph()
 with graph.as_default():
@@ -177,11 +177,11 @@ with tf.Session(graph=graph) as session:
         tflearn.is_training(True, session=session)
         _, train_step = session.run([optimizer, global_step], feed_dict=feed_dict)
 
-        if train_step < 20000:  # 40000
+        if train_step < 40000:
             learn_rate = 0.1
-        elif train_step < 40000:  # 60000
+        elif train_step < 60000:
             learn_rate = 0.01
-        elif train_step < 50000:  # 80000
+        elif train_step < 80000:
             learn_rate = 0.001
         else:
             learn_rate = 0.0001
