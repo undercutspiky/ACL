@@ -14,17 +14,21 @@ def unpickle(file):
     return dict_
 
 
+def relu(x, leakiness=0.1):
+    return tf.select(tf.less(x, 0.0), leakiness * x, x)
+
+
 def conv_highway(x, fan_in, fan_out, stride, filter_size):
 
     # First layer
     H = tflearn.batch_normalization(x)
-    H = tf.nn.relu(H)
+    H = relu(H)
     H = tflearn.conv_2d(H, fan_out, filter_size, stride, 'same', 'linear',
                         weights_init=tflearn.initializations.xavier(),
                         bias_init='uniform', weight_decay=0.0002)
     # Second layer
     H = tflearn.batch_normalization(H)
-    H = tf.nn.relu(H)
+    H = relu(H)
     H = tflearn.conv_2d(H, fan_out, filter_size, 1, 'same', 'linear',
                         weights_init=tflearn.initializations.xavier(),
                         bias_init='uniform', weight_decay=0.0002)
@@ -86,7 +90,7 @@ with graph.as_default():
     # net = tflearn.global_avg_pool(net)
 
     net = tflearn.batch_normalization(net)
-    net = tf.nn.relu(net)
+    net = relu(net)
     net = tf.reduce_mean(net, [1, 2])
     net = tflearn.fully_connected(net, 10, activation='linear', weights_init=tflearn.initializations.xavier(),
                                   bias_init='uniform', weight_decay=0.0002)
