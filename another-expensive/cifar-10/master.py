@@ -106,7 +106,7 @@ valid_x = np.array(dict_['data'])/255.0
 valid_y = np.eye(10)[dict_['labels']]
 del dict_
 
-epochs = 50
+epochs = 20
 losses = []
 all_losses = []
 with tf.Session(graph=graph) as session:
@@ -210,6 +210,13 @@ with tf.Session(graph=graph) as session:
                 cr1.append(cr[0])
             cr1 = np.array(cr1)
             all_losses.append(cr1)
+            print "TESTING ACCURACY ON VALIDATION SET"
+            cor_pred = []
+            for iii in xrange(100):
+                a = session.run([correct_], feed_dict={x: valid_x[iii * 100:(iii + 1) * 100],
+                                                       y: valid_y[iii * 100:(iii + 1) * 100]})
+                cor_pred.append(a)
+            print "Accuracy = " + str(np.mean(cor_pred))
             tflearn.is_training(True, session=session)
     np.save('loss-drops', np.array(losses))
     np.save('all-batch_wise-losses', np.array(all_losses))
