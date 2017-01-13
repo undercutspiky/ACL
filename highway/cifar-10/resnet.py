@@ -45,7 +45,7 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
     return H + x
 
 batch_size = 128
-multiplier = 3
+multiplier = 2
 
 graph = tf.Graph()
 with graph.as_default():
@@ -67,10 +67,7 @@ with graph.as_default():
     net = tflearn.conv_2d(net, 16, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', weight_decay=0.0002)
 
-    if multiplier  > 1:
-        net = conv_highway(net, 16, 16 * multiplier, 1, 3, True)
-    else:
-        net = conv_highway(net, 16, 16 * multiplier, 1, 3)
+    net = conv_highway(net, 16, 16 * multiplier, 1, 3, multiplier > 1)
 
     for ii in xrange(3):
         net = conv_highway(net, 16 * multiplier, 16 * multiplier, 1, 3)
@@ -163,12 +160,12 @@ with tf.Session(graph=graph) as session:
         tflearn.is_training(True, session=session)
         _, train_step = session.run([optimizer, global_step], feed_dict=feed_dict)
 
-        if train_step < 40000:
+        if train_step < 20000:  # 40K
             learn_rate = 0.1
-        elif train_step < 60000:
+        elif train_step < 40000:  # 60K
             print "lr changed"
             learn_rate = 0.01
-        elif train_step < 80000:
+        elif train_step < 50000:  # 80K
             learn_rate = 0.001
         else:
             learn_rate = 0.0001
