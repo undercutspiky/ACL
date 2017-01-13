@@ -69,7 +69,7 @@ with graph.as_default():
 
     img_aug = tflearn.ImageAugmentation()
     img_aug.add_random_flip_leftright()
-    img_aug.add_random_crop((32, 32), 6)
+    img_aug.add_random_crop([32, 32], padding=4)
 
     net = tflearn.input_data(shape=[None, 32, 32, 3], placeholder=x_image, data_preprocessing=img_prep,
                              data_augmentation=img_aug)
