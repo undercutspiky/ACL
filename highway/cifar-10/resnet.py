@@ -3,9 +3,7 @@ import cPickle
 import numpy as np
 import tensorflow as tf
 import tflearn
-import os
-import time
-
+import sys
 
 def unpickle(file):
     fo = open(file, 'rb')
@@ -45,7 +43,7 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
     return H + x
 
 batch_size = 128
-multiplier = 2
+multiplier = int(sys.argv[1])
 
 graph = tf.Graph()
 with graph.as_default():
