@@ -32,16 +32,8 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
     H = tflearn.conv_2d(H, fan_out, filter_size, 1, 'same', 'linear',
                         weights_init=tflearn.initializations.xavier(),
                         bias_init='uniform', weight_decay=0.0002)
-    # Transform gate
-    T = tflearn.conv_2d(H, fan_out, filter_size, 1, 'same', 'linear',
-                        weights_init=tflearn.initializations.xavier(),
-                        bias_init=tf.constant(-2.0, shape=[fan_out]), weight_decay=0.0002)
-    T = tflearn.batch_normalization(T)
-    T = tf.nn.sigmoid(T)
 
-    # Carry gate
-    C = 1.0 - T
-    res = H * T
+    res = H
 
     if fan_in != fan_out:
         if not not_pool:
@@ -50,9 +42,9 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
         else:
             x_new = tf.pad(x, [[0, 0], [0, 0], [0, 0], [(fan_out - fan_in) // 2, (fan_out - fan_in) // 2]])
 
-        res += C * x_new
-        return res, tf.reduce_sum(T)
-    return (res + (C * x)), tf.reduce_sum(T)
+        return res + x_new
+
+    return res + x
 
 batch_size = 128
 
@@ -60,7 +52,6 @@ graph = tf.Graph()
 with graph.as_default():
     x = tf.placeholder(tf.float32, [None, 3072])
     y = tf.placeholder(tf.float32, [None, 10])
-    transform_sum = tf.Variable(0.0)
 
     x_image = tf.reshape(x, [-1, 32, 32, 3])
 
@@ -77,26 +68,20 @@ with graph.as_default():
     net = tflearn.conv_2d(x_image, 16, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', weight_decay=0.0002)
 
-    net, t_s = conv_highway(net, 16, 16, 1, 3)
-    transform_sum += t_s
+    net = conv_highway(net, 16, 16, 1, 3)
 
     for ii in xrange(3):
-        net, t_s = conv_highway(net, 16, 16, 1, 3)
-        transform_sum += t_s
+        net = conv_highway(net, 16, 16, 1, 3)
 
-    net, t_s = conv_highway(net, 16, 32, 2, 3)
-    transform_sum += t_s
+    net = conv_highway(net, 16, 32, 2, 3)
 
     for ii in xrange(3):
-        net, t_s = conv_highway(net, 32, 32, 1, 3)
-        transform_sum += t_s
+        net = conv_highway(net, 32, 32, 1, 3)
 
-    net, t_s = conv_highway(net, 32, 64, 2, 3)
-    transform_sum += t_s
+    net = conv_highway(net, 32, 64, 2, 3)
 
     for ii in xrange(3):
-        net, t_s = conv_highway(net, 64, 64, 1, 3)
-        transform_sum += t_s
+        net = conv_highway(net, 64, 64, 1, 3)
 
     # net = tflearn.conv_2d(net, 10, 1, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
     #                       bias_init='uniform', regularizer='L2')
@@ -219,17 +204,3 @@ with tf.Session(graph=graph) as session:
             print "Accuracy = " + str(np.mean(cor_pred))
             tflearn.is_training(True, session=session)
             i += 1
-
-    tflearn.is_training(False, session=session)
-    print "GETTING TRANSFORMATIONS FOR ALL EXAMPLES"
-    for iii in xrange(500):
-        batch_xs = train_x[iii * 100: (iii + 1) * 100]
-        batch_ys = train_y[iii * 100: (iii + 1) * 100]
-        feed_dict = {x: batch_xs, y: batch_ys}
-        cr = session.run([transform_sum], feed_dict=feed_dict)
-        cr = cr[0]
-
-        transforms.append(cr)
-    np.save('transforms', transforms)
-    np.save('losses', losses)
-    np.save('iterations', iterations)
