@@ -170,10 +170,14 @@ with tf.Session(graph=graph) as session:
         cursor += batch_size
         if cursor > len(train_x):
             cursor = 0
-            if 20000 > train_step > 10000:
-                print "lr = 0.01"
-            elif train_step < 30000:
-                print "lr = 0.001"
+            if train_step < 10000:  # 40K
+                print "learn_rate = 0.1"
+            elif train_step < 20000:  # 60K
+                print "learn_rate = 0.01"
+            elif train_step < 30000:  # 80K
+                print "learn_rate = 0.001"
+            else:
+                print "learn_rate = 0.0001"
             tflearn.is_training(False, session=session)
             # l_list = []
             # ac_list = []
