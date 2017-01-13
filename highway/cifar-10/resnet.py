@@ -134,7 +134,6 @@ del dict_
 epochs = 100  # 10 * int(round(40000/batch_size)+1)
 losses = []
 iterations = [0]*len(train_x)
-transforms = []
 learn_rate = 0.1
 with tf.Session(graph=graph) as session:
     tf.initialize_all_variables().run()
@@ -142,15 +141,15 @@ with tf.Session(graph=graph) as session:
     saver = tf.train.Saver()
     save_path = saver.save(session,'./initial-model')
 
+    sequence = np.random.choice(len(train_x), size=len(train_x), replace=False)  # The sequence to form batches
+
+    random_train_x = train_x[sequence]
+    random_train_y = train_y[sequence]
+
     i = 1
     cursor = 0
 
     while i <= epochs:
-
-        sequence = np.random.choice(len(train_x), size=len(train_x), replace=False)  # The sequence to form batches
-
-        random_train_x = train_x[sequence]
-        random_train_y = train_y[sequence]
 
         batch_xs = random_train_x[cursor: min((cursor + batch_size), len(train_x))]
         batch_ys = random_train_y[cursor: min((cursor + batch_size), len(train_x))]
@@ -202,4 +201,7 @@ with tf.Session(graph=graph) as session:
                 cor_pred.append(a)
             print "Accuracy = " + str(np.mean(cor_pred))
             tflearn.is_training(True, session=session)
+            sequence = np.random.choice(len(train_x), size=len(train_x), replace=False)  # The sequence to form batches
+            random_train_x = train_x[sequence]
+            random_train_y = train_y[sequence]
             i += 1
