@@ -33,8 +33,6 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
                         weights_init=tflearn.initializations.xavier(),
                         bias_init='uniform', weight_decay=0.0002)
 
-    res = H
-
     if fan_in != fan_out:
         if not not_pool:
             x_new = tf.nn.avg_pool(x, [1, 2, 2, 1], [1, 2, 2, 1], 'VALID')
@@ -42,9 +40,9 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
         else:
             x_new = tf.pad(x, [[0, 0], [0, 0], [0, 0], [(fan_out - fan_in) // 2, (fan_out - fan_in) // 2]])
 
-        return res + x_new
+        return H + x_new
 
-    return res + x
+    return H + x
 
 batch_size = 128
 
@@ -56,11 +54,11 @@ with graph.as_default():
     x_image = tf.reshape(x, [-1, 32, 32, 3])
 
     img_prep = tflearn.ImagePreprocessing()
-    img_prep.add_zca_whitening()
+    img_prep.add_featurewise_zero_center(per_channel=True)
 
     img_aug = tflearn.ImageAugmentation()
     img_aug.add_random_flip_leftright()
-    img_aug.add_random_crop((32, 32), 6)
+    img_aug.add_random_crop([32, 32], padding=4)
 
     net = tflearn.input_data(shape=[None, 32, 32, 3], placeholder=x_image, data_preprocessing=img_prep,
                              data_augmentation=img_aug)
