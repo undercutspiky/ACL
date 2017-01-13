@@ -54,7 +54,7 @@ with graph.as_default():
     x_image = tf.reshape(x, [-1, 32, 32, 3])
 
     img_prep = tflearn.ImagePreprocessing()
-    img_prep.add_featurewise_zero_center(per_channel=True)
+    img_prep.add_zca_whitening()
 
     img_aug = tflearn.ImageAugmentation()
     img_aug.add_random_flip_leftright()
@@ -174,24 +174,24 @@ with tf.Session(graph=graph) as session:
         if cursor > len(train_x):
             cursor = 0
             tflearn.is_training(False, session=session)
-            l_list = []
-            ac_list = []
-            print "GETTING LOSSES FOR ALL EXAMPLES"
-            for iii in xrange(500):
-                batch_xs = train_x[iii * 100: (iii + 1) * 100]
-                batch_ys = train_y[iii * 100: (iii + 1) * 100]
-                feed_dict = {x: batch_xs, y: batch_ys}
-                cr = session.run([cross_entropy], feed_dict=feed_dict)
-                cr = cr[0]
-
-                # Update iterations
-                for j in xrange(len(cr)):
-                    if cr[j] > 0.0223 and iterations[j] == i-1:
-                        iterations[j] += 1
-                # Append losses, activations for batch
-                l_list.extend(cr)
-            # Append losses, activations for epoch
-            losses.append(l_list)
+            # l_list = []
+            # ac_list = []
+            # print "GETTING LOSSES FOR ALL EXAMPLES"
+            # for iii in xrange(500):
+            #     batch_xs = train_x[iii * 100: (iii + 1) * 100]
+            #     batch_ys = train_y[iii * 100: (iii + 1) * 100]
+            #     feed_dict = {x: batch_xs, y: batch_ys}
+            #     cr = session.run([cross_entropy], feed_dict=feed_dict)
+            #     cr = cr[0]
+            #
+            #     # Update iterations
+            #     for j in xrange(len(cr)):
+            #         if cr[j] > 0.0223 and iterations[j] == i-1:
+            #             iterations[j] += 1
+            #     # Append losses, activations for batch
+            #     l_list.extend(cr)
+            # # Append losses, activations for epoch
+            # losses.append(l_list)
 
             # Validation test
             print "TESTING ON TEST SET for epoch = " + str(i)

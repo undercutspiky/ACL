@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/highway/cifar-10/master.py" afterPath="$PROJECT_DIR$/highway/cifar-10/master.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/highway/cifar-10/resnet.py" afterPath="$PROJECT_DIR$/highway/cifar-10/resnet.py" />
     </list>
     <ignored path="ACL.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,21 +27,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="master.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/highway/cifar-10/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1893">
-              <caret line="71" column="48" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
+            <state relative-caret-position="552">
+              <caret line="234" column="37" selection-start-line="234" selection-start-column="36" selection-end-line="234" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="resnet.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="resnet.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/highway/cifar-10/resnet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="60" column="48" selection-start-line="60" selection-start-column="4" selection-end-line="60" selection-end-column="48" />
+            <state relative-caret-position="147">
+              <caret line="56" column="31" selection-start-line="56" selection-start-column="31" selection-end-line="56" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -69,8 +69,8 @@
         <option value="$PROJECT_DIR$/expensive/cifar-10/master.py" />
         <option value="$PROJECT_DIR$/another-expensive/cifar-10/process.py" />
         <option value="$PROJECT_DIR$/another-expensive/cifar-10/master.py" />
-        <option value="$PROJECT_DIR$/highway/cifar-10/resnet.py" />
         <option value="$PROJECT_DIR$/highway/cifar-10/master.py" />
+        <option value="$PROJECT_DIR$/highway/cifar-10/resnet.py" />
       </list>
     </option>
   </component>
@@ -427,13 +427,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00115" summary="corrections in another-expensive">
-      <created>1482977058220</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
-      <option name="project" value="LOCAL" />
-      <updated>1482977058220</updated>
-    </task>
     <task id="LOCAL-00116" summary="nothing much">
       <created>1483613172204</created>
       <option name="number" value="00116" />
@@ -770,7 +763,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484307363328</updated>
     </task>
-    <option name="localTasksCounter" value="164" />
+    <task id="LOCAL-00164" summary="changes">
+      <created>1484307492680</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1484307492680</updated>
+    </task>
+    <option name="localTasksCounter" value="165" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1062,18 +1062,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/resnet.py">
+    <entry file="file://$PROJECT_DIR$/highway/cifar-10/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="60" column="48" selection-start-line="60" selection-start-column="4" selection-end-line="60" selection-end-column="48" />
+        <state relative-caret-position="552">
+          <caret line="234" column="37" selection-start-line="234" selection-start-column="36" selection-end-line="234" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/master.py">
+    <entry file="file://$PROJECT_DIR$/highway/cifar-10/resnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1893">
-          <caret line="71" column="48" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
+        <state relative-caret-position="147">
+          <caret line="56" column="31" selection-start-line="56" selection-start-column="31" selection-end-line="56" selection-end-column="31" />
           <folding />
         </state>
       </provider>
