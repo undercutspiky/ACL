@@ -45,6 +45,7 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
     return H + x
 
 batch_size = 128
+multiplier = 3
 
 graph = tf.Graph()
 with graph.as_default():
@@ -66,20 +67,23 @@ with graph.as_default():
     net = tflearn.conv_2d(net, 16, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', weight_decay=0.0002)
 
-    net = conv_highway(net, 16, 16, 1, 3)
+    if multiplier  > 1:
+        net = conv_highway(net, 16, 16 * multiplier, 1, 3, True)
+    else:
+        net = conv_highway(net, 16, 16 * multiplier, 1, 3)
 
     for ii in xrange(3):
-        net = conv_highway(net, 16, 16, 1, 3)
+        net = conv_highway(net, 16 * multiplier, 16 * multiplier, 1, 3)
 
-    net = conv_highway(net, 16, 32, 2, 3)
-
-    for ii in xrange(3):
-        net = conv_highway(net, 32, 32, 1, 3)
-
-    net = conv_highway(net, 32, 64, 2, 3)
+    net = conv_highway(net, 16 * multiplier, 32 * multiplier, 2, 3)
 
     for ii in xrange(3):
-        net = conv_highway(net, 64, 64, 1, 3)
+        net = conv_highway(net, 32 * multiplier, 32 * multiplier, 1, 3)
+
+    net = conv_highway(net, 32 * multiplier, 64 * multiplier, 2, 3)
+
+    for ii in xrange(3):
+        net = conv_highway(net, 64 * multiplier, 64 * multiplier, 1, 3)
 
     # net = tflearn.conv_2d(net, 10, 1, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
     #                       bias_init='uniform', regularizer='L2')
