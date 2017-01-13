@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/highway/cifar-10/resnet.py" afterPath="$PROJECT_DIR$/highway/cifar-10/resnet.py" />
     </list>
     <ignored path="ACL.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,8 +40,8 @@
       <file leaf-file-name="resnet.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/highway/cifar-10/resnet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="45" column="27" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="27" />
+            <state relative-caret-position="450">
+              <caret line="175" column="33" selection-start-line="175" selection-start-column="33" selection-end-line="175" selection-end-column="33" />
               <folding>
                 <element signature="e#16#30#0" expanded="true" />
               </folding>
@@ -446,13 +447,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00121" summary="reduce batch size while testing etc.">
-      <created>1483867418872</created>
-      <option name="number" value="00121" />
-      <option name="presentableId" value="LOCAL-00121" />
-      <option name="project" value="LOCAL" />
-      <updated>1483867418872</updated>
-    </task>
     <task id="LOCAL-00122" summary="reduce batch size while testing etc.">
       <created>1483867442561</created>
       <option name="number" value="00122" />
@@ -789,7 +783,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484324931453</updated>
     </task>
-    <option name="localTasksCounter" value="170" />
+    <task id="LOCAL-00170" summary="changes">
+      <created>1484324974311</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1484324974311</updated>
+    </task>
+    <option name="localTasksCounter" value="171" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1094,8 +1095,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/highway/cifar-10/resnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="45" column="27" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="27" />
+        <state relative-caret-position="450">
+          <caret line="175" column="33" selection-start-line="175" selection-start-column="33" selection-end-line="175" selection-end-column="33" />
           <folding>
             <element signature="e#16#30#0" expanded="true" />
           </folding>
