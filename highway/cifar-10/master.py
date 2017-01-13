@@ -74,7 +74,7 @@ with graph.as_default():
     net = tflearn.input_data(shape=[None, 32, 32, 3], placeholder=x_image, data_preprocessing=img_prep,
                              data_augmentation=img_aug)
 
-    net = tflearn.conv_2d(x_image, 16, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
+    net = tflearn.conv_2d(net, 16, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', weight_decay=0.0002)
 
     net, t_s = conv_highway(net, 16, 16, 1, 3)
