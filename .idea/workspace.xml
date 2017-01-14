@@ -40,8 +40,8 @@
       <file leaf-file-name="resnet.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/highway/cifar-10/resnet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1380">
-              <caret line="92" column="71" selection-start-line="92" selection-start-column="71" selection-end-line="92" selection-end-column="71" />
+            <state relative-caret-position="150">
+              <caret line="92" column="70" selection-start-line="92" selection-start-column="70" selection-end-line="92" selection-end-column="70" />
               <folding>
                 <element signature="e#16#30#0" expanded="true" />
               </folding>
@@ -447,13 +447,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00127" summary="debugging">
-      <created>1484038959107</created>
-      <option name="number" value="00127" />
-      <option name="presentableId" value="LOCAL-00127" />
-      <option name="project" value="LOCAL" />
-      <updated>1484038959107</updated>
-    </task>
     <task id="LOCAL-00128" summary="slim highway">
       <created>1484064722522</created>
       <option name="number" value="00128" />
@@ -790,7 +783,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484401228637</updated>
     </task>
-    <option name="localTasksCounter" value="176" />
+    <task id="LOCAL-00176" summary="regularizer was missing">
+      <created>1484403955000</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL-00176" />
+      <option name="project" value="LOCAL" />
+      <updated>1484403955000</updated>
+    </task>
+    <option name="localTasksCounter" value="177" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -847,7 +847,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="6 to 4 GPUs for expensive algo and changed to measuring loss on approx_batch only once instead of everytime after restoring model" />
     <MESSAGE value="save loss drop from master process for every step" />
     <MESSAGE value="horrible mistake corrected :'(" />
     <MESSAGE value="only 500 steps now" />
@@ -872,7 +871,8 @@
     <MESSAGE value="bug fix" />
     <MESSAGE value="changes" />
     <MESSAGE value="wd=0.001" />
-    <option name="LAST_COMMIT_MESSAGE" value="wd=0.001" />
+    <MESSAGE value="regularizer was missing" />
+    <option name="LAST_COMMIT_MESSAGE" value="regularizer was missing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1095,8 +1095,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/highway/cifar-10/resnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1380">
-          <caret line="92" column="71" selection-start-line="92" selection-start-column="71" selection-end-line="92" selection-end-column="71" />
+        <state relative-caret-position="150">
+          <caret line="92" column="70" selection-start-line="92" selection-start-column="70" selection-end-line="92" selection-end-column="70" />
           <folding>
             <element signature="e#16#30#0" expanded="true" />
           </folding>

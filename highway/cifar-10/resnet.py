@@ -23,13 +23,13 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
     H = relu(H)
     H = tflearn.conv_2d(H, fan_out, filter_size, stride, 'same', 'linear',
                         weights_init=tflearn.initializations.xavier(),
-                        regularizer='L2', weight_decay=0.0002)
+                        regularizer='L2', weight_decay=0.001)
     # Second layer
     H = tflearn.batch_normalization(H)
     H = relu(H)
     H = tflearn.conv_2d(H, fan_out, filter_size, 1, 'same', 'linear',
                         weights_init=tflearn.initializations.xavier(),
-                        regularizer='L2', weight_decay=0.0002)
+                        regularizer='L2', weight_decay=0.001)
 
     if fan_in != fan_out:
         if not not_pool:
@@ -63,7 +63,7 @@ with graph.as_default():
                              data_augmentation=img_aug)
 
     net = tflearn.conv_2d(net, 16, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
-                          regularizer='L2', weight_decay=0.0002)
+                          regularizer='L2', weight_decay=0.001)
 
     net = conv_highway(net, 16, 16 * multiplier, 1, 3, multiplier > 1)
 
@@ -90,7 +90,7 @@ with graph.as_default():
     net = relu(net)
     net = tf.reduce_mean(net, [1, 2])
     net = tflearn.fully_connected(net, 10, activation='linear', weights_init=tflearn.initializations.xavier(),
-                                  regularizer='L2', weight_decay=0.0002)
+                                  regularizer='L2', weight_decay=0.001)
 
     # Calculate loss
     cross_entropy = tf.nn.softmax_cross_entropy_with_logits(net, y)
