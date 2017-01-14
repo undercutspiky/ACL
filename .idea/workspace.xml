@@ -40,8 +40,8 @@
       <file leaf-file-name="resnet.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/highway/cifar-10/resnet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="92" column="73" selection-start-line="92" selection-start-column="73" selection-end-line="92" selection-end-column="73" />
+            <state relative-caret-position="1380">
+              <caret line="92" column="71" selection-start-line="92" selection-start-column="71" selection-end-line="92" selection-end-column="71" />
               <folding>
                 <element signature="e#16#30#0" expanded="true" />
               </folding>
@@ -447,13 +447,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00126" summary="debugging">
-      <created>1484001539512</created>
-      <option name="number" value="00126" />
-      <option name="presentableId" value="LOCAL-00126" />
-      <option name="project" value="LOCAL" />
-      <updated>1484001539512</updated>
-    </task>
     <task id="LOCAL-00127" summary="debugging">
       <created>1484038959107</created>
       <option name="number" value="00127" />
@@ -790,7 +783,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484383410485</updated>
     </task>
-    <option name="localTasksCounter" value="175" />
+    <task id="LOCAL-00175" summary="wd=0.001">
+      <created>1484401228637</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
+      <option name="project" value="LOCAL" />
+      <updated>1484401228637</updated>
+    </task>
+    <option name="localTasksCounter" value="176" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -847,7 +847,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="batch-wise analysis" />
     <MESSAGE value="6 to 4 GPUs for expensive algo and changed to measuring loss on approx_batch only once instead of everytime after restoring model" />
     <MESSAGE value="save loss drop from master process for every step" />
     <MESSAGE value="horrible mistake corrected :'(" />
@@ -872,7 +871,8 @@
     <MESSAGE value="wide residual nets" />
     <MESSAGE value="bug fix" />
     <MESSAGE value="changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes" />
+    <MESSAGE value="wd=0.001" />
+    <option name="LAST_COMMIT_MESSAGE" value="wd=0.001" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1095,8 +1095,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/highway/cifar-10/resnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="92" column="73" selection-start-line="92" selection-start-column="73" selection-end-line="92" selection-end-column="73" />
+        <state relative-caret-position="1380">
+          <caret line="92" column="71" selection-start-line="92" selection-start-column="71" selection-end-line="92" selection-end-column="71" />
           <folding>
             <element signature="e#16#30#0" expanded="true" />
           </folding>
