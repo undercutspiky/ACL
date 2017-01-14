@@ -158,11 +158,11 @@ with tf.Session(graph=graph) as session:
         tflearn.is_training(True, session=session)
         _, train_step = session.run([optimizer, global_step], feed_dict=feed_dict)
 
-        if train_step < 10000:  # 40K
+        if train_step < 20000:  # 40K
             learn_rate = 0.1
-        elif train_step < 20000:  # 60K
+        elif train_step < 40000:  # 60K
             learn_rate = 0.01
-        elif train_step < 30000:  # 80K
+        elif train_step < 50000:  # 80K
             learn_rate = 0.001
         else:
             learn_rate = 0.0001
@@ -170,11 +170,11 @@ with tf.Session(graph=graph) as session:
         cursor += batch_size
         if cursor > len(train_x):
             cursor = 0
-            if train_step < 10000:  # 40K
+            if train_step < 20000:  # 40K
                 print "learn_rate = 0.1"
-            elif train_step < 20000:  # 60K
+            elif train_step < 40000:  # 60K
                 print "learn_rate = 0.01"
-            elif train_step < 30000:  # 80K
+            elif train_step < 50000:  # 80K
                 print "learn_rate = 0.001"
             else:
                 print "learn_rate = 0.0001"

@@ -40,8 +40,8 @@
       <file leaf-file-name="resnet.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/highway/cifar-10/resnet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="179" column="43" selection-start-line="179" selection-start-column="43" selection-end-line="179" selection-end-column="43" />
+            <state relative-caret-position="2382">
+              <caret line="164" column="27" selection-start-line="164" selection-start-column="27" selection-end-line="164" selection-end-column="27" />
               <folding>
                 <element signature="e#16#30#0" expanded="true" />
               </folding>
@@ -447,13 +447,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00124" summary="try setting config for session">
-      <created>1483882603674</created>
-      <option name="number" value="00124" />
-      <option name="presentableId" value="LOCAL-00124" />
-      <option name="project" value="LOCAL" />
-      <updated>1483882603674</updated>
-    </task>
     <task id="LOCAL-00125" summary="debugging">
       <created>1483997960446</created>
       <option name="number" value="00125" />
@@ -790,7 +783,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484328168420</updated>
     </task>
-    <option name="localTasksCounter" value="173" />
+    <task id="LOCAL-00173" summary="changes">
+      <created>1484345076498</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1484345076498</updated>
+    </task>
+    <option name="localTasksCounter" value="174" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1088,15 +1088,15 @@
         <state relative-caret-position="358">
           <caret line="119" column="72" selection-start-line="119" selection-start-column="72" selection-end-line="119" selection-end-column="72" />
           <folding>
-            <element signature="e#16#30#0" expanded="true" />
+            <element signature="e#16#30#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/highway/cifar-10/resnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="179" column="43" selection-start-line="179" selection-start-column="43" selection-end-line="179" selection-end-column="43" />
+        <state relative-caret-position="2382">
+          <caret line="164" column="27" selection-start-line="164" selection-start-column="27" selection-end-line="164" selection-end-column="27" />
           <folding>
             <element signature="e#16#30#0" expanded="true" />
           </folding>
