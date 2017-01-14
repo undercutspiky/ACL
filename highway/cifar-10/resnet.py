@@ -24,7 +24,6 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
     H = tflearn.conv_2d(H, fan_out, filter_size, stride, 'same', 'linear',
                         weights_init=tflearn.initializations.xavier(),
                         regularizer='L2', weight_decay=0.001)
-    H = tflearn.dropout(H, 0.5)
     # Second layer
     H = tflearn.batch_normalization(H)
     H = relu(H)
@@ -105,7 +104,7 @@ with graph.as_default():
     lr = tf.placeholder(tf.float32)  # tf.train.exponential_decay(0.1, global_step, 20000, 0.1, True)
     optimizer = tf.train.MomentumOptimizer(lr, 0.9)
     gradients, v = zip(*optimizer.compute_gradients(loss))
-    gradients, _ = tf.clip_by_global_norm(gradients, 1)
+    #gradients, _ = tf.clip_by_global_norm(gradients, 1)
     optimizer = optimizer.apply_gradients(zip(gradients, v), global_step=global_step)
 
     # Op to initialize variables
@@ -131,7 +130,7 @@ valid_y = np.eye(10)[dict_['labels']]
 train_y = np.eye(10)[train_y]
 del dict_
 
-epochs = 100  # 10 * int(round(40000/batch_size)+1)
+epochs = 250  # 10 * int(round(40000/batch_size)+1)
 losses = []
 iterations = [0]*len(train_x)
 learn_rate = 0.1
