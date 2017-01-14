@@ -24,6 +24,7 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
     H = tflearn.conv_2d(H, fan_out, filter_size, stride, 'same', 'linear',
                         weights_init=tflearn.initializations.xavier(),
                         regularizer='L2', weight_decay=0.001)
+    H = tflearn.dropout(H, 0.5)
     # Second layer
     H = tflearn.batch_normalization(H)
     H = relu(H)
