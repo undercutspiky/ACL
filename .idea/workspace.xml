@@ -40,8 +40,8 @@
       <file leaf-file-name="resnet.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/highway/cifar-10/resnet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
+            <state relative-caret-position="195">
+              <caret line="163" column="29" selection-start-line="163" selection-start-column="29" selection-end-line="163" selection-end-column="29" />
               <folding>
                 <element signature="e#16#30#0" expanded="true" />
               </folding>
@@ -447,13 +447,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00133" summary="debug">
-      <created>1484070406029</created>
-      <option name="number" value="00133" />
-      <option name="presentableId" value="LOCAL-00133" />
-      <option name="project" value="LOCAL" />
-      <updated>1484070406029</updated>
-    </task>
     <task id="LOCAL-00134" summary="debug">
       <created>1484070677854</created>
       <option name="number" value="00134" />
@@ -790,7 +783,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484674995670</updated>
     </task>
-    <option name="localTasksCounter" value="182" />
+    <task id="LOCAL-00182" summary="changes">
+      <created>1484675633050</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1484675633050</updated>
+    </task>
+    <option name="localTasksCounter" value="183" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -869,10 +869,10 @@
     <MESSAGE value="bug fix" />
     <MESSAGE value="wd=0.001" />
     <MESSAGE value="regularizer was missing" />
-    <MESSAGE value="changes" />
     <MESSAGE value="architecture change because of http://torch.ch/blog/2016/02/04/resnets.html" />
     <MESSAGE value="higher momentum" />
-    <option name="LAST_COMMIT_MESSAGE" value="higher momentum" />
+    <MESSAGE value="changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1102,8 +1102,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/highway/cifar-10/resnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
+        <state relative-caret-position="195">
+          <caret line="163" column="29" selection-start-line="163" selection-start-column="29" selection-end-line="163" selection-end-column="29" />
           <folding>
             <element signature="e#16#30#0" expanded="true" />
           </folding>
