@@ -40,8 +40,8 @@
       <file leaf-file-name="resnet.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/highway/cifar-10/resnet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="67" column="19" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
+            <state relative-caret-position="390">
+              <caret line="106" column="48" selection-start-line="106" selection-start-column="48" selection-end-line="106" selection-end-column="48" />
               <folding>
                 <element signature="e#16#30#0" expanded="true" />
               </folding>
@@ -447,13 +447,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00131" summary="slim highway">
-      <created>1484065632086</created>
-      <option name="number" value="00131" />
-      <option name="presentableId" value="LOCAL-00131" />
-      <option name="project" value="LOCAL" />
-      <updated>1484065632086</updated>
-    </task>
     <task id="LOCAL-00132" summary="slim highway">
       <created>1484065742070</created>
       <option name="number" value="00132" />
@@ -790,7 +783,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484427119293</updated>
     </task>
-    <option name="localTasksCounter" value="180" />
+    <task id="LOCAL-00180" summary="architecture change because of http://torch.ch/blog/2016/02/04/resnets.html">
+      <created>1484672162626</created>
+      <option name="number" value="00180" />
+      <option name="presentableId" value="LOCAL-00180" />
+      <option name="project" value="LOCAL" />
+      <updated>1484672162626</updated>
+    </task>
+    <option name="localTasksCounter" value="181" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -847,7 +847,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="save loss drop from master process for every step" />
     <MESSAGE value="horrible mistake corrected :'(" />
     <MESSAGE value="only 500 steps now" />
     <MESSAGE value="only 100 steps now" />
@@ -872,7 +871,8 @@
     <MESSAGE value="wd=0.001" />
     <MESSAGE value="regularizer was missing" />
     <MESSAGE value="changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes" />
+    <MESSAGE value="architecture change because of http://torch.ch/blog/2016/02/04/resnets.html" />
+    <option name="LAST_COMMIT_MESSAGE" value="architecture change because of http://torch.ch/blog/2016/02/04/resnets.html" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1102,8 +1102,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/highway/cifar-10/resnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="67" column="19" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
+        <state relative-caret-position="390">
+          <caret line="106" column="48" selection-start-line="106" selection-start-column="48" selection-end-line="106" selection-end-column="48" />
           <folding>
             <element signature="e#16#30#0" expanded="true" />
           </folding>
