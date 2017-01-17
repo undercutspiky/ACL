@@ -88,8 +88,6 @@ with graph.as_default():
     # net = tf.nn.relu(net)
     # net = tflearn.global_avg_pool(net)
 
-    net = tflearn.batch_normalization(net)
-    net = relu(net)
     net = tf.reduce_mean(net, [1, 2])
     net = tflearn.fully_connected(net, 10, activation='linear', weights_init=tflearn.initializations.xavier(),
                                   regularizer='L2', weight_decay=0.001)
@@ -135,7 +133,7 @@ del dict_
 epochs = 250  # 10 * int(round(40000/batch_size)+1)
 losses = []
 iterations = [0]*len(train_x)
-learn_rate = 0.05
+learn_rate = 0.1
 with tf.Session(graph=graph) as session:
     tf.initialize_all_variables().run()
     #session.run(init_op)
@@ -161,7 +159,7 @@ with tf.Session(graph=graph) as session:
         _, train_step = session.run([optimizer, global_step], feed_dict=feed_dict)
 
         if train_step < 20000:  # 40K
-            learn_rate = 0.05
+            learn_rate = 0.1
         elif train_step < 40000:  # 60K
             learn_rate = 0.01
         elif train_step < 50000:  # 80K
