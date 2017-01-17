@@ -82,13 +82,13 @@ with graph.as_default():
     for ii in xrange(3):
         net = conv_highway(net, 64 * multiplier, 64 * multiplier, 1, 3)
 
-    # net = tflearn.conv_2d(net, 10, 1, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
-    #                       bias_init='uniform', regularizer='L2')
-    # net = tflearn.batch_normalization(net)
-    # net = tf.nn.relu(net)
-    # net = tflearn.global_avg_pool(net)
+    net = tflearn.conv_2d(net, 10, 1, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
+                          bias_init='uniform', regularizer='L2')
+    net = tflearn.batch_normalization(net)
+    net = tf.nn.relu(net)
+    net = tflearn.global_avg_pool(net)
 
-    net = tf.reduce_mean(net, [1, 2])
+    # net = tf.reduce_mean(net, [1, 2])
     net = tflearn.fully_connected(net, 10, activation='linear', weights_init=tflearn.initializations.xavier(),
                                   regularizer='L2', weight_decay=0.001)
 
