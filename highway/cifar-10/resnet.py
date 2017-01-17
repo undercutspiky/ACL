@@ -19,17 +19,17 @@ def relu(x, leakiness=0.1):
 def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
 
     # First layer
-    H = tflearn.batch_normalization(x)
-    H = relu(H)
-    H = tflearn.conv_2d(H, fan_out, filter_size, stride, 'same', 'linear',
+    H = tflearn.conv_2d(x, fan_out, filter_size, stride, 'same', 'linear',
                         weights_init=tflearn.initializations.xavier(),
                         regularizer='L2', weight_decay=0.001)
-    # Second layer
     H = tflearn.batch_normalization(H)
     H = relu(H)
+
+    # Second layer
     H = tflearn.conv_2d(H, fan_out, filter_size, 1, 'same', 'linear',
                         weights_init=tflearn.initializations.xavier(),
                         regularizer='L2', weight_decay=0.001)
+    H = tflearn.batch_normalization(H)
 
     if fan_in != fan_out:
         if not not_pool:
@@ -38,9 +38,9 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
         else:
             x_new = tf.pad(x, [[0, 0], [0, 0], [0, 0], [(fan_out - fan_in) // 2, (fan_out - fan_in) // 2]])
 
-        return H + x_new
+        return relu(H + x_new)
 
-    return H + x
+    return relu(H + x)
 
 batch_size = 128
 multiplier = int(sys.argv[1])
@@ -64,6 +64,8 @@ with graph.as_default():
 
     net = tflearn.conv_2d(net, 16, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                           regularizer='L2', weight_decay=0.001)
+    net = tflearn.batch_normalization(net)
+    net = relu(net)
 
     net = conv_highway(net, 16, 16 * multiplier, 1, 3, multiplier > 1)
 
