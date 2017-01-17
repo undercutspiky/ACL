@@ -20,14 +20,14 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
 
     # First layer
     H = tflearn.conv_2d(x, fan_out, filter_size, stride, 'same', 'linear',
-                        weights_init=tflearn.initializations.xavier(),
+                        #weights_init=tflearn.initializations.xavier(),
                         regularizer='L2', weight_decay=0.001)
     H = tflearn.batch_normalization(H)
     H = relu(H)
 
     # Second layer
     H = tflearn.conv_2d(H, fan_out, filter_size, 1, 'same', 'linear',
-                        weights_init=tflearn.initializations.xavier(),
+                        #weights_init=tflearn.initializations.xavier(),
                         regularizer='L2', weight_decay=0.001)
     H = tflearn.batch_normalization(H)
 
@@ -62,7 +62,7 @@ with graph.as_default():
     net = tflearn.input_data(shape=[None, 32, 32, 3], placeholder=x_image, data_preprocessing=img_prep,
                              data_augmentation=img_aug)
 
-    net = tflearn.conv_2d(net, 16, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
+    net = tflearn.conv_2d(net, 16, 3, 1, 'same', 'linear', #weights_init=tflearn.initializations.xavier(),
                           regularizer='L2', weight_decay=0.001)
     net = tflearn.batch_normalization(net)
     net = relu(net)
@@ -82,14 +82,14 @@ with graph.as_default():
     for ii in xrange(3):
         net = conv_highway(net, 64 * multiplier, 64 * multiplier, 1, 3)
 
-    net = tflearn.conv_2d(net, 10, 1, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
+    net = tflearn.conv_2d(net, 10, 1, 1, 'same', 'linear', #weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', regularizer='L2', weight_decay=0.001)
     net = tflearn.batch_normalization(net)
     net = tf.nn.relu(net)
     net = tflearn.global_avg_pool(net)
 
     # net = tf.reduce_mean(net, [1, 2])
-    net = tflearn.fully_connected(net, 10, activation='linear', weights_init=tflearn.initializations.xavier(),
+    net = tflearn.fully_connected(net, 10, activation='linear', #weights_init=tflearn.initializations.xavier(),
                                   regularizer='L2', weight_decay=0.001)
 
     # Calculate loss
