@@ -83,7 +83,7 @@ with graph.as_default():
         net = conv_highway(net, 64 * multiplier, 64 * multiplier, 1, 3)
 
     net = tflearn.conv_2d(net, 10, 1, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
-                          bias_init='uniform', regularizer='L2')
+                          bias_init='uniform', regularizer='L2', weight_decay=0.001)
     net = tflearn.batch_normalization(net)
     net = tf.nn.relu(net)
     net = tflearn.global_avg_pool(net)
