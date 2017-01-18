@@ -69,17 +69,17 @@ with graph.as_default():
 
     net = conv_highway(net, 16, 16 * multiplier, 1, 3, multiplier > 1)
 
-    for ii in xrange(3):
+    for ii in xrange(6):
         net = conv_highway(net, 16 * multiplier, 16 * multiplier, 1, 3)
 
     net = conv_highway(net, 16 * multiplier, 32 * multiplier, 2, 3)
 
-    for ii in xrange(3):
+    for ii in xrange(6):
         net = conv_highway(net, 32 * multiplier, 32 * multiplier, 1, 3)
 
     net = conv_highway(net, 32 * multiplier, 64 * multiplier, 2, 3)
 
-    for ii in xrange(3):
+    for ii in xrange(6):
         net = conv_highway(net, 64 * multiplier, 64 * multiplier, 1, 3)
 
     net = tflearn.conv_2d(net, 10, 1, 1, 'same', 'linear', #weights_init=tflearn.initializations.xavier(),
