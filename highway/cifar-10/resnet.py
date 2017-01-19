@@ -20,15 +20,17 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
 
     # First layer
     H = tflearn.conv_2d(x, fan_out, filter_size, stride, 'same', 'linear',
+                        weights_init='variance_scaling',
                         #weights_init=tflearn.initializations.xavier(),
-                        regularizer='L2', weight_decay=0.001)
+                        regularizer='L2', weight_decay=0.002)
     H = tflearn.batch_normalization(H)
     H = relu(H)
 
     # Second layer
     H = tflearn.conv_2d(H, fan_out, filter_size, 1, 'same', 'linear',
+                        weights_init='variance_scaling',
                         #weights_init=tflearn.initializations.xavier(),
-                        regularizer='L2', weight_decay=0.001)
+                        regularizer='L2', weight_decay=0.002)
     H = tflearn.batch_normalization(H)
 
     if fan_in != fan_out:
@@ -47,10 +49,8 @@ multiplier = int(sys.argv[1])
 
 graph = tf.Graph()
 with graph.as_default():
-    x = tf.placeholder(tf.float32, [None, 3072])
+    x = tf.placeholder(tf.float32, [None, 32, 32, 3])
     y = tf.placeholder(tf.float32, [None, 10])
-
-    x_image = tf.reshape(x, [-1, 32, 32, 3])
 
     img_prep = tflearn.ImagePreprocessing()
     img_prep.add_zca_whitening()
@@ -59,38 +59,38 @@ with graph.as_default():
     img_aug.add_random_flip_leftright()
     img_aug.add_random_crop([32, 32], padding=4)
 
-    net = tflearn.input_data(shape=[None, 32, 32, 3], placeholder=x_image, data_preprocessing=img_prep,
+    net = tflearn.input_data(shape=[None, 32, 32, 3], placeholder=x, data_preprocessing=img_prep,
                              data_augmentation=img_aug)
 
-    net = tflearn.conv_2d(net, 16, 3, 1, 'same', 'linear', #weights_init=tflearn.initializations.xavier(),
+    net = tflearn.conv_2d(net, 16, 3, 1, 'same', 'linear', weights_init='variance_scaling',#weights_init=tflearn.initializations.xavier(),
                           regularizer='L2', weight_decay=0.001)
     net = tflearn.batch_normalization(net)
     net = relu(net)
 
     net = conv_highway(net, 16, 16 * multiplier, 1, 3, multiplier > 1)
 
-    for ii in xrange(6):
+    for ii in xrange(3):
         net = conv_highway(net, 16 * multiplier, 16 * multiplier, 1, 3)
 
     net = conv_highway(net, 16 * multiplier, 32 * multiplier, 2, 3)
 
-    for ii in xrange(6):
+    for ii in xrange(3):
         net = conv_highway(net, 32 * multiplier, 32 * multiplier, 1, 3)
 
     net = conv_highway(net, 32 * multiplier, 64 * multiplier, 2, 3)
 
-    for ii in xrange(6):
+    for ii in xrange(3):
         net = conv_highway(net, 64 * multiplier, 64 * multiplier, 1, 3)
 
-    net = tflearn.conv_2d(net, 10, 1, 1, 'same', 'linear', #weights_init=tflearn.initializations.xavier(),
-                          bias_init='uniform', regularizer='L2', weight_decay=0.001)
+    net = tflearn.conv_2d(net, 10, 1, 1, 'same', 'linear', weights_init='variance_scaling',#weights_init=tflearn.initializations.xavier(),
+                          bias_init='uniform', regularizer='L2', weight_decay=0.002)
     net = tflearn.batch_normalization(net)
     net = tf.nn.relu(net)
     net = tflearn.global_avg_pool(net)
 
     # net = tf.reduce_mean(net, [1, 2])
-    net = tflearn.fully_connected(net, 10, activation='linear', #weights_init=tflearn.initializations.xavier(),
-                                  regularizer='L2', weight_decay=0.001)
+    net = tflearn.fully_connected(net, 10, activation='linear', weights_init='variance_scaling',#weights_init=tflearn.initializations.xavier(),
+                                  regularizer='L2', weight_decay=0.002)
 
     # Calculate loss
     cross_entropy = tf.nn.softmax_cross_entropy_with_logits(net, y)
@@ -129,6 +129,11 @@ valid_x = np.array(dict_['data'])/255.0
 valid_y = np.eye(10)[dict_['labels']]
 train_y = np.eye(10)[train_y]
 del dict_
+
+train_x = np.dstack((train_x[:, :1024], train_x[:, 1024:2048], train_x[:, 2048:])) / 255.
+train_x = np.reshape(train_x, [-1, 32, 32, 3])
+valid_x = np.dstack((valid_x[:, :1024], valid_x[:, 1024:2048], valid_x[:, 2048:])) / 255.
+valid_x = np.reshape(valid_x, [-1, 32, 32, 3])
 
 epochs = 250  # 10 * int(round(40000/batch_size)+1)
 losses = []
