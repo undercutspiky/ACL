@@ -18,13 +18,10 @@ batch_norm = True
 
 graph = tf.Graph()
 with graph.as_default():
-    x = tf.placeholder(tf.float32, [None, 3072])
+    x = tf.placeholder(tf.float32, [None, 32, 32, 3])
     y = tf.placeholder(tf.float32, [None, 10])
 
-    x_image = tf.reshape(x, [-1, 32, 32, 3])
-
-    #net = tflearn.dropout(x_image, 0.2)
-    net = tflearn.conv_2d(x_image, 96, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
+    net = tflearn.conv_2d(x, 96, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', regularizer='L2')
     if batch_norm:
         net = tflearn.batch_normalization(net)
@@ -100,6 +97,11 @@ dict_ = unpickle('cifar-10-batches-py/data_batch_5')
 valid_x = dict_['data']
 valid_y = np.eye(10)[dict_['labels']]
 del dict_
+
+train_x = np.dstack((train_x[:, :1024], train_x[:, 1024:2048], train_x[:, 2048:]))
+train_x = np.reshape(train_x, [-1, 32, 32, 3])
+valid_x = np.dstack((valid_x[:, :1024], valid_x[:, 1024:2048], valid_x[:, 2048:]))
+valid_x = np.reshape(valid_x, [-1, 32, 32, 3])
 
 epochs = 150
 losses = []
