@@ -40,8 +40,8 @@
       <file leaf-file-name="resnet.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/highway/cifar-10/resnet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="140" column="16" selection-start-line="140" selection-start-column="16" selection-end-line="140" selection-end-column="16" />
+            <state relative-caret-position="315">
+              <caret line="132" column="82" selection-start-line="132" selection-start-column="82" selection-end-line="132" selection-end-column="82" />
               <folding>
                 <element signature="e#16#30#0" expanded="true" />
               </folding>
@@ -447,13 +447,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00140" summary="hyperparameter changes">
-      <created>1484087270339</created>
-      <option name="number" value="00140" />
-      <option name="presentableId" value="LOCAL-00140" />
-      <option name="project" value="LOCAL" />
-      <updated>1484087270339</updated>
-    </task>
     <task id="LOCAL-00141" summary="changes in hyperparameters">
       <created>1484090103406</created>
       <option name="number" value="00141" />
@@ -790,7 +783,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484735510295</updated>
     </task>
-    <option name="localTasksCounter" value="189" />
+    <task id="LOCAL-00189" summary="correct horrible reshaping mistake">
+      <created>1484792277912</created>
+      <option name="number" value="00189" />
+      <option name="presentableId" value="LOCAL-00189" />
+      <option name="project" value="LOCAL" />
+      <updated>1484792277912</updated>
+    </task>
+    <option name="localTasksCounter" value="190" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -847,7 +847,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="correction of horrible mistakes :'(" />
     <MESSAGE value="yet another mistake" />
     <MESSAGE value="corrections in another-expensive" />
     <MESSAGE value="nothing much" />
@@ -872,7 +871,8 @@
     <MESSAGE value="changes" />
     <MESSAGE value="default weight init" />
     <MESSAGE value="more depth" />
-    <option name="LAST_COMMIT_MESSAGE" value="more depth" />
+    <MESSAGE value="correct horrible reshaping mistake" />
+    <option name="LAST_COMMIT_MESSAGE" value="correct horrible reshaping mistake" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1102,8 +1102,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/highway/cifar-10/resnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="140" column="16" selection-start-line="140" selection-start-column="16" selection-end-line="140" selection-end-column="16" />
+        <state relative-caret-position="315">
+          <caret line="132" column="82" selection-start-line="132" selection-start-column="82" selection-end-line="132" selection-end-column="82" />
           <folding>
             <element signature="e#16#30#0" expanded="true" />
           </folding>

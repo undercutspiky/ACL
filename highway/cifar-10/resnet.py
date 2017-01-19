@@ -130,9 +130,9 @@ valid_y = np.eye(10)[dict_['labels']]
 train_y = np.eye(10)[train_y]
 del dict_
 
-train_x = np.dstack((train_x[:, :1024], train_x[:, 1024:2048], train_x[:, 2048:])) / 255.
+train_x = np.dstack((train_x[:, :1024], train_x[:, 1024:2048], train_x[:, 2048:]))
 train_x = np.reshape(train_x, [-1, 32, 32, 3])
-valid_x = np.dstack((valid_x[:, :1024], valid_x[:, 1024:2048], valid_x[:, 2048:])) / 255.
+valid_x = np.dstack((valid_x[:, :1024], valid_x[:, 1024:2048], valid_x[:, 2048:]))
 valid_x = np.reshape(valid_x, [-1, 32, 32, 3])
 
 epochs = 250  # 10 * int(round(40000/batch_size)+1)
