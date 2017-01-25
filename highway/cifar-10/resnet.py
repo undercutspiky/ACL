@@ -20,17 +20,15 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
 
     # First layer
     H = tflearn.conv_2d(x, fan_out, filter_size, stride, 'same', 'linear',
-                        weights_init='variance_scaling',
-                        #weights_init=tflearn.initializations.xavier(),
-                        regularizer='L2', weight_decay=0.002)
+                        weights_init=tflearn.initializations.xavier(),
+                        regularizer='L2', weight_decay=0.0002)
     H = tflearn.batch_normalization(H)
     H = relu(H)
 
     # Second layer
     H = tflearn.conv_2d(H, fan_out, filter_size, 1, 'same', 'linear',
-                        weights_init='variance_scaling',
-                        #weights_init=tflearn.initializations.xavier(),
-                        regularizer='L2', weight_decay=0.002)
+                        weights_init=tflearn.initializations.xavier(),
+                        regularizer='L2', weight_decay=0.0002)
     H = tflearn.batch_normalization(H)
 
     if fan_in != fan_out:
@@ -62,8 +60,8 @@ with graph.as_default():
     net = tflearn.input_data(shape=[None, 32, 32, 3], placeholder=x, data_preprocessing=img_prep,
                              data_augmentation=img_aug)
 
-    net = tflearn.conv_2d(net, 16, 3, 1, 'same', 'linear', weights_init='variance_scaling',#weights_init=tflearn.initializations.xavier(),
-                          regularizer='L2', weight_decay=0.001)
+    net = tflearn.conv_2d(net, 16, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
+                          regularizer='L2', weight_decay=0.0002)
     net = tflearn.batch_normalization(net)
     net = relu(net)
 
@@ -82,15 +80,15 @@ with graph.as_default():
     for ii in xrange(3):
         net = conv_highway(net, 64 * multiplier, 64 * multiplier, 1, 3)
 
-    net = tflearn.conv_2d(net, 10, 1, 1, 'same', 'linear', weights_init='variance_scaling',#weights_init=tflearn.initializations.xavier(),
-                          bias_init='uniform', regularizer='L2', weight_decay=0.002)
+    net = tflearn.conv_2d(net, 10, 1, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
+                          bias_init='uniform', regularizer='L2', weight_decay=0.0002)
     net = tflearn.batch_normalization(net)
     net = tf.nn.relu(net)
     net = tflearn.global_avg_pool(net)
 
     # net = tf.reduce_mean(net, [1, 2])
-    net = tflearn.fully_connected(net, 10, activation='linear', weights_init='variance_scaling',#weights_init=tflearn.initializations.xavier(),
-                                  regularizer='L2', weight_decay=0.002)
+    net = tflearn.fully_connected(net, 10, activation='linear', weights_init=tflearn.initializations.xavier(),
+                                  regularizer='L2', weight_decay=0.0002)
 
     # Calculate loss
     cross_entropy = tf.nn.softmax_cross_entropy_with_logits(net, y)
@@ -104,11 +102,11 @@ with graph.as_default():
     lr = tf.placeholder(tf.float32)  # tf.train.exponential_decay(0.1, global_step, 20000, 0.1, True)
     optimizer = tf.train.MomentumOptimizer(lr, 0.9)
     gradients, v = zip(*optimizer.compute_gradients(loss))
-    #gradients, _ = tf.clip_by_global_norm(gradients, 1)
+    gradients, _ = tf.clip_by_global_norm(gradients, 1.0)
     optimizer = optimizer.apply_gradients(zip(gradients, v), global_step=global_step)
 
     # Op to initialize variables
-    #init_op = tf.global_variables_initializer()
+    init_op = tf.global_variables_initializer()
 # ### Read data
 # * Use first 4 data files as training data and last one as validation
 
@@ -137,11 +135,11 @@ valid_x = np.reshape(valid_x, [-1, 32, 32, 3])
 
 epochs = 250  # 10 * int(round(40000/batch_size)+1)
 losses = []
-iterations = [0]*len(train_x)
+iterations1 = [0]*len(train_x)
+iterations2 = [0]*len(train_x)
 learn_rate = 0.1
 with tf.Session(graph=graph) as session:
-    tf.initialize_all_variables().run()
-    #session.run(init_op)
+    session.run(init_op)
     saver = tf.train.Saver()
     save_path = saver.save(session,'./initial-model')
 
@@ -163,11 +161,11 @@ with tf.Session(graph=graph) as session:
         tflearn.is_training(True, session=session)
         _, train_step = session.run([optimizer, global_step], feed_dict=feed_dict)
 
-        if train_step < 20000:  # 40K
+        if train_step < 40000:  # 40K
             learn_rate = 0.1
-        elif train_step < 40000:  # 60K
+        elif train_step < 60000:  # 60K
             learn_rate = 0.01
-        elif train_step < 50000:  # 80K
+        elif train_step < 80000:  # 80K
             learn_rate = 0.001
         else:
             learn_rate = 0.0001
@@ -175,33 +173,35 @@ with tf.Session(graph=graph) as session:
         cursor += batch_size
         if cursor > len(train_x):
             cursor = 0
-            if train_step < 20000:  # 40K
+            if train_step < 40000:  # 40K
                 print "learn_rate = 0.1"
-            elif train_step < 40000:  # 60K
+            elif train_step < 60000:  # 60K
                 print "learn_rate = 0.01"
-            elif train_step < 50000:  # 80K
+            elif train_step < 80000:  # 80K
                 print "learn_rate = 0.001"
             else:
                 print "learn_rate = 0.0001"
             tflearn.is_training(False, session=session)
-            # l_list = []
-            # ac_list = []
-            # print "GETTING LOSSES FOR ALL EXAMPLES"
-            # for iii in xrange(500):
-            #     batch_xs = train_x[iii * 100: (iii + 1) * 100]
-            #     batch_ys = train_y[iii * 100: (iii + 1) * 100]
-            #     feed_dict = {x: batch_xs, y: batch_ys}
-            #     cr = session.run([cross_entropy], feed_dict=feed_dict)
-            #     cr = cr[0]
-            #
-            #     # Update iterations
-            #     for j in xrange(len(cr)):
-            #         if cr[j] > 0.0223 and iterations[j] == i-1:
-            #             iterations[j] += 1
-            #     # Append losses, activations for batch
-            #     l_list.extend(cr)
-            # # Append losses, activations for epoch
-            # losses.append(l_list)
+            l_list = []
+            ac_list = []
+            print "GETTING LOSSES FOR ALL EXAMPLES"
+            for iii in xrange(500):
+                batch_xs = train_x[iii * 100: (iii + 1) * 100]
+                batch_ys = train_y[iii * 100: (iii + 1) * 100]
+                feed_dict = {x: batch_xs, y: batch_ys}
+                cr = session.run([cross_entropy], feed_dict=feed_dict)
+                cr = cr[0]
+
+                # Update iterations
+                for j in xrange(len(cr)):
+                    if cr[j] > 0.0223:
+                        iterations2[iii*100+j] = i
+                        if iterations1[j] == i-1:
+                            iterations1[iii*100+j] += 1
+                # Append losses, activations for batch
+                l_list.extend(cr)
+            # Append losses, activations for epoch
+            losses.append(l_list)
 
             # Validation test
             print "TESTING ON TEST SET for epoch = " + str(i)
@@ -216,3 +216,6 @@ with tf.Session(graph=graph) as session:
             random_train_x = train_x[sequence]
             random_train_y = train_y[sequence]
             i += 1
+np.save("losses", losses)
+np.save("iterations1", iterations1)
+np.save("iterations2", iterations2)
