@@ -25,17 +25,18 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
     H = relu(H)
     H = tflearn.conv_2d(H, fan_out, filter_size, stride, 'same', 'linear',
                         weights_init=tflearn.initializations.xavier(),
-                        bias_init='uniform', weight_decay=0.0002)
+                        bias_init='uniform', regularizer='L2', weight_decay=0.0002)
     # Second layer
     H = tflearn.batch_normalization(H)
     H = relu(H)
     H = tflearn.conv_2d(H, fan_out, filter_size, 1, 'same', 'linear',
                         weights_init=tflearn.initializations.xavier(),
-                        bias_init='uniform', weight_decay=0.0002)
+                        bias_init='uniform', regularizer='L2', weight_decay=0.0002)
     # Transform gate
     T = tflearn.conv_2d(H, fan_out, filter_size, 1, 'same', 'linear',
                         weights_init=tflearn.initializations.xavier(),
-                        bias_init=tf.constant(-2.0, shape=[fan_out]), weight_decay=0.0002)
+                        bias_init=tf.constant(-2.0, shape=[fan_out]),
+                        regularizer='L2', weight_decay=0.0002)
     T = tflearn.batch_normalization(T)
     T = tf.nn.sigmoid(T)
 
@@ -58,11 +59,9 @@ batch_size = 128
 
 graph = tf.Graph()
 with graph.as_default():
-    x = tf.placeholder(tf.float32, [None, 3072])
+    x = tf.placeholder(tf.float32, [None, 32, 32, 3])
     y = tf.placeholder(tf.float32, [None, 10])
     transform_sum = tf.Variable(0.0)
-
-    x_image = tf.reshape(x, [-1, 32, 32, 3])
 
     img_prep = tflearn.ImagePreprocessing()
     img_prep.add_zca_whitening()
@@ -71,11 +70,11 @@ with graph.as_default():
     img_aug.add_random_flip_leftright()
     img_aug.add_random_crop([32, 32], padding=4)
 
-    net = tflearn.input_data(shape=[None, 32, 32, 3], placeholder=x_image, data_preprocessing=img_prep,
+    net = tflearn.input_data(shape=[None, 32, 32, 3], placeholder=x, data_preprocessing=img_prep,
                              data_augmentation=img_aug)
 
     net = tflearn.conv_2d(net, 16, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
-                          bias_init='uniform', weight_decay=0.0002)
+                          bias_init='uniform', regularizer='L2', weight_decay=0.0002)
 
     net, t_s = conv_highway(net, 16, 16, 1, 3)
     transform_sum += t_s
@@ -98,17 +97,11 @@ with graph.as_default():
         net, t_s = conv_highway(net, 64, 64, 1, 3)
         transform_sum += t_s
 
-    # net = tflearn.conv_2d(net, 10, 1, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
-    #                       bias_init='uniform', regularizer='L2')
-    # net = tflearn.batch_normalization(net)
-    # net = tf.nn.relu(net)
-    # net = tflearn.global_avg_pool(net)
-
     net = tflearn.batch_normalization(net)
     net = relu(net)
     net = tf.reduce_mean(net, [1, 2])
     net = tflearn.fully_connected(net, 10, activation='linear', weights_init=tflearn.initializations.xavier(),
-                                  bias_init='uniform', weight_decay=0.0002)
+                                  bias_init='uniform', regularizer='L2', weight_decay=0.0002)
 
     # Calculate loss
     cross_entropy = tf.nn.softmax_cross_entropy_with_logits(net, y)
@@ -148,9 +141,15 @@ valid_y = np.eye(10)[dict_['labels']]
 train_y = np.eye(10)[train_y]
 del dict_
 
+train_x = np.dstack((train_x[:, :1024], train_x[:, 1024:2048], train_x[:, 2048:]))
+train_x = np.reshape(train_x, [-1, 32, 32, 3])
+valid_x = np.dstack((valid_x[:, :1024], valid_x[:, 1024:2048], valid_x[:, 2048:]))
+valid_x = np.reshape(valid_x, [-1, 32, 32, 3])
+
 epochs = 100  # 10 * int(round(40000/batch_size)+1)
 losses = []
-iterations = [0]*len(train_x)
+iterations1 = [0]*len(train_x)
+iterations2 = [0]*len(train_x)
 transforms = []
 learn_rate = 0.1
 with tf.Session(graph=graph) as session:
@@ -176,11 +175,11 @@ with tf.Session(graph=graph) as session:
         tflearn.is_training(True, session=session)
         _, train_step = session.run([optimizer, global_step], feed_dict=feed_dict)
 
-        if train_step < 40000:
+        if train_step < 20000:
             learn_rate = 0.1
-        elif train_step < 60000:
+        elif train_step < 30000:
             learn_rate = 0.01
-        elif train_step < 80000:
+        elif train_step < 40000:
             learn_rate = 0.001
         else:
             learn_rate = 0.0001
@@ -201,8 +200,10 @@ with tf.Session(graph=graph) as session:
 
                 # Update iterations
                 for j in xrange(len(cr)):
-                    if cr[j] > 0.0223 and iterations[j] == i-1:
-                        iterations[j] += 1
+                    if cr[j] > 0.0223:
+                        iterations2[iii*100+j] = i
+                        if iterations1[j] == i-1:
+                            iterations1[iii*100+j] += 1
                 # Append losses, activations for batch
                 l_list.extend(cr)
             # Append losses, activations for epoch
@@ -234,4 +235,5 @@ with tf.Session(graph=graph) as session:
         transforms.append(cr)
     np.save('transforms', transforms)
     np.save('losses', losses)
-    np.save('iterations', iterations)
+    np.save('iterations1', iterations1)
+    np.save('iterations2', iterations2)
