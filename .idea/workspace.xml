@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="correct horrible reshaping mistake">
+    <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/highway/cifar-10/resnet.py" afterPath="$PROJECT_DIR$/highway/cifar-10/resnet.py" />
     </list>
@@ -40,8 +40,8 @@
       <file leaf-file-name="resnet.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/highway/cifar-10/resnet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="627">
-              <caret line="220" column="20" selection-start-line="220" selection-start-column="20" selection-end-line="220" selection-end-column="20" />
+            <state relative-caret-position="867">
+              <caret line="177" column="31" selection-start-line="177" selection-start-column="31" selection-end-line="177" selection-end-column="31" />
               <folding>
                 <element signature="e#16#30#0" expanded="true" />
               </folding>
@@ -429,13 +429,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00143" summary="use whole train data and test set as valid set">
-      <created>1484090474747</created>
-      <option name="number" value="00143" />
-      <option name="presentableId" value="LOCAL-00143" />
-      <option name="project" value="LOCAL" />
-      <updated>1484090474747</updated>
-    </task>
     <task id="LOCAL-00144" summary="changes">
       <created>1484097251610</created>
       <option name="number" value="00144" />
@@ -772,7 +765,14 @@
       <option name="project" value="LOCAL" />
       <updated>1484869852159</updated>
     </task>
-    <option name="localTasksCounter" value="192" />
+    <task id="LOCAL-00192" summary="resnet losses, time">
+      <created>1485307795872</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1485307795873</updated>
+    </task>
+    <option name="localTasksCounter" value="193" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -829,7 +829,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="yet another mistake" />
     <MESSAGE value="corrections in another-expensive" />
     <MESSAGE value="nothing much" />
     <MESSAGE value="highway" />
@@ -854,7 +853,8 @@
     <MESSAGE value="default weight init" />
     <MESSAGE value="more depth" />
     <MESSAGE value="correct horrible reshaping mistake" />
-    <option name="LAST_COMMIT_MESSAGE" value="correct horrible reshaping mistake" />
+    <MESSAGE value="resnet losses, time" />
+    <option name="LAST_COMMIT_MESSAGE" value="resnet losses, time" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1109,8 +1109,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/highway/cifar-10/resnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="220" column="20" selection-start-line="220" selection-start-column="20" selection-end-line="220" selection-end-column="20" />
+        <state relative-caret-position="867">
+          <caret line="177" column="31" selection-start-line="177" selection-start-column="31" selection-end-line="177" selection-end-column="31" />
           <folding>
             <element signature="e#16#30#0" expanded="true" />
           </folding>
