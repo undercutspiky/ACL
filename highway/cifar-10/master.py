@@ -225,9 +225,7 @@ with tf.Session(graph=graph) as session:
         batch_ys = train_y[iii * 100: (iii + 1) * 100]
         feed_dict = {x: batch_xs, y: batch_ys}
         cr = session.run([transform_sum], feed_dict=feed_dict)
-        
+
         transforms.extend(cr)
     np.save('transforms', transforms)
     np.save('losses', losses)
-    np.save('iterations1', iterations1)
-    np.save('iterations2', iterations2)

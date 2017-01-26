@@ -210,5 +210,3 @@ with tf.Session(graph=graph) as session:
             random_train_y = train_y[sequence]
             i += 1
 np.save("losses", losses)
-np.save("iterations1", iterations1)
-np.save("iterations2", iterations2)
