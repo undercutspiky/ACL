@@ -133,10 +133,9 @@ train_x = np.reshape(train_x, [-1, 32, 32, 3])
 valid_x = np.dstack((valid_x[:, :1024], valid_x[:, 1024:2048], valid_x[:, 2048:]))
 valid_x = np.reshape(valid_x, [-1, 32, 32, 3])
 
-epochs = 250  # 10 * int(round(40000/batch_size)+1)
+epochs = 150  # 10 * int(round(40000/batch_size)+1)
 losses = []
-iterations1 = [0]*len(train_x)
-iterations2 = [0]*len(train_x)
+# Iterations can be calculated later from losses
 learn_rate = 0.1
 with tf.Session(graph=graph) as session:
     session.run(init_op)
@@ -192,12 +191,6 @@ with tf.Session(graph=graph) as session:
                 cr = session.run([cross_entropy], feed_dict=feed_dict)
                 cr = cr[0]
 
-                # Update iterations
-                for j in xrange(len(cr)):
-                    if cr[j] > 0.0223:
-                        iterations2[iii*100+j] = i
-                        if iterations1[j] == i-1:
-                            iterations1[iii*100+j] += 1
                 # Append losses, activations for batch
                 l_list.extend(cr)
             # Append losses, activations for epoch

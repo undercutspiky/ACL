@@ -4,6 +4,7 @@
     <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/highway/cifar-10/master.py" afterPath="$PROJECT_DIR$/highway/cifar-10/master.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/highway/cifar-10/resnet.py" afterPath="$PROJECT_DIR$/highway/cifar-10/resnet.py" />
     </list>
     <ignored path="ACL.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,8 +31,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/highway/cifar-10/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2007">
-              <caret line="140" column="29" selection-start-line="140" selection-start-column="29" selection-end-line="140" selection-end-column="29" />
+            <state relative-caret-position="477">
+              <caret line="227" column="8" selection-start-line="227" selection-start-column="8" selection-end-line="227" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -40,8 +41,8 @@
       <file leaf-file-name="resnet.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/highway/cifar-10/resnet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="199" column="55" selection-start-line="195" selection-start-column="16" selection-end-line="199" selection-end-column="55" />
+            <state relative-caret-position="-420">
+              <caret line="135" column="10" selection-start-line="135" selection-start-column="10" selection-end-line="135" selection-end-column="10" />
               <folding>
                 <element signature="e#16#30#0" expanded="true" />
               </folding>
@@ -429,13 +430,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00145" summary="changes">
-      <created>1484101244945</created>
-      <option name="number" value="00145" />
-      <option name="presentableId" value="LOCAL-00145" />
-      <option name="project" value="LOCAL" />
-      <updated>1484101244945</updated>
-    </task>
     <task id="LOCAL-00146" summary="changes">
       <created>1484101477310</created>
       <option name="number" value="00146" />
@@ -772,7 +766,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485333744343</updated>
     </task>
-    <option name="localTasksCounter" value="194" />
+    <task id="LOCAL-00194" summary="changes">
+      <created>1485340979200</created>
+      <option name="number" value="00194" />
+      <option name="presentableId" value="LOCAL-00194" />
+      <option name="project" value="LOCAL" />
+      <updated>1485340979200</updated>
+    </task>
+    <option name="localTasksCounter" value="195" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -849,12 +850,12 @@
     <MESSAGE value="regularizer was missing" />
     <MESSAGE value="architecture change because of http://torch.ch/blog/2016/02/04/resnets.html" />
     <MESSAGE value="higher momentum" />
-    <MESSAGE value="changes" />
     <MESSAGE value="default weight init" />
     <MESSAGE value="more depth" />
     <MESSAGE value="correct horrible reshaping mistake" />
     <MESSAGE value="resnet losses, time" />
-    <option name="LAST_COMMIT_MESSAGE" value="resnet losses, time" />
+    <MESSAGE value="changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1101,8 +1102,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/highway/cifar-10/resnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="199" column="55" selection-start-line="195" selection-start-column="16" selection-end-line="199" selection-end-column="55" />
+        <state relative-caret-position="-420">
+          <caret line="135" column="10" selection-start-line="135" selection-start-column="10" selection-end-line="135" selection-end-column="10" />
           <folding>
             <element signature="e#16#30#0" expanded="true" />
           </folding>
@@ -1111,8 +1112,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/highway/cifar-10/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2007">
-          <caret line="140" column="29" selection-start-line="140" selection-start-column="29" selection-end-line="140" selection-end-column="29" />
+        <state relative-caret-position="477">
+          <caret line="227" column="8" selection-start-line="227" selection-start-column="8" selection-end-line="227" selection-end-column="8" />
           <folding />
         </state>
       </provider>

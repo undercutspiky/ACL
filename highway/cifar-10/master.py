@@ -198,12 +198,6 @@ with tf.Session(graph=graph) as session:
                 cr = session.run([cross_entropy], feed_dict=feed_dict)
                 cr = cr[0]
 
-                # Update iterations
-                for j in xrange(len(cr)):
-                    if cr[j] > 0.0223:
-                        iterations2[iii*100+j] = i
-                        if iterations1[j] == i-1:
-                            iterations1[iii*100+j] += 1
                 # Append losses, activations for batch
                 l_list.extend(cr)
             # Append losses, activations for epoch
@@ -224,15 +218,15 @@ with tf.Session(graph=graph) as session:
             i += 1
 
     tflearn.is_training(False, session=session)
+    save_path = saver.save(session, './final-model')
     print "GETTING TRANSFORMATIONS FOR ALL EXAMPLES"
     for iii in xrange(500):
         batch_xs = train_x[iii * 100: (iii + 1) * 100]
         batch_ys = train_y[iii * 100: (iii + 1) * 100]
         feed_dict = {x: batch_xs, y: batch_ys}
         cr = session.run([transform_sum], feed_dict=feed_dict)
-        cr = cr[0]
-
-        transforms.append(cr)
+        
+        transforms.extend(cr)
     np.save('transforms', transforms)
     np.save('losses', losses)
     np.save('iterations1', iterations1)
