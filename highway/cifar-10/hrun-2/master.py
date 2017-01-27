@@ -52,8 +52,8 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
             x_new = tf.pad(x, [[0, 0], [0, 0], [0, 0], [(fan_out - fan_in) // 2, (fan_out - fan_in) // 2]])
 
         res += C * x_new
-        return res, tf.reduce_sum(T)
-    return (res + (C * x)), tf.reduce_sum(T)
+        return res, tf.reduce_sum(T,axis=[1,2,3])
+    return (res + (C * x)), tf.reduce_sum(T,axis=[1,2,3])
 
 batch_size = 128
 
@@ -96,7 +96,6 @@ with graph.as_default():
     for ii in xrange(3):
         net, t_s = conv_highway(net, 64, 64, 1, 3)
         transform_sum += t_s
-
     net = tflearn.batch_normalization(net)
     net = relu(net)
     net = tf.reduce_mean(net, [1, 2])
@@ -224,15 +223,15 @@ with tf.Session(graph=graph) as session:
             i += 1
 
     tflearn.is_training(False, session=session)
+    save_path = saver.save(session, './final-model')
     print "GETTING TRANSFORMATIONS FOR ALL EXAMPLES"
     for iii in xrange(500):
         batch_xs = train_x[iii * 100: (iii + 1) * 100]
         batch_ys = train_y[iii * 100: (iii + 1) * 100]
         feed_dict = {x: batch_xs, y: batch_ys}
         cr = session.run([transform_sum], feed_dict=feed_dict)
-        cr = cr[0]
 
-        transforms.append(cr)
+        transforms.extend(cr[0])
     np.save('transforms', transforms)
     np.save('losses', losses)
     np.save('iterations1', iterations1)
