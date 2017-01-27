@@ -52,8 +52,8 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
             x_new = tf.pad(x, [[0, 0], [0, 0], [0, 0], [(fan_out - fan_in) // 2, (fan_out - fan_in) // 2]])
 
         res += C * x_new
-        return res, tf.reduce_sum(T)
-    return (res + (C * x)), tf.reduce_sum(T)
+        return res, tf.reduce_sum(T, axis=[1,2,3])
+    return (res + (C * x)), tf.reduce_sum(T, axis=[1,2,3])
 
 batch_size = 128
 
