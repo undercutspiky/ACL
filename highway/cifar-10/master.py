@@ -224,6 +224,6 @@ with tf.Session(graph=graph) as session:
         feed_dict = {x: batch_xs, y: batch_ys}
         cr = session.run([transform_sum], feed_dict=feed_dict)
 
-        transforms.extend(cr)
+        transforms.extend(cr[0])
     np.save('transforms', transforms)
     np.save('losses', losses)
