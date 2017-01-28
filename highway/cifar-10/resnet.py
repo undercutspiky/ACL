@@ -43,7 +43,7 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
     return relu(H + x)
 
 batch_size = 128
-multiplier = int(sys.argv[1])
+width = int(sys.argv[1])
 
 graph = tf.Graph()
 with graph.as_default():
@@ -65,20 +65,20 @@ with graph.as_default():
     net = tflearn.batch_normalization(net)
     net = relu(net)
 
-    net = conv_highway(net, 16, 16 * multiplier, 1, 3, multiplier > 1)
+    net = conv_highway(net, 16, 16 * width, 1, 3, width > 1)
 
     for ii in xrange(3):
-        net = conv_highway(net, 16 * multiplier, 16 * multiplier, 1, 3)
+        net = conv_highway(net, 16 * width, 16 * width, 1, 3)
 
-    net = conv_highway(net, 16 * multiplier, 32 * multiplier, 2, 3)
-
-    for ii in xrange(3):
-        net = conv_highway(net, 32 * multiplier, 32 * multiplier, 1, 3)
-
-    net = conv_highway(net, 32 * multiplier, 64 * multiplier, 2, 3)
+    net = conv_highway(net, 16 * width, 32 * width, 2, 3)
 
     for ii in xrange(3):
-        net = conv_highway(net, 64 * multiplier, 64 * multiplier, 1, 3)
+        net = conv_highway(net, 32 * width, 32 * width, 1, 3)
+
+    net = conv_highway(net, 32 * width, 64 * width, 2, 3)
+
+    for ii in xrange(3):
+        net = conv_highway(net, 64 * width, 64 * width, 1, 3)
 
     net = tflearn.conv_2d(net, 10, 1, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', regularizer='L2', weight_decay=0.0002)
@@ -180,9 +180,9 @@ with tf.Session(graph=graph) as session:
                 print "learn_rate = 0.001"
             else:
                 print "learn_rate = 0.0001"
+
             tflearn.is_training(False, session=session)
             l_list = []
-            ac_list = []
             print "GETTING LOSSES FOR ALL EXAMPLES"
             for iii in xrange(500):
                 batch_xs = train_x[iii * 100: (iii + 1) * 100]

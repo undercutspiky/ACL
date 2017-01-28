@@ -3,8 +3,7 @@ import cPickle
 import numpy as np
 import tensorflow as tf
 import tflearn
-import os
-import time
+import sys
 
 
 def unpickle(file):
@@ -56,6 +55,7 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
     return (res + (C * x)), tf.reduce_sum(T, axis=[1,2,3])
 
 batch_size = 128
+width = int(sys.argv[1])
 
 graph = tf.Graph()
 with graph.as_default():
@@ -76,25 +76,25 @@ with graph.as_default():
     net = tflearn.conv_2d(net, 16, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', regularizer='L2', weight_decay=0.0002)
 
-    net, t_s = conv_highway(net, 16, 16, 1, 3)
+    net, t_s = conv_highway(net, 16, 16 * width, 1, 3, width > 1)
     transform_sum += t_s
 
     for ii in xrange(3):
-        net, t_s = conv_highway(net, 16, 16, 1, 3)
+        net, t_s = conv_highway(net, 16 * width, 16 * width, 1, 3)
         transform_sum += t_s
 
-    net, t_s = conv_highway(net, 16, 32, 2, 3)
+    net, t_s = conv_highway(net, 16 * width, 32 * width, 2, 3)
     transform_sum += t_s
 
     for ii in xrange(3):
-        net, t_s = conv_highway(net, 32, 32, 1, 3)
+        net, t_s = conv_highway(net, 32 * width, 32 * width, 1, 3)
         transform_sum += t_s
 
-    net, t_s = conv_highway(net, 32, 64, 2, 3)
+    net, t_s = conv_highway(net, 32 * width, 64 * width, 2, 3)
     transform_sum += t_s
 
     for ii in xrange(3):
-        net, t_s = conv_highway(net, 64, 64, 1, 3)
+        net, t_s = conv_highway(net, 64 * width, 64 * width, 1, 3)
         transform_sum += t_s
 
     net = tflearn.batch_normalization(net)
@@ -119,7 +119,7 @@ with graph.as_default():
     optimizer = optimizer.apply_gradients(zip(gradients, v), global_step=global_step)
 
     # Op to initialize variables
-    #init_op = tf.global_variables_initializer()
+    init_op = tf.global_variables_initializer()
 # ### Read data
 # * Use first 4 data files as training data and last one as validation
 
@@ -146,15 +146,13 @@ train_x = np.reshape(train_x, [-1, 32, 32, 3])
 valid_x = np.dstack((valid_x[:, :1024], valid_x[:, 1024:2048], valid_x[:, 2048:]))
 valid_x = np.reshape(valid_x, [-1, 32, 32, 3])
 
-epochs = 100  # 10 * int(round(40000/batch_size)+1)
+epochs = 150  # 10 * int(round(40000/batch_size)+1)
 losses = []
-iterations1 = [0]*len(train_x)
-iterations2 = [0]*len(train_x)
 transforms = []
 learn_rate = 0.1
 with tf.Session(graph=graph) as session:
-    tf.initialize_all_variables().run()
-    #session.run(init_op)
+    #tf.initialize_all_variables().run()
+    session.run(init_op)
     saver = tf.train.Saver()
     save_path = saver.save(session,'./initial-model')
 
