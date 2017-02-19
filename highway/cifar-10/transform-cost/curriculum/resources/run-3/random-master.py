@@ -155,7 +155,7 @@ with tf.Session(graph=graph) as session:
     #tf.initialize_all_variables().run()
     session.run(init_op)
     saver = tf.train.Saver()
-    save_path = saver.save(session,'./initial-model')
+    saver.restore(session, './initial-model')
 
     sequence = np.random.choice(len(train_x), size=len(train_x), replace=False)
 
@@ -218,7 +218,7 @@ with tf.Session(graph=graph) as session:
             i += 1
 
     tflearn.is_training(False, session=session)
-    save_path = saver.save(session, './final-model')
+    save_path = saver.save(session, './random/final-model')
     print "GETTING TRANSFORMATIONS FOR ALL EXAMPLES"
     for iii in xrange(500):
         batch_xs = train_x[iii * 100: (iii + 1) * 100]
@@ -227,6 +227,6 @@ with tf.Session(graph=graph) as session:
         cr = session.run([transform_sum], feed_dict=feed_dict)
 
         transforms.extend(cr[0])
-    np.save('transforms', transforms)
-    np.save('losses', losses)
-    np.save('test_accuracies',test_acc)
+    np.save('random/transforms', transforms)
+    np.save('random/losses', losses)
+    np.save('random/test_accuracies',test_acc)
