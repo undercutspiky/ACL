@@ -32,8 +32,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/highway/cifar-10/transform-cost/curriculum/resources/run-1/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="146" column="18" selection-start-line="146" selection-start-column="18" selection-end-line="146" selection-end-column="18" />
+            <state relative-caret-position="90">
+              <caret line="110" column="39" selection-start-line="110" selection-start-column="39" selection-end-line="110" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -534,13 +534,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00152" summary="wide residual nets">
-      <created>1484148242940</created>
-      <option name="number" value="00152" />
-      <option name="presentableId" value="LOCAL-00152" />
-      <option name="project" value="LOCAL" />
-      <updated>1484148242940</updated>
-    </task>
     <task id="LOCAL-00153" summary="wide residual nets">
       <created>1484148470890</created>
       <option name="number" value="00153" />
@@ -877,7 +870,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487500159636</updated>
     </task>
-    <option name="localTasksCounter" value="201" />
+    <task id="LOCAL-00201" summary="changes">
+      <created>1487500371146</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1487500371146</updated>
+    </task>
+    <option name="localTasksCounter" value="202" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1282,8 +1282,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/highway/cifar-10/transform-cost/curriculum/resources/run-1/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="146" column="18" selection-start-line="146" selection-start-column="18" selection-end-line="146" selection-end-column="18" />
+        <state relative-caret-position="90">
+          <caret line="110" column="39" selection-start-line="110" selection-start-column="39" selection-end-line="110" selection-end-column="39" />
           <folding />
         </state>
       </provider>

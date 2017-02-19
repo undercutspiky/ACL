@@ -108,7 +108,7 @@ with graph.as_default():
 
     net = tflearn.batch_normalization(net)
     net = relu(net)
-    net = tf.reduce_mean(net, [1, 2]) + 0.000005*tf.reduce_sum(transform_sum)
+    net = tf.reduce_mean(net, [1, 2]) #+ 0.000005*tf.reduce_sum(transform_sum)
     net = tflearn.fully_connected(net, 10, activation='linear', weights_init=tflearn.initializations.xavier(),
                                   bias_init='uniform', regularizer='L2', weight_decay=0.0002)
 
