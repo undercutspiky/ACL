@@ -547,13 +547,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00158" summary="changes">
-      <created>1484176401666</created>
-      <option name="number" value="00158" />
-      <option name="presentableId" value="LOCAL-00158" />
-      <option name="project" value="LOCAL" />
-      <updated>1484176401666</updated>
-    </task>
     <task id="LOCAL-00159" summary="changes">
       <created>1484186551036</created>
       <option name="number" value="00159" />
@@ -890,7 +883,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487527436076</updated>
     </task>
-    <option name="localTasksCounter" value="207" />
+    <task id="LOCAL-00207" summary="curriculum for h-nets without incentive">
+      <created>1487581784074</created>
+      <option name="number" value="00207" />
+      <option name="presentableId" value="LOCAL-00207" />
+      <option name="project" value="LOCAL" />
+      <updated>1487581784075</updated>
+    </task>
+    <option name="localTasksCounter" value="208" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -947,7 +947,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="nothing much" />
     <MESSAGE value="highway" />
     <MESSAGE value="divide graph among GPUs" />
     <MESSAGE value="reduce batch size while testing etc." />
@@ -972,7 +971,8 @@
     <MESSAGE value="resnet losses, time" />
     <MESSAGE value="changes" />
     <MESSAGE value="random curriculum" />
-    <option name="LAST_COMMIT_MESSAGE" value="random curriculum" />
+    <MESSAGE value="curriculum for h-nets without incentive" />
+    <option name="LAST_COMMIT_MESSAGE" value="curriculum for h-nets without incentive" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
