@@ -16,7 +16,9 @@ def cal_iterations(l, th):
 
 
 def curriculum():
-    t = [np.load("../../../run-"+str(i+1)+"/losses.npy") for i in xrange(6)]
+    t = [np.load("../../../hrun-" + str(i + 1) + "/losses.npy") for i in xrange(3)]
+    t.append(np.load("../../../hrun-weird/losses.npy"))
+    t.append(np.load("../../../hrun-2weird/losses.npy"))
     t = [cal_iterations(i, -np.log(0.99)) for i in t]
     t = [np.array(i)+1 for i in t]
     p = np.median(t, axis=0)
@@ -146,7 +148,7 @@ with graph.as_default():
 train_x = []
 train_y = []
 for i in xrange(1, 6):
-    dict_ = unpickle('../../../../../../cifar-10/cifar-10-batches-py/data_batch_' + str(i))
+    dict_ = unpickle('../../../../../cifar-10/cifar-10-batches-py/data_batch_' + str(i))
     if i == 1:
         train_x = np.array(dict_['data'])/255.0
         train_y = dict_['labels']
@@ -155,7 +157,7 @@ for i in xrange(1, 6):
         train_y.extend(dict_['labels'])
 
 train_y = np.array(train_y)
-dict_ = unpickle('../../../../../../cifar-10/cifar-10-batches-py/test_batch')
+dict_ = unpickle('../../../../../cifar-10/cifar-10-batches-py/test_batch')
 valid_x = np.array(dict_['data'])/255.0
 valid_y = np.eye(10)[dict_['labels']]
 train_y = np.eye(10)[train_y]
