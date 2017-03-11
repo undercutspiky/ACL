@@ -23,7 +23,6 @@ def curriculum():
     t = [np.array(i) + 1 for i in t]
     p = np.median(t, axis=0)
     p[np.where(p > 99)[0]] = 99
-    p = 1.0 / p
     p /= np.sum(p)
     return p
 
