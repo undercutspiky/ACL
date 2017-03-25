@@ -164,7 +164,7 @@ with tf.Session(graph=graph) as session:
     for i in range(10):
         sequences.append(np.random.choice(500, size=500, replace=False))
         c_i = np.where(train_y == i)[0]
-        first_5k.append(c_i[sequences[-1]])
+        first_5k.extend(c_i[sequences[-1]])
 
     train_y = np.eye(10)[train_y]
 
