@@ -15,14 +15,18 @@ def cal_iterations(l, th):
     return iters
 
 
-def curriculum(c, y):
-    t = [np.load("../../../../../hrun-"+str(i+1)+"/losses.npy") for i in xrange(3)]
+def probabilities():
+    t = [np.load("../../../../../hrun-" + str(i + 1) + "/losses.npy") for i in xrange(3)]
     t.append(np.load("../../../../../hrun-weird/losses.npy"))
     t.append(np.load("../../../../../hrun-2weird/losses.npy"))
     t = [cal_iterations(i, -np.log(0.999)) for i in t]
     t = [np.array(i) + 1 for i in t]
-    p = np.median(t, axis=0)
-    p[np.where(p > 99)[0]] = 99
+    t = np.median(t, axis=0)
+    t[np.where(t > 99)[0]] = 99
+    return t
+
+
+def curriculum(c, y, p):
     c_i = np.where(y == c)[0]
     p = p[c_i]
     p = 1.0 / p
@@ -79,7 +83,9 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
     return (res + (C * x)), tf.reduce_sum(T, axis=[1,2,3])
 
 batch_size = 128
-width = int(sys.argv[1])
+width = 1
+if len(sys.argv) > 1:
+    width = int(sys.argv[1])
 
 graph = tf.Graph()
 with graph.as_default():
@@ -183,10 +189,11 @@ with tf.Session(graph=graph) as session:
 
     sequences = []
     first_5k = []
+    p = probabilities()
     for i in range(10):
-        sequences.append(np.random.choice(5000, size=5000, replace=False, p=curriculum(i, train_y)))
+        sequences.append(np.random.choice(500, size=500, replace=False, p=curriculum(i, train_y, p)))
         c_i = np.where(train_y == i)[0]
-        first_5k.append(c_i[sequences[-1][:500]])
+        first_5k.append(c_i[sequences[-1]])
 
     train_y = np.eye(10)[train_y]
 

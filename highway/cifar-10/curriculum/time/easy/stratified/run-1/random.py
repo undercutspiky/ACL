@@ -6,30 +6,6 @@ import tflearn
 import sys
 
 
-def cal_iterations(l, th):
-    iters = [0]*len(l[0])
-    for i in xrange(len(l)):
-        for j in xrange(len(l[i])):
-            if l[i, j] > th and iters[j] == i:
-                iters[j] += 1
-    return iters
-
-
-def curriculum(c, y):
-    t = [np.load("../../../../../hrun-"+str(i+1)+"/losses.npy") for i in xrange(3)]
-    t.append(np.load("../../../../../hrun-weird/losses.npy"))
-    t.append(np.load("../../../../../hrun-2weird/losses.npy"))
-    t = [cal_iterations(i, -np.log(0.999)) for i in t]
-    t = [np.array(i) + 1 for i in t]
-    p = np.median(t, axis=0)
-    p[np.where(p > 99)[0]] = 99
-    c_i = np.where(y == c)[0]
-    p = p[c_i]
-    p = 1.0 / p
-    p /= np.sum(p)
-    return p
-
-
 def unpickle(file):
     fo = open(file, 'rb')
     dict_ = cPickle.load(fo)
@@ -79,7 +55,9 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
     return (res + (C * x)), tf.reduce_sum(T, axis=[1,2,3])
 
 batch_size = 128
-width = int(sys.argv[1])
+width = 1
+if len(sys.argv) > 1:
+    width = int(sys.argv[1])
 
 graph = tf.Graph()
 with graph.as_default():
@@ -184,9 +162,9 @@ with tf.Session(graph=graph) as session:
     sequences = []
     first_5k = []
     for i in range(10):
-        sequences.append(np.random.choice(5000, size=5000, replace=False))
+        sequences.append(np.random.choice(500, size=500, replace=False))
         c_i = np.where(train_y == i)[0]
-        first_5k.append(c_i[sequences[-1][:500]])
+        first_5k.append(c_i[sequences[-1]])
 
     train_y = np.eye(10)[train_y]
 
