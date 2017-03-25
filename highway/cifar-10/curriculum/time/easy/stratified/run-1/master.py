@@ -191,7 +191,7 @@ with tf.Session(graph=graph) as session:
     first_5k = []
     p = probabilities()
     for i in range(10):
-        sequences.append(np.random.choice(500, size=500, replace=False, p=curriculum(i, train_y, p)))
+        sequences.append(np.random.choice(5000, size=500, replace=False, p=curriculum(i, train_y, p, 500)))
         c_i = np.where(train_y == i)[0]
         first_5k.extend(c_i[sequences[-1]])
 
