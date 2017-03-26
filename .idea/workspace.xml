@@ -30,8 +30,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/easy/stratified/run-1/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="193" column="99" selection-start-line="193" selection-start-column="99" selection-end-line="193" selection-end-column="99" />
+            <state relative-caret-position="330">
+              <caret line="203" column="4" selection-start-line="203" selection-start-column="4" selection-end-line="203" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -647,13 +647,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00171" summary="changes">
-      <created>1484328078968</created>
-      <option name="number" value="00171" />
-      <option name="presentableId" value="LOCAL-00171" />
-      <option name="project" value="LOCAL" />
-      <updated>1484328078968</updated>
-    </task>
     <task id="LOCAL-00172" summary="changes">
       <created>1484328168420</created>
       <option name="number" value="00172" />
@@ -990,7 +983,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490486275190</updated>
     </task>
-    <option name="localTasksCounter" value="220" />
+    <task id="LOCAL-00220" summary="bugs">
+      <created>1490486485075</created>
+      <option name="number" value="00220" />
+      <option name="presentableId" value="LOCAL-00220" />
+      <option name="project" value="LOCAL" />
+      <updated>1490486485075</updated>
+    </task>
+    <option name="localTasksCounter" value="221" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1047,7 +1047,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="slim highway" />
     <MESSAGE value="debug" />
     <MESSAGE value="hyperparameter changes" />
     <MESSAGE value="changes in hyperparameters" />
@@ -1072,7 +1071,8 @@
     <MESSAGE value="curriculums without ordering" />
     <MESSAGE value="actually make them difficult (was same as easy one)" />
     <MESSAGE value="trying stratified" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying stratified" />
+    <MESSAGE value="bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="bugs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1428,8 +1428,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/easy/stratified/run-1/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="193" column="99" selection-start-line="193" selection-start-column="99" selection-end-line="193" selection-end-column="99" />
+        <state relative-caret-position="330">
+          <caret line="203" column="4" selection-start-line="203" selection-start-column="4" selection-end-line="203" selection-end-column="4" />
           <folding />
         </state>
       </provider>

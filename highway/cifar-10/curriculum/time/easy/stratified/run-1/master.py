@@ -195,12 +195,11 @@ with tf.Session(graph=graph) as session:
         c_i = np.where(train_y == i)[0]
         first_5k.extend(c_i[sequences[-1]])
 
+    print np.unique(train_y[first_5k], return_counts=True)
     train_y = np.eye(10)[train_y]
 
     random_train_x = train_x[first_5k]
     random_train_y = train_y[first_5k]
-
-    print np.unique(random_train_y, return_counts=True)
 
     sequence = np.random.choice(len(train_x), size=len(train_x), replace=False)
 
