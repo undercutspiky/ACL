@@ -201,6 +201,10 @@ with tf.Session(graph=graph) as session:
     random_train_x = train_x[first_5k]
     random_train_y = train_y[first_5k]
 
+    sequence = np.random.choice(len(random_train_y), size=len(random_train_y), replace=False)
+    random_train_x = random_train_x[sequence]
+    random_train_y = random_train_y[sequence]
+
     sequence = np.random.choice(len(train_x), size=len(train_x), replace=False)
 
     i = 1
