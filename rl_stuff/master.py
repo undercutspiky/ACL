@@ -100,6 +100,7 @@ class Net(nn.Module):
         net = self.res31(net, train_mode=train_mode, downsample=True)
         net = self.res32(net, train_mode=train_mode)
         net = F.avg_pool2d(net, 8, 1)
+        net = net.view(net.size(0), -1)
         net = self.final(net)
         return net
 
