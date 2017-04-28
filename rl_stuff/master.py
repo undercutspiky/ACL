@@ -107,7 +107,7 @@ class Net(nn.Module):
 network = Net()
 network = network.cuda()
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.SGD(network.parameters(), lr=0.05, momentum=0.9, weight_decay=0.0002)
+optimizer = optim.SGD(network.parameters(), lr=0.01, momentum=0.9, weight_decay=0.0002)
 
 epochs = 150
 batch_size = 128
@@ -115,9 +115,9 @@ batch_size = 128
 for epoch in xrange(1, epochs + 1):
 
     if epoch > 120:
-        optimizer = optim.SGD(network.parameters(), lr=0.001, momentum=0.9, weight_decay=0.0002)
+        optimizer = optim.SGD(network.parameters(), lr=0.0001, momentum=0.9, weight_decay=0.0002)
     elif epoch > 60:
-        optimizer = optim.SGD(network.parameters(), lr=0.01, momentum=0.9, weight_decay=0.0002)
+        optimizer = optim.SGD(network.parameters(), lr=0.001, momentum=0.9, weight_decay=0.0002)
     cursor = 0
     while cursor < len(train_x):
         optimizer.zero_grad()
