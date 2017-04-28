@@ -30,6 +30,10 @@ valid_x = np.array(dict_['data'])/255.0
 valid_y = np.eye(10)[dict_['labels']]
 train_y = np.eye(10)[train_y]
 del dict_
+train_x = np.dstack((train_x[:, :1024], train_x[:, 1024:2048], train_x[:, 2048:]))
+train_x = np.reshape(train_x, [-1, 32, 32, 3])
+valid_x = np.dstack((valid_x[:, :1024], valid_x[:, 1024:2048], valid_x[:, 2048:]))
+valid_x = np.reshape(valid_x, [-1, 32, 32, 3])
 train_x = torch.from_numpy(train_x).cuda()
 valid_x = torch.from_numpy(valid_x).cuda()
 train_y = torch.from_numpy(train_y).cuda()
@@ -84,17 +88,21 @@ class Net(nn.Module):
 
     def forward(self, x, train_mode=True, get_t=False):
         net = self.conv1(x)
-        stage1 = self.res13(self.res12(self.res11(net)))
-        stage2 = self.res21(self.res22(self.res23(stage1)))
-        stage3 = self.res31(self.res32(stage2))
-        net = F.avg_pool2d(stage3, 8, 1)
+        net = self.res11(net, train_mode=train_mode)
+        net = self.res12(net, train_mode=train_mode)
+        net = self.res13(net, train_mode=train_mode)
+        net = self.res21(net, train_mode=train_mode, downsample=True)
+        net = self.res22(net, train_mode=train_mode)
+        net = self.res23(net, train_mode=train_mode)
+        net = self.res31(net, train_mode=train_mode, downsample=True)
+        net = self.res32(net, train_mode=train_mode)
+        net = F.avg_pool2d(net, 8, 1)
         net = self.final(net)
         return net
 
 
 network = Net()
 network = network.cuda()
-print network
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(network.parameters(), lr=0.1, momentum=0.9, weight_decay=0.0002)
 
@@ -110,7 +118,7 @@ for epoch in xrange(1, epochs + 1):
     cursor = 0
     while cursor < len(train_x):
         optimizer.zero_grad()
-        outputs, t_cost = network(Variable(train_x[cursor:min(cursor + batch_size, len(train_x))]))
+        outputs = network(Variable(train_x[cursor:min(cursor + batch_size, len(train_x))]))
         loss = criterion(outputs, Variable(train_y[cursor:min(cursor + batch_size, len(train_x))]))
         loss.backward()
         optimizer.step()

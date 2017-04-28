@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rl_stuff/master.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rl_stuff/master.py" afterPath="$PROJECT_DIR$/rl_stuff/master.py" />
     </list>
     <ignored path="ACL.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,8 +30,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rl_stuff/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="113" column="8" selection-start-line="113" selection-start-column="8" selection-end-line="113" selection-end-column="8" />
+            <state relative-caret-position="435">
+              <caret line="35" column="46" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -40,8 +40,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/highway/cifar-10/hrun-7weird/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-570">
-              <caret line="47" column="44" selection-start-line="47" selection-start-column="44" selection-end-line="47" selection-end-column="44" />
+            <state relative-caret-position="495">
+              <caret line="146" column="46" selection-start-line="143" selection-start-column="0" selection-end-line="146" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -479,13 +479,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00174" summary="changes">
-      <created>1484383410485</created>
-      <option name="number" value="00174" />
-      <option name="presentableId" value="LOCAL-00174" />
-      <option name="project" value="LOCAL" />
-      <updated>1484383410485</updated>
-    </task>
     <task id="LOCAL-00175" summary="wd=0.001">
       <created>1484401228637</created>
       <option name="number" value="00175" />
@@ -822,7 +815,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490487672378</updated>
     </task>
-    <option name="localTasksCounter" value="223" />
+    <task id="LOCAL-00223" summary="wide-resnet in pytorch">
+      <created>1493378872813</created>
+      <option name="number" value="00223" />
+      <option name="presentableId" value="LOCAL-00223" />
+      <option name="project" value="LOCAL" />
+      <updated>1493378872813</updated>
+    </task>
+    <option name="localTasksCounter" value="224" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -879,7 +879,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="debug" />
     <MESSAGE value="hyperparameter changes" />
     <MESSAGE value="changes in hyperparameters" />
     <MESSAGE value="use whole train data and test set as valid set" />
@@ -904,7 +903,8 @@
     <MESSAGE value="actually make them difficult (was same as easy one)" />
     <MESSAGE value="trying stratified" />
     <MESSAGE value="bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="bugs" />
+    <MESSAGE value="wide-resnet in pytorch" />
+    <option name="LAST_COMMIT_MESSAGE" value="wide-resnet in pytorch" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1245,16 +1245,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/highway/cifar-10/hrun-7weird/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-570">
-          <caret line="47" column="44" selection-start-line="47" selection-start-column="44" selection-end-line="47" selection-end-column="44" />
+        <state relative-caret-position="495">
+          <caret line="146" column="46" selection-start-line="143" selection-start-column="0" selection-end-line="146" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rl_stuff/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="113" column="8" selection-start-line="113" selection-start-column="8" selection-end-line="113" selection-end-column="8" />
+        <state relative-caret-position="435">
+          <caret line="35" column="46" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
           <folding />
         </state>
       </provider>
