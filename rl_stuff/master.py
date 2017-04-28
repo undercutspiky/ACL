@@ -27,8 +27,7 @@ for i in xrange(1, 5):
 train_y = np.array(train_y)
 dict_ = unpickle('../cifar-10/cifar-10-batches-py/data_batch_5')
 valid_x = np.array(dict_['data'])/255.0
-valid_y = np.eye(10)[dict_['labels']]
-train_y = np.eye(10)[train_y]
+valid_y = np.array(dict_['labels'])
 del dict_
 train_x = np.dstack((train_x[:, :1024], train_x[:, 1024:2048], train_x[:, 2048:]))
 train_x = np.reshape(train_x, [-1, 32, 32, 3])
@@ -38,8 +37,8 @@ valid_x = np.reshape(valid_x, [-1, 32, 32, 3])
 valid_x = np.transpose(valid_x, (0, 3, 1, 2))
 train_x = torch.from_numpy(train_x).float().cuda()
 valid_x = torch.from_numpy(valid_x).float().cuda()
-train_y = torch.from_numpy(train_y).LongTensor().cuda()
-valid_y = torch.from_numpy(valid_y).LongTensor().cuda()
+train_y = torch.from_numpy(train_y).cuda()
+valid_y = torch.from_numpy(valid_y).cuda()
 
 
 class Residual(nn.Module):
