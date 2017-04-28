@@ -88,7 +88,7 @@ class Net(nn.Module):
         self.res32 = Residual(64, 64)
         self.final = nn.Linear(64, 10)
 
-    def forward(self, x, train_mode=True, get_t=False):
+    def forward(self, x, train_mode=True):
         net = self.conv1(x)
         net = self.res11(net, train_mode=train_mode)
         net = self.res12(net, train_mode=train_mode)
@@ -99,7 +99,7 @@ class Net(nn.Module):
         net = self.res31(net, train_mode=train_mode, downsample=True)
         net = self.res32(net, train_mode=train_mode)
         net = F.avg_pool2d(net, 8, 1)
-        net = net.view(net.size(0), -1)
+        net = torch.squeeze(net)
         net = self.final(net)
         return net
 
