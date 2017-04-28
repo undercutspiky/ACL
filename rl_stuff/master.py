@@ -43,12 +43,12 @@ valid_y = torch.from_numpy(valid_y).cuda()
 
 
 class Residual(nn.Module):
-    def __init__(self, fan_in, fan_out, w_init='kaiming_normal'):
+    def __init__(self, fan_in, fan_out, stride=1, w_init='kaiming_normal'):
         super(Residual, self).__init__()
         self.fan_in, self.fan_out = fan_in, fan_out
-        self.conv1 = nn.Conv2d(fan_in, fan_out, 3, padding=1)
+        self.conv1 = nn.Conv2d(fan_in, fan_out, 3, stride=stride, padding=1)
         self.conv2 = nn.Conv2d(fan_out, fan_out, 3, padding=1)
-        self.expand_x = nn.Conv2d(fan_in, fan_out, 1, padding=1)
+        self.expand_x = nn.Conv2d(fan_in, fan_out, 1)
         self.batch_norm1 = nn.BatchNorm2d(fan_in)
         self.batch_norm2 = nn.BatchNorm2d(fan_out)
         # Get weight initialization function
@@ -82,10 +82,10 @@ class Net(nn.Module):
         self.res11 = Residual(16, 16)
         self.res12 = Residual(16, 16)
         self.res13 = Residual(16, 16)
-        self.res21 = Residual(16, 32)
+        self.res21 = Residual(16, 32, stride=2)
         self.res22 = Residual(32, 32)
         self.res23 = Residual(32, 32)
-        self.res31 = Residual(32, 64)
+        self.res31 = Residual(32, 64, stride=2)
         self.res32 = Residual(64, 64)
         self.final = nn.Linear(64, 10)
 
