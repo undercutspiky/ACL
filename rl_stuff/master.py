@@ -41,16 +41,11 @@ train_y = torch.from_numpy(train_y).cuda()
 valid_y = torch.from_numpy(valid_y).cuda()
 
 
-def extract(arg):
-    print arg
-
-
 class Residual(nn.Module):
     def __init__(self, fan_in, fan_out, stride=1, w_init='kaiming_normal'):
         super(Residual, self).__init__()
         self.fan_in, self.fan_out = fan_in, fan_out
         self.conv1 = nn.Conv2d(fan_in, fan_out, 3, stride=stride, padding=1)
-        self.hook = self.conv1.register_backward_hook(extract)
         self.conv2 = nn.Conv2d(fan_out, fan_out, 3, padding=1)
         self.expand_x = nn.Conv2d(fan_in, fan_out, 1)
         self.batch_norm1 = nn.BatchNorm2d(fan_in)
@@ -112,7 +107,7 @@ class Net(nn.Module):
 network = Net()
 network = network.cuda()
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.SGD(network.parameters(), lr=0.1, momentum=0.9, weight_decay=0.0002)
+optimizer = optim.SGD(network.parameters(), lr=0.01, momentum=0.9, weight_decay=0.0002)
 
 epochs = 150
 batch_size = 128
