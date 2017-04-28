@@ -38,8 +38,8 @@ valid_x = np.reshape(valid_x, [-1, 32, 32, 3])
 valid_x = np.transpose(valid_x, (0, 3, 1, 2))
 train_x = torch.from_numpy(train_x).float().cuda()
 valid_x = torch.from_numpy(valid_x).float().cuda()
-train_y = torch.from_numpy(train_y).cuda().LongTensor()
-valid_y = torch.from_numpy(valid_y).cuda().LongTensor()
+train_y = torch.from_numpy(train_y).LongTensor().cuda()
+valid_y = torch.from_numpy(valid_y).LongTensor().cuda()
 
 
 class Residual(nn.Module):
