@@ -32,8 +32,10 @@ train_y = np.eye(10)[train_y]
 del dict_
 train_x = np.dstack((train_x[:, :1024], train_x[:, 1024:2048], train_x[:, 2048:]))
 train_x = np.reshape(train_x, [-1, 32, 32, 3])
+train_x = np.transpose(train_x, (0, 3, 1, 2))
 valid_x = np.dstack((valid_x[:, :1024], valid_x[:, 1024:2048], valid_x[:, 2048:]))
 valid_x = np.reshape(valid_x, [-1, 32, 32, 3])
+valid_x = np.transpose(valid_x, (0, 3, 1, 2))
 train_x = torch.from_numpy(train_x).cuda()
 valid_x = torch.from_numpy(valid_x).cuda()
 train_y = torch.from_numpy(train_y).cuda()
