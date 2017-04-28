@@ -30,8 +30,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rl_stuff/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="102" column="39" selection-start-line="102" selection-start-column="39" selection-end-line="102" selection-end-column="39" />
+            <state relative-caret-position="615">
+              <caret line="41" column="55" selection-start-line="41" selection-start-column="55" selection-end-line="41" selection-end-column="55" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -481,13 +481,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00183" summary="changes">
-      <created>1484675737101</created>
-      <option name="number" value="00183" />
-      <option name="presentableId" value="LOCAL-00183" />
-      <option name="project" value="LOCAL" />
-      <updated>1484675737101</updated>
-    </task>
     <task id="LOCAL-00184" summary="changes">
       <created>1484679719394</created>
       <option name="number" value="00184" />
@@ -824,7 +817,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493385393569</updated>
     </task>
-    <option name="localTasksCounter" value="232" />
+    <task id="LOCAL-00232" summary="wide-resnet in pytorch - bug fix">
+      <created>1493385818350</created>
+      <option name="number" value="00232" />
+      <option name="presentableId" value="LOCAL-00232" />
+      <option name="project" value="LOCAL" />
+      <updated>1493385818350</updated>
+    </task>
+    <option name="localTasksCounter" value="233" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1255,8 +1255,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rl_stuff/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="102" column="39" selection-start-line="102" selection-start-column="39" selection-end-line="102" selection-end-column="39" />
+        <state relative-caret-position="615">
+          <caret line="41" column="55" selection-start-line="41" selection-start-column="55" selection-end-line="41" selection-end-column="55" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
