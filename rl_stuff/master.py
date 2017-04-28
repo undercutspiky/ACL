@@ -61,7 +61,8 @@ class Residual(nn.Module):
         nn.init.uniform(self.expand_x.bias)
 
     def forward(self, x, downsample=False, train_mode=True):
-        self.batch_norm.training = train_mode
+        self.batch_norm1.training = train_mode
+        self.batch_norm2.training = train_mode
         h = self.conv1(F.leaky_relu(self.batch_norm1(x)))
         h = self.conv2(F.leaky_relu(self.batch_norm2(h)))
         if downsample:
