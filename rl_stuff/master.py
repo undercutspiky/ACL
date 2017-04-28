@@ -49,8 +49,8 @@ class Residual(nn.Module):
         self.conv1 = nn.Conv2d(fan_in, fan_out, 3)
         self.conv2 = nn.Conv2d(fan_in, fan_out, 3)
         self.expand_x = nn.Conv2d(fan_in, fan_out, 1)
-        self.batch_norm1 = nn.BatchNorm1d(fan_out)
-        self.batch_norm2 = nn.BatchNorm1d(fan_out)
+        self.batch_norm1 = nn.BatchNorm2d(fan_out)
+        self.batch_norm2 = nn.BatchNorm2d(fan_out)
         # Get weight initialization function
         w_initialization = getattr(nn.init, w_init)
         w_initialization(self.conv1.weight)
