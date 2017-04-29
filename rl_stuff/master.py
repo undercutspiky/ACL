@@ -35,9 +35,9 @@ train_x = np.transpose(train_x, (0, 3, 1, 2))
 valid_x = np.dstack((valid_x[:, :1024], valid_x[:, 1024:2048], valid_x[:, 2048:]))
 valid_x = np.reshape(valid_x, [-1, 32, 32, 3])
 valid_x = np.transpose(valid_x, (0, 3, 1, 2))
-train_x = torch.from_numpy(train_x).float().cuda()
+train_x = torch.from_numpy(train_x).float()#.cuda()
 valid_x = torch.from_numpy(valid_x).float().cuda()
-train_y = torch.from_numpy(train_y).cuda()
+train_y = torch.from_numpy(train_y)#.cuda()
 valid_y = torch.from_numpy(valid_y).cuda()
 
 
@@ -81,11 +81,15 @@ class Net(nn.Module):
         self.res11 = Residual(16, 16)
         self.res12 = Residual(16, 16)
         self.res13 = Residual(16, 16)
+        self.res14 = Residual(16, 16)
         self.res21 = Residual(16, 32, stride=2)
         self.res22 = Residual(32, 32)
         self.res23 = Residual(32, 32)
+        self.res24 = Residual(32, 32)
         self.res31 = Residual(32, 64, stride=2)
         self.res32 = Residual(64, 64)
+        self.res33 = Residual(64, 64)
+        self.res34 = Residual(64, 64)
         self.final = nn.Linear(64, 10)
 
     def forward(self, x, train_mode=True):
@@ -93,11 +97,15 @@ class Net(nn.Module):
         net = self.res11(net, train_mode=train_mode)
         net = self.res12(net, train_mode=train_mode)
         net = self.res13(net, train_mode=train_mode)
+        net = self.res14(net, train_mode=train_mode)
         net = self.res21(net, train_mode=train_mode, downsample=True)
         net = self.res22(net, train_mode=train_mode)
         net = self.res23(net, train_mode=train_mode)
+        net = self.res24(net, train_mode=train_mode)
         net = self.res31(net, train_mode=train_mode, downsample=True)
         net = self.res32(net, train_mode=train_mode)
+        net = self.res33(net, train_mode=train_mode)
+        net = self.res34(net, train_mode=train_mode)
         net = F.avg_pool2d(net, 8, 1)
         net = torch.squeeze(net)
         net = self.final(net)
@@ -111,9 +119,12 @@ optimizer = optim.SGD(network.parameters(), lr=0.01, momentum=0.9, weight_decay=
 
 epochs = 150
 batch_size = 128
-
+print "Number of training examples : "+str(train_x.size(0))
 for epoch in xrange(1, epochs + 1):
 
+    sequence = torch.randperm(train_x.size(0))
+    train_xc = train_x[sequence].cuda()
+    train_yc = train_y[sequence].cuda()
     if epoch > 120:
         optimizer = optim.SGD(network.parameters(), lr=0.0001, momentum=0.9, weight_decay=0.0002)
     elif epoch > 60:
@@ -121,8 +132,8 @@ for epoch in xrange(1, epochs + 1):
     cursor = 0
     while cursor < len(train_x):
         optimizer.zero_grad()
-        outputs = network(Variable(train_x[cursor:min(cursor + batch_size, len(train_x))]))
-        loss = criterion(outputs, Variable(train_y[cursor:min(cursor + batch_size, len(train_x))]))
+        outputs = network(Variable(train_xc[cursor:min(cursor + batch_size, len(train_x))]))
+        loss = criterion(outputs, Variable(train_yc[cursor:min(cursor + batch_size, len(train_x))]))
         loss.backward()
         optimizer.step()
         cursor += batch_size
