@@ -15,7 +15,7 @@ def unpickle(file):
 # Load CIFAR-10 data
 train_x = []
 train_y = []
-for i in xrange(1, 5):
+for i in xrange(1, 6):
     dict_ = unpickle('../cifar-10/cifar-10-batches-py/data_batch_' + str(i))
     if i == 1:
         train_x = np.array(dict_['data'])/255.0
@@ -25,7 +25,7 @@ for i in xrange(1, 5):
         train_y.extend(dict_['labels'])
 
 train_y = np.array(train_y)
-dict_ = unpickle('../cifar-10/cifar-10-batches-py/data_batch_5')
+dict_ = unpickle('../cifar-10/cifar-10-batches-py/test_batch')
 valid_x = np.array(dict_['data'])/255.0
 valid_y = np.array(dict_['labels'])
 del dict_
@@ -43,7 +43,7 @@ sequence = torch.randperm(train_x.size(0))
 train_x = train_x[sequence].cuda()
 train_y = train_y[sequence].cuda()
 
-width = 4
+width = 1
 
 
 class Residual(nn.Module):
@@ -120,17 +120,17 @@ class Net(nn.Module):
 network = Net()
 network = network.cuda()
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.SGD(network.parameters(), lr=0.01, momentum=0.9, weight_decay=0.0002)
+optimizer = optim.SGD(network.parameters(), lr=0.01, momentum=0.9, weight_decay=0.0001)
 
-epochs = 150
+epochs = 250
 batch_size = 128
 print "Number of training examples : "+str(train_x.size(0))
 for epoch in xrange(1, epochs + 1):
 
-    if epoch > 120:
-        optimizer = optim.SGD(network.parameters(), lr=0.0001, momentum=0.9, weight_decay=0.0002)
+    if epoch > 150:
+        optimizer = optim.SGD(network.parameters(), lr=0.0001, momentum=0.9, weight_decay=0.0001)
     elif epoch > 60:
-        optimizer = optim.SGD(network.parameters(), lr=0.001, momentum=0.9, weight_decay=0.0002)
+        optimizer = optim.SGD(network.parameters(), lr=0.001, momentum=0.9, weight_decay=0.0001)
     cursor = 0
     while cursor < len(train_x):
         optimizer.zero_grad()
