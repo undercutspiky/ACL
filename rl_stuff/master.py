@@ -45,11 +45,7 @@ sequence = torch.randperm(train_x.size(0))
 train_x = train_x[sequence].cuda()
 train_y = train_y[sequence].cuda()
 
-<<<<<<< HEAD
 width = 1
-=======
-width = 2
->>>>>>> 09b427905fb5947e4d42bff54f3efc80bf91d4b9
 
 
 class Residual(nn.Module):
@@ -126,13 +122,8 @@ class Net(nn.Module):
 network = Net()
 network = network.cuda()
 criterion = nn.CrossEntropyLoss()
-<<<<<<< HEAD
-optimizer = optim.SGD(network.parameters(), lr=0.01, momentum=0.9, weight_decay=0.0001)
-=======
-optimizer = optim.SGD(network.parameters(), lr=0.005, momentum=0.9, weight_decay=0.0002)
-
+optimizer = optim.SGD(network.parameters(), lr=0.1, momentum=0.9, weight_decay=5e-4, nesterov=True)
 transform = transforms.Compose([transforms.RandomCrop(32, padding=4), transforms.RandomHorizontalFlip()])
->>>>>>> 09b427905fb5947e4d42bff54f3efc80bf91d4b9
 
 epochs = 250
 batch_size = 128
@@ -140,9 +131,9 @@ print "Number of training examples : "+str(train_x.size(0))
 for epoch in xrange(1, epochs + 1):
 
     if epoch > 150:
-        optimizer = optim.SGD(network.parameters(), lr=0.0001, momentum=0.9, weight_decay=0.0001)
+        optimizer = optim.SGD(network.parameters(), lr=0.0001, momentum=0.9, weight_decay=5e-4)
     elif epoch > 60:
-        optimizer = optim.SGD(network.parameters(), lr=0.001, momentum=0.9, weight_decay=0.0001)
+        optimizer = optim.SGD(network.parameters(), lr=0.001, momentum=0.9, weight_decay=5e-4)
     cursor = 0
     while cursor < len(train_x):
         optimizer.zero_grad()
