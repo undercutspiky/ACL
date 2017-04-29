@@ -5,6 +5,8 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 from torch.autograd import Variable
+import torchvision.transforms as transforms
+
 
 def unpickle(file):
     fo = open(file, 'rb')
@@ -43,7 +45,7 @@ sequence = torch.randperm(train_x.size(0))
 train_x = train_x[sequence].cuda()
 train_y = train_y[sequence].cuda()
 
-width = 4
+width = 2
 
 
 class Residual(nn.Module):
@@ -120,7 +122,9 @@ class Net(nn.Module):
 network = Net()
 network = network.cuda()
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.SGD(network.parameters(), lr=0.01, momentum=0.9, weight_decay=0.0002)
+optimizer = optim.SGD(network.parameters(), lr=0.005, momentum=0.9, weight_decay=0.0002)
+
+transform = transforms.Compose([transforms.RandomCrop(32, padding=4), transforms.RandomHorizontalFlip()])
 
 epochs = 150
 batch_size = 128
@@ -134,7 +138,7 @@ for epoch in xrange(1, epochs + 1):
     cursor = 0
     while cursor < len(train_x):
         optimizer.zero_grad()
-        outputs = network(Variable(train_x[cursor:min(cursor + batch_size, len(train_x))]))
+        outputs = network(Variable(transform(train_x[cursor:min(cursor + batch_size, len(train_x))])))
         loss = criterion(outputs, Variable(train_y[cursor:min(cursor + batch_size, len(train_x))]))
         loss.backward()
         optimizer.step()
