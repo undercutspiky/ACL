@@ -35,10 +35,15 @@ train_x = np.transpose(train_x, (0, 3, 1, 2))
 valid_x = np.dstack((valid_x[:, :1024], valid_x[:, 1024:2048], valid_x[:, 2048:]))
 valid_x = np.reshape(valid_x, [-1, 32, 32, 3])
 valid_x = np.transpose(valid_x, (0, 3, 1, 2))
-train_x = torch.from_numpy(train_x).float()#.cuda()
+train_x = torch.from_numpy(train_x).float()
 valid_x = torch.from_numpy(valid_x).float().cuda()
-train_y = torch.from_numpy(train_y)#.cuda()
+train_y = torch.from_numpy(train_y)
 valid_y = torch.from_numpy(valid_y).cuda()
+sequence = torch.randperm(train_x.size(0))
+train_x = train_x[sequence].cuda()
+train_y = train_y[sequence].cuda()
+
+width = 4
 
 
 class Residual(nn.Module):
@@ -78,19 +83,19 @@ class Net(nn.Module):
     def __init__(self):
         super(Net, self).__init__()
         self.conv1 = nn.Conv2d(3, 16, 3, padding=1)
-        self.res11 = Residual(16, 16)
-        self.res12 = Residual(16, 16)
-        self.res13 = Residual(16, 16)
-        self.res14 = Residual(16, 16)
-        self.res21 = Residual(16, 32, stride=2)
-        self.res22 = Residual(32, 32)
-        self.res23 = Residual(32, 32)
-        self.res24 = Residual(32, 32)
-        self.res31 = Residual(32, 64, stride=2)
-        self.res32 = Residual(64, 64)
-        self.res33 = Residual(64, 64)
-        self.res34 = Residual(64, 64)
-        self.final = nn.Linear(64, 10)
+        self.res11 = Residual(16, 16*width)
+        self.res12 = Residual(16*width, 16*width)
+        self.res13 = Residual(16*width, 16*width)
+        self.res14 = Residual(16*width, 16*width)
+        self.res21 = Residual(16*width, 32*width, stride=2)
+        self.res22 = Residual(32*width, 32*width)
+        self.res23 = Residual(32*width, 32*width)
+        self.res24 = Residual(32*width, 32*width)
+        self.res31 = Residual(32*width, 64*width, stride=2)
+        self.res32 = Residual(64*width, 64*width)
+        self.res33 = Residual(64*width, 64*width)
+        self.res34 = Residual(64*width, 64*width)
+        self.final = nn.Linear(64*width, 10)
 
     def forward(self, x, train_mode=True):
         net = self.conv1(x)
@@ -122,9 +127,6 @@ batch_size = 128
 print "Number of training examples : "+str(train_x.size(0))
 for epoch in xrange(1, epochs + 1):
 
-    sequence = torch.randperm(train_x.size(0))
-    train_xc = train_x[sequence].cuda()
-    train_yc = train_y[sequence].cuda()
     if epoch > 120:
         optimizer = optim.SGD(network.parameters(), lr=0.0001, momentum=0.9, weight_decay=0.0002)
     elif epoch > 60:
@@ -132,8 +134,8 @@ for epoch in xrange(1, epochs + 1):
     cursor = 0
     while cursor < len(train_x):
         optimizer.zero_grad()
-        outputs = network(Variable(train_xc[cursor:min(cursor + batch_size, len(train_x))]))
-        loss = criterion(outputs, Variable(train_yc[cursor:min(cursor + batch_size, len(train_x))]))
+        outputs = network(Variable(train_x[cursor:min(cursor + batch_size, len(train_x))]))
+        loss = criterion(outputs, Variable(train_y[cursor:min(cursor + batch_size, len(train_x))]))
         loss.backward()
         optimizer.step()
         cursor += batch_size

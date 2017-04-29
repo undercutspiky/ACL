@@ -30,8 +30,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rl_stuff/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="119" column="59" selection-start-line="119" selection-start-column="59" selection-end-line="119" selection-end-column="59" />
+            <state relative-caret-position="1035">
+              <caret line="101" column="51" selection-start-line="101" selection-start-column="51" selection-end-line="101" selection-end-column="51" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -42,8 +42,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/highway/cifar-10/hrun-7weird/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="945">
-              <caret line="146" column="46" selection-start-line="143" selection-start-column="0" selection-end-line="146" selection-end-column="46" />
+            <state relative-caret-position="2310">
+              <caret line="158" column="79" selection-start-line="158" selection-start-column="4" selection-end-line="158" selection-end-column="79" />
               <folding />
             </state>
           </provider>
@@ -481,13 +481,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00191" summary="correct horrible reshaping mistake">
-      <created>1484869852159</created>
-      <option name="number" value="00191" />
-      <option name="presentableId" value="LOCAL-00191" />
-      <option name="project" value="LOCAL" />
-      <updated>1484869852159</updated>
-    </task>
     <task id="LOCAL-00192" summary="resnet losses, time">
       <created>1485307795872</created>
       <option name="number" value="00192" />
@@ -824,7 +817,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493405614894</updated>
     </task>
-    <option name="localTasksCounter" value="240" />
+    <task id="LOCAL-00240" summary="wide-resnet in pytorch - bug fix">
+      <created>1493405735418</created>
+      <option name="number" value="00240" />
+      <option name="presentableId" value="LOCAL-00240" />
+      <option name="project" value="LOCAL" />
+      <updated>1493405735418</updated>
+    </task>
+    <option name="localTasksCounter" value="241" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1247,16 +1247,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/highway/cifar-10/hrun-7weird/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="146" column="46" selection-start-line="143" selection-start-column="0" selection-end-line="146" selection-end-column="46" />
+        <state relative-caret-position="2310">
+          <caret line="158" column="79" selection-start-line="158" selection-start-column="4" selection-end-line="158" selection-end-column="79" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rl_stuff/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="119" column="59" selection-start-line="119" selection-start-column="59" selection-end-line="119" selection-end-column="59" />
+        <state relative-caret-position="1035">
+          <caret line="101" column="51" selection-start-line="101" selection-start-column="51" selection-end-line="101" selection-end-column="51" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
