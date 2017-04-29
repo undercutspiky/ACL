@@ -131,9 +131,9 @@ print "Number of training examples : "+str(train_x.size(0))
 for epoch in xrange(1, epochs + 1):
 
     if epoch > 150:
-        optimizer = optim.SGD(network.parameters(), lr=0.0001, momentum=0.9, weight_decay=5e-4)
+        optimizer = optim.SGD(network.parameters(), lr=0.0001, momentum=0.9, weight_decay=5e-4, nesterov=True)
     elif epoch > 60:
-        optimizer = optim.SGD(network.parameters(), lr=0.001, momentum=0.9, weight_decay=5e-4)
+        optimizer = optim.SGD(network.parameters(), lr=0.001, momentum=0.9, weight_decay=5e-4, nesterov=True)
     cursor = 0
     while cursor < len(train_x):
         optimizer.zero_grad()

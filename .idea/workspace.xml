@@ -30,8 +30,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rl_stuff/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="124" column="49" selection-start-line="124" selection-start-column="49" selection-end-line="124" selection-end-column="49" />
+            <state relative-caret-position="250">
+              <caret line="135" column="108" selection-start-line="135" selection-start-column="108" selection-end-line="135" selection-end-column="108" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -481,13 +481,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00194" summary="changes">
-      <created>1485340979200</created>
-      <option name="number" value="00194" />
-      <option name="presentableId" value="LOCAL-00194" />
-      <option name="project" value="LOCAL" />
-      <updated>1485340979200</updated>
-    </task>
     <task id="LOCAL-00195" summary="changes">
       <created>1485431918735</created>
       <option name="number" value="00195" />
@@ -824,7 +817,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493429192330</updated>
     </task>
-    <option name="localTasksCounter" value="243" />
+    <task id="LOCAL-00243" summary="wide-resnet in pytorch - changes">
+      <created>1493451106527</created>
+      <option name="number" value="00243" />
+      <option name="presentableId" value="LOCAL-00243" />
+      <option name="project" value="LOCAL" />
+      <updated>1493451106527</updated>
+    </task>
+    <option name="localTasksCounter" value="244" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -881,7 +881,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changes in hyperparameters" />
     <MESSAGE value="use whole train data and test set as valid set" />
     <MESSAGE value="leaky relu" />
     <MESSAGE value="data preprocessing and augmentation added" />
@@ -906,7 +905,8 @@
     <MESSAGE value="bugs" />
     <MESSAGE value="wide-resnet in pytorch" />
     <MESSAGE value="wide-resnet in pytorch - bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="wide-resnet in pytorch - bug fix" />
+    <MESSAGE value="wide-resnet in pytorch - changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="wide-resnet in pytorch - changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1255,8 +1255,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rl_stuff/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="124" column="49" selection-start-line="124" selection-start-column="49" selection-end-line="124" selection-end-column="49" />
+        <state relative-caret-position="250">
+          <caret line="135" column="108" selection-start-line="135" selection-start-column="108" selection-end-line="135" selection-end-column="108" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
