@@ -164,6 +164,7 @@ class Env:
                                        lr=0.001, momentum=0.9, weight_decay=5e-4, nesterov=True)
         self.save_state('original')
         for batch in batches:
+            batch = batch[0].cpu().numpy()[0]
             self.optimizer.zero_grad()
             outputs = self.network(Variable(
                 self.train_x[self.batch_size*batch: min(self.batch_size*batch +self.batch_size, self.train_x.size(0))]))
@@ -184,7 +185,7 @@ class Env:
         self.save_state('agent')
         self.restore_state('original')
         # Randomly select a sequence for adversary and train
-        rand_seq = np.random.choice(40000, size=len(batches), replace=False)
+        rand_seq = np.random.choice(313, size=len(batches), replace=False)
         for batch in rand_seq:
             self.optimizer.zero_grad()
             outputs = self.network(Variable(

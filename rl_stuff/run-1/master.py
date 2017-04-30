@@ -49,12 +49,14 @@ def select_action(state, out_length):
 def finish_episode(reward):
     saved_actions = network.saved_actions
     value_loss = 0
-    for (action, value), r in zip(saved_actions):
+    for (action, value) in saved_actions:
         action.reinforce(reward)
-        value_loss += F.smooth_l1_loss(value, Variable(torch.Tensor([reward])))
+        value_target = [0]*313
+        value_target[action.data.cpu().numpy()[0][0]] = reward
+        value_loss += F.smooth_l1_loss(value, Variable(torch.Tensor([value_target]).cuda()))
     optimizer.zero_grad()
     final_nodes = [value_loss] + list(map(lambda p: p.action, saved_actions))
-    gradients = [torch.ones(1)] + [None] * len(saved_actions)
+    gradients = torch.ones(len(final_nodes)).cuda() #+ [None] * len(saved_actions)
     autograd.backward(final_nodes, gradients)
     optimizer.step()
     del network.saved_actions[:]
