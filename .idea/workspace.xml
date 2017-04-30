@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rl_stuff/run-1/env.py" afterPath="$PROJECT_DIR$/rl_stuff/run-1/env.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rl_stuff/run-1/master.py" afterPath="$PROJECT_DIR$/rl_stuff/run-1/master.py" />
     </list>
     <ignored path="ACL.iws" />
@@ -32,7 +31,7 @@
         <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/master.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="520">
-              <caret line="81" column="43" selection-start-line="81" selection-start-column="43" selection-end-line="81" selection-end-column="43" />
+              <caret line="81" column="35" selection-start-line="81" selection-start-column="35" selection-end-line="81" selection-end-column="35" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -502,13 +501,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00213" summary="curriculums without ordering">
-      <created>1489168398106</created>
-      <option name="number" value="00213" />
-      <option name="presentableId" value="LOCAL-00213" />
-      <option name="project" value="LOCAL" />
-      <updated>1489168398106</updated>
-    </task>
     <task id="LOCAL-00214" summary="curriculums without ordering">
       <created>1489173352918</created>
       <option name="number" value="00214" />
@@ -845,7 +837,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493584847125</updated>
     </task>
-    <option name="localTasksCounter" value="262" />
+    <task id="LOCAL-00262" summary="basic RL code">
+      <created>1493585279381</created>
+      <option name="number" value="00262" />
+      <option name="presentableId" value="LOCAL-00262" />
+      <option name="project" value="LOCAL" />
+      <updated>1493585279381</updated>
+    </task>
+    <option name="localTasksCounter" value="263" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1280,7 +1279,7 @@
     <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/master.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="520">
-          <caret line="81" column="43" selection-start-line="81" selection-start-column="43" selection-end-line="81" selection-end-column="43" />
+          <caret line="81" column="35" selection-start-line="81" selection-start-column="35" selection-end-line="81" selection-end-column="35" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
