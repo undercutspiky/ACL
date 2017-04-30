@@ -30,7 +30,7 @@ class Net(nn.Module):
             hx, cx = self.h(x, (hx, cx))
             actions = self.action_head(hx)
             action_scores.append(F.softmax(actions))
-        self.hx, self.cx = hx, cx
+        self.hx, self.cx = hx.data, cx.data
         return action_scores
 
 
