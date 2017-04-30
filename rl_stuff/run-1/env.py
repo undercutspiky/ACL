@@ -132,7 +132,7 @@ class Env:
     def save_state(self, state_name):
         torch.save(self.network.state_dict(), './'+state_name+'.pth')
 
-    def stats(self, mat):
+    def get_stats(self, mat):
         a = []
         mat = mat.cpu().numpy()
         a.append(np.mean(mat))
@@ -147,7 +147,7 @@ class Env:
         for i in xrange(1,4):
             for j in xrange(1,5):
                 for k in xrange(1,3):
-                    state.extend(self.stats(self.network.state_dict()['res'+str(i)+str(j)+'.conv'+str(k)+'.weight']))
+                    state.extend(self.get_stats(self.network.state_dict()['res'+str(i)+str(j)+'.conv'+str(k)+'.weight']))
         return state
 
     def take_action(self, batches):
