@@ -210,5 +210,5 @@ class Env:
         else:
             self.restore_state('original')
 
-        return agent_reward, adv_reward, self.extract_state()
+        return agent_reward, adv_reward
 
