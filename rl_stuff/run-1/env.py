@@ -134,7 +134,7 @@ class Env:
 
     def stats(self, mat):
         a = []
-        mat = mat.numpy()
+        mat = mat.cpu().numpy()
         a.append(np.mean(mat))
         a.append(np.var(mat))
         a.append(np.mean(scipy.stats.skew(mat)))
