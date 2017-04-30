@@ -148,7 +148,7 @@ class Env:
             for j in xrange(1,5):
                 for k in xrange(1,3):
                     state.extend(self.get_stats(self.network.state_dict()['res'+str(i)+str(j)+'.conv'+str(k)+'.weight']))
-        return state
+        return np.array(state)
 
     def take_action(self, batches):
         '''
