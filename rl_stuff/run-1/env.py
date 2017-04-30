@@ -1,6 +1,6 @@
 import cPickle
 import numpy as np
-import scipy
+import scipy.stats
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
