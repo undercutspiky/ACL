@@ -1,11 +1,11 @@
-import cPickle, gzip
+import cPickle
 import numpy as np
+import scipy
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 from torch.autograd import Variable
-import torchvision.transforms as transforms
 
 
 def unpickle(file):
@@ -13,39 +13,6 @@ def unpickle(file):
     dict_ = cPickle.load(fo)
     fo.close()
     return dict_
-
-# Load CIFAR-10 data
-train_x = []
-train_y = []
-for i in xrange(1, 6):
-    dict_ = unpickle('../cifar-10/cifar-10-batches-py/data_batch_' + str(i))
-    if i == 1:
-        train_x = np.array(dict_['data'])/255.0
-        train_y = dict_['labels']
-    else:
-        train_x = np.concatenate((train_x, np.array(dict_['data'])/255.0), axis=0)
-        train_y.extend(dict_['labels'])
-
-train_y = np.array(train_y)
-dict_ = unpickle('../cifar-10/cifar-10-batches-py/test_batch')
-valid_x = np.array(dict_['data'])/255.0
-valid_y = np.array(dict_['labels'])
-del dict_
-train_x = np.dstack((train_x[:, :1024], train_x[:, 1024:2048], train_x[:, 2048:]))
-train_x = np.reshape(train_x, [-1, 32, 32, 3])
-train_x = np.transpose(train_x, (0, 3, 1, 2))
-valid_x = np.dstack((valid_x[:, :1024], valid_x[:, 1024:2048], valid_x[:, 2048:]))
-valid_x = np.reshape(valid_x, [-1, 32, 32, 3])
-valid_x = np.transpose(valid_x, (0, 3, 1, 2))
-train_x = torch.from_numpy(train_x).float()
-valid_x = torch.from_numpy(valid_x).float().cuda()
-train_y = torch.from_numpy(train_y)
-valid_y = torch.from_numpy(valid_y).cuda()
-sequence = torch.randperm(train_x.size(0))
-train_x = train_x[sequence].cuda()
-train_y = train_y[sequence].cuda()
-
-width = 1
 
 
 class Residual(nn.Module):
@@ -82,7 +49,7 @@ class Residual(nn.Module):
 
 
 class Net(nn.Module):
-    def __init__(self):
+    def __init__(self, width=1):
         super(Net, self).__init__()
         self.conv1 = nn.Conv2d(3, 16, 3, padding=1)
         self.res11 = Residual(16, 16*width)
@@ -119,39 +86,128 @@ class Net(nn.Module):
         return net
 
 
-network = Net()
-network = network.cuda()
-criterion = nn.CrossEntropyLoss()
-optimizer = optim.SGD(network.parameters(), lr=0.01, momentum=0.9, weight_decay=5e-4, nesterov=True)
-transform = transforms.Compose([transforms.RandomCrop(32, padding=4), transforms.RandomHorizontalFlip()])
+class Env:
+    def __init__(self):
+        self.network = Net()
+        self.network = self.network.cuda()
+        self.criterion = nn.CrossEntropyLoss()
+        self.optimizer = optim.SGD(self.network.parameters(), lr=0.01, momentum=0.9, weight_decay=5e-4, nesterov=True)
+        self.batch_size = 128
+        self.steps = 0
+        self.train_x = []
+        self.train_y = []
+        for i in xrange(1, 5):
+            dict_ = unpickle('../cifar-10/cifar-10-batches-py/data_batch_' + str(i))
+            if i == 1:
+                self.train_x = np.array(dict_['data']) / 255.0
+                self.train_y = dict_['labels']
+            else:
+                self.train_x = np.concatenate((self.train_x, np.array(dict_['data']) / 255.0), axis=0)
+                self.train_y.extend(dict_['labels'])
 
-epochs = 250
-batch_size = 128
-print "Number of training examples : "+str(train_x.size(0))
-for epoch in xrange(1, epochs + 1):
+        self.train_y = np.array(self.train_y)
+        dict_ = unpickle('../cifar-10/cifar-10-batches-py/data_batch_5')
+        self.valid_x = np.array(dict_['data']) / 255.0
+        self.valid_y = np.array(dict_['labels'])
+        del dict_
+        self.train_x = np.dstack((self.train_x[:, :1024], self.train_x[:, 1024:2048], self.train_x[:, 2048:]))
+        self.train_x = np.reshape(self.train_x, [-1, 32, 32, 3])
+        self.train_x = np.transpose(self.train_x, (0, 3, 1, 2))
+        self.valid_x = np.dstack((self.valid_x[:, :1024], self.valid_x[:, 1024:2048], self.valid_x[:, 2048:]))
+        self.valid_x = np.reshape(self.valid_x, [-1, 32, 32, 3])
+        self.valid_x = np.transpose(self.valid_x, (0, 3, 1, 2))
+        self.train_x = torch.from_numpy(self.train_x).float()
+        self.valid_x = torch.from_numpy(self.valid_x).float().cuda()
+        self.train_y = torch.from_numpy(self.train_y)
+        self.valid_y = torch.from_numpy(self.valid_y).cuda()
+        self.sequence = torch.randperm(self.train_x.size(0))
+        self.train_x = self.train_x[self.sequence].cuda()
+        self.train_y = self.train_y[self.sequence].cuda()
 
-    if epoch > 150:
-        optimizer = optim.SGD(network.parameters(), lr=0.0001, momentum=0.9, weight_decay=5e-4, nesterov=True)
-    elif epoch > 60:
-        optimizer = optim.SGD(network.parameters(), lr=0.001, momentum=0.9, weight_decay=5e-4, nesterov=True)
-    cursor = 0
-    while cursor < len(train_x):
-        optimizer.zero_grad()
-        outputs = network(Variable(transform(train_x[cursor:min(cursor + batch_size, len(train_x))])))
-        loss = criterion(outputs, Variable(train_y[cursor:min(cursor + batch_size, len(train_x))]))
-        loss.backward()
-        optimizer.step()
-        cursor += batch_size
+        print "Environment Initialized"
 
-    cursor = 0
-    correct = 0
-    total = 0
-    while cursor < len(valid_x):
-        outputs = network(Variable(valid_x[cursor:min(cursor + batch_size, len(valid_x))]), train_mode=False)
-        labels = valid_y[cursor:min(cursor + batch_size, len(valid_x))]
-        _, predicted = torch.max(outputs.data, 1)
-        total += len(labels)
-        correct += (predicted == labels).sum()
-        cursor += batch_size
+    def restore_state(self, state_name):
+        self.network.load_state_dict(torch.load('./'+state_name+'.pth'))
 
-    print('For epoch %d \tAccuracy on valid set: %f %%' % (epoch, 100.0 * correct / total))
+    def save_state(self, state_name):
+        torch.save(self.network.state_dict(), './'+state_name+'.pth')
+
+    def stats(self, mat):
+        a = []
+        mat = mat.numpy()
+        a.append(np.mean(mat))
+        a.append(np.var(mat))
+        a.append(np.mean(scipy.stats.skew(mat)))
+        a.append(np.var(scipy.stats.skew(mat)))
+        a.append(np.median(mat))
+        return a
+
+    def extract_state(self):
+        state = []
+        for i in xrange(1,4):
+            for j in xrange(1,5):
+                for k in xrange(1,3):
+                    state.extend(self.stats(self.network.state_dict()['res'+str(i)+str(j)+'.conv'+str(k)+'.weight']))
+        return state
+
+    def take_action(self, batches):
+        '''
+        Trains the network on 1) batches received and 2) random batches
+        :param batches: List of batches received from agent
+        :return: The difference between rewards received from agent and adversary
+        '''
+        if self.steps > 50000:
+            self.optimizer = optim.SGD(self.network.parameters(),
+                                       lr=0.0001, momentum=0.9, weight_decay=5e-4, nesterov=True)
+        elif self.steps > 20000:
+            self.optimizer = optim.SGD(self.network.parameters(),
+                                       lr=0.001, momentum=0.9, weight_decay=5e-4, nesterov=True)
+        self.save_state('original')
+        for batch in batches:
+            self.optimizer.zero_grad()
+            outputs = self.network(Variable(
+                self.train_x[self.batch_size*batch: min(self.batch_size*batch +self.batch_size, self.train_x.size(0))]))
+            loss = self.criterion(outputs, Variable(
+                self.train_y[self.batch_size*batch: min(self.batch_size*batch +self.batch_size, self.train_x.size(0))]))
+            loss.backward()
+            self.optimizer.step()
+        cursor, correct, total = (0,0,0)
+        while cursor < len(self.valid_x):
+            outputs = self.network(Variable(
+                self.valid_x[cursor:min(cursor + self.batch_size, len(self.valid_x))]), train_mode=False)
+            labels = self.valid_y[cursor:min(cursor + self.batch_size, len(self.valid_x))]
+            _, predicted = torch.max(outputs.data, 1)
+            total += len(labels)
+            correct += (predicted == labels).sum()
+            cursor += self.batch_size
+        agent_reward = 100.0 * correct / total
+        self.save_state('agent')
+        self.restore_state('original')
+        # Randomly select a sequence for adversary and train
+        rand_seq = np.random.choice(40000, size=len(batches), replace=False)
+        for batch in rand_seq:
+            self.optimizer.zero_grad()
+            outputs = self.network(Variable(
+                self.train_x[self.batch_size*batch: min(self.batch_size*batch +self.batch_size, self.train_x.size(0))]))
+            loss = self.criterion(outputs, Variable(
+                self.train_y[self.batch_size*batch: min(self.batch_size*batch +self.batch_size, self.train_x.size(0))]))
+            loss.backward()
+            self.optimizer.step()
+        cursor, correct, total = (0, 0, 0)
+        while cursor < len(self.valid_x):
+            outputs = self.network(Variable(
+                self.valid_x[cursor:min(cursor + self.batch_size, len(self.valid_x))]), train_mode=False)
+            labels = self.valid_y[cursor:min(cursor + self.batch_size, len(self.valid_x))]
+            _, predicted = torch.max(outputs.data, 1)
+            total += len(labels)
+            correct += (predicted == labels).sum()
+            cursor += self.batch_size
+        adv_reward = 100.0 * correct / total
+        if agent_reward > adv_reward:
+            self.restore_state('agent')
+            self.steps += len(batches)
+        else:
+            self.restore_state('original')
+
+        return agent_reward, adv_reward, self.extract_state()
+
