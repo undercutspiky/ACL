@@ -53,23 +53,34 @@ def finish_episode(reward):
     optimizer.step()
     del network.saved_actions[:]
 
-network = Net()
-network = network.cuda()
-criterion = nn.CrossEntropyLoss()
-optimizer = optim.Adam(network.parameters(), lr=3e-2, weight_decay=5e-4)
-env = Env()
 
-for step in xrange(1000):
-    state = torch.from_numpy(env.extract_state())
-    state = state.cuda()
-    ad_reward, agent_reward = (0, -1)
-    out_length = 10 + step/10
-    count = 0
-    while ad_reward > agent_reward:
-        batches = select_action(state, out_length)
-        ad_reward, agent_reward = env.take_action(batches)
-        finish_episode(agent_reward - ad_reward)
-        print ad_reward, agent_reward
-        count += 1
-    print ('Accuracies after %d tries - agent:%f adversary:%f' % (count, agent_reward, ad_reward))
+def save_state(state_name):
+    torch.save(network.state_dict(), './' + state_name + '.pth')
+
+for run in xrange(5):
+    network = Net()
+    network = network.cuda()
+    criterion = nn.CrossEntropyLoss()
+    optimizer = optim.Adam(network.parameters(), lr=3e-2, weight_decay=5e-4)
+    env = Env()
+
+    global_steps = 0
+    for step in xrange(1000):
+        state = torch.from_numpy(env.extract_state())
+        state = state.cuda()
+        ad_reward, agent_reward = (0, -1)
+        out_length = 10 + step/10
+        count, batches = 0, []
+        while ad_reward > agent_reward:
+            batches = select_action(state, out_length)
+            ad_reward, agent_reward = env.take_action(batches)
+            finish_episode(agent_reward - ad_reward)
+            print ad_reward, agent_reward
+            count += 1
+        global_steps += out_length
+        print ('Accuracies after %d tries - agent:%f adversary:%f' % (count, agent_reward, ad_reward))
+        print batches
+        print ('%d global steps or ~ %d epochs done in run %d' % (global_steps, global_steps//313, run))
+
+save_state('lstm_network')
 
