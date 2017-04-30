@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rl_stuff/run-1/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rl_stuff/run-1/master.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rl_stuff/run-1/env.py" afterPath="$PROJECT_DIR$/rl_stuff/run-1/env.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rl_stuff/run-1/master.py" afterPath="$PROJECT_DIR$/rl_stuff/run-1/master.py" />
     </list>
     <ignored path="ACL.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,8 +30,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="625">
-              <caret line="76" column="98" selection-start-line="76" selection-start-column="98" selection-end-line="76" selection-end-column="98" />
+            <state relative-caret-position="175">
+              <caret line="20" column="68" selection-start-line="20" selection-start-column="68" selection-end-line="20" selection-end-column="68" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -503,13 +501,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00196" summary="changes">
-      <created>1485431937967</created>
-      <option name="number" value="00196" />
-      <option name="presentableId" value="LOCAL-00196" />
-      <option name="project" value="LOCAL" />
-      <updated>1485431937967</updated>
-    </task>
     <task id="LOCAL-00197" summary="changes">
       <created>1485478540706</created>
       <option name="number" value="00197" />
@@ -846,7 +837,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493451408607</updated>
     </task>
-    <option name="localTasksCounter" value="245" />
+    <task id="LOCAL-00245" summary="basic RL code">
+      <created>1493553270271</created>
+      <option name="number" value="00245" />
+      <option name="presentableId" value="LOCAL-00245" />
+      <option name="project" value="LOCAL" />
+      <updated>1493553270272</updated>
+    </task>
+    <option name="localTasksCounter" value="246" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -903,7 +901,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="use whole train data and test set as valid set" />
     <MESSAGE value="leaky relu" />
     <MESSAGE value="data preprocessing and augmentation added" />
     <MESSAGE value="wide residual nets" />
@@ -928,7 +925,8 @@
     <MESSAGE value="wide-resnet in pytorch" />
     <MESSAGE value="wide-resnet in pytorch - bug fix" />
     <MESSAGE value="wide-resnet in pytorch - changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="wide-resnet in pytorch - changes" />
+    <MESSAGE value="basic RL code" />
+    <option name="LAST_COMMIT_MESSAGE" value="basic RL code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1280,8 +1278,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="76" column="98" selection-start-line="76" selection-start-column="98" selection-end-line="76" selection-end-column="98" />
+        <state relative-caret-position="175">
+          <caret line="20" column="68" selection-start-line="20" selection-start-column="68" selection-end-line="20" selection-end-column="68" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
