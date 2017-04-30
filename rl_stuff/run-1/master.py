@@ -19,15 +19,18 @@ class Net(nn.Module):
         self.h.bias_hh.data[self.h.bias_hh.size(0) / 4:self.h.bias_hh.size(0) / 2].fill_(1.0)
 
         self.saved_actions = []
-        self.hx = Variable(torch.randn(1, 100).cuda())
-        self.cx = Variable(torch.randn(1, 100).cuda())
+        self.hx = Variable(torch.randn(1, 100))
+        self.cx = Variable(torch.randn(1, 100))
 
     def forward(self, x, length, train_mode=True):
         action_scores = []
+        hx, cx = self.hx, self.cx
+        hx, cx = hx.cuda(), cx.cuda()
         for i in xrange(length):
-            self.hx, self.cx = self.h(x, (self.hx, self.cx))
+            hx, cx = self.h(x, (hx, cx))
             actions = self.action_head(self.hx)
             action_scores.append(F.softmax(actions))
+        self.hx, self.cx = hx, cx
         return action_scores
 
 
