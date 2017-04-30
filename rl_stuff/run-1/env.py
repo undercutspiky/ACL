@@ -165,6 +165,7 @@ class Env:
             self.optimizer = optim.SGD(self.network.parameters(),
                                        lr=0.001, momentum=0.9, weight_decay=5e-4, nesterov=True)
         self.save_state('original')
+        self.restore_state('original')
         for batch in batches:
             batch = batch[0].cpu().numpy()[0]
             self.optimizer.zero_grad()
