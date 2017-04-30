@@ -97,7 +97,7 @@ class Env:
         self.train_x = []
         self.train_y = []
         for i in xrange(1, 5):
-            dict_ = unpickle('../cifar-10/cifar-10-batches-py/data_batch_' + str(i))
+            dict_ = unpickle('../../cifar-10/cifar-10-batches-py/data_batch_' + str(i))
             if i == 1:
                 self.train_x = np.array(dict_['data']) / 255.0
                 self.train_y = dict_['labels']
@@ -106,7 +106,7 @@ class Env:
                 self.train_y.extend(dict_['labels'])
 
         self.train_y = np.array(self.train_y)
-        dict_ = unpickle('../cifar-10/cifar-10-batches-py/data_batch_5')
+        dict_ = unpickle('../../cifar-10/cifar-10-batches-py/data_batch_5')
         self.valid_x = np.array(dict_['data']) / 255.0
         self.valid_y = np.array(dict_['labels'])
         del dict_
