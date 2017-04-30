@@ -6,7 +6,6 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torch import autograd
 from torch.autograd import Variable
-from collections import namedtuple
 from env import Env
 
 
@@ -14,7 +13,6 @@ class Net(nn.Module):
     def __init__(self, n_classes=313):
         super(Net, self).__init__()
         self.h = nn.LSTMCell(120, 100)
-        self.value_head = nn.Linear(100, n_classes)
         self.action_head = nn.Linear(100, n_classes)
         # Initialize forget gate bias to 1
         self.h.bias_ih.data[self.h.bias_ih.size(0) / 4:self.h.bias_ih.size(0) / 2].fill_(1.0)
@@ -26,38 +24,29 @@ class Net(nn.Module):
 
     def forward(self, x, length, train_mode=True):
         action_scores = []
-        state_values = []
         for i in xrange(length):
             self.hx, self.cx = self.h(x, (self.hx, self.cx))
-            values = self.value_head(self.hx)
             actions = self.action_head(self.hx)
             action_scores.append(F.softmax(actions))
-            state_values.append(values)
-        return action_scores, state_values
+        return action_scores
 
 
 def select_action(state, out_length):
-    probs, state_value = network(Variable(state.unsqueeze(0)), out_length)
+    probs = network(Variable(state.unsqueeze(0)), out_length)
     actions = []
     for i in xrange(len(probs)):
         action = probs[i].multinomial()
-        network.saved_actions.append(SavedAction(action, state_value[i]))
+        network.saved_actions.append(action)
         actions.append(action.data)
     return actions
 
 
 def finish_episode(reward):
     saved_actions = network.saved_actions
-    value_loss = 0
-    for (action, value) in saved_actions:
+    for action in saved_actions:
         action.reinforce(reward)
-        value_target = [0]*313
-        value_target[action.data.cpu().numpy()[0][0]] = reward
-        value_loss += F.smooth_l1_loss(value, Variable(torch.Tensor([value_target]).cuda()))
     optimizer.zero_grad()
-    final_nodes = [value_loss] + list(map(lambda p: p.action, saved_actions))
-    gradients = torch.ones(len(final_nodes)).cuda() #+ [None] * len(saved_actions)
-    autograd.backward(final_nodes, gradients)
+    autograd.backward(network.saved_actions, [None for _ in network.saved_actions])
     optimizer.step()
     del network.saved_actions[:]
 
@@ -65,7 +54,6 @@ network = Net()
 network = network.cuda()
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(network.parameters(), lr=3e-2, weight_decay=5e-4)
-SavedAction = namedtuple('SavedAction', ['action', 'value'])
 env = Env()
 
 for step in xrange(1000):
