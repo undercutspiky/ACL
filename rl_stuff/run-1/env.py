@@ -140,7 +140,7 @@ class Env:
         a.append(np.mean(scipy.stats.skew(mat)))
         a.append(np.var(scipy.stats.skew(mat)))
         a.append(np.median(mat))
-        return a
+        return np.array(a)
 
     def extract_state(self):
         state = []

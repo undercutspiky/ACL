@@ -65,7 +65,7 @@ SavedAction = namedtuple('SavedAction', ['action', 'value'])
 env = Env()
 
 for step in xrange(1000):
-    state = env.extract_state()
+    state = torch.from_numpy(env.extract_state())
     ad_reward, agent_reward = (0, -1)
     out_length = 10 + step/10
     count = 0
