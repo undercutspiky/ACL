@@ -128,9 +128,11 @@ class Env:
 
     def restore_state(self, state_name):
         self.network.load_state_dict(torch.load('./'+state_name+'.pth'))
+        self.optimizer.load_state_dict(torch.load('./optim-' + state_name + '.pth'))
 
     def save_state(self, state_name):
         torch.save(self.network.state_dict(), './'+state_name+'.pth')
+        torch.save(self.optimizer.state_dict(), './optim-' + state_name + '.pth')
 
     def get_stats(self, mat):
         a = []
