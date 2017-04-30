@@ -30,8 +30,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="32" column="64" selection-start-line="32" selection-start-column="64" selection-end-line="32" selection-end-column="64" />
+            <state relative-caret-position="445">
+              <caret line="80" column="87" selection-start-line="80" selection-start-column="87" selection-end-line="80" selection-end-column="87" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -501,13 +501,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00216" summary="actually make them difficult (was same as easy one)">
-      <created>1490484729082</created>
-      <option name="number" value="00216" />
-      <option name="presentableId" value="LOCAL-00216" />
-      <option name="project" value="LOCAL" />
-      <updated>1490484729083</updated>
-    </task>
     <task id="LOCAL-00217" summary="trying stratified">
       <created>1490485763063</created>
       <option name="number" value="00217" />
@@ -844,7 +837,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493585673033</updated>
     </task>
-    <option name="localTasksCounter" value="265" />
+    <task id="LOCAL-00265" summary="basic RL code">
+      <created>1493585930694</created>
+      <option name="number" value="00265" />
+      <option name="presentableId" value="LOCAL-00265" />
+      <option name="project" value="LOCAL" />
+      <updated>1493585930694</updated>
+    </task>
+    <option name="localTasksCounter" value="266" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1278,8 +1278,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="32" column="64" selection-start-line="32" selection-start-column="64" selection-end-line="32" selection-end-column="64" />
+        <state relative-caret-position="445">
+          <caret line="80" column="87" selection-start-line="80" selection-start-column="87" selection-end-line="80" selection-end-column="87" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
