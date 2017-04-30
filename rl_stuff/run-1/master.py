@@ -79,7 +79,7 @@ for run in xrange(5):
             count += 1
         global_steps += out_length
         print ('Accuracies after %d tries - agent:%f adversary:%f' % (count, agent_reward, ad_reward))
-        print batches
+        print [bat.data for bat in batches]
         print ('%d global steps or ~ %d epochs done in run %d' % (global_steps, global_steps//313, run))
 
 save_state('lstm_network')

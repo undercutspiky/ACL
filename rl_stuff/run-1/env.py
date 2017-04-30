@@ -172,6 +172,7 @@ class Env:
                 self.train_y[self.batch_size*batch: min(self.batch_size*batch +self.batch_size, self.train_x.size(0))]))
             loss.backward()
             self.optimizer.step()
+        # Test it on validation set
         cursor, correct, total = (0,0,0)
         while cursor < len(self.valid_x):
             outputs = self.network(Variable(
@@ -184,6 +185,9 @@ class Env:
         agent_reward = 100.0 * correct / total
         self.save_state('agent')
         self.restore_state('original')
+
+        ''' Train adversary'''
+
         # Randomly select a sequence for adversary and train
         rand_seq = np.random.choice(313, size=len(batches), replace=False)
         for batch in rand_seq:
@@ -194,6 +198,7 @@ class Env:
                 self.train_y[self.batch_size*batch: min(self.batch_size*batch +self.batch_size, self.train_x.size(0))]))
             loss.backward()
             self.optimizer.step()
+        # Test it on validation set
         cursor, correct, total = (0, 0, 0)
         while cursor < len(self.valid_x):
             outputs = self.network(Variable(
@@ -204,6 +209,7 @@ class Env:
             correct += (predicted == labels).sum()
             cursor += self.batch_size
         adv_reward = 100.0 * correct / total
+
         if agent_reward > adv_reward:
             self.restore_state('agent')
             self.steps += len(batches)
