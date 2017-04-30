@@ -26,8 +26,11 @@ class Net(nn.Module):
         action_scores = []
         hx, cx = self.hx, self.cx
         hx, cx = Variable(hx.cuda()), Variable(cx.cuda())
-        for i in xrange(length):
-            hx, cx = self.h(x, (hx, cx))
+        hx, cx = self.h(x, (hx, cx))
+        actions = self.action_head(hx)
+        action_scores.append(F.softmax(actions))
+        for i in xrange(length - 1):
+            hx, cx = self.h(Variable(torch.zeros(1, 120).cuda()), (hx, cx))
             actions = self.action_head(hx)
             action_scores.append(F.softmax(actions))
         self.hx, self.cx = hx.data, cx.data
