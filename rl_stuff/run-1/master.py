@@ -73,6 +73,7 @@ for step in xrange(1000):
         batches = select_action(state, out_length)
         ad_reward, agent_reward, state = env.take_action(batches)
         finish_episode(agent_reward - ad_reward)
+        print ad_reward, agent_reward
         count += 1
     print ('Accuracies after %d tries - agent:%f adversary:%f' % (count, agent_reward, ad_reward))
 
