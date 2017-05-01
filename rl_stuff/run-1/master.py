@@ -12,7 +12,7 @@ from env import Env
 class Net(nn.Module):
     def __init__(self, n_classes=313):
         super(Net, self).__init__()
-        self.h = nn.LSTMCell(120, 100)
+        self.h = nn.LSTMCell(313, 100)
         self.action_head = nn.Linear(100, n_classes)
         # Initialize forget gate bias to 1
         self.h.bias_ih.data[self.h.bias_ih.size(0) / 4:self.h.bias_ih.size(0) / 2].fill_(1.0)
@@ -30,7 +30,7 @@ class Net(nn.Module):
         actions = self.action_head(hx)
         action_scores.append(F.softmax(actions))
         for i in xrange(length - 1):
-            hx, cx = self.h(Variable(torch.zeros(1, 120).cuda()), (hx, cx))
+            hx, cx = self.h(Variable(torch.zeros(1, 313).cuda()), (hx, cx))
             actions = self.action_head(hx)
             action_scores.append(actions)
         self.hx, self.cx = hx.data, cx.data
@@ -79,7 +79,7 @@ for run in xrange(5):
         sequence = env.sequence
     global_steps = 0
     for step in xrange(1000):
-        state = torch.from_numpy(env.extract_state())
+        state = torch.from_numpy(env.get_losses())
         state = state.cuda()
         # ad_reward, agent_reward = (0, -1)
         out_length = 10 + step/10

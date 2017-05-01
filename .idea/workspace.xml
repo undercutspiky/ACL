@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rl_stuff/run-1/env.py" afterPath="$PROJECT_DIR$/rl_stuff/run-1/env.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rl_stuff/run-1/master.py" afterPath="$PROJECT_DIR$/rl_stuff/run-1/master.py" />
     </list>
     <ignored path="ACL.iws" />
@@ -30,8 +31,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="77" column="18" selection-start-line="77" selection-start-column="18" selection-end-line="77" selection-end-column="18" />
+            <state relative-caret-position="265">
+              <caret line="81" column="49" selection-start-line="81" selection-start-column="49" selection-end-line="81" selection-end-column="49" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -42,8 +43,8 @@
       <file leaf-file-name="env.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/env.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="610">
-              <caret line="125" column="36" selection-start-line="125" selection-start-column="36" selection-end-line="125" selection-end-column="36" />
+            <state relative-caret-position="295">
+              <caret line="166" column="31" selection-start-line="166" selection-start-column="31" selection-end-line="166" selection-end-column="31" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -66,7 +67,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/mixed/3-epochs/run-1/master.py" />
         <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/mixed/3-epochs/run-1/random-master.py" />
         <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/mixed/3-epochs/run-2/master.py" />
         <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/mixed/3-epochs/run-2/random-master.py" />
@@ -115,6 +115,7 @@
         <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/time/easy/stratified/run-1/random-master.py" />
         <option value="$PROJECT_DIR$/rl_stuff/master.py" />
         <option value="$PROJECT_DIR$/rl_stuff/run-1/__init__.py" />
+        <option value="$PROJECT_DIR$/rl_stuff/run-1/env2.py" />
         <option value="$PROJECT_DIR$/rl_stuff/run-1/env.py" />
         <option value="$PROJECT_DIR$/rl_stuff/run-1/master.py" />
       </list>
@@ -225,19 +226,19 @@
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/rl_stuff/run-1" />
+      <recent name="$PROJECT_DIR$/highway/cifar-10/curriculum/time" />
+      <recent name="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/mixed/5-epochs/run-3" />
+      <recent name="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/mixed/5-epochs/run-2" />
+      <recent name="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/mixed/5-epochs" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/mixed/1-epoch/run-1" />
       <recent name="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/easy/5-epochs/run-1" />
       <recent name="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/easy/4-epochs/run-1" />
       <recent name="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/easy/3-epochs/run-1" />
       <recent name="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/easy/2-epochs/run-1" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/highway/cifar-10/curriculum/time" />
-      <recent name="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/mixed/5-epochs/run-3" />
-      <recent name="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/mixed/5-epochs/run-2" />
-      <recent name="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/mixed/5-epochs" />
-      <recent name="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/mixed/4-epochs" />
     </key>
   </component>
   <component name="RunManager" selected="Python.CIFAR-10-convolutions">
@@ -500,13 +501,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
-    </task>
-    <task id="LOCAL-00233" summary="wide-resnet in pytorch - bug fix">
-      <created>1493386081789</created>
-      <option name="number" value="00233" />
-      <option name="presentableId" value="LOCAL-00233" />
-      <option name="project" value="LOCAL" />
-      <updated>1493386081789</updated>
     </task>
     <task id="LOCAL-00234" summary="wide-resnet in pytorch - bug fix">
       <created>1493386143775</created>
@@ -844,7 +838,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493633239903</updated>
     </task>
-    <option name="localTasksCounter" value="282" />
+    <task id="LOCAL-00282" summary="bug fix">
+      <created>1493640173701</created>
+      <option name="number" value="00282" />
+      <option name="presentableId" value="LOCAL-00282" />
+      <option name="project" value="LOCAL" />
+      <updated>1493640173701</updated>
+    </task>
+    <option name="localTasksCounter" value="283" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -903,7 +904,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="data preprocessing and augmentation added" />
     <MESSAGE value="wide residual nets" />
-    <MESSAGE value="bug fix" />
     <MESSAGE value="wd=0.001" />
     <MESSAGE value="regularizer was missing" />
     <MESSAGE value="architecture change because of http://torch.ch/blog/2016/02/04/resnets.html" />
@@ -926,20 +926,14 @@
     <MESSAGE value="wide-resnet in pytorch - changes" />
     <MESSAGE value="basic RL code" />
     <MESSAGE value="KL divergence" />
-    <option name="LAST_COMMIT_MESSAGE" value="KL divergence" />
+    <MESSAGE value="bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/resources/mixed/5-epochs/run-1/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="227" column="20" selection-start-line="227" selection-start-column="20" selection-end-line="227" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/resources/mixed/5-epochs/run-2/master.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3078">
@@ -1266,10 +1260,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/env2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1165">
+          <caret line="217" column="0" selection-start-line="217" selection-start-column="0" selection-end-line="217" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/env.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="610">
-          <caret line="125" column="36" selection-start-line="125" selection-start-column="36" selection-end-line="125" selection-end-column="36" />
+        <state relative-caret-position="295">
+          <caret line="166" column="31" selection-start-line="166" selection-start-column="31" selection-end-line="166" selection-end-column="31" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
@@ -1278,8 +1280,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="77" column="18" selection-start-line="77" selection-start-column="18" selection-end-line="77" selection-end-column="18" />
+        <state relative-caret-position="265">
+          <caret line="81" column="49" selection-start-line="81" selection-start-column="49" selection-end-line="81" selection-end-column="49" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>

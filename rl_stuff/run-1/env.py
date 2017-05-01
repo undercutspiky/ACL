@@ -156,6 +156,16 @@ class Env:
                     state.extend(self.get_stats(self.network.state_dict()['res'+str(i)+str(j)+'.conv'+str(k)+'.weight']))
         return np.array(state)
 
+    def get_losses(self):
+        cursor, losses = 0, []
+        while cursor < len(self.train_x):
+            outputs = self.network(Variable(
+                self.train_x[cursor:min(cursor + self.batch_size, self.train_x.size(0))]), train_mode=False)
+            loss = self.criterion(outputs, Variable(
+                self.train_y[cursor:min(cursor + self.batch_size, self.train_x.size(0))]))
+            losses.append(loss.data.cpu().numpy()[0])
+        return np.array(losses)
+
     def get_validation_accuracy(self):
         cursor, correct, total = (0, 0, 0)
         while cursor < len(self.valid_x):
