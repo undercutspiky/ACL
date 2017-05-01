@@ -186,6 +186,7 @@ class Env:
         elif self.steps > 20000:
             self.optimizer = optim.SGD(self.network.parameters(),
                                        lr=0.001, momentum=0.9, weight_decay=5e-4, nesterov=True)
+        self.train_on_batches([0, 1])
         self.save_state('original')
         self.train_on_batches([batch[0].cpu().numpy()[0] for batch in batches])
         # Test it on validation set
