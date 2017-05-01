@@ -41,11 +41,10 @@ def select_action(state, out_length, tau):
     probs = network(Variable(state.unsqueeze(0)), out_length)
     actions = []
     for i in xrange(len(probs)):
-        print probs[i].multinomial()
         if np.random.random_sample() > tau:
             action = probs[i].multinomial()
         else:
-            action = np.random.randint(313, size=1)
+            action = Variable(torch.from_numpy(np.random.randint(313, size=1)).cuda())
         network.saved_actions.append(action)
         actions.append(action.data)
     return actions
