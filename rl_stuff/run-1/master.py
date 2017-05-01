@@ -12,19 +12,19 @@ from env import Env
 class Net(nn.Module):
     def __init__(self, n_classes=313):
         super(Net, self).__init__()
-        self.h = nn.LSTMCell(313, 256)
+        self.h = nn.LSTMCell(313, 128)
         self.action_head = nn.Linear(256, n_classes)
         # Initialize forget gate bias to 1
         self.h.bias_ih.data[self.h.bias_ih.size(0) / 4:self.h.bias_ih.size(0) / 2].fill_(1.0)
         self.h.bias_hh.data[self.h.bias_hh.size(0) / 4:self.h.bias_hh.size(0) / 2].fill_(1.0)
 
         self.saved_actions = []
-        self.hx = torch.zeros(1, 256)
-        self.cx = torch.zeros(1, 256)
+        self.hx = torch.zeros(1, 128)
+        self.cx = torch.zeros(1, 128)
 
     def reset(self):
-        self.hx = torch.zeros(1, 256)
-        self.cx = torch.zeros(1, 256)
+        self.hx = torch.zeros(1, 128)
+        self.cx = torch.zeros(1, 128)
 
     def forward(self, x, length, train_mode=True):
         action_scores = []
@@ -96,7 +96,7 @@ for run in xrange(5):
         #     count += 1
         batches, log_probs = select_action(state, out_length)
         ad_reward, agent_reward = env.take_action(batches)
-        finish_episode((agent_reward - ad_reward)*2, log_probs)
+        finish_episode((agent_reward - ad_reward), log_probs)
         global_steps += out_length
         print ('Accuracies - agent:%f adversary:%f' % (agent_reward, ad_reward))
         print [bat.cpu().numpy()[0][0] for bat in batches]

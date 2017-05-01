@@ -501,13 +501,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00236" summary="wide-resnet in pytorch - bug fix">
-      <created>1493386670920</created>
-      <option name="number" value="00236" />
-      <option name="presentableId" value="LOCAL-00236" />
-      <option name="project" value="LOCAL" />
-      <updated>1493386670920</updated>
-    </task>
     <task id="LOCAL-00237" summary="wide-resnet in pytorch - bug fix">
       <created>1493392550183</created>
       <option name="number" value="00237" />
@@ -844,7 +837,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493643767066</updated>
     </task>
-    <option name="localTasksCounter" value="285" />
+    <task id="LOCAL-00285" summary="bug fix">
+      <created>1493654613651</created>
+      <option name="number" value="00285" />
+      <option name="presentableId" value="LOCAL-00285" />
+      <option name="project" value="LOCAL" />
+      <updated>1493654613651</updated>
+    </task>
+    <option name="localTasksCounter" value="286" />
     <servers />
   </component>
   <component name="ToolWindowManager">
