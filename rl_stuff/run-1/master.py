@@ -37,11 +37,15 @@ class Net(nn.Module):
         return action_scores
 
 
-def select_action(state, out_length):
+def select_action(state, out_length, tau):
     probs = network(Variable(state.unsqueeze(0)), out_length)
     actions = []
     for i in xrange(len(probs)):
-        action = probs[i].multinomial()
+        print probs[i].multinomial()
+        if np.random.random_sample() > tau:
+            action = probs[i].multinomial()
+        else:
+            action = np.random.randint(313, size=1)
         network.saved_actions.append(action)
         actions.append(action.data)
     return actions
