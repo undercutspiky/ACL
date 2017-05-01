@@ -207,7 +207,8 @@ class Env:
             self.restore_state('agent')
             self.steps += len(batches)
         else:
-            self.restore_state('original')
+            # self.restore_state('original')
+            self.steps += len(batches)
 
         return agent_reward, adv_reward
 

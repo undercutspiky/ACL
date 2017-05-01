@@ -37,14 +37,11 @@ class Net(nn.Module):
         return action_scores
 
 
-def select_action(state, out_length, tau):
+def select_action(state, out_length):
     probs = network(Variable(state.unsqueeze(0)), out_length)
     actions = []
     for i in xrange(len(probs)):
-        if np.random.random_sample() > tau:
-            action = probs[i].multinomial()
-        else:
-            action = Variable(torch.from_numpy(np.random.randint(313, size=1)).cuda())
+        action = probs[i].multinomial()
         network.saved_actions.append(action)
         actions.append(action.data)
     return actions
@@ -74,18 +71,20 @@ for run in xrange(5):
     for step in xrange(1000):
         state = torch.from_numpy(env.extract_state())
         state = state.cuda()
-        ad_reward, agent_reward = (0, -1)
+        # ad_reward, agent_reward = (0, -1)
         out_length = 10 + step/10
-        rand_batch_prob = 0.5 - 0.0005*step
-        count, batches = 0, []
-        while ad_reward > agent_reward:
-            batches = select_action(state, out_length, rand_batch_prob)
-            ad_reward, agent_reward = env.take_action(batches)
-            finish_episode(agent_reward - ad_reward)
-            print ad_reward, agent_reward, [bat.cpu().numpy()[0][0] for bat in batches]
-            count += 1
+        # count, batches = 0, []
+        # while ad_reward > agent_reward:
+        #     batches = select_action(state, out_length)
+        #     ad_reward, agent_reward = env.take_action(batches)
+        #     finish_episode(agent_reward - ad_reward)
+        #     print ad_reward, agent_reward, [bat.cpu().numpy()[0][0] for bat in batches]
+        #     count += 1
+        batches = select_action(state, out_length)
+        ad_reward, agent_reward = env.take_action(batches)
+        finish_episode(agent_reward - ad_reward)
         global_steps += out_length
-        print ('Accuracies after %d tries - agent:%f adversary:%f' % (count, agent_reward, ad_reward))
+        print ('Accuracies - agent:%f adversary:%f' % (agent_reward, ad_reward))
         print [bat.cpu().numpy()[0][0] for bat in batches]
         print ('%d global steps or ~ %d epochs done in run %d' % (global_steps, global_steps//313, run))
 
