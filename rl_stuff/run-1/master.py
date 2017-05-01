@@ -32,28 +32,28 @@ class Net(nn.Module):
         for i in xrange(length - 1):
             hx, cx = self.h(Variable(torch.zeros(1, 120).cuda()), (hx, cx))
             actions = self.action_head(hx)
-            action_scores.append(F.softmax(actions))
+            action_scores.append(actions)
         self.hx, self.cx = hx.data, cx.data
         return action_scores
 
 
 def select_action(state, out_length):
-    probs = network(Variable(state.unsqueeze(0)), out_length)
+    log_probs = network(Variable(state.unsqueeze(0)), out_length)
     actions = []
-    for i in xrange(len(probs)):
-        action = probs[i].multinomial()
+    for i in xrange(len(log_probs)):
+        action = F.softmax(log_probs[i]).multinomial()
         network.saved_actions.append(action)
         actions.append(action.data)
-    return actions, probs
+    return actions, log_probs
 
 
-def finish_episode(reward, probs):
+def finish_episode(reward, log_probs):
     optimizer.zero_grad()
-    targets = [Variable(p.data) for p in probs]
+    targets = [Variable(p.data) for p in log_probs]
     loss = 0
-    for i in xrange(len(probs)-1):
-        for j in xrange(i, len(probs)):
-            loss -= criterion(probs[i], targets[j])
+    for i in xrange(len(log_probs)-1):
+        for j in xrange(i, len(log_probs)):
+            loss -= criterion(log_probs[i], targets[j])
     loss.backward(retain_variables=True)
     saved_actions = network.saved_actions
     for action in saved_actions:
@@ -86,9 +86,9 @@ for run in xrange(5):
         #     finish_episode(agent_reward - ad_reward)
         #     print ad_reward, agent_reward, [bat.cpu().numpy()[0][0] for bat in batches]
         #     count += 1
-        batches, probs = select_action(state, out_length)
+        batches, log_probs = select_action(state, out_length)
         ad_reward, agent_reward = env.take_action(batches)
-        finish_episode((agent_reward - ad_reward), probs)
+        finish_episode((agent_reward - ad_reward), log_probs)
         global_steps += out_length
         print ('Accuracies - agent:%f adversary:%f' % (agent_reward, ad_reward))
         print [bat.cpu().numpy()[0][0] for bat in batches]
