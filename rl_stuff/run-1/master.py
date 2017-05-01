@@ -70,11 +70,15 @@ network = Net()
 network = network.cuda()
 optimizer = optim.Adam(network.parameters(), lr=3e-2, weight_decay=5e-4)
 criterion = nn.KLDivLoss()
-sequence = 0
+sequence = None
 for run in xrange(5):
-    env = Env()
+    if sequence is not None:
+        env = Env(sequence)
+    else:
+        env = Env(sequence)
+        sequence = env.sequence
     global_steps = 0
-    for step in xrange(10):
+    for step in xrange(1000):
         state = torch.from_numpy(env.extract_state())
         state = state.cuda()
         # ad_reward, agent_reward = (0, -1)
@@ -88,7 +92,7 @@ for run in xrange(5):
         #     count += 1
         batches, log_probs = select_action(state, out_length)
         ad_reward, agent_reward = env.take_action(batches)
-        finish_episode((agent_reward - ad_reward), log_probs)
+        finish_episode((agent_reward - ad_reward)*10, log_probs)
         global_steps += out_length
         print ('Accuracies - agent:%f adversary:%f' % (agent_reward, ad_reward))
         print [bat.cpu().numpy()[0][0] for bat in batches]

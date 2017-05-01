@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rl_stuff/run-1/env.py" afterPath="$PROJECT_DIR$/rl_stuff/run-1/env.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rl_stuff/run-1/master.py" afterPath="$PROJECT_DIR$/rl_stuff/run-1/master.py" />
     </list>
     <ignored path="ACL.iws" />
@@ -30,8 +31,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
-              <caret line="56" column="40" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="40" />
+            <state relative-caret-position="460">
+              <caret line="94" column="52" selection-start-line="94" selection-start-column="52" selection-end-line="94" selection-end-column="52" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -42,8 +43,8 @@
       <file leaf-file-name="env.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/env.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="535">
-              <caret line="210" column="12" selection-start-line="210" selection-start-column="12" selection-end-line="210" selection-end-column="12" />
+            <state relative-caret-position="610">
+              <caret line="125" column="36" selection-start-line="125" selection-start-column="36" selection-end-line="125" selection-end-column="36" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -501,13 +502,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00230" summary="wide-resnet in pytorch - bug fix">
-      <created>1493384603530</created>
-      <option name="number" value="00230" />
-      <option name="presentableId" value="LOCAL-00230" />
-      <option name="project" value="LOCAL" />
-      <updated>1493384603530</updated>
-    </task>
     <task id="LOCAL-00231" summary="wide-resnet in pytorch - bug fix">
       <created>1493385393569</created>
       <option name="number" value="00231" />
@@ -844,7 +838,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493625849577</updated>
     </task>
-    <option name="localTasksCounter" value="279" />
+    <task id="LOCAL-00279" summary="KL divergence">
+      <created>1493628633080</created>
+      <option name="number" value="00279" />
+      <option name="presentableId" value="LOCAL-00279" />
+      <option name="project" value="LOCAL" />
+      <updated>1493628633080</updated>
+    </task>
+    <option name="localTasksCounter" value="280" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -901,7 +902,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="leaky relu" />
     <MESSAGE value="data preprocessing and augmentation added" />
     <MESSAGE value="wide residual nets" />
     <MESSAGE value="bug fix" />
@@ -926,7 +926,8 @@
     <MESSAGE value="wide-resnet in pytorch - bug fix" />
     <MESSAGE value="wide-resnet in pytorch - changes" />
     <MESSAGE value="basic RL code" />
-    <option name="LAST_COMMIT_MESSAGE" value="basic RL code" />
+    <MESSAGE value="KL divergence" />
+    <option name="LAST_COMMIT_MESSAGE" value="KL divergence" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1268,8 +1269,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/env.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="210" column="12" selection-start-line="210" selection-start-column="12" selection-end-line="210" selection-end-column="12" />
+        <state relative-caret-position="610">
+          <caret line="125" column="36" selection-start-line="125" selection-start-column="36" selection-end-line="125" selection-end-column="36" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
@@ -1278,8 +1279,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="56" column="40" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="40" />
+        <state relative-caret-position="460">
+          <caret line="94" column="52" selection-start-line="94" selection-start-column="52" selection-end-line="94" selection-end-column="52" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>

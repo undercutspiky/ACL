@@ -87,7 +87,7 @@ class Net(nn.Module):
 
 
 class Env:
-    def __init__(self):
+    def __init__(self, sequence=None):
         self.network = Net()
         self.network = self.network.cuda()
         self.criterion = nn.CrossEntropyLoss()
@@ -120,7 +120,10 @@ class Env:
         self.valid_x = torch.from_numpy(self.valid_x).float().cuda()
         self.train_y = torch.from_numpy(self.train_y)
         self.valid_y = torch.from_numpy(self.valid_y).cuda()
-        self.sequence = torch.randperm(self.train_x.size(0))
+        if sequence is None:
+            self.sequence = torch.randperm(self.train_x.size(0))
+        else:
+            self.sequence = sequence
         self.train_x = self.train_x[self.sequence].cuda()
         self.train_y = self.train_y[self.sequence].cuda()
 
