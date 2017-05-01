@@ -128,11 +128,11 @@ class Env:
 
     def restore_state(self, state_name):
         self.network.load_state_dict(torch.load('./'+state_name+'.pth'))
-        self.optimizer = torch.load('./optim-' + state_name + '.pth')
+        self.optimizer.load_state_dict(torch.load('./optim-' + state_name + '.pth'))
 
     def save_state(self, state_name):
         torch.save(self.network.state_dict(), './'+state_name+'.pth')
-        torch.save(self.optimizer, './optim-' + state_name + '.pth')
+        torch.save(self.optimizer.state_dict(), './optim-' + state_name + '.pth')
 
     def get_stats(self, mat):
         a = []
@@ -152,6 +152,28 @@ class Env:
                     state.extend(self.get_stats(self.network.state_dict()['res'+str(i)+str(j)+'.conv'+str(k)+'.weight']))
         return np.array(state)
 
+    def get_validation_accuracy(self):
+        cursor, correct, total = (0, 0, 0)
+        while cursor < len(self.valid_x):
+            outputs = self.network(Variable(
+                self.valid_x[cursor:min(cursor + self.batch_size, len(self.valid_x))]), train_mode=False)
+            labels = self.valid_y[cursor:min(cursor + self.batch_size, len(self.valid_x))]
+            _, predicted = torch.max(outputs.data, 1)
+            total += len(labels)
+            correct += (predicted == labels).sum()
+            cursor += self.batch_size
+        return 100.0 * correct / total
+
+    def train_on_batches(self, batches):
+        for batch in batches:
+            self.optimizer.zero_grad()
+            outputs = self.network(Variable(
+                self.train_x[self.batch_size*batch: min(self.batch_size*batch +self.batch_size, self.train_x.size(0))]))
+            loss = self.criterion(outputs, Variable(
+                self.train_y[self.batch_size*batch: min(self.batch_size*batch +self.batch_size, self.train_x.size(0))]))
+            loss.backward()
+            self.optimizer.step()
+
     def take_action(self, batches):
         '''
         Trains the network on 1) batches received and 2) random batches
@@ -165,26 +187,10 @@ class Env:
             self.optimizer = optim.SGD(self.network.parameters(),
                                        lr=0.001, momentum=0.9, weight_decay=5e-4, nesterov=True)
         self.save_state('original')
-        for batch in batches:
-            batch = batch[0].cpu().numpy()[0]
-            self.optimizer.zero_grad()
-            outputs = self.network(Variable(
-                self.train_x[self.batch_size*batch: min(self.batch_size*batch +self.batch_size, self.train_x.size(0))]))
-            loss = self.criterion(outputs, Variable(
-                self.train_y[self.batch_size*batch: min(self.batch_size*batch +self.batch_size, self.train_x.size(0))]))
-            loss.backward()
-            self.optimizer.step()
+        self.train_on_batches([batch[0].cpu().numpy()[0] for batch in batches])
         # Test it on validation set
-        cursor, correct, total = (0,0,0)
-        while cursor < len(self.valid_x):
-            outputs = self.network(Variable(
-                self.valid_x[cursor:min(cursor + self.batch_size, len(self.valid_x))]), train_mode=False)
-            labels = self.valid_y[cursor:min(cursor + self.batch_size, len(self.valid_x))]
-            _, predicted = torch.max(outputs.data, 1)
-            total += len(labels)
-            correct += (predicted == labels).sum()
-            cursor += self.batch_size
-        agent_reward = 100.0 * correct / total
+        agent_reward = self.get_validation_accuracy()
+        # Save agent's state and restore the state before to train the net on random batches
         self.save_state('agent')
         self.restore_state('original')
 
@@ -192,25 +198,9 @@ class Env:
 
         # Randomly select a sequence for adversary and train
         rand_seq = np.random.choice(313, size=len(batches), replace=False)
-        for batch in rand_seq:
-            self.optimizer.zero_grad()
-            outputs = self.network(Variable(
-                self.train_x[self.batch_size*batch: min(self.batch_size*batch +self.batch_size, self.train_x.size(0))]))
-            loss = self.criterion(outputs, Variable(
-                self.train_y[self.batch_size*batch: min(self.batch_size*batch +self.batch_size, self.train_x.size(0))]))
-            loss.backward()
-            self.optimizer.step()
+        self.train_on_batches(rand_seq)
         # Test it on validation set
-        cursor, correct, total = (0, 0, 0)
-        while cursor < len(self.valid_x):
-            outputs = self.network(Variable(
-                self.valid_x[cursor:min(cursor + self.batch_size, len(self.valid_x))]), train_mode=False)
-            labels = self.valid_y[cursor:min(cursor + self.batch_size, len(self.valid_x))]
-            _, predicted = torch.max(outputs.data, 1)
-            total += len(labels)
-            correct += (predicted == labels).sum()
-            cursor += self.batch_size
-        adv_reward = 100.0 * correct / total
+        adv_reward = self.get_validation_accuracy()
 
         if agent_reward > adv_reward:
             self.restore_state('agent')
