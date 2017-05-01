@@ -75,7 +75,7 @@ for run in xrange(5):
     if sequence is not None:
         env = Env(sequence)
     else:
-        env = Env(sequence)
+        env = Env()
         sequence = env.sequence
     global_steps = 0
     for step in xrange(1000):
