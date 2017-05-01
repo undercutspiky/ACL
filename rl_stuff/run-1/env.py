@@ -128,7 +128,7 @@ class Env:
         self.train_y = self.train_y[self.sequence].cuda()
 
         print "Environment Initialized"
-        self.train_on_batches([0, 1])
+        self.train_on_batches([0])
 
     def restore_state(self, state_name):
         self.network.load_state_dict(torch.load('./'+state_name+'.pth'))
@@ -198,9 +198,11 @@ class Env:
         if self.steps > 50000:
             self.optimizer = optim.SGD(self.network.parameters(),
                                        lr=0.0001, momentum=0.9, weight_decay=5e-4, nesterov=True)
+            self.train_on_batches([0])
         elif self.steps > 20000:
             self.optimizer = optim.SGD(self.network.parameters(),
                                        lr=0.001, momentum=0.9, weight_decay=5e-4, nesterov=True)
+            self.train_on_batches([0])
         self.save_state('original')
         self.train_on_batches([batch[0].cpu().numpy()[0] for batch in batches])
         # Test it on validation set
