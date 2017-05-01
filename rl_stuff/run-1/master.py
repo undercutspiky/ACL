@@ -66,15 +66,15 @@ def finish_episode(reward, log_probs):
 def save_state(state_name):
     torch.save(network.state_dict(), './' + state_name + '.pth')
 
+network = Net()
+network = network.cuda()
+optimizer = optim.Adam(network.parameters(), lr=3e-2, weight_decay=5e-4)
+criterion = nn.KLDivLoss()
+sequence = 0
 for run in xrange(5):
-    network = Net()
-    network = network.cuda()
-    criterion = nn.KLDivLoss()
-    optimizer = optim.Adam(network.parameters(), lr=3e-2, weight_decay=5e-4)
     env = Env()
-
     global_steps = 0
-    for step in xrange(1000):
+    for step in xrange(10):
         state = torch.from_numpy(env.extract_state())
         state = state.cuda()
         # ad_reward, agent_reward = (0, -1)
