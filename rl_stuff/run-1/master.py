@@ -76,9 +76,10 @@ for run in xrange(5):
         state = state.cuda()
         ad_reward, agent_reward = (0, -1)
         out_length = 10 + step/10
+        rand_batch_prob = 0.5 - 0.0005*step
         count, batches = 0, []
         while ad_reward > agent_reward:
-            batches = select_action(state, out_length)
+            batches = select_action(state, out_length, rand_batch_prob)
             ad_reward, agent_reward = env.take_action(batches)
             finish_episode(agent_reward - ad_reward)
             print ad_reward, agent_reward, [bat.cpu().numpy()[0][0] for bat in batches]
