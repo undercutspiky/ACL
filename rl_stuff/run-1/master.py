@@ -12,15 +12,19 @@ from env import Env
 class Net(nn.Module):
     def __init__(self, n_classes=313):
         super(Net, self).__init__()
-        self.h = nn.LSTMCell(313, 100)
-        self.action_head = nn.Linear(100, n_classes)
+        self.h = nn.LSTMCell(313, 256)
+        self.action_head = nn.Linear(256, n_classes)
         # Initialize forget gate bias to 1
         self.h.bias_ih.data[self.h.bias_ih.size(0) / 4:self.h.bias_ih.size(0) / 2].fill_(1.0)
         self.h.bias_hh.data[self.h.bias_hh.size(0) / 4:self.h.bias_hh.size(0) / 2].fill_(1.0)
 
         self.saved_actions = []
-        self.hx = torch.randn(1, 100)
-        self.cx = torch.randn(1, 100)
+        self.hx = torch.zeros(1, 256)
+        self.cx = torch.zeros(1, 256)
+
+    def reset(self):
+        self.hx = torch.zeros(1, 256)
+        self.cx = torch.zeros(1, 256)
 
     def forward(self, x, length, train_mode=True):
         action_scores = []
