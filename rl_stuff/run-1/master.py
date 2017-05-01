@@ -82,7 +82,10 @@ for run in xrange(5):
         #     count += 1
         batches = select_action(state, out_length)
         ad_reward, agent_reward = env.take_action(batches)
-        finish_episode(agent_reward - ad_reward)
+        if agent_reward > ad_reward:
+            finish_episode((agent_reward - ad_reward)*10)
+        else:
+            finish_episode(agent_reward - ad_reward)
         global_steps += out_length
         print ('Accuracies - agent:%f adversary:%f' % (agent_reward, ad_reward))
         print [bat.cpu().numpy()[0][0] for bat in batches]
