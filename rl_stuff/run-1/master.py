@@ -44,14 +44,19 @@ def select_action(state, out_length):
         action = probs[i].multinomial()
         network.saved_actions.append(action)
         actions.append(action.data)
-    return actions
+    return actions, probs
 
 
-def finish_episode(reward):
+def finish_episode(reward, probs):
+    optimizer.zero_grad()
+    loss = 0
+    for i in xrange(len(probs)-1):
+        for j in xrange(i, len(probs)):
+            loss += criterion(probs[i], probs[j])
+    loss.backward()
     saved_actions = network.saved_actions
     for action in saved_actions:
         action.reinforce(reward)
-    optimizer.zero_grad()
     autograd.backward(network.saved_actions, [None for _ in network.saved_actions])
     optimizer.step()
     del network.saved_actions[:]
@@ -63,7 +68,7 @@ def save_state(state_name):
 for run in xrange(5):
     network = Net()
     network = network.cuda()
-    criterion = nn.CrossEntropyLoss()
+    criterion = nn.KLDivLoss()
     optimizer = optim.Adam(network.parameters(), lr=3e-2, weight_decay=5e-4)
     env = Env()
 
@@ -80,12 +85,9 @@ for run in xrange(5):
         #     finish_episode(agent_reward - ad_reward)
         #     print ad_reward, agent_reward, [bat.cpu().numpy()[0][0] for bat in batches]
         #     count += 1
-        batches = select_action(state, out_length)
+        batches, probs = select_action(state, out_length)
         ad_reward, agent_reward = env.take_action(batches)
-        if agent_reward > ad_reward:
-            finish_episode((agent_reward - ad_reward)*10)
-        else:
-            finish_episode(agent_reward - ad_reward)
+        finish_episode((agent_reward - ad_reward), probs)
         global_steps += out_length
         print ('Accuracies - agent:%f adversary:%f' % (agent_reward, ad_reward))
         print [bat.cpu().numpy()[0][0] for bat in batches]
