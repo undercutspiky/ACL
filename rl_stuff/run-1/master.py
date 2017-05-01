@@ -49,11 +49,12 @@ def select_action(state, out_length):
 
 def finish_episode(reward, probs):
     optimizer.zero_grad()
+    targets = [Variable(p.data) for p in probs]
     loss = 0
     for i in xrange(len(probs)-1):
         for j in xrange(i, len(probs)):
-            loss += criterion(probs[i], probs[j])
-    loss.backward()
+            loss -= criterion(probs[i], targets[j])
+    loss.backward(retain_variables=True)
     saved_actions = network.saved_actions
     for action in saved_actions:
         action.reinforce(reward)
