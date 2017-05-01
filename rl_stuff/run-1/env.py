@@ -164,6 +164,7 @@ class Env:
             loss = self.criterion(outputs, Variable(
                 self.train_y[cursor:min(cursor + self.batch_size, self.train_x.size(0))]))
             losses.append(loss.data.cpu().numpy()[0])
+            cursor += self.batch_size
         return np.array(losses)
 
     def get_validation_accuracy(self):
