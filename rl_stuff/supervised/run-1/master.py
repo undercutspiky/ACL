@@ -53,7 +53,7 @@ def finish_episode(probs, targets):
     optimizer.zero_grad()
     loss = 0
     for i in xrange(len(probs)):
-        loss += criterion(probs[i], Variable(targets[i].unsqueeze(0).cuda()))
+        loss += criterion(probs[i], Variable(torch.from_numpy(targets[i]).unsqueeze(0).cuda()))
     loss.backward()
     optimizer.step()
 
@@ -89,7 +89,7 @@ for run in xrange(5):
         #     count += 1
         batches, probs = select_action(state, out_length)
         targets, ad_reward, agent_reward = env.take_action(batches)
-        finish_episode(probs, torch.from_numpy(targets))
+        finish_episode(probs, targets)
         global_steps += out_length
         epochs += global_steps//313
         print ('Accuracies - agent:%f best sequence:%f' % (agent_reward, ad_reward))
