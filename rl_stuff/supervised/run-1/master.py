@@ -53,7 +53,7 @@ def finish_episode(probs, targets):
     optimizer.zero_grad()
     loss = 0
     for i in xrange(len(probs)):
-        loss += criterion(probs[i], Variable(torch.from_numpy(targets[i]).unsqueeze(0).cuda()))
+        loss += criterion(probs[i], Variable(torch.LongTensor([targets[i]]).unsqueeze(0).cuda()))
     loss.backward()
     optimizer.step()
 
