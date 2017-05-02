@@ -55,6 +55,7 @@ def finish_episode(probs, targets):
     for i in xrange(len(probs)):
         loss += criterion(probs[i], Variable(torch.LongTensor([targets[i]]).cuda()))
     loss.backward()
+    nn.utils.clip_grad_norm(network.parameters(), 1.0)
     optimizer.step()
 
 

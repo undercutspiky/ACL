@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rl_stuff/supervised/run-1/env.py" afterPath="$PROJECT_DIR$/rl_stuff/supervised/run-1/env.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rl_stuff/supervised/run-1/master.py" afterPath="$PROJECT_DIR$/rl_stuff/supervised/run-1/master.py" />
     </list>
     <ignored path="ACL.iws" />
@@ -28,11 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="master.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rl_stuff/supervised/run-1/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10">
-              <caret line="65" column="22" selection-start-line="65" selection-start-column="22" selection-end-line="65" selection-end-column="22" />
+            <state relative-caret-position="195">
+              <caret line="57" column="54" selection-start-line="57" selection-start-column="54" selection-end-line="57" selection-end-column="54" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -40,7 +39,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="env.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="env.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rl_stuff/supervised/run-1/env.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="355">
@@ -116,8 +115,8 @@
         <option value="$PROJECT_DIR$/rl_stuff/run-1/env2.py" />
         <option value="$PROJECT_DIR$/rl_stuff/run-1/master.py" />
         <option value="$PROJECT_DIR$/rl_stuff/run-1/env.py" />
-        <option value="$PROJECT_DIR$/rl_stuff/supervised/run-1/master.py" />
         <option value="$PROJECT_DIR$/rl_stuff/supervised/run-1/env.py" />
+        <option value="$PROJECT_DIR$/rl_stuff/supervised/run-1/master.py" />
       </list>
     </option>
   </component>
@@ -542,13 +541,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00245" summary="basic RL code">
-      <created>1493553270271</created>
-      <option name="number" value="00245" />
-      <option name="presentableId" value="LOCAL-00245" />
-      <option name="project" value="LOCAL" />
-      <updated>1493553270272</updated>
-    </task>
     <task id="LOCAL-00246" summary="basic RL code">
       <created>1493553361051</created>
       <option name="number" value="00246" />
@@ -885,7 +877,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493726065276</updated>
     </task>
-    <option name="localTasksCounter" value="294" />
+    <task id="LOCAL-00294" summary="supervised">
+      <created>1493737765673</created>
+      <option name="number" value="00294" />
+      <option name="presentableId" value="LOCAL-00294" />
+      <option name="project" value="LOCAL" />
+      <updated>1493737765673</updated>
+    </task>
+    <option name="localTasksCounter" value="295" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1308,6 +1307,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-735">
           <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rl_stuff/supervised/run-1/env.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="197" column="50" selection-start-line="197" selection-start-column="50" selection-end-line="197" selection-end-column="50" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
@@ -1316,18 +1323,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rl_stuff/supervised/run-1/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10">
-          <caret line="65" column="22" selection-start-line="65" selection-start-column="22" selection-end-line="65" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rl_stuff/supervised/run-1/env.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="197" column="50" selection-start-line="197" selection-start-column="50" selection-end-line="197" selection-end-column="50" />
+        <state relative-caret-position="195">
+          <caret line="57" column="54" selection-start-line="57" selection-start-column="54" selection-end-line="57" selection-end-column="54" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
