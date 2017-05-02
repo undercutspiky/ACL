@@ -63,7 +63,7 @@ def save_state(state_name):
 
 network = Net()
 network = network.cuda()
-optimizer = optim.Adam(network.parameters(), lr=3e-2, weight_decay=5e-4)
+optimizer = optim.SGD(network.parameters(), lr=0.01, momentum=0.9, weight_decay=5e-4, nesterov=True)
 criterion = nn.CrossEntropyLoss()
 sequence = None
 step = 0
