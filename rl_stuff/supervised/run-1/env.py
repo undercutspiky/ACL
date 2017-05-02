@@ -224,8 +224,11 @@ class Env:
             if adv_reward > best_reward:
                 best_reward = adv_reward
                 best_seq = rand_seq
-
-        self.restore_state('agent')
+                self.save_state('best')
+        if best_reward == agent_reward:
+            self.restore_state('agent')
+        else:
+            self.restore_state('best')
         self.steps += len(batches)
 
         return best_seq, best_reward, agent_reward
