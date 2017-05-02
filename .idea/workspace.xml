@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rl_stuff/supervised/run-1/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rl_stuff/supervised/run-1/env.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rl_stuff/supervised/run-1/master.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rl_stuff/supervised/run-1/master.py" afterPath="$PROJECT_DIR$/rl_stuff/supervised/run-1/master.py" />
     </list>
     <ignored path="ACL.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,8 +30,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rl_stuff/supervised/run-1/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="80" column="43" selection-start-line="80" selection-start-column="43" selection-end-line="80" selection-end-column="43" />
+            <state relative-caret-position="475">
+              <caret line="55" column="75" selection-start-line="55" selection-start-column="75" selection-end-line="55" selection-end-column="75" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -525,13 +523,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00240" summary="wide-resnet in pytorch - bug fix">
-      <created>1493405735418</created>
-      <option name="number" value="00240" />
-      <option name="presentableId" value="LOCAL-00240" />
-      <option name="project" value="LOCAL" />
-      <updated>1493405735418</updated>
-    </task>
     <task id="LOCAL-00241" summary="wide-resnet in pytorch - bug fix">
       <created>1493428304751</created>
       <option name="number" value="00241" />
@@ -868,7 +859,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493663940632</updated>
     </task>
-    <option name="localTasksCounter" value="289" />
+    <task id="LOCAL-00289" summary="supervised">
+      <created>1493722815371</created>
+      <option name="number" value="00289" />
+      <option name="presentableId" value="LOCAL-00289" />
+      <option name="project" value="LOCAL" />
+      <updated>1493722815371</updated>
+    </task>
+    <option name="localTasksCounter" value="290" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -925,7 +923,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="data preprocessing and augmentation added" />
     <MESSAGE value="wide residual nets" />
     <MESSAGE value="wd=0.001" />
     <MESSAGE value="regularizer was missing" />
@@ -950,7 +947,8 @@
     <MESSAGE value="KL divergence" />
     <MESSAGE value="bug fix" />
     <MESSAGE value="changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes" />
+    <MESSAGE value="supervised" />
+    <option name="LAST_COMMIT_MESSAGE" value="supervised" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1309,8 +1307,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rl_stuff/supervised/run-1/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="80" column="43" selection-start-line="80" selection-start-column="43" selection-end-line="80" selection-end-column="43" />
+        <state relative-caret-position="475">
+          <caret line="55" column="75" selection-start-line="55" selection-start-column="75" selection-end-line="55" selection-end-column="75" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
