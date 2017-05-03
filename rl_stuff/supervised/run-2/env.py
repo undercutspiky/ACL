@@ -195,7 +195,7 @@ class Env:
         :param batches: List of batches received from agent
         :return: The difference between rewards received from agent and adversary
         '''
-        best_seq, best_reward = np.array([batch[0].cpu().numpy()[0] for batch in batches]), 0
+        best_seq, best_reward = np.array([batch[0][0] for batch in batches]), 0
         if self.steps > 50000:
             self.optimizer = optim.SGD(self.network.parameters(),
                                        lr=0.0001, momentum=0.9, weight_decay=5e-4, nesterov=True)
