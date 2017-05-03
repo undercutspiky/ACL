@@ -57,7 +57,7 @@ def finish_episode(reward):
     for action in saved_actions:
         action.reinforce(reward)
     autograd.backward(network.saved_actions, [None for _ in network.saved_actions])
-    nn.utils.clip_grad_norm(network.parameters(), 1.0)
+    nn.utils.clip_grad_norm(network.parameters(), 0.5)
     optimizer.step()
     del network.saved_actions[:]
 
@@ -67,7 +67,7 @@ def save_state(state_name):
 
 network = Net()
 network = network.cuda()
-optimizer = optim.SGD(network.parameters(), lr=0.01, momentum=0.9, weight_decay=5e-4, nesterov=True)
+optimizer = optim.SGD(network.parameters(), lr=0.001, momentum=0.7, weight_decay=5e-4, nesterov=True)
 sequence = None
 step = 0
 for run in xrange(5):
