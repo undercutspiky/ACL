@@ -154,7 +154,7 @@ class Env:
             for j in xrange(1,5):
                 for k in xrange(1,3):
                     state.extend(self.get_stats(self.network.state_dict()['res'+str(i)+str(j)+'.conv'+str(k)+'.weight']))
-        return np.array(state)
+        return state
 
     def get_losses(self):
         cursor, losses = 0, []
@@ -165,7 +165,7 @@ class Env:
                 self.train_y[cursor:min(cursor + self.batch_size, self.train_x.size(0))]))
             losses.append(loss.data.cpu().numpy()[0])
             cursor += self.batch_size
-        return np.array(losses)
+        return losses
 
     def get_validation_accuracy(self):
         cursor, correct, total = (0, 0, 0)
@@ -204,7 +204,7 @@ class Env:
                                        lr=0.001, momentum=0.9, weight_decay=5e-4, nesterov=True)
             self.train_on_batches([0])
         self.save_state('original')
-        self.train_on_batches([batch[0].cpu().numpy()[0] for batch in batches])
+        self.train_on_batches([batch[0][0] for batch in batches])
         # Test it on validation set
         agent_reward = self.get_validation_accuracy()
         # Save agent's state and restore the state before to train the net on random batches
