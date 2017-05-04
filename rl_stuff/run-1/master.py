@@ -76,7 +76,7 @@ network = network.cuda()
 optimizer = optim.SGD(network.parameters(), lr=0.001, momentum=0.7, weight_decay=5e-4, nesterov=True)
 sequence = None
 step = 0
-global_steps, epochs, rewards, count_steps, count_points = 0, 0, [], 0, 0
+rewards, count_steps, count_points = [], 0, 0
 for run in xrange(5):
     if sequence is not None:
         env = Env(sequence)
@@ -84,6 +84,7 @@ for run in xrange(5):
     else:
         env = Env()
         sequence = env.sequence
+    global_steps = 0
     while global_steps//313 < 75:
         state = env.get_losses()
         state.extend(env.extract_state())
