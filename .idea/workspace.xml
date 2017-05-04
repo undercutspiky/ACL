@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rl_stuff/supervised/run-3/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rl_stuff/supervised/run-3/env.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rl_stuff/supervised/run-3/master.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rl_stuff/supervised/run-4/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rl_stuff/supervised/run-4/env.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rl_stuff/supervised/run-4/master.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rl_stuff/supervised/run-5/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rl_stuff/supervised/run-5/env.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rl_stuff/supervised/run-5/master.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rl_stuff/run-1/master.py" afterPath="$PROJECT_DIR$/rl_stuff/run-1/master.py" />
     </list>
     <ignored path="ACL.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,49 +27,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="master.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/master.py">
+      <file leaf-file-name="env_test.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/env_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-150">
-              <caret line="26" column="47" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
+            <state relative-caret-position="-620">
+              <caret line="133" column="72" selection-start-line="133" selection-start-column="72" selection-end-line="133" selection-end-column="72" />
               <folding>
-                <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#0#14#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="env.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/env.py">
+      <file leaf-file-name="test_master.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/test_master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-365">
-              <caret line="167" column="21" selection-start-line="167" selection-start-column="21" selection-end-line="167" selection-end-column="21" />
+            <state relative-caret-position="550">
+              <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
               <folding>
-                <element signature="e#0#14#0" expanded="true" />
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/rl_stuff/supervised/run-3/master.py">
+        <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-365">
-              <caret line="34" column="59" selection-start-line="34" selection-start-column="59" selection-end-line="34" selection-end-column="59" />
+            <state relative-caret-position="220">
+              <caret line="86" column="20" selection-start-line="86" selection-start-column="20" selection-end-line="86" selection-end-column="20" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="env.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rl_stuff/supervised/run-3/env.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="201" column="38" selection-start-line="201" selection-start-column="38" selection-end-line="201" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -98,10 +78,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/mixed/3-epochs/run-3/random-master.py" />
-        <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/mixed/4-epochs/run-1/master.py" />
-        <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/mixed/4-epochs/run-1/random-master.py" />
-        <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/mixed/4-epochs/run-2/master.py" />
         <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/mixed/4-epochs/run-2/random-master.py" />
         <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/mixed/4-epochs/run-3/master.py" />
         <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/mixed/4-epochs/run-3/random-master.py" />
@@ -146,9 +122,13 @@
         <option value="$PROJECT_DIR$/rl_stuff/supervised/run-1/env.py" />
         <option value="$PROJECT_DIR$/rl_stuff/run-1/env.py" />
         <option value="$PROJECT_DIR$/rl_stuff/supervised/run-1/master.py" />
-        <option value="$PROJECT_DIR$/rl_stuff/run-1/master.py" />
         <option value="$PROJECT_DIR$/rl_stuff/supervised/run-3/env.py" />
         <option value="$PROJECT_DIR$/rl_stuff/supervised/run-3/master.py" />
+        <option value="$PROJECT_DIR$/rl_stuff/run-2/master.py" />
+        <option value="$PROJECT_DIR$/rl_stuff/run-1/env-test.py" />
+        <option value="$PROJECT_DIR$/rl_stuff/run-1/test-master.py" />
+        <option value="$PROJECT_DIR$/rl_stuff/run-1/test_master.py" />
+        <option value="$PROJECT_DIR$/rl_stuff/run-1/master.py" />
       </list>
     </option>
   </component>
@@ -258,11 +238,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="supervised" />
+              <option name="myItemId" value="run-2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ACL" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ACL" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="run-3" />
+              <option name="myItemId" value="rl_stuff" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="run-1" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -554,34 +548,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
-    </task>
-    <task id="LOCAL-00248" summary="basic RL code">
-      <created>1493553508399</created>
-      <option name="number" value="00248" />
-      <option name="presentableId" value="LOCAL-00248" />
-      <option name="project" value="LOCAL" />
-      <updated>1493553508399</updated>
-    </task>
-    <task id="LOCAL-00249" summary="basic RL code">
-      <created>1493553533543</created>
-      <option name="number" value="00249" />
-      <option name="presentableId" value="LOCAL-00249" />
-      <option name="project" value="LOCAL" />
-      <updated>1493553533544</updated>
-    </task>
-    <task id="LOCAL-00250" summary="basic RL code">
-      <created>1493553632214</created>
-      <option name="number" value="00250" />
-      <option name="presentableId" value="LOCAL-00250" />
-      <option name="project" value="LOCAL" />
-      <updated>1493553632214</updated>
-    </task>
-    <task id="LOCAL-00251" summary="basic RL code">
-      <created>1493553809948</created>
-      <option name="number" value="00251" />
-      <option name="presentableId" value="LOCAL-00251" />
-      <option name="project" value="LOCAL" />
-      <updated>1493553809948</updated>
     </task>
     <task id="LOCAL-00252" summary="basic RL code">
       <created>1493553944980</created>
@@ -898,7 +864,35 @@
       <option name="project" value="LOCAL" />
       <updated>1493804879461</updated>
     </task>
-    <option name="localTasksCounter" value="297" />
+    <task id="LOCAL-00297" summary="changes">
+      <created>1493807939066</created>
+      <option name="number" value="00297" />
+      <option name="presentableId" value="LOCAL-00297" />
+      <option name="project" value="LOCAL" />
+      <updated>1493807939066</updated>
+    </task>
+    <task id="LOCAL-00298" summary="changes">
+      <created>1493815406161</created>
+      <option name="number" value="00298" />
+      <option name="presentableId" value="LOCAL-00298" />
+      <option name="project" value="LOCAL" />
+      <updated>1493815406161</updated>
+    </task>
+    <task id="LOCAL-00299" summary="changes">
+      <created>1493857931198</created>
+      <option name="number" value="00299" />
+      <option name="presentableId" value="LOCAL-00299" />
+      <option name="project" value="LOCAL" />
+      <updated>1493857931199</updated>
+    </task>
+    <task id="LOCAL-00300" summary="changes">
+      <created>1493884126457</created>
+      <option name="number" value="00300" />
+      <option name="presentableId" value="LOCAL-00300" />
+      <option name="project" value="LOCAL" />
+      <updated>1493884126457</updated>
+    </task>
+    <option name="localTasksCounter" value="301" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -987,41 +981,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/easy/3-epochs/run-1/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/easy/4-epochs/run-1/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/easy/5-epochs/run-1/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/mixed/1-epoch/run-2/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/mixed/2-epochs/run-1/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="28" column="12" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/mixed/3-epochs/run-1/master.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1277,14 +1236,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rl_stuff/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1670">
-          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/env2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1165">
@@ -1298,7 +1249,7 @@
         <state relative-caret-position="40">
           <caret line="197" column="50" selection-start-line="197" selection-start-column="50" selection-end-line="197" selection-end-column="50" />
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1308,7 +1259,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#12#0" expanded="true" />
+            <element signature="e#0#12#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1323,30 +1274,84 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/rl_stuff/supervised/run-3/master.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-470">
+          <caret line="34" column="59" selection-start-line="34" selection-start-column="59" selection-end-line="34" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#18#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/rl_stuff/supervised/run-3/env.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="201" column="38" selection-start-line="201" selection-start-column="38" selection-end-line="201" selection-end-column="38" />
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/master.py">
+    <entry file="file://$PROJECT_DIR$/rl_stuff/run-2/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-150">
-          <caret line="26" column="47" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
+        <state relative-caret-position="1065">
+          <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rl_stuff/supervised/run-3/master.py">
+    <entry file="file://$PROJECT_DIR$/rl_stuff/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-365">
-          <caret line="34" column="59" selection-start-line="34" selection-start-column="59" selection-end-line="34" selection-end-column="59" />
+        <state relative-caret-position="-165">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/test-master.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/env-test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="211" column="27" selection-start-line="211" selection-start-column="27" selection-end-line="211" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/env_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-620">
+          <caret line="133" column="72" selection-start-line="133" selection-start-column="72" selection-end-line="133" selection-end-column="72" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/test_master.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/master.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="86" column="20" selection-start-line="86" selection-start-column="20" selection-end-line="86" selection-end-column="20" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
