@@ -54,7 +54,7 @@ def finish_episode(probs, targets):
     for i in xrange(len(probs)):
         loss += criterion(probs[i], Variable(torch.LongTensor([targets[i]]).cuda()))
     loss.backward()
-    nn.utils.clip_grad_norm(network.parameters(), 1.0)
+    nn.utils.clip_grad_norm(network.parameters(), 0.5)
     optimizer.step()
 
 
@@ -63,10 +63,11 @@ def save_state(state_name):
 
 network = Net()
 network = network.cuda()
-optimizer = optim.SGD(network.parameters(), lr=0.01, momentum=0.9, weight_decay=5e-4, nesterov=True)
+optimizer = optim.SGD(network.parameters(), lr=0.01, momentum=0.6, weight_decay=5e-4, nesterov=True)
 criterion = nn.CrossEntropyLoss()
 sequence = None
 step = 0
+total_wars, won = 0, 0
 for run in xrange(5):
     if sequence is not None:
         env = Env(sequence)
@@ -93,6 +94,11 @@ for run in xrange(5):
         #     count += 1
         batches, probs = select_action(state, out_length)
         targets, ad_reward, agent_reward = env.take_action(batches)
+        if run > 0:
+            total_wars += 1
+            if agent_reward == ad_reward:
+                won += 1
+            print ("Agent won %d / %d times or ~ %f" % (won, total_wars, won*100.0/total_wars))
         finish_episode(probs, targets)
         global_steps += out_length
         epochs = global_steps//313
@@ -101,4 +107,5 @@ for run in xrange(5):
         print ('%d global steps or ~ %d epochs done in run %d' % (global_steps, global_steps//313, run))
 
 save_state('lstm_network')
+np.save('sequence', sequence)
 
