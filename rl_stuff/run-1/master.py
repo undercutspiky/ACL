@@ -76,6 +76,7 @@ network = network.cuda()
 optimizer = optim.SGD(network.parameters(), lr=0.001, momentum=0.7, weight_decay=5e-4, nesterov=True)
 sequence = None
 step = 0
+global_steps, epochs, rewards, count_steps, count_points = 0, 0, [], 0, 0
 for run in xrange(5):
     if sequence is not None:
         env = Env(sequence)
@@ -83,7 +84,6 @@ for run in xrange(5):
     else:
         env = Env()
         sequence = env.sequence
-    global_steps, epochs, rewards, count_steps, count_points = 0, 0, [], 0, 0
     while global_steps//313 < 75:
         state = env.get_losses()
         state.extend(env.extract_state())
@@ -104,7 +104,7 @@ for run in xrange(5):
         global_steps += out_length
         count_points += out_length
         count_steps += 1
-        if count_points > 300 or count_steps > 10:
+        if count_points > 500 or count_steps > 10:
             finish_episode(rewards)
             count_points, count_steps, rewards = 0, 0, []
         print ('Accuracies - agent:%f adversary:%f' % (agent_reward, ad_reward))
