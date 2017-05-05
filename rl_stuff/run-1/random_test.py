@@ -68,7 +68,7 @@ for run in xrange(5):
     while global_steps//313 < 75:
         out_length = 105
         batches = np.random.choice(313, size=out_length, replace=False)
-        accuracy = env.take_action(batches)
+        accuracy = env.take_action(batches, numpy=True)
         accuracies.append(accuracy)
         global_steps += out_length
         print ('Random accuracy on validation set = %f' % accuracy)
