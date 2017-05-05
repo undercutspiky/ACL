@@ -72,6 +72,5 @@ for run in xrange(5):
         accuracies.append(accuracy)
         global_steps += out_length
         print ('Random accuracy on validation set = %f' % accuracy)
-        print [bat.cpu().numpy()[0][0] for bat in batches]
 
     np.save('rand-accuracies'+str(run), accuracies)
