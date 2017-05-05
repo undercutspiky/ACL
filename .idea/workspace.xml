@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rl_stuff/run-1/env_test.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rl_stuff/run-1/random_test.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rl_stuff/run-1/test_master.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rl_stuff/run-1/env_test.py" afterPath="$PROJECT_DIR$/rl_stuff/run-1/env_test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rl_stuff/run-1/master.py" afterPath="$PROJECT_DIR$/rl_stuff/run-1/master.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rl_stuff/run-1/random_test.py" afterPath="$PROJECT_DIR$/rl_stuff/run-1/random_test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rl_stuff/run-1/test_master.py" afterPath="$PROJECT_DIR$/rl_stuff/run-1/test_master.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rl_stuff/run-2/master.py" afterPath="$PROJECT_DIR$/rl_stuff/run-2/master.py" />
     </list>
     <ignored path="ACL.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,8 +34,8 @@
       <file leaf-file-name="env_test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/env_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="207" column="41" selection-start-line="207" selection-start-column="41" selection-end-line="207" selection-end-column="41" />
+            <state relative-caret-position="580">
+              <caret line="214" column="0" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -41,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_master.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test_master.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/test_master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="625">
-              <caret line="74" column="46" selection-start-line="74" selection-start-column="46" selection-end-line="74" selection-end-column="46" />
+            <state relative-caret-position="295">
+              <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -56,8 +58,32 @@
       <file leaf-file-name="random_test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/random_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="535">
-              <caret line="72" column="24" selection-start-line="72" selection-start-column="24" selection-end-line="72" selection-end-column="24" />
+            <state relative-caret-position="325">
+              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="master.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/master.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="550">
+              <caret line="115" column="36" selection-start-line="115" selection-start-column="36" selection-end-line="115" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/rl_stuff/run-2/master.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="550">
+              <caret line="115" column="36" selection-start-line="115" selection-start-column="36" selection-end-line="115" selection-end-column="36" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -124,13 +150,13 @@
         <option value="$PROJECT_DIR$/rl_stuff/supervised/run-1/master.py" />
         <option value="$PROJECT_DIR$/rl_stuff/supervised/run-3/env.py" />
         <option value="$PROJECT_DIR$/rl_stuff/supervised/run-3/master.py" />
-        <option value="$PROJECT_DIR$/rl_stuff/run-2/master.py" />
         <option value="$PROJECT_DIR$/rl_stuff/run-1/env-test.py" />
         <option value="$PROJECT_DIR$/rl_stuff/run-1/test-master.py" />
-        <option value="$PROJECT_DIR$/rl_stuff/run-1/master.py" />
         <option value="$PROJECT_DIR$/rl_stuff/run-1/env_test.py" />
         <option value="$PROJECT_DIR$/rl_stuff/run-1/test_master.py" />
         <option value="$PROJECT_DIR$/rl_stuff/run-1/random_test.py" />
+        <option value="$PROJECT_DIR$/rl_stuff/run-1/master.py" />
+        <option value="$PROJECT_DIR$/rl_stuff/run-2/master.py" />
       </list>
     </option>
   </component>
@@ -551,13 +577,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00253" summary="basic RL code">
-      <created>1493553992094</created>
-      <option name="number" value="00253" />
-      <option name="presentableId" value="LOCAL-00253" />
-      <option name="project" value="LOCAL" />
-      <updated>1493553992094</updated>
-    </task>
     <task id="LOCAL-00254" summary="basic RL code">
       <created>1493554498540</created>
       <option name="number" value="00254" />
@@ -894,7 +913,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493889151058</updated>
     </task>
-    <option name="localTasksCounter" value="302" />
+    <task id="LOCAL-00302" summary="testing">
+      <created>1493973718405</created>
+      <option name="number" value="00302" />
+      <option name="presentableId" value="LOCAL-00302" />
+      <option name="project" value="LOCAL" />
+      <updated>1493973718405</updated>
+    </task>
+    <option name="localTasksCounter" value="303" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -951,7 +977,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="wide residual nets" />
     <MESSAGE value="wd=0.001" />
     <MESSAGE value="regularizer was missing" />
     <MESSAGE value="architecture change because of http://torch.ch/blog/2016/02/04/resnets.html" />
@@ -976,7 +1001,8 @@
     <MESSAGE value="bug fix" />
     <MESSAGE value="supervised" />
     <MESSAGE value="changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes" />
+    <MESSAGE value="testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1272,16 +1298,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rl_stuff/run-2/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1065">
-          <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rl_stuff/master.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-165">
@@ -1306,16 +1322,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="107" column="44" selection-start-line="107" selection-start-column="44" selection-end-line="107" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/expensive/cifar-10/process.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1324,40 +1330,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/env.py">
+    <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/test_master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="216" column="74" selection-start-line="216" selection-start-column="8" selection-end-line="216" selection-end-column="74" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/random_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="72" column="24" selection-start-line="72" selection-start-column="24" selection-end-line="72" selection-end-column="24" />
+        <state relative-caret-position="295">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/env_test.py">
+    <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/random_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="207" column="41" selection-start-line="207" selection-start-column="41" selection-end-line="207" selection-end-column="41" />
+        <state relative-caret-position="325">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/env.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="123" column="42" selection-start-line="123" selection-start-column="28" selection-end-line="123" selection-end-column="42" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/test_master.py">
+    <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/env_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="74" column="46" selection-start-line="74" selection-start-column="46" selection-end-line="74" selection-end-column="46" />
+        <state relative-caret-position="580">
+          <caret line="214" column="0" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rl_stuff/run-1/master.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="115" column="36" selection-start-line="115" selection-start-column="36" selection-end-line="115" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rl_stuff/run-2/master.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="115" column="36" selection-start-line="115" selection-start-column="36" selection-end-line="115" selection-end-column="36" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

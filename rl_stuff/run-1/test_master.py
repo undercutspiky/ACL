@@ -54,6 +54,7 @@ network = Net()
 network = network.cuda()
 restore_state('lstm_network')
 sequence = np.load('sequence.npy')
+
 for run in xrange(5):
     network.reset()
     env = Env(sequence)

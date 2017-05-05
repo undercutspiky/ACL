@@ -113,5 +113,5 @@ for run in xrange(5):
         print ('%d global steps or ~ %d epochs done in run %d' % (global_steps, global_steps//313, run))
 
 save_state('lstm_network')
-np.save('sequence', sequence)
+np.save('sequence', sequence.numpy())
 
