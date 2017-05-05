@@ -46,17 +46,23 @@ def select_action(state, out_length):
     actions = []
     for i in xrange(len(log_probs)):
         action = F.softmax(log_probs[i]).multinomial()
-        network.saved_actions.append(action)
-        actions.append(action.data)
-    return actions
+        actions.append(action)
+    network.saved_actions.append(actions)
+    return [a.data for a in actions]
 
 
-def finish_episode(reward):
+def finish_episode(rewards):
+    rewards = torch.Tensor(rewards)
+    rewards = (rewards - rewards.mean()) / (rewards.std() + np.finfo(np.float32).eps)
     optimizer.zero_grad()
     saved_actions = network.saved_actions
-    for action in saved_actions:
-        action.reinforce(reward)
-    autograd.backward(network.saved_actions, [None for _ in network.saved_actions])
+    for i in xrange(len(saved_actions)):
+        for a in saved_actions[i]:
+            a.reinforce(rewards[i])
+    a = network.saved_actions[0]
+    for i in xrange(1, len(network.saved_actions)):
+        a.extend(network.saved_actions[i])
+    autograd.backward(a, [None for _ in a])
     nn.utils.clip_grad_norm(network.parameters(), 0.5)
     optimizer.step()
     del network.saved_actions[:]
@@ -70,6 +76,7 @@ network = network.cuda()
 optimizer = optim.SGD(network.parameters(), lr=0.001, momentum=0.7, weight_decay=5e-4, nesterov=True)
 sequence = None
 step = 0
+rewards, count_steps, count_points = [], 0, 0
 for run in xrange(5):
     if sequence is not None:
         env = Env(sequence)
@@ -77,7 +84,7 @@ for run in xrange(5):
     else:
         env = Env()
         sequence = env.sequence
-    global_steps, epochs = 0, 0
+    global_steps = 0
     while global_steps//313 < 75:
         state = env.get_losses()
         state.extend(env.extract_state())
@@ -94,11 +101,17 @@ for run in xrange(5):
         #     count += 1
         batches = select_action(state, out_length)
         ad_reward, agent_reward = env.take_action(batches)
-        finish_episode((agent_reward - ad_reward))
+        rewards.append(agent_reward - ad_reward)
         global_steps += out_length
+        count_points += out_length
+        count_steps += 1
+        if count_points > 500 or count_steps > 10:
+            finish_episode(rewards)
+            count_points, count_steps, rewards = 0, 0, []
         print ('Accuracies - agent:%f adversary:%f' % (agent_reward, ad_reward))
         print [bat.cpu().numpy()[0][0] for bat in batches]
         print ('%d global steps or ~ %d epochs done in run %d' % (global_steps, global_steps//313, run))
 
 save_state('lstm_network')
+np.save('sequence', sequence)
 
