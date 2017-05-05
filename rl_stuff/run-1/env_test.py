@@ -120,10 +120,7 @@ class Env:
         self.valid_x = torch.from_numpy(self.valid_x).float().cuda()
         self.train_y = torch.from_numpy(self.train_y)
         self.valid_y = torch.from_numpy(self.valid_y).cuda()
-        if sequence is None:
-            self.sequence = torch.randperm(self.train_x.size(0))
-        else:
-            self.sequence = sequence
+        self.sequence = torch.from_numpy(sequence)
         self.train_x = self.train_x[self.sequence].cuda()
         self.train_y = self.train_y[self.sequence].cuda()
 
