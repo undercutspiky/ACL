@@ -18,7 +18,9 @@ def relu(x, leakiness=0.1):
 
 
 def gaussian_noise_layer(images, std):
-    gaussian = np.random.normal(0.0, std, images.shape())
+    if std <= 0.0:
+        return images
+    gaussian = np.random.normal(0.0, std, images.shape)
     return images + gaussian
 
 
@@ -150,7 +152,7 @@ train_x = np.reshape(train_x, [-1, 32, 32, 3])
 valid_x = np.dstack((valid_x[:, :1024], valid_x[:, 1024:2048], valid_x[:, 2048:]))
 valid_x = np.reshape(valid_x, [-1, 32, 32, 3])
 
-epochs = 150  # 10 * int(round(40000/batch_size)+1)
+epochs = 150
 learn_rate = 0.1
 with tf.Session(graph=graph) as session:
     session.run(init_op)
@@ -198,7 +200,7 @@ with tf.Session(graph=graph) as session:
     tflearn.is_training(False, session=session)
     for level in [0.0, 0.1, 0.2, 0.3, 0.4, 0.5]:
         transforms, losses = [], []
-        print "GETTING TRANSFORMATIONS FOR ALL NOISE = 0"
+        print "GETTING TRANSFORMATIONS FOR ALL NOISE = "+str(level)
         for iii in xrange(500):
             batch_xs = train_x[iii * 100: (iii + 1) * 100]
             batch_ys = train_y[iii * 100: (iii + 1) * 100]
