@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/all-conv/master.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/all-conv/run-1/master.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/all-conv/run-2/master.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/all-conv/run-1/master.py" afterPath="$PROJECT_DIR$/all-conv/run-1/master.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/all-conv/run-2/master.py" afterPath="$PROJECT_DIR$/all-conv/run-2/master.py" />
     </list>
     <ignored path="ACL.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,8 +31,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/all-conv/run-1/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="96" column="21" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
+            <state relative-caret-position="285">
+              <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -42,8 +41,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/all-conv/run-2/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="96" column="21" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
+            <state relative-caret-position="415">
+              <caret line="114" column="4" selection-start-line="114" selection-start-column="4" selection-end-line="114" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -517,13 +516,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00258" summary="basic RL code">
-      <created>1493578203548</created>
-      <option name="number" value="00258" />
-      <option name="presentableId" value="LOCAL-00258" />
-      <option name="project" value="LOCAL" />
-      <updated>1493578203548</updated>
-    </task>
     <task id="LOCAL-00259" summary="basic RL code">
       <created>1493578401406</created>
       <option name="number" value="00259" />
@@ -860,7 +852,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493994231097</updated>
     </task>
-    <option name="localTasksCounter" value="307" />
+    <task id="LOCAL-00307" summary="testing all conv architecture">
+      <created>1495546251568</created>
+      <option name="number" value="00307" />
+      <option name="presentableId" value="LOCAL-00307" />
+      <option name="project" value="LOCAL" />
+      <updated>1495546251568</updated>
+    </task>
+    <option name="localTasksCounter" value="308" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -917,7 +916,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="wd=0.001" />
     <MESSAGE value="regularizer was missing" />
     <MESSAGE value="architecture change because of http://torch.ch/blog/2016/02/04/resnets.html" />
     <MESSAGE value="higher momentum" />
@@ -942,7 +940,8 @@
     <MESSAGE value="supervised" />
     <MESSAGE value="changes" />
     <MESSAGE value="testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="testing" />
+    <MESSAGE value="testing all conv architecture" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing all conv architecture" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1283,16 +1282,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/all-conv/run-1/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="96" column="21" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
+        <state relative-caret-position="285">
+          <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/all-conv/run-2/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="96" column="21" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
+        <state relative-caret-position="415">
+          <caret line="114" column="4" selection-start-line="114" selection-start-column="4" selection-end-line="114" selection-end-column="4" />
           <folding />
         </state>
       </provider>

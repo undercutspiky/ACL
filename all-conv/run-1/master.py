@@ -80,6 +80,9 @@ with graph.as_default():
     gradients, _ = tf.clip_by_global_norm(gradients, 1.25)
     optimizer = optimizer.apply_gradients(zip(gradients, v), global_step=global_step)
 
+    # Op to initialize variables
+    init_op = tf.global_variables_initializer()
+
 # ### Read data
 # * Use first 4 data files as training data and last one as validation
 
@@ -108,8 +111,7 @@ epochs = 150
 losses = []
 
 with tf.Session(graph=graph) as session:
-    tf.initialize_all_variables().run()
-    saver = tf.train.Saver(tf.all_variables())
+    session.run(init_op)
     i, cursor, learn_rate = 1, 0, 0.1
     while i <= epochs:
         if i == 80:
