@@ -113,14 +113,17 @@ losses = []
 with tf.Session(graph=graph) as session:
     session.run(init_op)
     i, cursor, learn_rate = 1, 0, 0.1
+    sequence = np.random.choice(len(train_x), size=len(train_x), replace=False)  # The sequence to form batches
+    random_train_x = train_x[sequence]
+    random_train_y = train_y[sequence]
     while i <= epochs:
         if i == 80:
             learn_rate = 0.01
         elif i == 120:
             learn_rate = 0.003
         tflearn.is_training(True, session=session)
-        batch_xs = train_x[cursor: min((cursor + batch_size), len(train_x))]
-        batch_ys = train_y[cursor: min((cursor + batch_size), len(train_x))]
+        batch_xs = random_train_x[cursor: min((cursor + batch_size), len(random_train_x))]
+        batch_ys = random_train_y[cursor: min((cursor + batch_size), len(random_train_y))]
         feed_dict = {x: batch_xs, y: batch_ys, lr: learn_rate}
         _ = session.run([optimizer], feed_dict=feed_dict)
 
@@ -151,6 +154,9 @@ with tf.Session(graph=graph) as session:
                 cor_pred.append(a)
             print "Accuracy = " + str(np.mean(cor_pred) * 100)
             i += 1
+            sequence = np.random.choice(len(train_x), size=len(train_x), replace=False)  # The sequence to form batches
+            random_train_x = train_x[sequence]
+            random_train_y = train_y[sequence]
     losses = np.array(losses)
     print losses.shape
     np.save('losses-all-conv', losses)
