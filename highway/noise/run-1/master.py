@@ -18,8 +18,8 @@ def relu(x, leakiness=0.1):
 
 
 def gaussian_noise_layer(input_layer, std):
-    noise = tf.random_normal(shape=tf.shape(input_layer), mean=0.0, stddev=std, dtype=tf.float32)
-    return input_layer + noise
+    gaussian = tf.random_normal(shape=tf.shape(input_layer), mean=0.0, stddev=std, dtype=tf.float32)
+    return input_layer + gaussian
 
 
 def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
@@ -66,7 +66,7 @@ with graph.as_default():
     x = tf.placeholder(tf.float32, [None, 32, 32, 3])
     y = tf.placeholder(tf.float32, [None, 10])
     transform_sum = tf.Variable(0.0)
-    noise = tf.Variable(0.0)
+    noise = tf.placeholder(tf.float32)
 
     img_prep = tflearn.ImagePreprocessing()
     img_prep.add_zca_whitening()
@@ -157,9 +157,6 @@ epochs = 150  # 10 * int(round(40000/batch_size)+1)
 learn_rate = 0.1
 with tf.Session(graph=graph) as session:
     session.run(init_op)
-    saver = tf.train.Saver()
-    save_path = saver.save(session,'./initial-model')
-
     sequence = np.random.choice(len(train_x), size=len(train_x), replace=False)  # The sequence to form batches
     random_train_x = train_x[sequence]
     random_train_y = train_y[sequence]
@@ -182,7 +179,7 @@ with tf.Session(graph=graph) as session:
 
         # Train it on the batch
         tflearn.is_training(True, session=session)
-        _, train_step = session.run([optimizer, global_step], feed_dict=feed_dict)
+        _ = session.run([optimizer], feed_dict=feed_dict)
 
         cursor += batch_size
         if cursor > len(train_x):

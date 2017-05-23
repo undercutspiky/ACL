@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/run-1/master.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/run-2/master.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/highway/noise/run-1/master.py" afterPath="$PROJECT_DIR$/highway/noise/run-1/master.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/highway/noise/run-2/master.py" afterPath="$PROJECT_DIR$/highway/noise/run-2/master.py" />
     </list>
     <ignored path="ACL.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,8 +31,8 @@
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/highway/noise/run-1/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="210" column="63" selection-start-line="210" selection-start-column="63" selection-end-line="210" selection-end-column="63" />
+            <state relative-caret-position="340">
+              <caret line="68" column="37" selection-start-line="68" selection-start-column="37" selection-end-line="68" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -524,13 +524,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00261" summary="basic RL code">
-      <created>1493584847125</created>
-      <option name="number" value="00261" />
-      <option name="presentableId" value="LOCAL-00261" />
-      <option name="project" value="LOCAL" />
-      <updated>1493584847125</updated>
-    </task>
     <task id="LOCAL-00262" summary="basic RL code">
       <created>1493585279381</created>
       <option name="number" value="00262" />
@@ -867,7 +860,14 @@
       <option name="project" value="LOCAL" />
       <updated>1495564647746</updated>
     </task>
-    <option name="localTasksCounter" value="310" />
+    <task id="LOCAL-00310" summary="adding noise to images for highways">
+      <created>1495570924507</created>
+      <option name="number" value="00310" />
+      <option name="presentableId" value="LOCAL-00310" />
+      <option name="project" value="LOCAL" />
+      <updated>1495570924507</updated>
+    </task>
+    <option name="localTasksCounter" value="311" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -924,7 +924,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="higher momentum" />
     <MESSAGE value="default weight init" />
     <MESSAGE value="more depth" />
     <MESSAGE value="correct horrible reshaping mistake" />
@@ -949,7 +948,8 @@
     <MESSAGE value="testing all conv architecture" />
     <MESSAGE value="all conv architecture" />
     <MESSAGE value="all conv architecture - random shuffling" />
-    <option name="LAST_COMMIT_MESSAGE" value="all conv architecture - random shuffling" />
+    <MESSAGE value="adding noise to images for highways" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding noise to images for highways" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1300,8 +1300,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/highway/noise/run-1/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="210" column="63" selection-start-line="210" selection-start-column="63" selection-end-line="210" selection-end-column="63" />
+        <state relative-caret-position="340">
+          <caret line="68" column="37" selection-start-line="68" selection-start-column="37" selection-end-line="68" selection-end-column="37" />
           <folding />
         </state>
       </provider>
