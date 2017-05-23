@@ -17,9 +17,9 @@ def relu(x, leakiness=0.1):
     return tf.select(tf.less(x, 0.0), leakiness * x, x)
 
 
-def gaussian_noise_layer(input_layer, std):
-    gaussian = tf.random_normal(shape=tf.shape(input_layer), mean=0.0, stddev=std, dtype=tf.float32)
-    return input_layer + gaussian
+def gaussian_noise_layer(images, std):
+    gaussian = np.random.normal(0.0, std, images.shape())
+    return images + gaussian
 
 
 def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
@@ -66,7 +66,6 @@ with graph.as_default():
     x = tf.placeholder(tf.float32, [None, 32, 32, 3])
     y = tf.placeholder(tf.float32, [None, 10])
     transform_sum = tf.Variable(0.0)
-    noise = tf.placeholder(tf.float32)
 
     img_prep = tflearn.ImagePreprocessing()
     img_prep.add_zca_whitening()
@@ -77,8 +76,6 @@ with graph.as_default():
 
     net = tflearn.input_data(shape=[None, 32, 32, 3], placeholder=x, data_preprocessing=img_prep,
                              data_augmentation=img_aug)
-
-    net = gaussian_noise_layer(net, noise)
 
     net = tflearn.conv_2d(net, 16, 3, 1, 'same', 'linear', weights_init=tflearn.initializations.xavier(),
                           bias_init='uniform', regularizer='L2', weight_decay=0.0002)
@@ -172,10 +169,9 @@ with tf.Session(graph=graph) as session:
 
         batch_xs = random_train_x[cursor: min((cursor + batch_size), len(train_x))]
         batch_ys = random_train_y[cursor: min((cursor + batch_size), len(train_x))]
-        if i <= 5:
-            feed_dict = {x: batch_xs, y: batch_ys, lr: learn_rate, noise: 0.0}
-        else:
-            feed_dict = {x: batch_xs, y: batch_ys, lr: learn_rate, noise: np.random.uniform(0, 0.5)}
+        if i > 5:
+            batch_xs = gaussian_noise_layer(batch_xs, np.random.uniform(0, 0.5))
+        feed_dict = {x: batch_xs, y: batch_ys, lr: learn_rate}
 
         # Train it on the batch
         tflearn.is_training(True, session=session)
@@ -206,7 +202,8 @@ with tf.Session(graph=graph) as session:
         for iii in xrange(500):
             batch_xs = train_x[iii * 100: (iii + 1) * 100]
             batch_ys = train_y[iii * 100: (iii + 1) * 100]
-            feed_dict = {x: batch_xs, y: batch_ys, noise: level}
+            feed_dict = {x: batch_xs, y: batch_ys}
+            batch_xs = gaussian_noise_layer(batch_xs, level)
             ts, cr = session.run([transform_sum, cross_entropy], feed_dict=feed_dict)
 
             transforms.extend(ts)
