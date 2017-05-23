@@ -183,6 +183,7 @@ with tf.Session(graph=graph) as session:
 
         cursor += batch_size
         if cursor > len(train_x):
+            cursor = 0
             tflearn.is_training(False, session=session)
             # Validation test
             print "TESTING ON TEST SET for epoch = " + str(i)
