@@ -88,7 +88,7 @@ with graph.as_default():
 
 train_x = []
 train_y = []
-for i in xrange(1, 5):
+for i in xrange(1, 6):
     dict_ = unpickle('../../cifar-10/cifar-10-batches-py/data_batch_' + str(i))
     if i == 1:
         train_x = dict_['data']
@@ -97,7 +97,7 @@ for i in xrange(1, 5):
         train_x = np.concatenate((train_x, dict_['data']), axis=0)
         train_y = np.concatenate((train_y, np.eye(10)[dict_['labels']]), axis=0)
 
-dict_ = unpickle('../../cifar-10/cifar-10-batches-py/data_batch_5')
+dict_ = unpickle('../../cifar-10/cifar-10-batches-py/test_batch')
 valid_x = dict_['data']
 valid_y = np.eye(10)[dict_['labels']]
 del dict_
@@ -112,6 +112,9 @@ losses = []
 
 with tf.Session(graph=graph) as session:
     session.run(init_op)
+    sequence = np.random.choice(len(train_x), size=len(train_x), replace=False)  # The sequence to form batches
+    random_train_x = train_x[sequence]
+    random_train_y = train_y[sequence]
     i, cursor, learn_rate = 1, 0, 0.1
     while i <= epochs:
         if i == 80:
@@ -119,8 +122,8 @@ with tf.Session(graph=graph) as session:
         elif i == 120:
             learn_rate = 0.003
         tflearn.is_training(True, session=session)
-        batch_xs = train_x[cursor: min((cursor + batch_size), len(train_x))]
-        batch_ys = train_y[cursor: min((cursor + batch_size), len(train_x))]
+        batch_xs = random_train_x[cursor: min((cursor + batch_size), len(random_train_x))]
+        batch_ys = random_train_y[cursor: min((cursor + batch_size), len(random_train_y))]
         feed_dict = {x: batch_xs, y: batch_ys, lr: learn_rate}
         _ = session.run([optimizer], feed_dict=feed_dict)
 
@@ -150,6 +153,9 @@ with tf.Session(graph=graph) as session:
                                                        y: valid_y[iii * 100:(iii + 1) * 100]})
                 cor_pred.append(a)
             print "Accuracy = " + str(np.mean(cor_pred) * 100)
+            sequence = np.random.choice(len(train_x), size=len(train_x), replace=False)  # The sequence to form batches
+            random_train_x = train_x[sequence]
+            random_train_y = train_y[sequence]
             i += 1
     losses = np.array(losses)
     print losses.shape

@@ -1,36 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/run-1/losses-0.0.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/run-1/losses-0.1.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/run-1/losses-0.2.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/run-1/losses-0.3.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/run-1/losses-0.4.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/run-1/transforms-0.0.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/run-1/transforms-0.1.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/run-1/transforms-0.2.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/run-1/transforms-0.3.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/run-1/transforms-0.4.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/run-2/checkpoint" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/run-2/initial-model.data-00000-of-00001" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/run-2/initial-model.index" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/run-2/initial-model.meta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/run-2/losses-0.0.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/run-2/losses-0.1.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/run-2/losses-0.2.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/run-2/losses-0.3.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/run-2/losses-0.4.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/run-2/transforms-0.0.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/run-2/transforms-0.1.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/run-2/transforms-0.2.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/run-2/transforms-0.3.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/run-2/transforms-0.4.npy" afterPath="" />
+    <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="use whole train set">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/highway/noise/run-1/master.py" afterPath="$PROJECT_DIR$/highway/noise/run-1/master.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/highway/noise/run-2/master.py" afterPath="$PROJECT_DIR$/highway/noise/run-2/master.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/highway/noise/run-3/master.py" afterPath="$PROJECT_DIR$/highway/noise/run-3/master.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/highway/noise/run-4/master.py" afterPath="$PROJECT_DIR$/highway/noise/run-4/master.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/all-conv/run-1/master.py" afterPath="$PROJECT_DIR$/all-conv/run-1/master.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/all-conv/run-2/master.py" afterPath="$PROJECT_DIR$/all-conv/run-2/master.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/all-conv/run-3/master.py" afterPath="$PROJECT_DIR$/all-conv/run-3/master.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/all-conv/run-4/master.py" afterPath="$PROJECT_DIR$/all-conv/run-4/master.py" />
     </list>
     <ignored path="ACL.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,10 +31,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/highway/noise/run-1/master.py">
+        <entry file="file://$PROJECT_DIR$/all-conv/run-1/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="202" column="57" selection-start-line="202" selection-start-column="57" selection-end-line="202" selection-end-column="57" />
+            <state relative-caret-position="400">
+              <caret line="125" column="33" selection-start-line="125" selection-start-column="33" selection-end-line="125" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -124,12 +100,12 @@
         <option value="$PROJECT_DIR$/rl_stuff/run-1/env_test.py" />
         <option value="$PROJECT_DIR$/rl_stuff/run-1/random_test.py" />
         <option value="$PROJECT_DIR$/all-conv/master.py" />
-        <option value="$PROJECT_DIR$/all-conv/run-1/master.py" />
         <option value="$PROJECT_DIR$/all-conv/run-2/master.py" />
         <option value="$PROJECT_DIR$/all-conv/run-3/master.py" />
         <option value="$PROJECT_DIR$/highway/noise/run-3/master.py" />
         <option value="$PROJECT_DIR$/highway/noise/run-3/get_data.py" />
         <option value="$PROJECT_DIR$/highway/noise/run-1/master.py" />
+        <option value="$PROJECT_DIR$/all-conv/run-1/master.py" />
       </list>
     </option>
   </component>
@@ -235,37 +211,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="highway" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="noise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="run-2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ACL" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ACL" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="highway" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="noise" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="run-1" />
+              <option name="myItemId" value="all-conv" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -280,6 +226,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="all-conv" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="run-1" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -571,13 +521,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
-    </task>
-    <task id="LOCAL-00266" summary="basic RL code">
-      <created>1493586100276</created>
-      <option name="number" value="00266" />
-      <option name="presentableId" value="LOCAL-00266" />
-      <option name="project" value="LOCAL" />
-      <updated>1493586100276</updated>
     </task>
     <task id="LOCAL-00267" summary="basic RL code">
       <created>1493586863709</created>
@@ -915,31 +858,38 @@
       <option name="project" value="LOCAL" />
       <updated>1495611009617</updated>
     </task>
-    <option name="localTasksCounter" value="315" />
+    <task id="LOCAL-00315" summary="bug fix">
+      <created>1495615431618</created>
+      <option name="number" value="00315" />
+      <option name="presentableId" value="LOCAL-00315" />
+      <option name="project" value="LOCAL" />
+      <updated>1495615431618</updated>
+    </task>
+    <option name="localTasksCounter" value="316" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="19" y="29" width="1400" height="767" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14452554" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -989,7 +939,6 @@
     <MESSAGE value="wide-resnet in pytorch - changes" />
     <MESSAGE value="basic RL code" />
     <MESSAGE value="KL divergence" />
-    <MESSAGE value="bug fix" />
     <MESSAGE value="supervised" />
     <MESSAGE value="changes" />
     <MESSAGE value="testing" />
@@ -997,7 +946,8 @@
     <MESSAGE value="all conv architecture" />
     <MESSAGE value="all conv architecture - random shuffling" />
     <MESSAGE value="adding noise to images for highways" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding noise to images for highways" />
+    <MESSAGE value="bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1308,14 +1258,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/all-conv/run-1/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/all-conv/run-2/master.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -1350,8 +1292,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/highway/noise/run-1/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="202" column="57" selection-start-line="202" selection-start-column="57" selection-end-line="202" selection-end-column="57" />
+        <state relative-caret-position="-245">
+          <caret line="161" column="38" selection-start-line="159" selection-start-column="4" selection-end-line="161" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/all-conv/run-1/master.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="125" column="33" selection-start-line="125" selection-start-column="33" selection-end-line="125" selection-end-column="33" />
           <folding />
         </state>
       </provider>
