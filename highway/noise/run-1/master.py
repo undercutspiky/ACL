@@ -172,7 +172,7 @@ with tf.Session(graph=graph) as session:
         batch_xs = random_train_x[cursor: min((cursor + batch_size), len(train_x))]
         batch_ys = random_train_y[cursor: min((cursor + batch_size), len(train_x))]
         if i > 5:
-            batch_xs = gaussian_noise_layer(batch_xs, np.random.uniform(0, 0.5))
+            batch_xs = gaussian_noise_layer(batch_xs, np.random.uniform(0, 0.3))
         feed_dict = {x: batch_xs, y: batch_ys, lr: learn_rate}
 
         # Train it on the batch
@@ -198,7 +198,7 @@ with tf.Session(graph=graph) as session:
             i += 1
 
     tflearn.is_training(False, session=session)
-    for level in [0.0, 0.1, 0.2, 0.3, 0.4, 0.5]:
+    for level in [0.0, 0.1, 0.2, 0.3, 0.4]:
         transforms, losses = [], []
         print "GETTING TRANSFORMATIONS FOR ALL NOISE = "+str(level)
         for iii in xrange(500):
