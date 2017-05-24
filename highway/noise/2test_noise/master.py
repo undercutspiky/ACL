@@ -62,7 +62,7 @@ def conv_highway(x, fan_in, fan_out, stride, filter_size, not_pool=False):
     return (res + (C * x)), tf.reduce_sum(T, axis=[1,2,3])
 
 batch_size = 128
-width = 1
+width = 2
 
 graph = tf.Graph()
 with graph.as_default():
