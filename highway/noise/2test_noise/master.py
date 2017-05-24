@@ -163,7 +163,7 @@ with tf.Session(graph=graph) as session:
                                                y: valid_y[iii * 100:(iii + 1) * 100]})
         cor_pred.append(a)
     print "Accuracy = " + str(np.mean(cor_pred))
-    for level in [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 1.2, 2.4]:
+    for level in [1e-70, 0.1, 0.2, 0.3, 0.4, 0.6, 1.2, 2.4]:
         transforms, losses = [], []
         print "GETTING TRANSFORMATIONS FOR ALL NOISE = "+str(level)
         for iii in xrange(500):

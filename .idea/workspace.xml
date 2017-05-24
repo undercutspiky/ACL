@@ -48,21 +48,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="get_data.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="get_data.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/highway/noise/test_noise/get_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1775">
-              <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+            <state relative-caret-position="400">
+              <caret line="165" column="22" selection-start-line="165" selection-start-column="22" selection-end-line="165" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="master.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/highway/noise/2test_noise/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+            <state relative-caret-position="400">
+              <caret line="165" column="23" selection-start-line="165" selection-start-column="23" selection-end-line="165" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -132,8 +132,8 @@
         <option value="$PROJECT_DIR$/highway/noise/run-3/get_data.py" />
         <option value="$PROJECT_DIR$/highway/noise/run-1/master.py" />
         <option value="$PROJECT_DIR$/all-conv/run-1/master.py" />
-        <option value="$PROJECT_DIR$/highway/noise/2test_noise/master.py" />
         <option value="$PROJECT_DIR$/highway/noise/test_noise/get_data.py" />
+        <option value="$PROJECT_DIR$/highway/noise/2test_noise/master.py" />
       </list>
     </option>
   </component>
@@ -572,13 +572,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00271" summary="basic RL code">
-      <created>1493618268163</created>
-      <option name="number" value="00271" />
-      <option name="presentableId" value="LOCAL-00271" />
-      <option name="project" value="LOCAL" />
-      <updated>1493618268163</updated>
-    </task>
     <task id="LOCAL-00272" summary="basic RL code">
       <created>1493620164541</created>
       <option name="number" value="00272" />
@@ -915,7 +908,14 @@
       <option name="project" value="LOCAL" />
       <updated>1495663393050</updated>
     </task>
-    <option name="localTasksCounter" value="320" />
+    <task id="LOCAL-00320" summary="changes">
+      <created>1495665446053</created>
+      <option name="number" value="00320" />
+      <option name="presentableId" value="LOCAL-00320" />
+      <option name="project" value="LOCAL" />
+      <updated>1495665446053</updated>
+    </task>
+    <option name="localTasksCounter" value="321" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -987,7 +987,6 @@
     <MESSAGE value="basic RL code" />
     <MESSAGE value="KL divergence" />
     <MESSAGE value="supervised" />
-    <MESSAGE value="changes" />
     <MESSAGE value="testing" />
     <MESSAGE value="testing all conv architecture" />
     <MESSAGE value="all conv architecture" />
@@ -997,7 +996,8 @@
     <MESSAGE value="use whole train set" />
     <MESSAGE value="just pass noise as input" />
     <MESSAGE value="just pass noise as input on network trained without noise" />
-    <option name="LAST_COMMIT_MESSAGE" value="just pass noise as input on network trained without noise" />
+    <MESSAGE value="changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1342,18 +1342,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/highway/noise/2test_noise/master.py">
+    <entry file="file://$PROJECT_DIR$/highway/noise/test_noise/get_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+        <state relative-caret-position="400">
+          <caret line="165" column="22" selection-start-line="165" selection-start-column="22" selection-end-line="165" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/highway/noise/test_noise/get_data.py">
+    <entry file="file://$PROJECT_DIR$/highway/noise/2test_noise/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1775">
-          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+        <state relative-caret-position="400">
+          <caret line="165" column="23" selection-start-line="165" selection-start-column="23" selection-end-line="165" selection-end-column="23" />
           <folding />
         </state>
       </provider>
