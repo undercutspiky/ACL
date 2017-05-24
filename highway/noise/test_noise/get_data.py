@@ -18,8 +18,6 @@ def relu(x, leakiness=0.1):
 
 
 def gaussian_noise_layer(images, std):
-    if std <= 0.0:
-        return images
     gaussian = np.random.normal(0.0, std, images.shape)
     return gaussian
 
@@ -175,5 +173,5 @@ with tf.Session(graph=graph) as session:
             feed_dict = {x: batch_xs, y: batch_ys}
             ts = session.run([transform_sum], feed_dict=feed_dict)
 
-            transforms.extend(ts)
+            transforms.extend(ts[0])
         np.save('transforms-'+str(level), transforms)

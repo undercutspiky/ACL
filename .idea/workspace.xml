@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/2test_noise/final-model.data-00000-of-00001" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/2test_noise/final-model.index" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/2test_noise/final-model.meta" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/2test_noise/master.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/master.py" afterPath="$PROJECT_DIR$/highway/noise/2test_noise/master.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/highway/noise/test_noise/get_data.py" afterPath="$PROJECT_DIR$/highway/noise/test_noise/get_data.py" />
     </list>
     <ignored path="ACL.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,21 +48,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="get_data.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="get_data.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/highway/noise/test_noise/get_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="565">
-              <caret line="178" column="53" selection-start-line="155" selection-start-column="0" selection-end-line="178" selection-end-column="53" />
+            <state relative-caret-position="-1775">
+              <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="master.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/highway/noise/2test_noise/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="240">
+              <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -134,8 +132,8 @@
         <option value="$PROJECT_DIR$/highway/noise/run-3/get_data.py" />
         <option value="$PROJECT_DIR$/highway/noise/run-1/master.py" />
         <option value="$PROJECT_DIR$/all-conv/run-1/master.py" />
-        <option value="$PROJECT_DIR$/highway/noise/test_noise/get_data.py" />
         <option value="$PROJECT_DIR$/highway/noise/2test_noise/master.py" />
+        <option value="$PROJECT_DIR$/highway/noise/test_noise/get_data.py" />
       </list>
     </option>
   </component>
@@ -574,13 +572,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00270" summary="basic RL code">
-      <created>1493589166857</created>
-      <option name="number" value="00270" />
-      <option name="presentableId" value="LOCAL-00270" />
-      <option name="project" value="LOCAL" />
-      <updated>1493589166857</updated>
-    </task>
     <task id="LOCAL-00271" summary="basic RL code">
       <created>1493618268163</created>
       <option name="number" value="00271" />
@@ -917,7 +908,14 @@
       <option name="project" value="LOCAL" />
       <updated>1495657014577</updated>
     </task>
-    <option name="localTasksCounter" value="319" />
+    <task id="LOCAL-00319" summary="just pass noise as input on network trained without noise">
+      <created>1495663393050</created>
+      <option name="number" value="00319" />
+      <option name="presentableId" value="LOCAL-00319" />
+      <option name="project" value="LOCAL" />
+      <updated>1495663393050</updated>
+    </task>
+    <option name="localTasksCounter" value="320" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -974,7 +972,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="correct horrible reshaping mistake" />
     <MESSAGE value="resnet losses, time" />
     <MESSAGE value="random curriculum" />
     <MESSAGE value="curriculum for h-nets without incentive" />
@@ -999,7 +996,8 @@
     <MESSAGE value="bug fix" />
     <MESSAGE value="use whole train set" />
     <MESSAGE value="just pass noise as input" />
-    <option name="LAST_COMMIT_MESSAGE" value="just pass noise as input" />
+    <MESSAGE value="just pass noise as input on network trained without noise" />
+    <option name="LAST_COMMIT_MESSAGE" value="just pass noise as input on network trained without noise" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1344,18 +1342,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/highway/noise/test_noise/get_data.py">
+    <entry file="file://$PROJECT_DIR$/highway/noise/2test_noise/master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="565">
-          <caret line="178" column="53" selection-start-line="155" selection-start-column="0" selection-end-line="178" selection-end-column="53" />
+        <state relative-caret-position="240">
+          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/highway/noise/2test_noise/master.py">
+    <entry file="file://$PROJECT_DIR$/highway/noise/test_noise/get_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="-1775">
+          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
           <folding />
         </state>
       </provider>
