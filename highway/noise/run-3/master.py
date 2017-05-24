@@ -200,14 +200,14 @@ with tf.Session(graph=graph) as session:
 
     tflearn.is_training(False, session=session)
     save_path = saver.save(session, './final-model')
-    for level in [0.0, 0.3, 0.6, 1.2, 2.4]:
+    for level in [0.0, 0.1, 0.2, 0.3, 0.4, 0.6, 1.2, 2.4]:
         transforms, losses = [], []
         print "GETTING TRANSFORMATIONS FOR ALL NOISE = "+str(level)
         for iii in xrange(500):
             batch_xs = train_x[iii * 100: (iii + 1) * 100]
             batch_ys = train_y[iii * 100: (iii + 1) * 100]
-            feed_dict = {x: batch_xs, y: batch_ys}
             batch_xs = gaussian_noise_layer(batch_xs, level)
+            feed_dict = {x: batch_xs, y: batch_ys}
             ts, cr = session.run([transform_sum, cross_entropy], feed_dict=feed_dict)
 
             transforms.extend(ts)
