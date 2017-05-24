@@ -176,5 +176,4 @@ with tf.Session(graph=graph) as session:
             ts = session.run([transform_sum], feed_dict=feed_dict)
 
             transforms.extend(ts)
-            losses.extend(cr)
         np.save('transforms-'+str(level), transforms)
