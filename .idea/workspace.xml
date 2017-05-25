@@ -2,46 +2,45 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/test_noise-1/final-model.data-00000-of-00001" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/test_noise-1/final-model.index" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/test_noise-1/final-model.meta" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/test_noise-1/screenlog.0" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/test_noise-1/transforms-0.0.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/test_noise-1/transforms-0.1.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/test_noise-1/transforms-0.2.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/test_noise-1/transforms-0.3.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/test_noise-1/transforms-0.4.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/test_noise-1/transforms-0.6.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/test_noise-1/transforms-1.2.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/test_noise-1/transforms-1e-70.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/test_noise-1/transforms-2.4.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/test_noise-2/final-model.data-00000-of-00001" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/test_noise-2/final-model.index" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/test_noise-2/final-model.meta" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/test_noise-3/final-model.data-00000-of-00001" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/test_noise-3/final-model.index" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/test_noise-3/final-model.meta" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/test_noise-4/final-model.data-00000-of-00001" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/test_noise-4/final-model.index" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/test_noise-4/final-model.meta" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/test_noise-1/get_data.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/test_noise-2/get_data.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/test_noise-3/get_data.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/test_noise-4/get_data.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/test_noise/final-model.data-00000-of-00001" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/test_noise/final-model.index" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/test_noise/final-model.meta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/test_noise/get_data.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/test_noise/screenlog.0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/test_noise/transforms-0.0.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/test_noise/transforms-0.1.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/test_noise/transforms-0.2.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/test_noise/transforms-0.3.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/test_noise/transforms-0.4.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/test_noise/transforms-0.6.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/test_noise/transforms-1.2.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/test_noise/transforms-1e-70.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/test_noise/transforms-2.4.npy" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-1/final-model.data-00000-of-00001" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-1/final-model.index" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-1/final-model.meta" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-1/transforms-0.0.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-1/transforms-0.1.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-1/transforms-0.2.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-1/transforms-0.3.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-1/transforms-0.4.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-1/transforms-0.6.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-1/transforms-1.2.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-1/transforms-1e-70.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-1/transforms-2.4.npy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-2/final-model.data-00000-of-00001" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-2/final-model.index" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-2/final-model.meta" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-3/final-model.data-00000-of-00001" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-3/final-model.index" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-3/final-model.meta" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-4/final-model.data-00000-of-00001" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-4/final-model.index" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-4/final-model.meta" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-1/master.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-2/master.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-3/master.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-4/master.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/final-model.data-00000-of-00001" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/final-model.index" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/final-model.meta" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/master.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/transforms-0.0.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/transforms-0.1.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/transforms-0.2.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/transforms-0.3.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/transforms-0.4.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/transforms-0.6.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/transforms-1.2.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/transforms-1e-70.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/transforms-2.4.npy" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/highway/noise/test_noise-1/screenlog.0" afterPath="$PROJECT_DIR$/highway/noise/test_noise-1/screenlog.0" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ACL.iws" />
@@ -76,21 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="master.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/highway/noise/run-1/master.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
               <caret line="167" column="19" selection-start-line="167" selection-start-column="19" selection-end-line="167" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/highway/noise/2test_noise/master.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="165" column="23" selection-start-line="165" selection-start-column="23" selection-end-line="165" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -578,13 +567,6 @@
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
     </task>
-    <task id="LOCAL-00273" summary="basic RL code">
-      <created>1493623282729</created>
-      <option name="number" value="00273" />
-      <option name="presentableId" value="LOCAL-00273" />
-      <option name="project" value="LOCAL" />
-      <updated>1493623282729</updated>
-    </task>
     <task id="LOCAL-00274" summary="basic RL code">
       <created>1493623467988</created>
       <option name="number" value="00274" />
@@ -921,7 +903,14 @@
       <option name="project" value="LOCAL" />
       <updated>1495665733801</updated>
     </task>
-    <option name="localTasksCounter" value="322" />
+    <task id="LOCAL-00322" summary="testing noise for all runs">
+      <created>1495675573424</created>
+      <option name="number" value="00322" />
+      <option name="presentableId" value="LOCAL-00322" />
+      <option name="project" value="LOCAL" />
+      <updated>1495675573424</updated>
+    </task>
+    <option name="localTasksCounter" value="323" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -978,7 +967,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="resnet losses, time" />
     <MESSAGE value="random curriculum" />
     <MESSAGE value="curriculum for h-nets without incentive" />
     <MESSAGE value="curriculums" />
@@ -1003,7 +991,8 @@
     <MESSAGE value="just pass noise as input" />
     <MESSAGE value="just pass noise as input on network trained without noise" />
     <MESSAGE value="changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes" />
+    <MESSAGE value="testing noise for all runs" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing noise for all runs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
