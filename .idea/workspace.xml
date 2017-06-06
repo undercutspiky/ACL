@@ -2,44 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b09ae54d-ff48-43b8-93e9-a47c0988554a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-1/final-model.data-00000-of-00001" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-1/final-model.index" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-1/final-model.meta" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-1/transforms-0.0.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-1/transforms-0.1.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-1/transforms-0.2.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-1/transforms-0.3.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-1/transforms-0.4.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-1/transforms-0.6.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-1/transforms-1.2.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-1/transforms-1e-70.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-1/transforms-2.4.npy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-2/final-model.data-00000-of-00001" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-2/final-model.index" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-2/final-model.meta" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-3/final-model.data-00000-of-00001" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-3/final-model.index" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-3/final-model.meta" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-4/final-model.data-00000-of-00001" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-4/final-model.index" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-4/final-model.meta" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-1/master.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-2/master.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-3/master.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/highway/noise/twn-noise-4/master.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/final-model.data-00000-of-00001" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/final-model.index" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/final-model.meta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/master.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/transforms-0.0.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/transforms-0.1.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/transforms-0.2.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/transforms-0.3.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/transforms-0.4.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/transforms-0.6.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/transforms-1.2.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/transforms-1e-70.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/highway/noise/2test_noise/transforms-2.4.npy" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/all-conv/high-rise/run-1/master.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/highway/noise/test_noise-1/screenlog.0" afterPath="$PROJECT_DIR$/highway/noise/test_noise-1/screenlog.0" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -54,7 +17,22 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/ACL$gen_graphs.coverage" NAME="gen_graphs Coverage Results" MODIFIED="1496331121840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/highway/noise" />
     <SUITE FILE_PATH="coverage/ACL$CIFAR_10_convolutions.coverage" NAME="CIFAR-10-convolutions Coverage Results" MODIFIED="1484132407013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cifar-10" />
+    <SUITE FILE_PATH="coverage/ACL$plot_images.coverage" NAME="plot_images Coverage Results" MODIFIED="1496693111417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cifar-10" />
+    <SUITE FILE_PATH="coverage/ACL$plot_loss_drop_with_top_k.coverage" NAME="plot_loss_drop_with_top_k Coverage Results" MODIFIED="1496765877237" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/all-conv" />
+    <SUITE FILE_PATH="coverage/ACL$plots.coverage" NAME="plots Coverage Results" MODIFIED="1496602323983" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/another-expensive/cifar-10" />
+    <SUITE FILE_PATH="coverage/ACL$correlation_coefficients.coverage" NAME="correlation_coefficients Coverage Results" MODIFIED="1495811532438" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/highway/noise" />
+    <SUITE FILE_PATH="coverage/ACL$corr_loss_drops.coverage" NAME="corr_loss_drops Coverage Results" MODIFIED="1496243843435" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/all-conv" />
+    <SUITE FILE_PATH="coverage/ACL$first_plot.coverage" NAME="first_plot Coverage Results" MODIFIED="1495740822066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/highway/cifar-10/curriculum/resources" />
+    <SUITE FILE_PATH="coverage/ACL$second_plot.coverage" NAME="second_plot Coverage Results" MODIFIED="1495796824060" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/highway/cifar-10/curriculum/resources" />
+    <SUITE FILE_PATH="coverage/ACL$second_plot__1_.coverage" NAME="second_plot (1) Coverage Results" MODIFIED="1495836874182" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/highway/cifar-10/curriculum/time" />
+    <SUITE FILE_PATH="coverage/ACL$plot_loss_vectors.coverage" NAME="plot_loss_vectors Coverage Results" MODIFIED="1496613510142" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/all-conv" />
+    <SUITE FILE_PATH="coverage/ACL$plot_loss_drop.coverage" NAME="plot_loss_drop Coverage Results" MODIFIED="1496765920180" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/all-conv" />
+    <SUITE FILE_PATH="coverage/ACL$corr_coef.coverage" NAME="corr_coef Coverage Results" MODIFIED="1495823239081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/highway/cifar-10" />
+    <SUITE FILE_PATH="coverage/ACL$third_plot.coverage" NAME="third_plot Coverage Results" MODIFIED="1495837112332" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/highway/cifar-10/curriculum/time" />
+    <SUITE FILE_PATH="coverage/ACL$first_plot__1_.coverage" NAME="first_plot (1) Coverage Results" MODIFIED="1495834520454" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/highway/cifar-10/curriculum/time" />
+    <SUITE FILE_PATH="coverage/ACL$plot.coverage" NAME="plot Coverage Results" MODIFIED="1496603660951" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/expensive/cifar-10" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="$PROJECT_DIR$" />
@@ -65,21 +43,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="master.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/all-conv/run-1/master.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1815">
-              <caret line="125" column="33" selection-start-line="125" selection-start-column="33" selection-end-line="125" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="master.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/highway/noise/run-1/master.py">
+        <entry file="file://$PROJECT_DIR$/all-conv/high-rise/run-1/master.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="167" column="19" selection-start-line="167" selection-start-column="19" selection-end-line="167" selection-end-column="19" />
+            <state relative-caret-position="2400">
+              <caret line="164" column="47" selection-start-line="164" selection-start-column="47" selection-end-line="164" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -100,22 +68,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/time/mixed/2-epochs/run-1/master.py" />
-        <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/time/mixed/3-epochs/run-1/master.py" />
-        <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/time/mixed/4-epochs/run-1/master.py" />
-        <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/time/mixed/5-epochs/run-1/master.py" />
-        <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/time/easy/5-epochs/run-4/master.py" />
-        <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/time/easy/5-epochs/run-5/master.py" />
-        <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/time/easy/5-epochs/run-6/master.py" />
-        <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/time/easy/1-epoch/run-4/master.py" />
-        <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/5-epochs/run-4/master.py" />
-        <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/1-epoch/run-1/master.py" />
-        <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/1-epoch/run-2/master.py" />
-        <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/1-epoch/run-3/master.py" />
-        <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/2-epochs/run-1/master.py" />
-        <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/2-epochs/run-2/master.py" />
-        <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/2-epochs/run-3/master.py" />
-        <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/3-epochs/run-1/master.py" />
         <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/3-epochs/run-3/master.py" />
         <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/3-epochs/run-2/master.py" />
         <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/4-epochs/run-1/master.py" />
@@ -151,6 +103,22 @@
         <option value="$PROJECT_DIR$/all-conv/run-1/master.py" />
         <option value="$PROJECT_DIR$/highway/noise/test_noise/get_data.py" />
         <option value="$PROJECT_DIR$/highway/noise/2test_noise/master.py" />
+        <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/first_plot.py" />
+        <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/second_plot.py" />
+        <option value="$PROJECT_DIR$/highway/noise/correlation_coefficients.py" />
+        <option value="$PROJECT_DIR$/highway/cifar-10/corr_coef.py" />
+        <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/time/first_plot.py" />
+        <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/time/second_plot.py" />
+        <option value="$PROJECT_DIR$/highway/cifar-10/curriculum/time/third_plot.py" />
+        <option value="$PROJECT_DIR$/all-conv/corr_loss_drops.py" />
+        <option value="$PROJECT_DIR$/highway/noise/gen_graphs.py" />
+        <option value="$PROJECT_DIR$/another-expensive/cifar-10/plots.py" />
+        <option value="$PROJECT_DIR$/expensive/cifar-10/plot.py" />
+        <option value="$PROJECT_DIR$/all-conv/plot_loss_vectors.py" />
+        <option value="$PROJECT_DIR$/cifar-10/plot_images.py" />
+        <option value="$PROJECT_DIR$/all-conv/plot_loss_drop_with_top_k.py" />
+        <option value="$PROJECT_DIR$/all-conv/plot_loss_drop.py" />
+        <option value="$PROJECT_DIR$/all-conv/high-rise/run-1/master.py" />
       </list>
     </option>
   </component>
@@ -191,7 +159,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -224,7 +191,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="highway" />
+              <option name="myItemId" value="all-conv" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -238,11 +205,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="highway" />
+              <option name="myItemId" value="all-conv" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="noise" />
+              <option name="myItemId" value="run-4" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -259,18 +226,8 @@
               <option name="myItemId" value="all-conv" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ACL" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ACL" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="all-conv" />
+              <option name="myItemId" value="high-rise" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -281,6 +238,7 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -292,11 +250,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/rl_stuff/run-1" />
+      <recent name="$PROJECT_DIR$/all-conv" />
       <recent name="$PROJECT_DIR$/highway/cifar-10/curriculum/time" />
+      <recent name="$PROJECT_DIR$/highway/cifar-10/curriculum/resources" />
+      <recent name="$PROJECT_DIR$/rl_stuff/run-1" />
       <recent name="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/mixed/5-epochs/run-3" />
-      <recent name="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/mixed/5-epochs/run-2" />
-      <recent name="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/mixed/5-epochs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/mixed/1-epoch/run-1" />
@@ -306,8 +264,80 @@
       <recent name="$PROJECT_DIR$/highway/cifar-10/curriculum/resources/easy/2-epochs/run-1" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.CIFAR-10-convolutions">
-    <configuration default="false" name="CIFAR-10-convolutions" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.plot_loss_drop">
+    <configuration default="false" name="plot" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/expensive/cifar-10" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="ACL" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/expensive/cifar-10/plot.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="plot_loss_drop" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/all-conv" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="ACL" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/all-conv/plot_loss_drop.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="plot_loss_vectors" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/all-conv" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="ACL" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/all-conv/plot_loss_vectors.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="plot_loss_drop_with_top_k" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/all-conv" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="ACL" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/all-conv/plot_loss_drop_with_top_k.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="plot_images" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -320,7 +350,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="ACL" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cifar-10/CIFAR-10-convolutions.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cifar-10/plot_images.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -544,12 +574,20 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="Python.CIFAR-10-convolutions" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Python.plot" />
+      <item index="1" class="java.lang.String" itemvalue="Python.plot_loss_drop" />
+      <item index="2" class="java.lang.String" itemvalue="Python.plot_loss_vectors" />
+      <item index="3" class="java.lang.String" itemvalue="Python.plot_loss_drop_with_top_k" />
+      <item index="4" class="java.lang.String" itemvalue="Python.plot_images" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.CIFAR-10-convolutions" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.plot_loss_drop" />
+        <item index="1" class="java.lang.String" itemvalue="Python.plot_loss_drop_with_top_k" />
+        <item index="2" class="java.lang.String" itemvalue="Python.plot_images" />
+        <item index="3" class="java.lang.String" itemvalue="Python.plot_loss_vectors" />
+        <item index="4" class="java.lang.String" itemvalue="Python.plot" />
       </list>
     </recent_temporary>
   </component>
@@ -566,13 +604,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1477738538767</updated>
-    </task>
-    <task id="LOCAL-00274" summary="basic RL code">
-      <created>1493623467988</created>
-      <option name="number" value="00274" />
-      <option name="presentableId" value="LOCAL-00274" />
-      <option name="project" value="LOCAL" />
-      <updated>1493623467989</updated>
     </task>
     <task id="LOCAL-00275" summary="basic RL code">
       <created>1493623617909</created>
@@ -910,20 +941,27 @@
       <option name="project" value="LOCAL" />
       <updated>1495675573424</updated>
     </task>
-    <option name="localTasksCounter" value="323" />
+    <task id="LOCAL-00323" summary="testing noise for all runs">
+      <created>1495676728896</created>
+      <option name="number" value="00323" />
+      <option name="presentableId" value="LOCAL-00323" />
+      <option name="project" value="LOCAL" />
+      <updated>1495676728896</updated>
+    </task>
+    <option name="localTasksCounter" value="324" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="19" y="29" width="1400" height="767" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14452554" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.50285715" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.49714285" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -995,157 +1033,12 @@
     <option name="LAST_COMMIT_MESSAGE" value="testing noise for all runs" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/resources/difficult/1-epoch/run-1/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2145">
-          <caret line="147" column="21" selection-start-line="147" selection-start-column="21" selection-end-line="147" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/resources/easy/1-epoch/run-1/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/easy/1-epoch/run-1/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/5-epochs/run-5/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2490">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/5-epochs/run-6/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2495">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/1-epoch/run-2/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/1-epoch/run-3/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/2-epochs/run-1/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/2-epochs/run-2/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/2-epochs/run-3/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/3-epochs/run-3/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/3-epochs/run-1/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/3-epochs/run-2/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/4-epochs/run-1/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/4-epochs/run-2/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/4-epochs/run-3/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/5-epochs/run-2/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/5-epochs/run-3/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/1-epoch/run-1/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/5-epochs/run-4/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-485">
-          <caret line="185" column="15" selection-start-line="185" selection-start-column="15" selection-end-line="185" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/difficult/5-epochs/run-1/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="33" column="16" selection-start-line="29" selection-start-column="0" selection-end-line="33" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/easy/stratified/run-1/random.py" />
     <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/easy/stratified/run-1/master.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1231,9 +1124,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="130" column="72" selection-start-line="129" selection-start-column="4" selection-end-line="130" selection-end-column="72" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1241,9 +1131,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="640">
           <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1251,9 +1138,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="640">
           <caret line="73" column="67" selection-start-line="73" selection-start-column="67" selection-end-line="73" selection-end-column="67" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1261,7 +1145,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1620">
           <caret line="115" column="36" selection-start-line="115" selection-start-column="36" selection-end-line="115" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1269,7 +1152,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1135">
           <caret line="123" column="42" selection-start-line="123" selection-start-column="28" selection-end-line="123" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1277,7 +1159,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-390">
           <caret line="114" column="35" selection-start-line="114" selection-start-column="9" selection-end-line="114" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1285,7 +1166,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
           <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1293,7 +1173,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="114" column="4" selection-start-line="114" selection-start-column="4" selection-end-line="114" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1301,7 +1180,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="550">
           <caret line="158" column="46" selection-start-line="158" selection-start-column="46" selection-end-line="158" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1309,7 +1187,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1105">
           <caret line="209" column="12" selection-start-line="209" selection-start-column="12" selection-end-line="209" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1317,15 +1194,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="385">
           <caret line="168" column="57" selection-start-line="168" selection-start-column="17" selection-end-line="168" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/all-conv/run-1/master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1815">
-          <caret line="125" column="33" selection-start-line="125" selection-start-column="33" selection-end-line="125" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1333,22 +1201,180 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="167" column="19" selection-start-line="167" selection-start-column="19" selection-end-line="167" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/highway/noise/test_noise/get_data.py" />
+    <entry file="file://$PROJECT_DIR$/highway/noise/2test_noise/master.py" />
+    <entry file="file://$PROJECT_DIR$/highway/noise/run-4/get_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="168" column="57" selection-start-line="168" selection-start-column="17" selection-end-line="168" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/highway/noise/test_noise-1/get_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="165" column="59" selection-start-line="165" selection-start-column="17" selection-end-line="165" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/second_plot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/third_plot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="87" selection-start-line="4" selection-start-column="87" selection-end-line="4" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/time/first_plot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="17" column="64" selection-start-line="17" selection-start-column="64" selection-end-line="17" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/resources/first_plot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/highway/cifar-10/curriculum/resources/second_plot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/highway/cifar-10/corr_coef.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="40" column="1" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/expensive/cifar-10/plot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="36" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/highway/noise/gen_graphs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="62" selection-start-line="15" selection-start-column="62" selection-end-line="15" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/all-conv/corr_loss_drops.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/all-conv/run-1/master.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="96" column="66" selection-start-line="90" selection-start-column="0" selection-end-line="96" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cifar-10/shuffle/Visualization-Big.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cifar-10/high-drop/CIFAR-10-high_drop.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2655">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/highway/noise/test_noise/get_data.py">
+    <entry file="file://$PROJECT_DIR$/highway/noise/correlation_coefficients.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="165" column="22" selection-start-line="165" selection-start-column="22" selection-end-line="165" selection-end-column="22" />
+        <state relative-caret-position="300">
+          <caret line="23" column="45" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/highway/noise/2test_noise/master.py">
+    <entry file="file://$PROJECT_DIR$/all-conv/plot_loss_drop.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="165" column="23" selection-start-line="165" selection-start-column="23" selection-end-line="165" selection-end-column="23" />
+        <state relative-caret-position="255">
+          <caret line="17" column="55" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/all-conv/plot_loss_drop_with_top_k.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="68" selection-start-line="32" selection-start-column="68" selection-end-line="32" selection-end-column="68" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/another-expensive/cifar-10/plots.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="46" column="45" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/all-conv/plot_loss_vectors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="40" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cifar-10/plot_images.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/all-conv/run-4/master.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/all-conv/high-rise/run-1/master.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2400">
+          <caret line="164" column="47" selection-start-line="164" selection-start-column="47" selection-end-line="164" selection-end-column="47" />
           <folding />
         </state>
       </provider>
