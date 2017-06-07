@@ -15,3 +15,353 @@ Free memory: 11.81GiB
 I tensorflow/core/common_runtime/gpu/gpu_device.cc:906] DMA: 0 
 I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 0:   Y 
 I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX TITAN X, pci bus id: 0000:04:00.0)
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 1
+Accuracy = 52.75
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 2
+Accuracy = 56.97
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 3
+Accuracy = 61.75
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 4
+Accuracy = 60.29
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 5
+Accuracy = 69.61
+GETTING LOSSES FOR ALL EXAMPLES
+^CTraceback (most recent call last):
+  File "master.py", line 140, in <module>
+    cr = session.run([cross_entropy], feed_dict=feed_dict)
+  File "/home/dhananjay/tf/local/lib/python2.7/site-packages/tensorflow/python/client/session.py", line 766, in run
+    run_metadata_ptr)
+  File "/home/dhananjay/tf/local/lib/python2.7/site-packages/tensorflow/python/client/session.py", line 964, in _run
+    feed_dict_string, options, run_metadata)
+  File "/home/dhananjay/tf/local/lib/python2.7/site-packages/tensorflow/python/client/session.py", line 1014, in _do_run
+    target_list, options, run_metadata)
+  File "/home/dhananjay/tf/local/lib/python2.7/site-packages/tensorflow/python/client/session.py", line 1021, in _do_call
+    return fn(*args)
+  File "/home/dhananjay/tf/local/lib/python2.7/site-packages/tensorflow/python/client/session.py", line 1003, in _run_fn
+    status, run_metadata)
+KeyboardInterrupt
+(tf)dhananjay@o990:~/ACL/all-conv/high-rise/run-3$ exit
+dhananjay@o990:~/ACL/all-conv/high-rise/run-3$ source /home/dhananjay/common.sh 
+(tf)dhananjay@o990:~/ACL/all-conv/high-rise/run-3$ export CUDA_VISIBLE_DEVICES=0
+(tf)dhananjay@o990:~/ACL/all-conv/high-rise/run-3$ python master.py 
+I tensorflow/stream_executor/dso_loader.cc:128] successfully opened CUDA library libcublas.so locally
+I tensorflow/stream_executor/dso_loader.cc:128] successfully opened CUDA library libcudnn.so locally
+I tensorflow/stream_executor/dso_loader.cc:128] successfully opened CUDA library libcufft.so locally
+I tensorflow/stream_executor/dso_loader.cc:128] successfully opened CUDA library libcuda.so.1 locally
+I tensorflow/stream_executor/dso_loader.cc:128] successfully opened CUDA library libcurand.so locally
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:885] Found device 0 with properties: 
+name: GeForce GTX TITAN X
+major: 5 minor: 2 memoryClockRate (GHz) 1.076
+pciBusID 0000:01:00.0
+Total memory: 11.92GiB
+Free memory: 11.81GiB
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:906] DMA: 0 
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 0:   Y 
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX TITAN X, pci bus id: 0000:01:00.0)
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 1
+Accuracy = 47.72
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 2
+Accuracy = 50.39
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 3
+Accuracy = 52.09
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 4
+Accuracy = 59.64
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 5
+Accuracy = 64.25
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 6
+Accuracy = 62.84
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 7
+Accuracy = 55.21
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 8
+Accuracy = 65.85
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 9
+Accuracy = 65.31
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 10
+Accuracy = 67.53
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 11
+Accuracy = 70.88
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 12
+Accuracy = 66.32
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 13
+Accuracy = 66.39
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 14
+Accuracy = 64.83
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 15
+Accuracy = 69.12
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 16
+Accuracy = 65.28
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 17
+Accuracy = 69.03
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 18
+Accuracy = 67.38
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 19
+Accuracy = 68.36
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 20
+Accuracy = 66.82
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 21
+Accuracy = 71.08
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 22
+Accuracy = 66.86
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 23
+Accuracy = 72.04
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 24
+Accuracy = 70.04
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 25
+Accuracy = 68.07
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 26
+Accuracy = 69.87
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 27
+Accuracy = 69.99
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 28
+Accuracy = 69.98
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 29
+Accuracy = 69.98
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 30
+Accuracy = 70.06
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 31
+Accuracy = 70.96
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 32
+Accuracy = 68.87
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 33
+Accuracy = 70.95
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 34
+Accuracy = 69.83
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 35
+Accuracy = 69.8
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 36
+Accuracy = 69.28
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 37
+Accuracy = 71.52
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 38
+Accuracy = 70.76
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 39
+Accuracy = 71.42
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 40
+Accuracy = 70.91
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 41
+Accuracy = 70.93
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 42
+Accuracy = 70.3
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 43
+Accuracy = 69.66
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 44
+Accuracy = 70.31
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 45
+Accuracy = 69.84
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 46
+Accuracy = 70.57
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 47
+Accuracy = 70.73
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 48
+Accuracy = 70.6
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 49
+Accuracy = 68.88
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 50
+Accuracy = 69.84
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 51
+Accuracy = 70.35
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 52
+Accuracy = 70.18
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 53
+Accuracy = 68.82
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 54
+Accuracy = 69.05
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 55
+Accuracy = 68.28
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 56
+Accuracy = 69.49
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 57
+Accuracy = 68.44
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 58
+Accuracy = 70.61
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 59
+Accuracy = 67.32
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 60
+Accuracy = 70.09
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 61
+Accuracy = 67.37
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 62
+Accuracy = 70.19
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 63
+Accuracy = 66.42
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 64
+Accuracy = 70.41
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 65
+Accuracy = 66.0
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 66
+Accuracy = 70.23
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 67
+Accuracy = 67.03
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 68
+Accuracy = 70.86
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 69
+Accuracy = 67.7
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 70
+Accuracy = 70.22
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 71
+Accuracy = 67.18
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 72
+Accuracy = 68.97
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 73
+Accuracy = 66.78
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 74
+Accuracy = 68.48
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 75
+Accuracy = 67.28
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 76
+Accuracy = 67.74
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 77
+Accuracy = 67.76
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 78
+Accuracy = 68.12
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 79
+Accuracy = 66.75
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 80
+Accuracy = 76.7
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 81
+Accuracy = 72.2
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 82
+Accuracy = 74.58
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 83
+Accuracy = 70.71
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 84
+Accuracy = 73.84
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 85
+Accuracy = 71.52
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 86
+Accuracy = 72.49
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 87
+Accuracy = 69.77
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 88
+Accuracy = 71.85
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 89
+Accuracy = 69.78
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 90
+Accuracy = 72.1
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 91
+Accuracy = 70.29
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 92
+Accuracy = 71.34
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 93
+Accuracy = 69.79
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 94
+Accuracy = 71.51
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 95
+Accuracy = 69.61
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 96
+Accuracy = 70.8
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 97
+Accuracy = 68.31
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 98
+Accuracy = 70.87
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 99
+Accuracy = 69.39
+GETTING LOSSES FOR ALL EXAMPLES
+TESTING ON VALIDATION SET for epoch = 100
+Accuracy = 70.66
+(100, 50000)
+(tf)dhananjay@o990:~/ACL/all-conv/high-rise/run-3$ exit
