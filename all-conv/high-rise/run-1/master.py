@@ -128,7 +128,7 @@ with tf.Session(graph=graph) as session:
         _ = session.run([optimizer], feed_dict=feed_dict)
 
         cursor += batch_size
-        if cursor > len(train_x):
+        if cursor > len(random_train_x):
             cursor = 0
             tflearn.is_training(False, session=session)
             l_list = []
@@ -154,7 +154,8 @@ with tf.Session(graph=graph) as session:
                 cor_pred.append(a)
             print "Accuracy = " + str(np.mean(cor_pred) * 100)
             if len(losses) >= 2:
-                ld = losses[-2] - losses[-1]
+                ll = np.array(losses)
+                ld = ll[-2,:] - ll[-1,:]
                 ld = ld.argsort()
                 top_k = ld[:10000]
                 random_train_x = train_x[top_k]
