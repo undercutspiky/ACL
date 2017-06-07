@@ -107,7 +107,7 @@ train_x = np.reshape(train_x, [-1, 32, 32, 3])
 valid_x = np.dstack((valid_x[:, :1024], valid_x[:, 1024:2048], valid_x[:, 2048:]))
 valid_x = np.reshape(valid_x, [-1, 32, 32, 3])
 
-epochs = 150
+epochs = 100
 losses = []
 
 with tf.Session(graph=graph) as session:
@@ -133,7 +133,7 @@ with tf.Session(graph=graph) as session:
             tflearn.is_training(False, session=session)
             l_list = []
             print "GETTING LOSSES FOR ALL EXAMPLES"
-            for iii in xrange(400):
+            for iii in xrange(500):
                 batch_xs = train_x[iii * 100: (iii + 1) * 100]
                 batch_ys = train_y[iii * 100: (iii + 1) * 100]
                 feed_dict = {x: batch_xs, y: batch_ys}
